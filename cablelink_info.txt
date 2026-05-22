@@ -1,0 +1,102 @@
+CABLE LINK
+
+
+Font:
+Monsterrat
+
+Products
+
+Cable TV:
+Basic 495
+Basic Plus
+Basic Lite
+
+
+Internet:
+SuperCharged I-Blaze
+SuperCharged Fiberlink
+
+Turbocharged I-Blaze
+Turbocharged  Fiberlink
+
+Payment Facilities:
+
+Mobile Apps
+GCash
+Maya
+ShopeePay
+Lazada
+GrabPay
+Coins.ph
+Diskartech
+JuanCash
+Bayad Online
+Peppermint
+JustPay.to
+WeChat Pay
+Alipay
+Baryacard
+Sold
+
+Banks
+BDO (Online, Mobile, & ATM)
+BPI (Online, Mobile, & ATM	)
+UnionBank
+RCBC
+EastWest Bank
+Asia United Bank (AUB)
+Bank of Commerce
+BancNet (Any member ATM)
+
+Over the counter:
+7-Eleven (via Cliqq kiosks or app)
+Bayad Center
+SM Bills Payment (SM Malls, Supermarkets, and Hypermarkets)
+LBC
+ECPay
+TrueMoney
+GPRS
+
+
+Based on the Cablelink home page, here is a breakdown of what it currently contains and some professional recommendations to optimize it for a modern ISP experience.Current Home Page ContentsThe current page acts as a central hub for service discovery and customer support. Its main sections include:Navigation & Header:Links for Home, Products, Apply Now, Promo, Advisory, and Support.A Search icon and the company logo.Hero & Promotional Section:A rotating Web Banner showcasing high-speed internet offers (e.g., "Prepaid @Home" and "Reach your greatest potential").Latest Promos: A dedicated carousel for specific deals like "Turbocharge Fiberlink@Home" and "Basic Package" options.Multimedia Content:A TVC (Television Commercial) section featuring various video advertisements.Contact & Customer Support (Footer/Bottom Section):Hotline Numbers: Central Customer Service (8-988-5465) and regional numbers for Bacoor, Imus, and Biñan.Viber Messaging: A direct call-to-action (CTA) to message them on Viber.Social Media: Links to Facebook, Twitter, and Instagram.Trust Indicators: A "Verified by Cosaint Consulting" badge for website defense and a QR code for quick access.Recommendations for an ISP Home PageTo stay competitive in 2026, an ISP's home page should prioritize speed of information and frictionless conversion. Here’s what I recommend:1. High-Impact "Above the Fold" DesignAddress Checker: Instead of just a "Products" link, place a prominent "Check Availability" search bar right on the hero banner. Users want to know immediately if they can get your service at their house.Value Proposition: Use a bold headline that focuses on the benefit (e.g., "Buffering is a thing of the past") rather than just the brand name.2. Modern Layout Trends (Bento Grid)Implement a Bento Grid layout (modular, card-like blocks) to showcase different services. This is a massive trend in 2026 that helps organize diverse content like "Internet Plans," "TV Packages," and "Speed Test" into a clean, scannable interface.3. Streamlined Plan ComparisonComparison Table: Create a clean table or card set that compares the top 3 plans side-by-side. Highlight the "Most Popular" or "Best Value" plan to guide the user's decision.Clear Pricing: Ensure all-in pricing (including installation fees or equipment) is transparent to build trust.4. Self-Service ToolsIntegrated Speed Test: Having a speed test tool directly on the home page keeps users on your site and provides immediate utility for current customers.AI "Chatbud": Move beyond basic chatbots to an adaptive AI assistant that can troubleshoot common connection issues or answer billing questions in real-time.5. Performance & AccessibilityDark Mode Support: As a "Dark-First" design standard is emerging for digital sustainability, offering a toggle for dark mode is both trendy and easier on the eyes.Mobile-First Speed: Ensure the page loads in under 3 seconds. For ISPs, a slow website is a bad look—if your site is slow, users assume your internet service is, too.Would you like me to dive deeper into how to structure a specific "Products" section or help with copy for a new promo banner?
+
+
+Definitions:
+IBLAZE - DOCSIS Internet (technology used by cable TV companies); shared through residence sometimes, even though it’s through cables. 
+
+FiberLink - FTTH means a fiber-optic cable goes directly to your house.
+
+Basic 495 - Offer service to Digitally Activated areas with 65
+Basic Lite - Offer service to Digitally Activated areas with 53 Live Channels 
+Basic Plus -  Offer service to Digitally Activated areas with 126 Live Channels 
+ 
+
+
+Supercharged - Internet + Basic Plus 
+Turbocharged - Internet + Basic Lite 
+
+Supercharged Iblaze @ Home (DOCSIS Internet + Basic Plus ) 
+	20mbps (588php) 
+	30 mbps (888php) 
+	35 mbps (999php) 
+	50 mbps (1088php) 
+	88 mbps (1388php)
+	120mbps (1699php)
+Supercharged Fiberlink@Home (FTTH Internet + Basic Plus) 
+	50 mbps (888php)
+	75 mbps (999php)
+	88 mbps (1088php)
+	188 mbps (1388php)	
+	300 mbps (1699php) 
+
+Turbocharged Iblaze @ Home (DOCSIS Internet + Basic Lite) 
+	30 mbps (599php) 
+	50 mbps (999php)
+	100 mbps (1499)
+
+Turbocharged Fiberlink @Home (FTTH Internet + Basic Lite) 
+	50 mbps (599php) 
+	200mbps (999php) 
+	300 mbps (1299php) 
+
+

@@ -1,0 +1,162 @@
+<style>
+
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#ffffff;
+    padding:40px;
+}
+
+.internet-services{
+    background:#f3f1f8;
+    border-radius:20px;
+    padding:50px;
+}
+
+.services-header{
+    display:flex;
+    justify-content:space-between;
+    gap:40px;
+    margin-bottom:40px;
+    flex-wrap:wrap;
+}
+
+.services-header .left h2{
+    font-size:42px;
+    line-height:1.2;
+    color:#1d1d1d;
+    font-weight:600;
+}
+
+.services-header .right{
+    max-width:450px;
+}
+
+.services-header .right p{
+    font-size:15px;
+    line-height:1.7;
+    color:#666;
+}
+
+.services-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:25px;
+}
+
+.service-card{
+    background:#fff;
+    border-radius:18px;
+    padding:30px;
+    min-height:220px;
+    transition:0.3s ease;
+    border:1px solid #ececec;
+}
+
+.service-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.icon{
+    font-size:28px;
+    margin-bottom:30px;
+}
+
+.service-card h3{
+    font-size:28px;
+    margin-bottom:15px;
+    color:#1f1f1f;
+    font-weight:500;
+}
+
+.service-card p{
+    color:#666;
+    font-size:14px;
+    line-height:1.7;
+}
+
+.services-button{
+    text-align:center;
+    margin-top:40px;
+}
+
+.btn-service{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 28px;
+    border:1px solid #d9d9d9;
+    border-radius:12px;
+    text-decoration:none;
+    color:#1d1d1d;
+    background:#fff;
+    transition:0.3s ease;
+    font-size:15px;
+}
+
+.btn-service:hover{
+    background:#1d1d1d;
+    color:#fff;
+}
+</style>
+
+
+<section class="internet-services">
+    <div class="services-header">
+        <div class="left">
+            <h2>
+                High-Speed, Trusted <br>
+                Internet Services
+            </h2>
+        </div>
+
+        <div class="right">
+            <p>
+                Experience the power of fast and reliable internet services that keep you
+                seamlessly connected to the digital world. Explore our high-speed
+                solutions designed to elevate your online experience.
+            </p>
+        </div>
+    </div>
+
+    <div class="services-cards">
+        <div class="service-card">
+            <div class="icon">🏛️</div>
+            <h3>Business Internet</h3>
+            <p>
+                Business-class support, enhanced security, and high speed for your
+                business growth.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">☁️</div>
+            <h3>Cloud Services</h3>
+            <p>
+                Store and access your data securely through our cloud services.
+                Backup, collaboration made easier.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">👥</div>
+            <h3>Parental Controls</h3>
+            <p>
+                Protect your kids with easy-to-use parental controls. Keep an eye on
+                their online activities.
+            </p>
+        </div>
+    </div>
+
+    <div class="services-button">
+        <a href="#" class="btn-service">
+            All Service →
+        </a>
+    </div>
+</section>
