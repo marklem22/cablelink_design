@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cablelink Internet Plans</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: "SF Grandezza Medium V2";
+  src: url("assets/fonts/SF%20Grandezza%20Medium%20V2.woff2") format("woff2"),
+       url("assets/fonts/SF%20Grandezza%20Medium%20V2.woff") format("woff"),
+       url("assets/fonts/SF%20Grandezza%20Medium%20V2.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --midnight: #001C43;
+  --slate-dark: #0046B0;
+  --slate: #034DB6;
+  --mid-blue: #0E1B4A;
+  --deep-blue: #19347D;
+  --steel: #337AB7;
+  --muted: #555555;
+  --gray: #808080;
+  --lavender: #E7E7E7;
+  --orange: #FF6A00;
+  --orange-red: #E04700;
+  --white: #ffffff;
+  --green: #22c55e;
+  --radius: 6px;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  color: var(--midnight);
+  background: #f6f8fc;
+}
+html { scroll-behavior: smooth; }
+
+
+@keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 36px; height: 68px;
+  background: rgba(0,28,67,0.97); backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.nav-logo {
+  text-decoration: none; display: flex; align-items: center; gap: 8px;
+}
+.nav-logo img { display: block; height: 34px; width: auto; }
+.nav-logo-text { color: #fff; font-family: "SF Grandezza Medium V2", "Montserrat", sans-serif; font-size: 1.1rem; font-weight: 500; letter-spacing: -0.4px; }
+.nav-links { display: flex; gap: 24px; list-style: none; position: relative; }
+.nav-links a {
+  color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.8rem;
+  font-weight: 600; transition: color .2s; letter-spacing: 0.2px;
+  position: relative; padding-bottom: 4px;
+}
+.nav-links a:hover { color: #fff; }
+.nav-links a.active { color: #fff; }
+.nav-indicator {
+  position: absolute; bottom: -22px; height: 2px; background: var(--orange);
+  border-radius: 2px; transition: left 0.3s cubic-bezier(0.4,0,0.2,1), width 0.3s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 0 8px rgba(255,106,0,0.6);
+  pointer-events: none;
+}
+.nav-actions { display: flex; gap: 10px; align-items: center; }
+.btn-ghost {
+  background: none; border: 1.5px solid rgba(255,255,255,0.2); color: #fff;
+  padding: 8px 18px; border-radius: 8px; font-size: 0.8rem; font-weight: 600;
+  cursor: pointer; font-family: "Montserrat",sans-serif; transition: border-color .2s;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.5); }
+.btn-cta {
+  background: var(--orange); border: none; color: #fff; padding: 9px 20px;
+  border-radius: 8px; font-size: 0.8rem; font-weight: 700; cursor: pointer;
+  font-family: "Montserrat",sans-serif; transition: background .2s, transform .15s;
+}
+.btn-cta:hover { background: var(--orange-red); transform: translateY(-1px); }
+.hotline-nav { font-size: 0.7rem; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 5px; }
+.hotline-nav strong { color: rgba(255,255,255,0.85); }
+
+/* Plans header */
+.plans-hero {
+  padding: 28px 36px 10px;
+  background: linear-gradient(160deg, #f7f9fc 0%, #eef2fb 50%, #f0f4ff 100%);
+}
+.plans-hero-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap;
+}
+.plans-hero h1 {
+  font-size: clamp(1.9rem,4vw,2.7rem); font-weight: 800;
+  letter-spacing: -1px; color: var(--midnight); margin-bottom: 8px;
+}
+.plans-hero p {
+  color: var(--muted); font-size: 0.95rem; max-width: 460px;
+  line-height: 1.65; font-weight: 400;
+}
+.section-label {
+  display: inline-block; font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--orange);
+  border: 1px solid rgba(255,106,0,0.3); padding: 4px 12px; margin-bottom: 12px;
+}
+
+/* Toolbar */
+.top-controls {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.search-wrap {
+  display: flex; align-items: center; gap: 8px;
+  border: 1.5px solid var(--lavender);
+  background: var(--white); padding: 8px 12px; min-width: 260px;
+  border-radius: var(--radius);
+}
+.search-wrap input {
+  border: none; outline: none; width: 100%; font-size: 0.85rem;
+}
+.sort-select {
+  border: 1.5px solid var(--lavender);
+  background: var(--white); padding: 8px 12px;
+  font-size: 0.85rem; font-weight: 600;
+  border-radius: var(--radius);
+}
+
+/* Layout */
+.page {
+  padding: 16px 36px 64px;
+}
+.content {
+  display: grid; grid-template-columns: 260px 1fr; gap: 28px;
+}
+
+/* Sidebar filters */
+.sidebar {
+  background: var(--white); border: 1px solid var(--lavender);
+  padding: 18px; height: fit-content;
+}
+.sidebar h3 {
+  font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--muted); margin: 16px 0 10px;
+}
+.sidebar h3:first-child { margin-top: 0; }
+.filter-group {
+  display: flex; flex-direction: column; gap: 8px;
+}
+.filter-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.85rem; color: var(--midnight);
+}
+.filter-item input[type="checkbox"] {
+  width: 16px; height: 16px;
+  accent-color: var(--green);
+}
+.filter-item input[type="radio"] {
+  width: 18px; height: 18px;
+  appearance: none;
+  border: 2px solid rgba(0,28,67,0.25);
+  border-radius: 50%;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+.filter-item input[type="radio"]::before {
+  content: "";
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform .15s ease-in-out;
+  background: var(--orange);
+}
+.filter-item input[type="radio"]:checked {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 4px rgba(255,106,0,0.15);
+}
+.filter-item input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+.filter-item input[type="radio"]:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+.filter-item input[type="radio"]:hover {
+  border-color: var(--slate-dark);
+}
+.filter-note {
+  font-size: 0.75rem; color: var(--gray); margin-top: 4px;
+}
+
+/* Results */
+.results-header {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin-bottom: 16px;
+}
+.results-count {
+  font-size: 0.9rem; font-weight: 600; color: var(--muted);
+}
+.reset-btn {
+  border: 1.5px solid var(--lavender); background: var(--white);
+  padding: 8px 12px; font-size: 0.8rem; font-weight: 700;
+  cursor: pointer; border-radius: var(--radius);
+}
+.reset-btn:hover { border-color: var(--slate-dark); color: var(--slate-dark); }
+
+.plans-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+.plan-card {
+  background: var(--white); border: 1.5px solid rgba(0,28,67,0.08);
+  padding: 22px 20px; border-radius: var(--radius);
+  display: flex; flex-direction: column; gap: 10px;
+  min-height: 260px;
+  box-shadow: 0 2px 16px rgba(0,28,67,0.06);
+  transition: transform .25s, box-shadow .25s;
+}
+.plan-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0,28,67,0.13);
+}
+.plan-card.is-hidden { display: none; }
+.plan-badge {
+  align-self: flex-start; font-size: 0.6rem; font-weight: 800;
+  letter-spacing: 1px; text-transform: uppercase;
+  background: linear-gradient(90deg, var(--orange), var(--orange-red));
+  color: #fff; padding: 3px 8px;
+}
+.plan-title { font-size: 0.9rem; font-weight: 700; color: var(--midnight); }
+.plan-speed { font-size: 2.4rem; font-weight: 900; letter-spacing: -1.5px; line-height: 1; }
+.plan-speed span { font-size: 0.9rem; color: var(--gray); font-weight: 600; }
+.plan-price { font-size: 1.6rem; font-weight: 900; color: var(--midnight); }
+.plan-price sup { font-size: 0.8rem; }
+.plan-price sub { font-size: 0.7rem; color: var(--gray); font-weight: 400; }
+.plan-meta { font-size: 0.75rem; color: var(--muted); }
+.plan-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.tag {
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.5px;
+  text-transform: uppercase; padding: 3px 8px;
+  border: 1px solid rgba(0,28,67,0.08);
+  background: rgba(51,122,183,0.08); color: var(--steel);
+}
+.plan-cta {
+  margin-top: auto; border: 1.5px solid rgba(0,28,67,0.12);
+  background: #f4f6fb; padding: 9px 10px; font-size: 0.78rem;
+  font-weight: 700; cursor: pointer; border-radius: var(--radius);
+}
+.plan-cta:hover { background: var(--midnight); color: #fff; border-color: var(--midnight); }
+
+/* Responsive */
+@media (max-width: 980px) {
+  .content { grid-template-columns: 1fr; }
+  nav { padding: 0 20px; }
+  .nav-links, .hotline-nav { display: none; }
+  .plans-hero { padding: 24px 20px 8px; }
+  .page { padding: 12px 20px 48px; }
+}
+@media (max-width: 720px) {
+  .plans-hero-inner { flex-direction: column; align-items: flex-start; }
+  .top-controls { width: 100%; }
+  .search-wrap { width: 100%; }
+  .sort-select { width: 100%; }
+}
+</style>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="cablelink-v4.html" aria-label="Cablelink home"><img src="assets/icons/cablelink_logo.png" alt="Cablelink logo"><span class="nav-logo-text">CABLELINK</span></a>
+    <ul class="nav-links">
+      <li><a href="cablelink-v4.html">Home</a></li>
+      <li><a href="internet-plans.html" class="active">Internet Plans</a></li>
+      <li><a href="payment-facilities.html">Payment Facilities</a></li>
+      <li><a href="cablelink-v4.html#tv">Cable TV</a></li>
+      <li><a href="cablelink-v4.html#hub">My Account</a></li>
+      <li><a href="contact-us.html">Contact Us</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="hotline-nav">&#128222; <strong>8-988-5465</strong></div>
+      <button class="btn-ghost">Log In</button>
+      <button class="btn-cta" onclick="location.href='#plans-grid'">Apply Now</button>
+    </div>
+  </nav>
+
+  <section class="plans-hero">
+    <div class="plans-hero-inner">
+      <div>
+        <span class="section-label">Internet Plans</span>
+        <h1>Choose your connection.</h1>
+        <p>All plans include unlimited data, free installation, and access to our 24/7 local support hotline.</p>
+      </div>
+      <div class="top-controls">
+        <div class="search-wrap">
+          <input id="plan-search" type="search" placeholder="Search in all plans" aria-label="Search plans">
+        </div>
+        <select id="sort-by" class="sort-select" aria-label="Sort plans">
+          <option value="default">Sort by</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="speed-desc">Speed: High to Low</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <main class="page">
+    <div class="content">
+      <aside class="sidebar">
+        <h3>Plan Tier</h3>
+        <div class="filter-group" data-filter-group="tier">
+          <label class="filter-item"><input type="radio" name="tier" value="all" checked> Any tier</label>
+          <label class="filter-item"><input type="radio" name="tier" value="super"> Supercharged (126 ch)</label>
+          <label class="filter-item"><input type="radio" name="tier" value="turbo"> Turbocharged (53 ch)</label>
+        </div>
+
+        <h3>Service Line</h3>
+        <div class="filter-group" data-filter-group="brand">
+          <label class="filter-item"><input type="radio" name="brand" value="all" checked> Any line</label>
+          <label class="filter-item"><input type="radio" name="brand" value="iblaze"> I-Blaze (Cable)</label>
+          <label class="filter-item"><input type="radio" name="brand" value="fiberlink"> Fiberlink (Fiber)</label>
+        </div>
+
+        <h3>Speed</h3>
+        <div class="filter-group" data-filter-group="speed">
+          <label class="filter-item"><input type="radio" name="speed" value="all" checked> Any speed</label>
+          <label class="filter-item"><input type="radio" name="speed" value="100"> 100+ Mbps</label>
+        </div>
+
+        <h3>Monthly Price</h3>
+        <div class="filter-group" data-filter-group="price">
+          <label class="filter-item"><input type="radio" name="price" value="all" checked> Any price</label>
+          <label class="filter-item"><input type="radio" name="price" value="0-999"> &#8369;1 - &#8369;999</label>
+          <label class="filter-item"><input type="radio" name="price" value="1000-1299"> &#8369;1,000 - &#8369;1,299</label>
+          <label class="filter-item"><input type="radio" name="price" value="1300-1699"> &#8369;1,300 - &#8369;1,699</label>
+        </div>
+        <div class="filter-note">Supercharged = 126 ch. Turbocharged = 53 ch.</div>
+      </aside>
+
+      <section>
+        <div class="results-header">
+          <div class="results-count" id="results-count">All plans shown</div>
+          <button class="reset-btn" id="reset-filters" type="button">Reset filters</button>
+        </div>
+
+        <div class="plans-grid" id="plans-grid">
+          <article class="plan-card" data-order="0" data-name="Supercharged Iblaze @ Home 20 Mbps" data-brand="iblaze" data-type="cable" data-channels="126" data-speed="20" data-price="588">
+            <div class="plan-title">Supercharged Iblaze @ Home</div>
+            <div class="plan-speed">20<span> Mbps</span></div>
+            <div class="plan-price"><sup>&#8369;</sup>588<sub>/mo</sub></div>
+            <div class="plan-tags"><span class="tag">Cable</span><span class="tag">126 ch</span></div>
+            <div class="plan-meta">Unlimited data • Free install</div>
+            <button class="plan-cta">Apply Now</button>
+          </article>
+
+          <article class="plan-card" data-order="1" data-name="Supercharged Iblaze @ Home 30 Mbps" data-brand="iblaze" data-type="cable" data-channels="126" data-speed="30" data-price="888">
+            <div class="plan-title">Supercharged Iblaze @ Home</div>
+            <div class="plan-speed">30<span> Mbps</span></div>
+            <div class="plan-price"><sup>&#8369;</sup>888<sub>/mo</sub></div>
+            <div class="plan-tags"><span class="tag">Cable</span><span class="tag">126 ch</span></div>
+            <div class="plan-meta">Unlimited data • Free install</div>
+            <button class="plan-cta">Apply Now</button>
+          </article>
+
+          <article class="plan-card" data-order="2" data-name="Supercharged Iblaze @ Home 35 Mbps" data-brand="iblaze" data-type="cable" data-channels="126" data-speed="35" data-price="999">
+            <span class="plan-badge">Best Value</span>
+            <div class="plan-title">Supercharged Iblaze @ Home</div>
+            <div class="plan-speed">35<span> Mbps</span></div>
+            <div class="plan-price"><sup>&#8369;</sup>999<sub>/mo</sub></div>
+            <div class="plan-tags"><span class="tag">Cable</span><span class="tag">126 ch</span></div>
+            <div class="plan-meta">Unlimited data • Free install</div>
+            <button class="plan-cta">Apply Now</button>
+          </article>
+
+          <article class="plan-card" data-order="3" data-name="Supercharged Iblaze @ Home 50 Mbps" data-brand="iblaze" data-type="cable" data-channels="126" data-speed="50" data-price="1088">
+            <div class="plan-title">Supercharged Iblaze @ Home</div>
+            <div class="plan-speed">50<span> Mbps</span></div>
+            <div class="plan-price"><sup>&#8369;</sup>1,088<sub>/mo</sub></div>
+            <div class="plan-tags"><span class="tag">Cable</span><span class="tag">126 ch</span></div>
+            <div class="plan-meta">Unlimited data • Free install</div>
+            <button class="plan-cta">Apply Now</button>
+          </article>
+
+          <article class="plan-card" data-order="4" data-name="Supercharged Iblaze @ Home 88 Mbps" data-brand="iblaze" data-type="cable" data-channels="126" data-speed="88" data-price="1388">
+            <div class="plan-title">Supercharged Iblaze @ Home</div>
+            <div class="plan-speed">88<span> Mbps</span></div>
+            <div class="plan-price"><sup>&#8369;</sup>1,388<sub>/mo</sub></div>
+            <div class="plan-tags"><span class="tag">Cable</span><span class="tag">126 ch</span></div>
+            <div class="plan-meta">Unlimited data • Free install</div>
+            <button class="plan-cta">Apply Now</button>
+          </article>
+
+          <article class="plan-card" data-order="5" data-name="Supercharged Iblaze @ Home 120 Mbps" data-brand="iblaze" data-type="cable" data-channels="126" data-speed="120" data-price="1699">
+            <div class="plan-title">Supercharged Iblaze @ Home</div>
+            <div class="plan-speed">120<span> Mbps</span></div>
+            <div class="plan-price"><sup>&#8369;</sup>1,699<sub>/mo</sub></div>
+            <div class="plan-tags"><span class="tag">Cable</span><span class="tag">126 ch</span></div>
+            <div class="plan-meta">Unlimited data • Free install</div>
+            <button class="plan-cta">Apply Now</button>
+          </article>
+
+          <article class="plan-card" data-order="6" data-name="Supercharged Fiberlink @ Home 50 Mbps" data-brand="fiberlink" data-type="fiber" data-channels="126" data-speed="50" data-price="888">
+            <div class="plan-title">Supercharged Fiberlink @ Home</div>
+            <div class="plan-speed">50<span> Mbps</span></div>
+            <div class="plan-price"><sup>&#8369;</sup>888<sub>/mo</sub></div>
+            <div class="plan-tags"><span class="tag">Fiber</span><span class="tag">126 ch</span></div>
+            <div class="plan-meta">Dedicated fiber • Free install</div>
+            <button class="plan-cta">Apply Now</button>
+          </article>
+
+          <article class="plan-card" data-order="7" data-name="Supercharged Fiberlink @ Home 75 Mbps" data-brand="fiberlink" data-type="fiber" data-channels="126" data-speed="75" data-price="999">
+            <div class="plan-title">Supercharged Fiberlink @ Home</div>
+            <div class="plan-speed">75<span> Mbps</span></div>
+            <div class="plan-price"><sup>&#8369;</sup>999<sub>/mo</sub></div>
+            <div class="plan-tags"><span class="tag">Fiber</span><span class="tag">126 ch</span></div>
+            <div class="plan-meta">Dedicated fiber • Free install</div>
+            <button class="plan-cta">Apply Now</button>
+          </article>
+
+          <article class="plan-card" data-order="8" data-name="Supercharged Fiberlink @ Home 88 Mbps" data-brand="fiberlink" data-type="fiber" data-channels="126" data-speed="88" data-price="1088">
+            <span class="plan-badge">Best Value</span>
+            <div class="plan-title">Supercharged Fiberlink @ Home</div>
+            <div class="plan-speed">88<span> Mbps</span></div>
+            <div class="plan-price"><sup>&#8369;</sup>1,088<sub>/mo</sub></div>
+            <div class="plan-tags"><span class="tag">Fiber</span><span class="tag">126 ch</span></div>
+            <div class="plan-meta">Dedicated fiber • Free install</div>
+            <button class="plan-cta">Apply Now</button>
+          </article>
+
+          <article class="plan-card" data-order="9" data-name="Supercharged Fiberlink @ Home 188 Mbps" data-brand="fiberlink" data-type="fiber" data-channels="126" data-speed="188" data-price="1388">
+            <div class="plan-title">Supercharged Fiberlink @ Home</div>
+            <div class="plan-speed">188<span> Mbps</span></div>
+            <div class="plan-price"><sup>&#8369;</sup>1,388<sub>/mo</sub></div>
+            <div class="plan-tags"><span class="tag">Fiber</span><span class="tag">126 ch</span></div>
+            <div class="plan-meta">Dedicated fiber • Free install</div>
+            <button class="plan-cta">Apply Now</button>
+          </article>
+
+          <article class="plan-card" data-order="10" data-name="Supercharged Fiberlink @ Home 300 Mbps" data-brand="fiberlink" data-type="fiber" data-channels="126" data-speed="300" data-price="1699">
+            <div class="plan-title">Supercharged Fiberlink @ Home</div>
+            <div class="plan-speed">300<span> Mbps</span></div>
+            <div class="plan-price"><sup>&#8369;</sup>1,699<sub>/mo</sub></div>
+            <div class="plan-tags"><span class="tag">Fiber</span><span class="tag">126 ch</span></div>
+            <div class="plan-meta">Dedicated fiber • Free install</div>
+            <button class="plan-cta">Apply Now</button>
+          </article>
+
+          <article class="plan-card" data-order="11" data-name="Turbocharged Iblaze @ Home 30 Mbps" data-brand="iblaze" data-type="cable" data-channels="53" data-speed="30" data-price="599">
+            <div class="plan-title">Turbocharged Iblaze @ Home</div>
+            <div class="plan-speed">30<span> Mbps</span></div>
+            <div class="plan-price"><sup>&#8369;</sup>599<sub>/mo</sub></div>
+            <div class="plan-tags"><span class="tag">Cable</span><span class="tag">53 ch</span></div>
+            <div class="plan-meta">Unlimited data • Free install</div>
+            <button class="plan-cta">Apply Now</button>
+          </article>
+
+          <article class="plan-card" data-order="12" data-name="Turbocharged Iblaze @ Home 50 Mbps" data-brand="iblaze" data-type="cable" data-channels="53" data-speed="50" data-price="999">
+            <span class="plan-badge">Most Popular</span>
+            <div class="plan-title">Turbocharged Iblaze @ Home</div>
+            <div class="plan-speed">50<span> Mbps</span></div>
+            <div class="plan-price"><sup>&#8369;</sup>999<sub>/mo</sub></div>
+            <div class="plan-tags"><span class="tag">Cable</span><span class="tag">53 ch</span></div>
+            <div class="plan-meta">Unlimited data • Free install</div>
+            <button class="plan-cta">Apply Now</button>
+          </article>
+
+          <article class="plan-card" data-order="13" data-name="Turbocharged Iblaze @ Home 100 Mbps" data-brand="iblaze" data-type="cable" data-channels="53" data-speed="100" data-price="1499">
+            <div class="plan-title">Turbocharged Iblaze @ Home</div>
+            <div class="plan-speed">100<span> Mbps</span></div>
+            <div class="plan-price"><sup>&#8369;</sup>1,499<sub>/mo</sub></div>
+            <div class="plan-tags"><span class="tag">Cable</span><span class="tag">53 ch</span></div>
+            <div class="plan-meta">Unlimited data • Free install</div>
+            <button class="plan-cta">Apply Now</button>
+          </article>
+
+          <article class="plan-card" data-order="14" data-name="Turbocharged Fiberlink @ Home 50 Mbps" data-brand="fiberlink" data-type="fiber" data-channels="53" data-speed="50" data-price="599">
+            <div class="plan-title">Turbocharged Fiberlink @ Home</div>
+            <div class="plan-speed">50<span> Mbps</span></div>
+            <div class="plan-price"><sup>&#8369;</sup>599<sub>/mo</sub></div>
+            <div class="plan-tags"><span class="tag">Fiber</span><span class="tag">53 ch</span></div>
+            <div class="plan-meta">Dedicated fiber • Free install</div>
+            <button class="plan-cta">Apply Now</button>
+          </article>
+
+          <article class="plan-card" data-order="15" data-name="Turbocharged Fiberlink @ Home 200 Mbps" data-brand="fiberlink" data-type="fiber" data-channels="53" data-speed="200" data-price="999">
+            <span class="plan-badge">Most Popular</span>
+            <div class="plan-title">Turbocharged Fiberlink @ Home</div>
+            <div class="plan-speed">200<span> Mbps</span></div>
+            <div class="plan-price"><sup>&#8369;</sup>999<sub>/mo</sub></div>
+            <div class="plan-tags"><span class="tag">Fiber</span><span class="tag">53 ch</span></div>
+            <div class="plan-meta">Dedicated fiber • Free install</div>
+            <button class="plan-cta">Apply Now</button>
+          </article>
+
+          <article class="plan-card" data-order="16" data-name="Turbocharged Fiberlink @ Home 300 Mbps" data-brand="fiberlink" data-type="fiber" data-channels="53" data-speed="300" data-price="1299">
+            <div class="plan-title">Turbocharged Fiberlink @ Home</div>
+            <div class="plan-speed">300<span> Mbps</span></div>
+            <div class="plan-price"><sup>&#8369;</sup>1,299<sub>/mo</sub></div>
+            <div class="plan-tags"><span class="tag">Fiber</span><span class="tag">53 ch</span></div>
+            <div class="plan-meta">Dedicated fiber • Free install</div>
+            <button class="plan-cta">Apply Now</button>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+<script>
+function initNavIndicator() {
+  const navLinks = document.querySelector('.nav-links');
+  if (!navLinks) return;
+  const indicator = document.createElement('div');
+  indicator.className = 'nav-indicator';
+  navLinks.appendChild(indicator);
+
+  function moveToLink(link) {
+    const linkRect = link.getBoundingClientRect();
+    const navRect = navLinks.getBoundingClientRect();
+    indicator.style.left = (linkRect.left - navRect.left) + 'px';
+    indicator.style.width = linkRect.width + 'px';
+  }
+
+  const activeLink = navLinks.querySelector('a.active');
+  if (activeLink) moveToLink(activeLink);
+
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', function() {
+      navLinks.querySelectorAll('a').forEach(x => x.classList.remove('active'));
+      this.classList.add('active');
+      moveToLink(this);
+    });
+  });
+}
+
+let planCards = [];
+
+function getSelectedValue(name, fallback) {
+  const input = document.querySelector('input[name="' + name + '"]:checked');
+  return input ? input.value : fallback;
+}
+
+function matchesPrice(card, priceValue) {
+  if (priceValue === 'all') return true;
+  const price = parseInt(card.dataset.price, 10) || 0;
+  const parts = priceValue.split('-');
+  const min = parseInt(parts[0], 10) || 0;
+  const max = parseInt(parts[1], 10) || 0;
+  return price >= min && price <= max;
+}
+
+function applyFilters() {
+  const searchInput = document.getElementById('plan-search');
+  const searchValue = (searchInput ? searchInput.value : '').trim().toLowerCase();
+  const tierValue = getSelectedValue('tier', 'all');
+  const speedValue = getSelectedValue('speed', 'all');
+  const brandValue = getSelectedValue('brand', 'all');
+  const priceValue = getSelectedValue('price', 'all');
+
+  let visibleCount = 0;
+
+  planCards.forEach(card => {
+    const name = (card.dataset.name || '').toLowerCase();
+    const channels = parseInt(card.dataset.channels, 10) || 0;
+    const speed = parseInt(card.dataset.speed, 10) || 0;
+    const matchSearch = !searchValue || name.includes(searchValue);
+    const matchTier = tierValue === 'all'
+      || (tierValue === 'super' && channels === 126)
+      || (tierValue === 'turbo' && channels === 53);
+    const matchSpeed = speedValue === 'all' || speed >= parseInt(speedValue, 10);
+    const matchBrand = brandValue === 'all' || card.dataset.brand === brandValue;
+    const matchPrice = matchesPrice(card, priceValue);
+
+    const show = matchSearch && matchTier && matchSpeed && matchBrand && matchPrice;
+    card.classList.toggle('is-hidden', !show);
+    if (show) visibleCount += 1;
+  });
+
+  const countEl = document.getElementById('results-count');
+  if (countEl) {
+    countEl.textContent = visibleCount
+      ? visibleCount + ' plan' + (visibleCount === 1 ? '' : 's') + ' shown'
+      : 'No plans match.';
+  }
+
+  applySort();
+}
+
+function applySort() {
+  const grid = document.getElementById('plans-grid');
+  const sortSelect = document.getElementById('sort-by');
+  if (!grid || !sortSelect) return;
+
+  const sortValue = sortSelect.value;
+  const sorted = [...planCards].sort((a, b) => {
+    if (sortValue === 'price-asc') {
+      return (parseInt(a.dataset.price, 10) || 0) - (parseInt(b.dataset.price, 10) || 0);
+    }
+    if (sortValue === 'price-desc') {
+      return (parseInt(b.dataset.price, 10) || 0) - (parseInt(a.dataset.price, 10) || 0);
+    }
+    if (sortValue === 'speed-desc') {
+      return (parseInt(b.dataset.speed, 10) || 0) - (parseInt(a.dataset.speed, 10) || 0);
+    }
+    return (parseInt(a.dataset.order, 10) || 0) - (parseInt(b.dataset.order, 10) || 0);
+  });
+
+  sorted.forEach(card => grid.appendChild(card));
+}
+
+function resetFilters() {
+  const searchInput = document.getElementById('plan-search');
+  const sortSelect = document.getElementById('sort-by');
+  if (searchInput) searchInput.value = '';
+  if (sortSelect) sortSelect.value = 'default';
+
+  const defaultRadios = [
+    { name: 'tier', value: 'all' },
+    { name: 'speed', value: 'all' },
+    { name: 'brand', value: 'all' },
+    { name: 'price', value: 'all' }
+  ];
+  defaultRadios.forEach(({ name, value }) => {
+    const input = document.querySelector('input[name="' + name + '"][value="' + value + '"]');
+    if (input) input.checked = true;
+  });
+
+  applyFilters();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initNavIndicator();
+  planCards = Array.from(document.querySelectorAll('.plan-card'));
+  planCards.forEach((card, index) => { card.dataset.order = index.toString(); });
+
+  const filterInputs = document.querySelectorAll('.sidebar input');
+  filterInputs.forEach(input => input.addEventListener('change', applyFilters));
+
+  const searchInput = document.getElementById('plan-search');
+  if (searchInput) searchInput.addEventListener('input', applyFilters);
+
+  const sortSelect = document.getElementById('sort-by');
+  if (sortSelect) sortSelect.addEventListener('change', applySort);
+
+  const resetButton = document.getElementById('reset-filters');
+  if (resetButton) resetButton.addEventListener('click', resetFilters);
+
+  applyFilters();
+});
+</script>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</body>
+</html>
