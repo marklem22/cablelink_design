@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cable Link — High-Speed Internet & Cable TV</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue-deep:#00236e;
+  --blue-primary:#0046B0;
+  --blue-secondary:#034DB6;
+  --blue-light:#337AB7;
+  --orange:#F26413;
+  --orange-dark:#C94E08;
+  --white:#fff;
+  --off-white:#f4f7fc;
+  --dark:#0d1b3e;
+  --muted:#64748b;
+  --font:'Montserrat',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(--white)}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  height:68px;padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(0,28,88,0.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  transition:all 0.3s;
+}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{
+  width:38px;height:38px;border-radius:9px;
+  background:var(--orange);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.logo-mark svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.logo-text{font-size:1.35rem;font-weight:900;color:#fff;letter-spacing:-0.5px}
+.logo-text em{color:var(--orange);font-style:normal}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:.85rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-btn{
+  background:var(--orange);color:#fff;
+  padding:10px 24px;border-radius:7px;
+  font-family:var(--font);font-size:.85rem;font-weight:700;
+  text-decoration:none;letter-spacing:.4px;
+  transition:background .2s,transform .15s;
+  border:none;cursor:pointer;
+}
+.nav-btn:hover{background:var(--orange-dark);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none}
+.hamburger span{display:block;width:23px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mob-menu{
+  display:none;position:fixed;top:68px;left:0;right:0;
+  background:rgba(0,22,72,0.98);
+  padding:1.5rem 5%;flex-direction:column;gap:0;
+  z-index:899;
+}
+.mob-menu.open{display:flex}
+.mob-menu a{
+  color:rgba(255,255,255,0.85);text-decoration:none;
+  font-size:.95rem;font-weight:500;
+  padding:.85rem 0;border-bottom:1px solid rgba(255,255,255,0.07);
+  display:block;transition:color .2s;
+}
+.mob-menu a:hover{color:#fff}
+.mob-menu .mob-cta{
+  margin-top:1rem;text-align:center;border-bottom:none;
+  background:var(--orange);color:#fff;
+  border-radius:7px;padding:12px;font-weight:700;
+}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  background:linear-gradient(130deg, var(--blue-deep) 0%, var(--blue-primary) 55%, var(--blue-secondary) 100%);
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;
+  padding:68px 5% 0;
+}
+/* Circuit lines using SVG bg pattern */
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M30 0v60M10 10h10v10M40 10h10v10M10 40h10v10M40 40h10v10' stroke='rgba(255,255,255,0.04)' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+  background-size:60px 60px;
+}
+.hero-glow-1{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(51,122,183,.18) 0%,transparent 70%);right:-80px;top:-100px;pointer-events:none}
+.hero-glow-2{position:absolute;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(242,100,19,.12) 0%,transparent 70%);left:-50px;bottom:0;pointer-events:none}
+/* Decorative blobs */
+.blob-big{position:absolute;width:320px;height:320px;border-radius:50%;background:rgba(51,122,183,.18);right:4%;top:8%;pointer-events:none}
+.blob-mid{position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(3,77,182,.15);right:18%;top:14%;pointer-events:none}
+.blob-bar{position:absolute;width:130px;height:36px;border-radius:5px;background:rgba(242,100,19,.28);right:32%;top:22%;transform:rotate(-14deg);pointer-events:none}
+.cross{position:absolute;font-size:1.8rem;font-weight:300;color:rgba(242,100,19,.65);pointer-events:none;user-select:none}
+
+.hero-inner{
+  position:relative;z-index:2;
+  max-width:1200px;width:100%;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:3rem;align-items:center;
+  padding:5.5rem 0 9rem;
+}
+.hero-text{animation:fadeUp .7s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.welcome-tag{
+  font-size:.7rem;font-weight:700;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--orange);
+  margin-bottom:1.1rem;display:block;
+}
+.hero-text h1{
+  font-size:clamp(2rem,4.5vw,3.4rem);
+  font-weight:900;color:#fff;line-height:1.08;
+  margin-bottom:1.4rem;letter-spacing:-1.5px;
+}
+.hero-text h1 .dot{color:var(--orange)}
+.hero-text p{
+  font-size:.975rem;color:rgba(255,255,255,.78);
+  line-height:1.75;max-width:460px;
+  margin-bottom:2.5rem;font-weight:400;
+}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-solid{
+  background:var(--orange);color:#fff;
+  padding:14px 32px;border-radius:7px;
+  font-family:var(--font);font-weight:700;font-size:.85rem;
+  letter-spacing:.6px;text-transform:uppercase;
+  text-decoration:none;border:2px solid var(--orange);
+  transition:background .2s,border-color .2s,transform .15s;display:inline-block;
+}
+.btn-solid:hover{background:var(--orange-dark);border-color:var(--orange-dark);transform:translateY(-2px)}
+.btn-ghost{
+  background:transparent;color:#fff;
+  padding:14px 32px;border-radius:7px;
+  font-family:var(--font);font-weight:700;font-size:.85rem;
+  letter-spacing:.6px;text-transform:uppercase;
+  text-decoration:none;border:2px solid rgba(255,255,255,.45);
+  transition:background .2s,border-color .2s,transform .15s;display:inline-block;
+}
+.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff;transform:translateY(-2px)}
+
+/* Hero visual */
+.hero-visual{display:flex;justify-content:center;align-items:flex-end;animation:fadeUp .9s .15s ease both}
+.hero-card{
+  width:360px;height:380px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:20px 20px 0 0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:1.2rem;position:relative;overflow:hidden;
+}
+.hero-card::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.15));
+}
+.hero-card .card-icon{
+  width:90px;height:90px;
+  border:2px dashed rgba(255,255,255,.2);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+}
+.hero-card .card-icon svg{width:40px;height:40px;fill:none;stroke:rgba(255,255,255,.35);stroke-width:1.5}
+.hero-card span{color:rgba(255,255,255,.35);font-size:.8rem;font-weight:500;letter-spacing:.5px}
+/* floating badge */
+.hero-badge{
+  position:absolute;bottom:-18px;left:-18px;
+  background:#fff;border-radius:12px;
+  padding:14px 18px;
+  display:flex;align-items:center;gap:12px;
+  box-shadow:0 8px 32px rgba(0,35,110,.18);
+  z-index:3;
+}
+.badge-icon{
+  width:42px;height:42px;border-radius:10px;
+  background:var(--blue-primary);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.badge-icon svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.badge-num{font-size:1.4rem;font-weight:900;color:var(--dark);line-height:1}
+.badge-lbl{font-size:.7rem;color:var(--muted);font-weight:600;margin-top:2px}
+/* second badge */
+.hero-badge2{
+  position:absolute;top:20px;right:-18px;
+  background:#fff;border-radius:12px;
+  padding:12px 16px;
+  box-shadow:0 8px 32px rgba(0,35,110,.18);
+  z-index:3;text-align:center;
+}
+.badge2-num{font-size:1.25rem;font-weight:900;color:var(--orange)}
+.badge2-lbl{font-size:.65rem;color:var(--muted);font-weight:600;margin-top:1px}
+
+/* ===== SERVICES SECTION ===== */
+.services-wrapper{
+  position:relative;margin-top:-80px;
+  padding:0 5% 5rem;z-index:10;
+}
+.services-grid{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+}
+.svc-card{
+  background:#fff;
+  border-radius:4px;
+  padding:2.5rem 1.8rem 2rem;
+  box-shadow:0 6px 28px rgba(0,70,176,.1);
+  border:1px solid rgba(0,70,176,.06);
+  text-align:center;
+  transition:transform .3s,box-shadow .3s;
+}
+.svc-card:hover{transform:translateY(-8px);box-shadow:0 16px 48px rgba(0,70,176,.18)}
+.svc-icon{
+  width:72px;height:72px;border-radius:18px;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1.4rem;
+}
+.svc-icon.i{background:rgba(0,70,176,.09)}
+.svc-icon.c{background:rgba(242,100,19,.09)}
+.svc-icon.b{background:rgba(3,77,182,.09)}
+.svc-icon svg{width:34px;height:34px;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.svc-card h3{font-size:1.05rem;font-weight:800;color:var(--dark);margin-bottom:.6rem}
+.svc-card p{font-size:.85rem;color:var(--muted);line-height:1.65;margin-bottom:1.4rem}
+.svc-btn{
+  display:inline-block;background:var(--blue-primary);color:#fff;
+  padding:10px 24px;border-radius:7px;
+  font-family:var(--font);font-size:.8rem;font-weight:700;
+  text-decoration:none;letter-spacing:.4px;
+  transition:background .2s,transform .15s;
+}
+.svc-btn:hover{background:var(--blue-secondary);transform:translateY(-1px)}
+
+/* ===== PROMO SECTION ===== */
+.promo-section{background:var(--off-white);padding:5.5rem 5%}
+.section-head{text-align:center;max-width:580px;margin:0 auto 3rem}
+.section-tag{
+  font-size:.7rem;font-weight:700;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--orange);
+  margin-bottom:.8rem;display:block;
+}
+.section-head h2{
+  font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;
+  color:var(--dark);letter-spacing:-.8px;line-height:1.18;
+}
+.section-head p{margin-top:.9rem;font-size:.92rem;color:var(--muted);line-height:1.72}
+
+.carousel-wrap{max-width:1200px;margin:0 auto;position:relative}
+.carousel-viewport{overflow:hidden;border-radius:18px}
+.carousel-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+.carousel-slide{min-width:100%;position:relative;overflow:hidden}
+.slide-inner{
+  height:420px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.slide-inner.s1{background:linear-gradient(135deg,#001855 0%,var(--blue-primary) 100%)}
+.slide-inner.s2{background:linear-gradient(135deg,var(--orange-dark) 0%,var(--orange) 100%)}
+.slide-inner.s3{background:linear-gradient(135deg,var(--blue-secondary) 0%,var(--blue-light) 100%)}
+.slide-inner.s4{background:linear-gradient(135deg,#001040 0%,var(--blue-secondary) 100%)}
+
+/* large watermark icon */
+.slide-watermark{
+  position:absolute;right:-40px;bottom:-40px;
+  opacity:.07;pointer-events:none;
+}
+.slide-watermark svg{width:280px;height:280px;fill:#fff}
+
+.slide-content{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;max-width:600px}
+.slide-pill{
+  display:inline-block;
+  background:rgba(255,255,255,.18);
+  color:#fff;font-size:.68rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;padding:6px 16px;border-radius:20px;
+  margin-bottom:1.1rem;
+}
+.slide-title{
+  font-size:clamp(1.4rem,2.8vw,2.1rem);
+  font-weight:900;color:#fff;line-height:1.12;
+  margin-bottom:.8rem;letter-spacing:-.5px;
+}
+.slide-desc{font-size:.9rem;color:rgba(255,255,255,.82);line-height:1.65;margin-bottom:1.6rem}
+.slide-cta{
+  display:inline-block;background:#fff;
+  padding:12px 30px;border-radius:7px;
+  font-family:var(--font);font-size:.85rem;font-weight:700;
+  text-decoration:none;letter-spacing:.4px;
+  transition:transform .2s,box-shadow .2s;
+}
+.slide-cta.blue-text{color:var(--blue-primary)}
+.slide-cta.orange-text{color:var(--orange-dark)}
+.slide-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.18)}
+
+/* img placeholder */
+.slide-img-ph{
+  position:absolute;left:0;top:0;width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  pointer-events:none;
+}
+.slide-img-ph-box{
+  width:160px;height:120px;
+  border:2px dashed rgba(255,255,255,.2);
+  border-radius:10px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;
+  position:absolute;right:8%;top:50%;transform:translateY(-50%);
+  background:rgba(255,255,255,.05);
+}
+.slide-img-ph-box svg{width:36px;height:36px;fill:none;stroke:rgba(255,255,255,.3);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.slide-img-ph-box span{font-size:.65rem;color:rgba(255,255,255,.3);font-weight:600;letter-spacing:.5px;text-align:center}
+
+/* carousel controls */
+.c-controls{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1.5rem}
+.c-btn{
+  width:44px;height:44px;border-radius:50%;
+  background:#fff;border:2px solid rgba(0,70,176,.15);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,.07);
+}
+.c-btn:hover{background:var(--blue-primary);border-color:var(--blue-primary)}
+.c-btn:hover svg{stroke:#fff}
+.c-btn svg{width:17px;height:17px;stroke:var(--blue-primary);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:stroke .2s}
+.c-dots{display:flex;gap:7px;align-items:center}
+.c-dot{width:8px;height:8px;border-radius:50%;background:rgba(0,70,176,.2);cursor:pointer;transition:all .25s}
+.c-dot.on{background:var(--blue-primary);width:24px;border-radius:4px}
+
+/* ===== CTA STRIP ===== */
+.cta-strip{
+  background:linear-gradient(130deg,var(--blue-deep) 0%,var(--blue-primary) 100%);
+  padding:4rem 5%;text-align:center;position:relative;overflow:hidden;
+}
+.cta-strip::before{
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M30 0v60' stroke='rgba(255,255,255,0.04)' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+  background-size:60px 60px;
+}
+.cta-strip h2{
+  font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;color:#fff;
+  letter-spacing:-.5px;margin-bottom:.75rem;position:relative;z-index:1;
+}
+.cta-strip p{font-size:.95rem;color:rgba(255,255,255,.75);margin-bottom:2rem;position:relative;z-index:1}
+.cta-strip-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+
+/* ===== FOOTER ===== */
+footer{background:#000e2e;padding:2rem 5%;text-align:center}
+.footer-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+}
+.footer-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+.footer-logo .logo-mark{width:32px;height:32px;border-radius:7px}
+.footer-logo .logo-mark svg{width:16px;height:16px}
+.footer-logo span{font-size:1.1rem;font-weight:900;color:#fff}
+.footer-logo em{color:var(--orange);font-style:normal}
+footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{font-size:.8rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:#fff}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;text-align:center;padding:4rem 0 9rem}
+  .hero-text p{max-width:100%}
+  .hero-btns{justify-content:center}
+  .hero-visual{display:none}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .nav-links,.nav-btn{display:none}
+  .hamburger{display:flex}
+  .services-wrapper{margin-top:-40px}
+  .services-grid{grid-template-columns:1fr}
+  .slide-inner{height:340px}
+  .slide-img-ph-box{display:none}
+  .footer-inner{flex-direction:column;text-align:center}
+  .footer-links{justify-content:center}
+}
+@media(max-width:480px){
+  .hero-text h1{font-size:2rem;letter-spacing:-1px}
+  .btn-solid,.btn-ghost{padding:13px 22px;font-size:.8rem}
+  .slide-inner{height:300px}
+  .slide-title{font-size:1.3rem}
+  .slide-content{padding:1.5rem 1rem}
+  .svc-card{padding:2rem 1.5rem 1.5rem}
+  nav{padding:0 4%}
+  .promo-section{padding:4rem 4%}
+  .services-wrapper{padding:0 4% 4rem}
+  .hero{padding:68px 4% 0}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24"><path d="M5 12.5c0-2.21 3.134-4 7-4s7 1.79 7 4-3.134 4-7 4-7-1.79-7-4z"/><path d="M2 7c0-2.761 4.477-5 10-5s10 2.239 10 5-4.477 5-10 5S2 9.761 2 7z"/><path d="M12 17v5M9 22h6"/></svg>
+    </div>
+    <span class="logo-text">Cable<em>Link</em></span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Plans</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+
+  <a href="#" class="nav-btn">Get Connected</a>
+  <button class="hamburger" id="ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mob">
+  <a href="#">Home</a>
+  <a href="#">About Us</a>
+  <a href="#">Services</a>
+  <a href="#">Plans</a>
+  <a href="#">Contact</a>
+  <a href="#" class="mob-cta">Get Connected</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  <div class="blob-big"></div>
+  <div class="blob-mid"></div>
+  <div class="blob-bar"></div>
+  <div class="cross" style="top:12%;left:44%">+</div>
+  <div class="cross" style="top:30%;right:8%;font-size:1rem;color:rgba(255,255,255,.2)">✦</div>
+  <div class="cross" style="bottom:20%;left:5%;font-size:1rem;color:rgba(242,100,19,.3)">✦</div>
+
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="welcome-tag">Welcome to Cable Link</span>
+      <h1>High-Speed Internet<br>and Cable TV<br>Bundled<span class="dot">.</span></h1>
+      <p>Fast, reliable fiber and cable internet with included TV packages — with honest pricing, no hidden fees, and real human support whenever you need it.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn-solid">Get Started</a>
+        <a href="#" class="btn-ghost">View Plans</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M6.3 6.3a8 8 0 0 0 0 11.4M17.7 6.3a8 8 0 0 1 0 11.4M3.5 3.5a13 13 0 0 0 0 17M20.5 3.5a13 13 0 0 1 0 17"/></svg>
+        </div>
+        <span>Hero Image Placeholder</span>
+
+        <div class="hero-badge">
+          <div class="badge-icon">
+            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div>
+            <div class="badge-num">1 Gbps</div>
+            <div class="badge-lbl">Max Speed</div>
+          </div>
+        </div>
+
+        <div class="hero-badge2">
+          <div class="badge2-num">99.9%</div>
+          <div class="badge2-lbl">Uptime SLA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<div class="services-wrapper">
+  <div class="services-grid">
+
+    <div class="svc-card">
+      <div class="svc-icon i">
+        <svg viewBox="0 0 24 24" stroke="var(--blue-primary)">
+          <circle cx="12" cy="12" r="3"/><path d="M6.3 6.3a8 8 0 0 0 0 11.4M17.7 6.3a8 8 0 0 1 0 11.4M3.5 3.5a13 13 0 0 0 0 17M20.5 3.5a13 13 0 0 1 0 17"/>
+        </svg>
+      </div>
+      <h3>Internet Service</h3>
+      <p>Blazing-fast fiber and cable internet from 100 Mbps to 1 Gbps — perfect for streaming, gaming, and working from home.</p>
+      <a href="#" class="svc-btn">Learn More</a>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-icon c">
+        <svg viewBox="0 0 24 24" stroke="var(--orange)">
+          <rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/>
+        </svg>
+      </div>
+      <h3>Cable TV Service</h3>
+      <p>100+ premium channels including sports, entertainment, and news — bundled with your internet for one simple monthly price.</p>
+      <a href="#" class="svc-btn" style="background:var(--orange)">Learn More</a>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-icon b">
+        <svg viewBox="0 0 24 24" stroke="var(--blue-secondary)">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+      </div>
+      <h3>Corporate Plans</h3>
+      <p>Dedicated business-grade connectivity with SLA guarantees, static IPs, and 24/7 priority support for enterprises of any size.</p>
+      <a href="#" class="svc-btn" style="background:var(--blue-secondary)">Learn More</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- PROMO CAROUSEL -->
+<section class="promo-section">
+  <div class="section-head">
+    <span class="section-tag">Hot Deals</span>
+    <h2>Exclusive Promos & Bundles</h2>
+    <p>Limited-time offers, seasonal discounts, and special bundles tailored to get you connected for less.</p>
+  </div>
+
+  <div class="carousel-wrap">
+    <div class="carousel-viewport">
+      <div class="carousel-track" id="track">
+
+        <!-- Slide 1 -->
+        <div class="carousel-slide">
+          <div class="slide-inner s1">
+            <div class="slide-watermark">
+              <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <div class="slide-img-ph-box">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 20c0-2.21 2.239-4 5-4s5 1.79 5 4"/></svg>
+              <span>Promo Image</span>
+            </div>
+            <div class="slide-content">
+              <span class="slide-pill">Limited Time</span>
+              <h3 class="slide-title">Get 1 Month FREE<br>on Any Bundle</h3>
+              <p class="slide-desc">Sign up for our Internet + Cable TV bundle and get your first month completely free. No contracts required.</p>
+              <a href="#" class="slide-cta blue-text">Claim Offer →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-slide">
+          <div class="slide-inner s2">
+            <div class="slide-watermark">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M6.3 6.3a8 8 0 0 0 0 11.4M17.7 6.3a8 8 0 0 1 0 11.4M3.5 3.5a13 13 0 0 0 0 17M20.5 3.5a13 13 0 0 1 0 17"/></svg>
+            </div>
+            <div class="slide-img-ph-box">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 20c0-2.21 2.239-4 5-4s5 1.79 5 4"/></svg>
+              <span>Promo Image</span>
+            </div>
+            <div class="slide-content">
+              <span class="slide-pill">New Subscribers</span>
+              <h3 class="slide-title">500 Mbps Internet<br>at ₱999/month</h3>
+              <p class="slide-desc">High-speed fiber internet at an unbeatable price. Free modem and same-week installation included.</p>
+              <a href="#" class="slide-cta orange-text">Get This Deal →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-slide">
+          <div class="slide-inner s3">
+            <div class="slide-watermark">
+              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
+            </div>
+            <div class="slide-img-ph-box">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 20c0-2.21 2.239-4 5-4s5 1.79 5 4"/></svg>
+              <span>Promo Image</span>
+            </div>
+            <div class="slide-content">
+              <span class="slide-pill">Bundle & Save</span>
+              <h3 class="slide-title">Internet + 100<br>Channels Bundled</h3>
+              <p class="slide-desc">One bill, one provider. Get fast internet and premium cable TV together. Save up to 30% versus separate plans.</p>
+              <a href="#" class="slide-cta blue-text">See Bundles →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="carousel-slide">
+          <div class="slide-inner s4">
+            <div class="slide-watermark">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div class="slide-img-ph-box">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 20c0-2.21 2.239-4 5-4s5 1.79 5 4"/></svg>
+              <span>Promo Image</span>
+            </div>
+            <div class="slide-content">
+              <span class="slide-pill">Business Solutions</span>
+              <h3 class="slide-title">Corporate Plans<br>Starting at ₱2,499</h3>
+              <p class="slide-desc">Dedicated business internet with 99.9% uptime SLA, static IP, and 24/7 priority support for your growing team.</p>
+              <a href="#" class="slide-cta blue-text">Contact Sales →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="c-controls">
+      <button class="c-btn" id="prev" aria-label="Previous">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="c-dots" id="dots">
+        <div class="c-dot on" data-i="0"></div>
+        <div class="c-dot" data-i="1"></div>
+        <div class="c-dot" data-i="2"></div>
+        <div class="c-dot" data-i="3"></div>
+      </div>
+      <button class="c-btn" id="next" aria-label="Next">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <h2>Ready to Get Connected?</h2>
+  <p>Join thousands of happy customers across the Philippines enjoying fast, reliable Cable Link service.</p>
+  <div class="cta-strip-btns">
+    <a href="#" class="btn-solid">Get Started Today</a>
+    <a href="#" class="btn-ghost">Talk to Us</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="#" class="footer-logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5c0-2.21 3.134-4 7-4s7 1.79 7 4-3.134 4-7 4-7-1.79-7-4z"/><path d="M2 7c0-2.761 4.477-5 10-5s10 2.239 10 5-4.477 5-10 5S2 9.761 2 7z"/></svg>
+      </div>
+      <span>Cable<em>Link</em></span>
+    </a>
+    <nav class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Support</a>
+      <a href="#">Careers</a>
+    </nav>
+    <p>© 2025 CableLink. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var cur=0,total=4,timer;
+  var track=document.getElementById('track');
+  var dots=document.querySelectorAll('.c-dot');
+
+  function go(n){
+    cur=(n%total+total)%total;
+    track.style.transform='translateX(-'+(cur*100)+'%)';
+    dots.forEach(function(d,i){d.classList.toggle('on',i===cur)});
+  }
+  function reset(){clearInterval(timer);timer=setInterval(function(){go(cur+1)},5000)}
+
+  document.getElementById('prev').addEventListener('click',function(){go(cur-1);reset()});
+  document.getElementById('next').addEventListener('click',function(){go(cur+1);reset()});
+  dots.forEach(function(d){
+    d.addEventListener('click',function(){go(+d.dataset.i);reset()});
+  });
+
+  // touch swipe
+  var sx;
+  track.parentElement.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+  track.parentElement.addEventListener('touchend',function(e){
+    var dx=e.changedTouches[0].clientX-sx;
+    if(Math.abs(dx)>40){go(dx<0?cur+1:cur-1);reset()}
+  },{passive:true});
+
+  // hamburger
+  var ham=document.getElementById('ham'),mob=document.getElementById('mob');
+  ham.addEventListener('click',function(){
+    ham.classList.toggle('active');
+    mob.classList.toggle('open');
+  });
+  document.addEventListener('click',function(e){
+    if(!ham.contains(e.target)&&!mob.contains(e.target)){
+      ham.classList.remove('active');mob.classList.remove('open');
+    }
+  });
+
+  reset();
+})();
+</script>
+</body>
+</html>

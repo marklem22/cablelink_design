@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REM vs EM Demo</title>
+
+<style>
+    /* Root font size */
+    html {
+        font-size: 16px;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 2rem;
+        line-height: 1.6;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .section {
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    /* REM EXAMPLES */
+    .rem-example {
+        font-size: 1rem;
+    }
+
+    .rem-title {
+        font-size: 2rem;
+    }
+
+    .rem-button {
+        font-size: 1rem;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+    }
+
+    .rem-container {
+        width: 20rem;
+        padding: 2rem;
+        border: 2px solid #333;
+        margin-top: 1rem;
+    }
+
+    /* EM EXAMPLES */
+    .em-parent {
+        font-size: 20px;
+    }
+
+    .em-title {
+        font-size: 2em;
+    }
+
+    .em-button {
+        font-size: 1em;
+        padding: 1em 2em;
+        border: none;
+        border-radius: 0.5em;
+        cursor: pointer;
+    }
+
+    .em-container {
+        width: 20em;
+        padding: 2em;
+        border: 2px solid #333;
+        margin-top: 1rem;
+    }
+
+    /* Nested Example */
+    .parent {
+        font-size: 20px;
+        border: 2px solid red;
+        padding: 1em;
+    }
+
+    .child {
+        font-size: 2em;
+        border: 2px solid blue;
+        padding: 1em;
+    }
+
+    .grandchild {
+        font-size: 2em;
+        border: 2px solid green;
+        padding: 1em;
+    }
+
+    /* REM Nested */
+    .rem-parent {
+        font-size: 20px;
+        border: 2px solid red;
+        padding: 1rem;
+    }
+
+    .rem-child {
+        font-size: 2rem;
+        border: 2px solid blue;
+        padding: 1rem;
+    }
+
+    .rem-grandchild {
+        font-size: 2rem;
+        border: 2px solid green;
+        padding: 1rem;
+    }
+
+    code {
+        background: #f5f5f5;
+        padding: 2px 5px;
+        border-radius: 4px;
+    }
+</style>
+</head>
+<body>
+
+<h1>REM vs EM Demonstration</h1>
+
+<!-- REM SECTION -->
+<div class="section">
+    <h2>REM Example</h2>
+
+    <p>
+        Root font size = <code>16px</code>
+    </p>
+
+    <h3 class="rem-title">
+        2rem Title = 32px
+    </h3>
+
+    <button class="rem-button">
+        REM Button
+    </button>
+
+    <div class="rem-container">
+        Width: 20rem (320px)<br>
+        Padding: 2rem (32px)
+    </div>
+
+    <p>
+        Everything is based on the root <code>html</code> font size.
+    </p>
+</div>
+
+<!-- EM SECTION -->
+<div class="section em-parent">
+    <h2>EM Example</h2>
+
+    <p>
+        Parent font size = <code>20px</code>
+    </p>
+
+    <h3 class="em-title">
+        2em Title = 40px
+    </h3>
+
+    <button class="em-button">
+        EM Button
+    </button>
+
+    <div class="em-container">
+        Width: 20em (400px)<br>
+        Padding: 2em (40px)
+    </div>
+
+    <p>
+        Everything is based on the parent's font size.
+    </p>
+</div>
+
+<!-- NESTED EM -->
+<div class="section">
+    <h2>Nested EM Problem</h2>
+
+    <div class="parent">
+        Parent (20px)
+
+        <div class="child">
+            Child (2em = 40px)
+
+            <div class="grandchild">
+                Grandchild (2em = 80px)
+            </div>
+
+        </div>
+    </div>
+
+    <p>
+        Notice how EM multiplies as it nests.
+    </p>
+</div>
+
+<!-- NESTED REM -->
+<div class="section">
+    <h2>Nested REM Behavior</h2>
+
+    <div class="rem-parent">
+        Parent
+
+        <div class="rem-child">
+            Child (2rem = 32px)
+
+            <div class="rem-grandchild">
+                Grandchild (still 2rem = 32px)
+            </div>
+
+        </div>
+    </div>
+
+    <p>
+        REM always uses the root font size and does not multiply through nesting.
+    </p>
+</div>
+
+<!-- PRACTICAL EXAMPLE -->
+<div class="section">
+    <h2>Real-World Example</h2>
+
+<pre>
+.card {
+    padding: 2rem;
+    margin-bottom: 1rem;
+}
+
+.button {
+    font-size: 1rem;
+    padding: 0.5em 1em;
+}
+</pre>
+
+    <p>
+        ✔ Use REM for layout spacing.<br>
+        ✔ Use EM for button padding and component scaling.
+    </p>
+</div>
+
+</body>
+</html>
