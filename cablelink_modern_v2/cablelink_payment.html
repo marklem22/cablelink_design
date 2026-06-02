@@ -7,6 +7,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+@font-face{
+  font-family:"SF Grandezza Medium V2";
+  src:url("../cablelink_messy_design/assets/fonts/SF Grandezza Medium V2.woff2") format("woff2"),
+      url("../cablelink_messy_design/assets/fonts/SF Grandezza Medium V2.woff") format("woff"),
+      url("../cablelink_messy_design/assets/fonts/SF Grandezza Medium V2.ttf") format("truetype");
+  font-display:swap;
+}
 :root{
   --blue-deep:#00236e;
   --blue-primary:#0046B0;
@@ -38,13 +45,12 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 }
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .logo-mark{
-  width:38px;height:38px;border-radius:9px;
-  background:var(--orange);
+  width:38px;height:38px;
   display:flex;align-items:center;justify-content:center;
   flex-shrink:0;
 }
-.logo-mark svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.logo-text{font-size:1.35rem;font-weight:900;color:#fff;letter-spacing:-0.5px}
+.logo-mark img{width:100%;height:100%;object-fit:contain;display:block}
+.logo-text{font-size:1.1rem;font-weight:500;color:#fff;letter-spacing:-0.4px;font-family:"SF Grandezza Medium V2",'Montserrat',sans-serif;line-height:1}
 .logo-text em{color:var(--orange);font-style:normal}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:.85rem;font-weight:500;transition:color .2s}
@@ -308,10 +314,11 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 }
 /* Location cards */
 .office-list{display:flex;flex-direction:column;gap:1rem}
+.office-list.custom-locations .office-card:nth-child(-n+4){display:none}
 .office-card{
   background:var(--off-white);border-radius:12px;
-  padding:1.4rem 1.6rem;
-  display:flex;align-items:flex-start;gap:1rem;
+  padding:1rem 1.4rem;
+  display:flex;align-items:center;gap:1rem;
   border:1px solid rgba(0,70,176,.07);
   transition:border-color .2s,box-shadow .2s;
 }
@@ -364,7 +371,7 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 .banks-section{padding:5rem 5%;background:var(--off-white)}
 .banks-grid{
   max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:1.2rem;
 }
 .bank-card{
   background:#fff;border-radius:12px;padding:1.6rem 1.2rem;
@@ -380,11 +387,13 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
   margin-bottom:1rem;
   background:rgba(0,70,176,.02);
+  padding:.8rem;
 }
 .bank-logo-ph svg{width:28px;height:28px;fill:none;stroke:rgba(0,70,176,.25);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .bank-logo-ph span{font-size:.6rem;color:rgba(0,70,176,.28);font-weight:700;letter-spacing:.5px}
-.bank-name{font-size:.82rem;font-weight:800;color:var(--dark);margin-bottom:.25rem}
-.bank-type{font-size:.72rem;color:var(--muted);font-weight:500}
+.bank-logo-ph img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.bank-name{font-size:.82rem;font-weight:800;color:var(--dark);margin-bottom:.25rem;min-height:2.2em}
+.bank-type{font-size:.72rem;color:var(--muted);font-weight:500;min-height:2.4em}
 .bank-tag{
   display:inline-block;margin-top:.6rem;
   font-size:.62rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
@@ -492,9 +501,9 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 footer{background:#000e2e;padding:2rem 5%;text-align:center}
 .footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 .footer-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
-.footer-logo .logo-mark{width:32px;height:32px;border-radius:7px}
-.footer-logo .logo-mark svg{width:16px;height:16px}
-.footer-logo span{font-size:1.1rem;font-weight:900;color:#fff}
+.footer-logo .logo-mark{width:32px;height:32px}
+.footer-logo .logo-mark img{width:100%;height:100%;object-fit:contain;display:block}
+.footer-logo span{font-size:1rem;font-weight:500;color:#fff;font-family:"SF Grandezza Medium V2",'Montserrat',sans-serif;letter-spacing:-0.4px;line-height:1}
 .footer-logo em{color:var(--orange);font-style:normal}
 footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
 .footer-links{display:flex;gap:1.5rem}
@@ -538,9 +547,9 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
 <nav class="site-header">
   <a href="cablelink_modern_v2.html#home" class="logo">
     <div class="logo-mark">
-      <svg viewBox="0 0 24 24"><path d="M5 12.5c0-2.21 3.134-4 7-4s7 1.79 7 4-3.134 4-7 4-7-1.79-7-4z"/><path d="M2 7c0-2.761 4.477-5 10-5s10 2.239 10 5-4.477 5-10 5S2 9.761 2 7z"/><path d="M12 17v5M9 22h6"/></svg>
+      <img src="../cablelink_messy_design/assets/icons/cablelink_logo.png" alt="Cable Link">
     </div>
-    <span class="logo-text">Cable<em>Link</em></span>
+    <span class="logo-text">CABLELINK</em></span>
   </a>
 
   <ul class="nav-links">
@@ -601,10 +610,10 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
           <span>Select Branch</span>
         </div>
         <button class="qp-btn">Pay Now →</button>
-        <div class="qp-note">
+        <!-- <div class="qp-note">
           <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           Secured with 256-bit SSL encryption
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -613,7 +622,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
 <!-- STATS STRIP -->
 <div class="stats-strip">
   <div class="stats-inner">
-    <div class="stat-item">
+    <!-- <div class="stat-item">
       <div class="stat-icon">
         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       </div>
@@ -622,7 +631,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
         <div class="stat-lbl">SSL Encryption</div>
       </div>
     </div>
-    <div class="stat-divider"></div>
+    <div class="stat-divider"></div> -->
     <div class="stat-item">
       <div class="stat-icon orange">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -742,7 +751,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
 
   <div class="walkin-grid" style="max-width:1200px;margin:0 auto;">
 
-    <div class="office-list">
+    <div class="office-list custom-locations">
 
       <div class="office-card">
         <div class="office-icon">
@@ -800,6 +809,160 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
         </div>
       </div>
 
+      <div class="office-card">
+        <div class="office-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div>
+          <div class="office-name">Las Pinas</div>
+          <div class="office-addr">Cable Link walk-in payment center serving the Las Pinas area.</div>
+          <div class="office-hours">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Walk-In Payment Available
+          </div>
+        </div>
+      </div>
+
+      <div class="office-card">
+        <div class="office-icon orange-bg">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="office-name">Paranaque</div>
+          <div class="office-addr">Cable Link walk-in payment center serving the Paranaque area.</div>
+          <div class="office-hours">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Walk-In Payment Available
+          </div>
+        </div>
+      </div>
+
+      <div class="office-card">
+        <div class="office-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div>
+          <div class="office-name">Muntinlupa</div>
+          <div class="office-addr">Cable Link walk-in payment center serving the Muntinlupa area.</div>
+          <div class="office-hours">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Walk-In Payment Available
+          </div>
+        </div>
+      </div>
+
+      <div class="office-card">
+        <div class="office-icon orange-bg">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="office-name">Bacoor / Imus</div>
+          <div class="office-addr">Cable Link walk-in payment center serving Bacoor and Imus.</div>
+          <div class="office-hours">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Walk-In Payment Available
+          </div>
+        </div>
+      </div>
+
+      <div class="office-card">
+        <div class="office-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div>
+          <div class="office-name">Taguig / Pateros</div>
+          <div class="office-addr">Cable Link walk-in payment center serving Taguig and Pateros.</div>
+          <div class="office-hours">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Walk-In Payment Available
+          </div>
+        </div>
+      </div>
+
+      <div class="office-card">
+        <div class="office-icon orange-bg">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="office-name">Pasay</div>
+          <div class="office-addr">Cable Link walk-in payment center serving the Pasay area.</div>
+          <div class="office-hours">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Walk-In Payment Available
+          </div>
+        </div>
+      </div>
+
+      <div class="office-card">
+        <div class="office-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div>
+          <div class="office-name">Quezon City</div>
+          <div class="office-addr">Cable Link walk-in payment center serving the Quezon City area.</div>
+          <div class="office-hours">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Walk-In Payment Available
+          </div>
+        </div>
+      </div>
+
+      <div class="office-card">
+        <div class="office-icon orange-bg">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="office-name">Binan</div>
+          <div class="office-addr">Cable Link walk-in payment center serving the Binan area.</div>
+          <div class="office-hours">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Walk-In Payment Available
+          </div>
+        </div>
+      </div>
+
+      <div class="office-card">
+        <div class="office-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div>
+          <div class="office-name">San Pedro</div>
+          <div class="office-addr">Cable Link walk-in payment center serving the San Pedro area.</div>
+          <div class="office-hours">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Walk-In Payment Available
+          </div>
+        </div>
+      </div>
+
+      <div class="office-card">
+        <div class="office-icon orange-bg">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="office-name">Antipolo</div>
+          <div class="office-addr">Cable Link walk-in payment center serving the Antipolo area.</div>
+          <div class="office-hours">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Walk-In Payment Available
+          </div>
+        </div>
+      </div>
+
+      <div class="office-card">
+        <div class="office-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div>
+          <div class="office-name">Bulacan</div>
+          <div class="office-addr">Cable Link walk-in payment center serving the Bulacan area.</div>
+          <div class="office-hours">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Walk-In Payment Available
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- Map Placeholder -->
@@ -821,15 +984,14 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
   <div class="section-head">
     <span class="section-tag">Accredited Partners</span>
     <h2>Banks & Payment Centers</h2>
-    <p>Pay over-the-counter at any of our accredited banks, CDM machines, and payment centers nationwide.</p>
+    <p>Choose from banks, cards, e-wallets, kiosks, and partner payment centers using the supported channels below.</p>
   </div>
 
   <div class="banks-grid" style="max-width:1200px;margin:0 auto;">
 
     <div class="bank-card">
       <div class="bank-logo-ph">
-        <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M3 8l9-5 9 5"/></svg>
-        <span>Logo Placeholder</span>
+        <img src="../cablelink_messy_design/assets/remittance/bdo.png" alt="BDO">
       </div>
       <div class="bank-name">BDO Unibank</div>
       <div class="bank-type">Universal Bank</div>
@@ -838,28 +1000,25 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
 
     <div class="bank-card">
       <div class="bank-logo-ph">
-        <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M3 8l9-5 9 5"/></svg>
-        <span>Logo Placeholder</span>
+        <img src="../cablelink_messy_design/assets/remittance/bpi.png" alt="BPI">
       </div>
-      <div class="bank-name">BPI Family Bank</div>
+      <div class="bank-name">BPI</div>
       <div class="bank-type">Universal Bank</div>
       <span class="bank-tag online">Online Banking</span>
     </div>
 
     <div class="bank-card">
       <div class="bank-logo-ph">
-        <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M3 8l9-5 9 5"/></svg>
-        <span>Logo Placeholder</span>
+        <img src="../cablelink_messy_design/assets/remittance/aub.png" alt="AUB">
       </div>
-      <div class="bank-name">Metrobank</div>
+      <div class="bank-name">Asia United Bank</div>
       <div class="bank-type">Commercial Bank</div>
       <span class="bank-tag ott">Over-the-Counter</span>
     </div>
 
     <div class="bank-card">
       <div class="bank-logo-ph">
-        <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M3 8l9-5 9 5"/></svg>
-        <span>Logo Placeholder</span>
+        <img src="../cablelink_messy_design/assets/remittance/unionbank.png" alt="UnionBank">
       </div>
       <div class="bank-name">UnionBank</div>
       <div class="bank-type">Commercial Bank</div>
@@ -868,8 +1027,43 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
 
     <div class="bank-card">
       <div class="bank-logo-ph">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 10h6M9 14h4"/></svg>
-        <span>Logo Placeholder</span>
+        <img src="../cablelink_messy_design/assets/remittance/RCBC Blue-01.png" alt="RCBC">
+      </div>
+      <div class="bank-name">RCBC</div>
+      <div class="bank-type">Commercial Bank</div>
+      <span class="bank-tag online">Online Banking</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/Security Bank.png" alt="Security Bank">
+      </div>
+      <div class="bank-name">Security Bank</div>
+      <div class="bank-type">Commercial Bank</div>
+      <span class="bank-tag online">Online Banking</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/eastwest.png" alt="EastWest">
+      </div>
+      <div class="bank-name">EastWest Bank</div>
+      <div class="bank-type">Commercial Bank</div>
+      <span class="bank-tag ott">Over-the-Counter</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/Bankcom.png" alt="BankCom">
+      </div>
+      <div class="bank-name">Bank of Commerce</div>
+      <div class="bank-type">Commercial Bank</div>
+      <span class="bank-tag ott">Over-the-Counter</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/Bayad Center.png" alt="Bayad Center">
       </div>
       <div class="bank-name">Bayad Center</div>
       <div class="bank-type">Payment Center</div>
@@ -878,8 +1072,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
 
     <div class="bank-card">
       <div class="bank-logo-ph">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 10h6M9 14h4"/></svg>
-        <span>Logo Placeholder</span>
+        <img src="../cablelink_messy_design/assets/remittance/cliqq.png" alt="CLiQQ">
       </div>
       <div class="bank-name">7-Eleven (CLiQQ)</div>
       <div class="bank-type">Convenience Store</div>
@@ -888,22 +1081,245 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
 
     <div class="bank-card">
       <div class="bank-logo-ph">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 10h6M9 14h4"/></svg>
-        <span>Logo Placeholder</span>
+        <img src="../cablelink_messy_design/assets/remittance/ECPay.png" alt="ECPay">
       </div>
-      <div class="bank-name">Cebuana Lhuillier</div>
+      <div class="bank-name">ECPay</div>
       <div class="bank-type">Bills Payment Center</div>
       <span class="bank-tag ott">Over-the-Counter</span>
     </div>
 
     <div class="bank-card">
       <div class="bank-logo-ph">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 10h6M9 14h4"/></svg>
-        <span>Logo Placeholder</span>
+        <img src="../cablelink_messy_design/assets/remittance/robinsons.png" alt="Robinsons">
       </div>
-      <div class="bank-name">M Lhuillier</div>
+      <div class="bank-name">Robinsons</div>
       <div class="bank-type">Bills Payment Center</div>
       <span class="bank-tag ott">Over-the-Counter</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/SM.png" alt="SM">
+      </div>
+      <div class="bank-name">SM Bills Payment</div>
+      <div class="bank-type">Payment Center</div>
+      <span class="bank-tag ott">Over-the-Counter</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/TouchPay.png" alt="TouchPay">
+      </div>
+      <div class="bank-name">TouchPay</div>
+      <div class="bank-type">Self-Service Kiosk</div>
+      <span class="bank-tag cdm">Kiosk / CDM</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/7-Eleven.png" alt="7-Eleven">
+      </div>
+      <div class="bank-name">7-Eleven</div>
+      <div class="bank-type">Convenience Store Counter</div>
+      <span class="bank-tag ott">Over-the-Counter</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/alipay.png" alt="Alipay">
+      </div>
+      <div class="bank-name">Alipay</div>
+      <div class="bank-type">Digital Wallet</div>
+      <span class="bank-tag online">Online Payment</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/Bancnet.png" alt="BancNet">
+      </div>
+      <div class="bank-name">BancNet</div>
+      <div class="bank-type">Interbank Network</div>
+      <span class="bank-tag online">Online Banking</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/bayad.png" alt="Bayad">
+      </div>
+      <div class="bank-name">Bayad</div>
+      <div class="bank-type">Digital Bills Platform</div>
+      <span class="bank-tag online">Online Payment</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/coinsph.jpg" alt="Coins.ph">
+      </div>
+      <div class="bank-name">Coins.ph</div>
+      <div class="bank-type">Crypto / E-Wallet</div>
+      <span class="bank-tag online">Online Payment</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/DISKARTECH.png" alt="DiskarTech">
+      </div>
+      <div class="bank-name">DiskarTech</div>
+      <div class="bank-type">Digital Banking App</div>
+      <span class="bank-tag online">Online Banking</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/gcash.png" alt="GCash">
+      </div>
+      <div class="bank-name">GCash</div>
+      <div class="bank-type">E-Wallet</div>
+      <span class="bank-tag online">Online Payment</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/GrabPay.jpg" alt="GrabPay">
+      </div>
+      <div class="bank-name">GrabPay</div>
+      <div class="bank-type">Digital Wallet</div>
+      <span class="bank-tag online">Online Payment</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/jcb.png" alt="JCB">
+      </div>
+      <div class="bank-name">JCB</div>
+      <div class="bank-type">Credit Card Network</div>
+      <span class="bank-tag online">Card Payment</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/juancash.webp" alt="JuanCash">
+      </div>
+      <div class="bank-name">JuanCash</div>
+      <div class="bank-type">Digital Wallet</div>
+      <span class="bank-tag online">Online Payment</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/justpayto.png" alt="JustPayTo">
+      </div>
+      <div class="bank-name">JustPayTo</div>
+      <div class="bank-type">Payment Gateway</div>
+      <span class="bank-tag online">Online Payment</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/lazada.jpg" alt="Lazada Wallet">
+      </div>
+      <div class="bank-name">Lazada Wallet</div>
+      <div class="bank-type">Marketplace Wallet</div>
+      <span class="bank-tag online">Online Payment</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/lbc.png" alt="LBC">
+      </div>
+      <div class="bank-name">LBC</div>
+      <div class="bank-type">Remittance / Bills Payment</div>
+      <span class="bank-tag ott">Over-the-Counter</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/master-visa.jpg" alt="Mastercard and Visa">
+      </div>
+      <div class="bank-name">Mastercard / Visa</div>
+      <div class="bank-type">Card Payment Bundle</div>
+      <span class="bank-tag online">Card Payment</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/mastercard.png" alt="Mastercard">
+      </div>
+      <div class="bank-name">Mastercard</div>
+      <div class="bank-type">Credit Card Network</div>
+      <span class="bank-tag online">Card Payment</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/maya.png" alt="Maya">
+      </div>
+      <div class="bank-name">Maya</div>
+      <div class="bank-type">E-Wallet / Digital Bank</div>
+      <span class="bank-tag online">Online Payment</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/peppermint.svg" alt="Peppermint">
+      </div>
+      <div class="bank-name">Peppermint</div>
+      <div class="bank-type">Payment Platform</div>
+      <span class="bank-tag online">Online Payment</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/rcbc.png" alt="RCBC Pulz">
+      </div>
+      <div class="bank-name">RCBC Pulz</div>
+      <div class="bank-type">Digital Banking App</div>
+      <span class="bank-tag online">Online Banking</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/shopeepay.png" alt="ShopeePay">
+      </div>
+      <div class="bank-name">ShopeePay</div>
+      <div class="bank-type">Marketplace Wallet</div>
+      <span class="bank-tag online">Online Payment</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/ucpb.png" alt="UCPB">
+      </div>
+      <div class="bank-name">UCPB</div>
+      <div class="bank-type">Commercial Bank</div>
+      <span class="bank-tag ott">Over-the-Counter</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/visa-master.png" alt="Visa and Mastercard">
+      </div>
+      <div class="bank-name">Visa / Mastercard</div>
+      <div class="bank-type">Card Payment Bundle</div>
+      <span class="bank-tag online">Card Payment</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/visa.png" alt="Visa">
+      </div>
+      <div class="bank-name">Visa</div>
+      <div class="bank-type">Credit Card Network</div>
+      <span class="bank-tag online">Card Payment</span>
+    </div>
+
+    <div class="bank-card">
+      <div class="bank-logo-ph">
+        <img src="../cablelink_messy_design/assets/remittance/wechat.png" alt="WeChat Pay">
+      </div>
+      <div class="bank-name">WeChat Pay</div>
+      <div class="bank-type">Digital Wallet</div>
+      <span class="bank-tag online">Online Payment</span>
     </div>
 
   </div>
@@ -1034,7 +1450,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
   <div class="footer-inner">
     <a href="#" class="footer-logo">
       <div class="logo-mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5c0-2.21 3.134-4 7-4s7 1.79 7 4-3.134 4-7 4-7-1.79-7-4z"/><path d="M2 7c0-2.761 4.477-5 10-5s10 2.239 10 5-4.477 5-10 5S2 9.761 2 7z"/></svg>
+        <img src="../cablelink_messy_design/assets/icons/cablelink_logo.png" alt="Cable Link">
       </div>
       <span>Cable<em>Link</em></span>
     </a>

@@ -11,6 +11,14 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
     rel="stylesheet" />
   <style>
+    @font-face {
+      font-family: "SF Grandezza Medium V2";
+      src: url("cablelink_messy_design/assets/fonts/SF Grandezza Medium V2.woff2") format("woff2"),
+        url("cablelink_messy_design/assets/fonts/SF Grandezza Medium V2.woff") format("woff"),
+        url("cablelink_messy_design/assets/fonts/SF Grandezza Medium V2.ttf") format("truetype");
+      font-display: swap;
+    }
+
     /* =============================================
        DESIGN TOKENS
     ============================================= */
@@ -227,9 +235,9 @@
     }
 
     .brand {
-      font-family: "Montserrat", sans-serif;
-      font-weight: 700;
-      font-size: 20px;
+      font-family: "SF Grandezza Medium V2", "Montserrat", sans-serif;
+      font-weight: 500;
+      font-size: 15px;
       letter-spacing: 0.02em;
       color: var(--white);
       display: flex;
@@ -241,12 +249,8 @@
     .brand-mark {
       width: 26px;
       height: 26px;
-      border-radius: 8px;
-      background: linear-gradient(140deg, var(--slate-dark), var(--deep-blue));
-      display: grid;
-      place-items: center;
-      font-size: 12px;
-      color: var(--white);
+      display: block;
+      object-fit: contain;
     }
 
     .nav-links {
@@ -321,7 +325,7 @@
       overflow: hidden;
       border-bottom-left-radius: 28px;
       border-bottom-right-radius: 28px;
-      padding-top: 80px;
+   
       background: linear-gradient(135deg, rgba(11, 16, 39, 0.97) 0%, rgba(9, 13, 29, 0.99) 100%);
     }
 
@@ -1050,7 +1054,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-family: "Montserrat", sans-serif;
+      font-family: "SF Grandezza Medium V2", "Montserrat", sans-serif;
       font-size: 20px;
       font-weight: 700;
       color: var(--midnight);
@@ -1060,15 +1064,8 @@
     .footer-brand__mark {
       width: 34px;
       height: 34px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--slate-dark), var(--deep-blue));
-      display: grid;
-      place-items: center;
-      font-size: 13px;
-      font-weight: 800;
-      color: var(--white);
-      font-family: "Montserrat", sans-serif;
-      border: 1px solid rgba(0, 70, 176, 0.2);
+      display: block;
+      object-fit: contain;
     }
 
     .footer-brand__tagline {
@@ -1305,7 +1302,7 @@
     }
 
     .drawer__brand {
-      font-family: "Montserrat", sans-serif;
+      font-family: "SF Grandezza Medium V2", "Montserrat", sans-serif;
       font-weight: 700;
       font-size: 18px;
       color: var(--white);
@@ -1317,12 +1314,8 @@
     .drawer__brand-mark {
       width: 28px;
       height: 28px;
-      border-radius: 8px;
-      background: linear-gradient(140deg, var(--slate-dark), var(--deep-blue));
-      display: grid;
-      place-items: center;
-      font-size: 12px;
-      color: var(--white);
+      display: block;
+      object-fit: contain;
     }
 
     .drawer__close {
@@ -1704,15 +1697,14 @@
       <nav class="nav" aria-label="Primary navigation">
         <div class="nav-shell">
           <a href="cablelink_modern.html" class="brand" aria-label="CableLink home">
-            <span class="brand-mark" aria-hidden="true">CL</span>
-            CableLink
+            <img class="brand-mark" src="cablelink_messy_design/assets/icons/cablelink_logo.png" alt="CableLink logo" />
+           CABLELINK
           </a>
           <div class="nav-menu">
             <div class="nav-links">
               <a href="#features">Services</a>
               <a href="#cable-tv">Cable TV</a>
               <a href="cablelink_plans.html">Plans</a>
-              <a href="#how-it-works">How it works</a>
               <a href="#contact">Contact</a>
             </div>
             <div class="nav-actions">
@@ -1738,8 +1730,8 @@
   <aside class="drawer" id="off-canvas-drawer" aria-label="Mobile navigation" aria-hidden="true">
     <div class="drawer__head">
       <div class="drawer__brand">
-        <span class="drawer__brand-mark" aria-hidden="true">CL</span>
-        CableLink
+        <img class="drawer__brand-mark" src="cablelink_messy_design/assets/icons/cablelink_logo.png" alt="CableLink logo" />
+        CABLELINK
       </div>
       <button class="drawer__close" aria-label="Close navigation menu" id="drawer-close">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -1804,7 +1796,7 @@
     <section class="hero" aria-label="Hero">
       <div class="hero-content animate">
         <div class="hero-visual" aria-hidden="true">
-          <img src="/assets/people/turbocharge_fiber.png" alt="Family enjoying fast internet and cable TV at home" />
+          <img src="/assets/people/hero_section(1).png" alt="Family enjoying fast internet and cable TV at home" />
         </div>
         <div class="hero-copy">
           <div class="pill pill--dark">Serving Philippine homes</div>
@@ -2093,8 +2085,8 @@
           <!-- Brand Column -->
           <div>
             <div class="footer-brand__logo">
-              <span class="footer-brand__mark" aria-hidden="true">CL</span>
-              CableLink
+              <img class="footer-brand__mark" src="cablelink_messy_design/assets/icons/cablelink_logo.png" alt="CableLink logo" />
+              CABLELINK
             </div>
             <p class="footer-brand__tagline">Delivering high-speed internet and cable TV to Philippine homes. Reliable
               connectivity with honest, transparent pricing.</p>

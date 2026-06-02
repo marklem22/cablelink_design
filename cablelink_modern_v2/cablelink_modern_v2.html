@@ -7,6 +7,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+@font-face{
+  font-family:"SF Grandezza Medium V2";
+  src:url("../cablelink_messy_design/assets/fonts/SF Grandezza Medium V2.woff2") format("woff2"),
+      url("../cablelink_messy_design/assets/fonts/SF Grandezza Medium V2.woff") format("woff"),
+      url("../cablelink_messy_design/assets/fonts/SF Grandezza Medium V2.ttf") format("truetype");
+  font-display:swap;
+}
 :root{
   --blue-deep:#00236e;
   --blue-primary:#0046B0;
@@ -37,14 +44,12 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 }
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .logo-mark{
-  width:38px;height:38px;border-radius:9px;
-  background:var(--orange);
+  width:38px;height:38px;
   display:flex;align-items:center;justify-content:center;
   flex-shrink:0;
 }
-.logo-mark svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.logo-text{font-size:1.35rem;font-weight:900;color:#fff;letter-spacing:-0.5px}
-.logo-text em{color:var(--orange);font-style:normal}
+.logo-mark img{width:100%;height:100%;object-fit:contain;display:block}
+.logo-text{color:#fff;font-family:"SF Grandezza Medium V2",'Montserrat',sans-serif;font-size:1.1rem;font-weight:500;letter-spacing:-0.4px;line-height:1}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:.85rem;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:#fff}
@@ -85,7 +90,8 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 /* ===== HERO ===== */
 .hero{
   min-height:100vh;
-  background:linear-gradient(130deg, var(--blue-deep) 0%, var(--blue-primary) 55%, var(--blue-secondary) 100%);
+  background:
+   url("../assets/people/hero_section.png") center center/cover no-repeat;
   position:relative;overflow:hidden;
   display:flex;align-items:center;
   padding:68px 5% 0;
@@ -96,22 +102,27 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M30 0v60M10 10h10v10M40 10h10v10M10 40h10v10M40 40h10v10' stroke='rgba(255,255,255,0.04)' stroke-width='1' fill='none'/%3E%3C/svg%3E");
   background-size:60px 60px;
 }
+.hero::after{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(90deg, rgba(0,35,110,.86) 0%, rgba(0,35,110,.72) 32%, rgba(0,35,110,.34) 62%, rgba(0,35,110,0) 100%);
+}
 .hero-glow-1{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(51,122,183,.18) 0%,transparent 70%);right:-80px;top:-100px;pointer-events:none}
 .hero-glow-2{position:absolute;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(242,100,19,.12) 0%,transparent 70%);left:-50px;bottom:0;pointer-events:none}
 /* Decorative blobs */
-.blob-big{position:absolute;width:320px;height:320px;border-radius:50%;background:rgba(51,122,183,.18);right:4%;top:8%;pointer-events:none}
+/* .blob-big{position:absolute;width:320px;height:320px;border-radius:50%;background:rgba(51,122,183,.18);right:4%;top:8%;pointer-events:none}
 .blob-mid{position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(3,77,182,.15);right:18%;top:14%;pointer-events:none}
 .blob-bar{position:absolute;width:130px;height:36px;border-radius:5px;background:rgba(242,100,19,.28);right:32%;top:22%;transform:rotate(-14deg);pointer-events:none}
-.cross{position:absolute;font-size:1.8rem;font-weight:300;color:rgba(242,100,19,.65);pointer-events:none;user-select:none}
+.cross{position:absolute;font-size:1.8rem;font-weight:300;color:rgba(242,100,19,.65);pointer-events:none;user-select:none} */
 
 .hero-inner{
   position:relative;z-index:2;
   max-width:1200px;width:100%;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:3rem;align-items:center;
+  display:grid;grid-template-columns:1fr;
+  gap:0;align-items:center;
   padding:5.5rem 0 9rem;
 }
-.hero-text{animation:fadeUp .7s ease both}
+.hero-text{animation:fadeUp .7s ease both;text-align:left;max-width:640px;margin:0}
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 .welcome-tag{
   font-size:.7rem;font-weight:700;letter-spacing:2.5px;
@@ -127,9 +138,9 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 .hero-text p{
   font-size:.975rem;color:rgba(255,255,255,.78);
   line-height:1.75;max-width:460px;
-  margin-bottom:2.5rem;font-weight:400;
+  margin:0 0 2.5rem;font-weight:400;
 }
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:flex-start}
 .btn-solid{
   background:var(--orange);color:#fff;
   padding:14px 32px;border-radius:7px;
@@ -148,55 +159,6 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
   transition:background .2s,border-color .2s,transform .15s;display:inline-block;
 }
 .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff;transform:translateY(-2px)}
-
-/* Hero visual */
-.hero-visual{display:flex;justify-content:center;align-items:flex-end;animation:fadeUp .9s .15s ease both}
-.hero-card{
-  width:360px;height:380px;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.14);
-  border-radius:20px 20px 0 0;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:1.2rem;position:relative;overflow:hidden;
-}
-.hero-card::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.15));
-}
-.hero-card .card-icon{
-  width:90px;height:90px;
-  border:2px dashed rgba(255,255,255,.2);
-  border-radius:50%;display:flex;align-items:center;justify-content:center;
-}
-.hero-card .card-icon svg{width:40px;height:40px;fill:none;stroke:rgba(255,255,255,.35);stroke-width:1.5}
-.hero-card span{color:rgba(255,255,255,.35);font-size:.8rem;font-weight:500;letter-spacing:.5px}
-/* floating badge */
-.hero-badge{
-  position:absolute;bottom:-18px;left:-18px;
-  background:#fff;border-radius:12px;
-  padding:14px 18px;
-  display:flex;align-items:center;gap:12px;
-  box-shadow:0 8px 32px rgba(0,35,110,.18);
-  z-index:3;
-}
-.badge-icon{
-  width:42px;height:42px;border-radius:10px;
-  background:var(--blue-primary);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
-.badge-icon svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.badge-num{font-size:1.4rem;font-weight:900;color:var(--dark);line-height:1}
-.badge-lbl{font-size:.7rem;color:var(--muted);font-weight:600;margin-top:2px}
-/* second badge */
-.hero-badge2{
-  position:absolute;top:20px;right:-18px;
-  background:#fff;border-radius:12px;
-  padding:12px 16px;
-  box-shadow:0 8px 32px rgba(0,35,110,.18);
-  z-index:3;text-align:center;
-}
-.badge2-num{font-size:1.25rem;font-weight:900;color:var(--orange)}
-.badge2-lbl{font-size:.65rem;color:var(--muted);font-weight:600;margin-top:1px}
 
 /* ===== SERVICES SECTION ===== */
 .services-wrapper{
@@ -348,6 +310,18 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 .carousel-viewport{overflow:hidden;border-radius:18px}
 .carousel-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1)}
 .carousel-slide{min-width:100%;position:relative;overflow:hidden}
+.promo-image-carousel .carousel-viewport{border-radius:22px;box-shadow:0 28px 64px rgba(0,35,110,.16)}
+.promo-image-slide{min-width:100%}
+.promo-image-card{
+  position:relative;
+  /* height:360px; */
+  overflow:hidden;
+  background:#00133d;
+}
+.promo-image-card img{
+  width:100%;height:100%;display:block;object-fit:cover;
+  transform:scale(1.01);
+}
 .slide-inner{
   height:420px;display:flex;flex-direction:column;
   align-items:center;justify-content:center;
@@ -448,9 +422,9 @@ footer{background:#000e2e;padding:2rem 5%;text-align:center}
   flex-wrap:wrap;gap:1rem;
 }
 .footer-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
-.footer-logo .logo-mark{width:32px;height:32px;border-radius:7px}
-.footer-logo .logo-mark svg{width:16px;height:16px}
-.footer-logo span{font-size:1.1rem;font-weight:900;color:#fff}
+.footer-logo .logo-mark{width:32px;height:32px}
+.footer-logo .logo-mark img{width:100%;height:100%;object-fit:contain;display:block}
+.footer-logo span{font-size:1rem;font-weight:500;color:#fff;font-family:"SF Grandezza Medium V2",'Montserrat',sans-serif;letter-spacing:-0.4px;line-height:1}
 .footer-logo em{color:var(--orange);font-style:normal}
 footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
 .footer-links{display:flex;gap:1.5rem}
@@ -459,10 +433,9 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
-  .hero-inner{grid-template-columns:1fr;text-align:center;padding:4rem 0 9rem}
+  .hero-inner{grid-template-columns:1fr;text-align:left;padding:4rem 0 9rem}
   .hero-text p{max-width:100%}
-  .hero-btns{justify-content:center}
-  .hero-visual{display:none}
+  .hero-btns{justify-content:flex-start}
   .services-grid{grid-template-columns:repeat(2,1fr)}
   .svc-card.svc-center{transform:none;padding:2.5rem 1.8rem 2rem}
   .svc-card.svc-center:hover{transform:translateY(-8px)}
@@ -475,17 +448,12 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
   .services-wrapper{margin-top:-40px}
   .services-grid{grid-template-columns:1fr}
   .about-section{padding:4.5rem 5%}
-  .slide-inner{height:340px}
-  .slide-img-ph-box{display:none}
   .footer-inner{flex-direction:column;text-align:center}
   .footer-links{justify-content:center}
 }
 @media(max-width:480px){
   .hero-text h1{font-size:2rem;letter-spacing:-1px}
   .btn-solid,.btn-ghost{padding:13px 22px;font-size:.8rem}
-  .slide-inner{height:300px}
-  .slide-title{font-size:1.3rem}
-  .slide-content{padding:1.5rem 1rem}
   .svc-card{padding:2rem 1.5rem 1.5rem}
   .site-header{padding:0 4%}
   .promo-section{padding:4rem 4%}
@@ -503,16 +471,16 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
 <nav class="site-header">
   <a href="#home" class="logo">
     <div class="logo-mark">
-      <svg viewBox="0 0 24 24"><path d="M5 12.5c0-2.21 3.134-4 7-4s7 1.79 7 4-3.134 4-7 4-7-1.79-7-4z"/><path d="M2 7c0-2.761 4.477-5 10-5s10 2.239 10 5-4.477 5-10 5S2 9.761 2 7z"/><path d="M12 17v5M9 22h6"/></svg>
+      <img src="../cablelink_messy_design/assets/icons/cablelink_logo.png" alt="Cable Link">
     </div>
-    <span class="logo-text">Cable<em>Link</em></span>
+    <span class="logo-text">CABLELINK</span>
   </a>
 
   <ul class="nav-links">
     <li><a href="#home" class="active">Home</a></li>
     <li><a href="cablelink_plans.html#plans">Plans</a></li>
     <li><a href="#promos">Promos</a></li>
-    <li><a href="cablelink_plans.html#payment-facilities">Payment Facilities</a></li>
+    <li><a href="cablelink_payment.html#payment-facilities">Payment Facilities</a></li>
     <li><a href="#about-us">About Us</a></li>
   </ul>
 
@@ -527,7 +495,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
   <a href="#home">Home</a>
   <a href="cablelink_plans.html#plans">Plans</a>
   <a href="#promos">Promos</a>
-  <a href="cablelink_plans.html#payment-facilities">Payment Facilities</a>
+  <a href="cablelink_payment.html#payment-facilities">Payment Facilities</a>
   <a href="#about-us">About Us</a>
   <a href="cablelink_plans.html#plans" class="mob-cta">Get Connected</a>
 </div>
@@ -554,29 +522,6 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
       </div>
     </div>
 
-    <div class="hero-visual">
-      <div class="hero-card">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M6.3 6.3a8 8 0 0 0 0 11.4M17.7 6.3a8 8 0 0 1 0 11.4M3.5 3.5a13 13 0 0 0 0 17M20.5 3.5a13 13 0 0 1 0 17"/></svg>
-        </div>
-        <span>Hero Image Placeholder</span>
-
-        <div class="hero-badge">
-          <div class="badge-icon">
-            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          </div>
-          <div>
-            <div class="badge-num">1 Gbps</div>
-            <div class="badge-lbl">Max Speed</div>
-          </div>
-        </div>
-
-        <div class="hero-badge2">
-          <div class="badge2-num">99.9%</div>
-          <div class="badge2-lbl">Uptime SLA</div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -672,7 +617,8 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
   </div>
 </section>
 
-<!-- PROMO CAROUSEL -->
+<!-- Old promo carousel disabled in favor of the image-based carousel below. -->
+
 <section class="promo-section" id="promos">
   <div class="section-head">
     <span class="section-tag">Hot Deals</span>
@@ -680,100 +626,16 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
     <p>Limited-time offers, seasonal discounts, and special bundles tailored to get you connected for less.</p>
   </div>
 
-  <div class="carousel-wrap">
+  <div class="carousel-wrap promo-image-carousel">
     <div class="carousel-viewport">
-      <div class="carousel-track" id="track">
-
-        <!-- Slide 1 -->
-        <div class="carousel-slide">
-          <div class="slide-inner s1">
-            <div class="slide-watermark">
-              <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-            </div>
-            <div class="slide-img-ph-box">
-              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 20c0-2.21 2.239-4 5-4s5 1.79 5 4"/></svg>
-              <span>Promo Image</span>
-            </div>
-            <div class="slide-content">
-              <span class="slide-pill">Limited Time</span>
-              <h3 class="slide-title">Get 1 Month FREE<br>on Any Bundle</h3>
-              <p class="slide-desc">Sign up for our Internet + Cable TV bundle and get your first month completely free. No contracts required.</p>
-              <a href="#" class="slide-cta blue-text">Claim Offer →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="carousel-slide">
-          <div class="slide-inner s2">
-            <div class="slide-watermark">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M6.3 6.3a8 8 0 0 0 0 11.4M17.7 6.3a8 8 0 0 1 0 11.4M3.5 3.5a13 13 0 0 0 0 17M20.5 3.5a13 13 0 0 1 0 17"/></svg>
-            </div>
-            <div class="slide-img-ph-box">
-              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 20c0-2.21 2.239-4 5-4s5 1.79 5 4"/></svg>
-              <span>Promo Image</span>
-            </div>
-            <div class="slide-content">
-              <span class="slide-pill">New Subscribers</span>
-              <h3 class="slide-title">500 Mbps Internet<br>at ₱999/month</h3>
-              <p class="slide-desc">High-speed fiber internet at an unbeatable price. Free modem and same-week installation included.</p>
-              <a href="#" class="slide-cta orange-text">Get This Deal →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="carousel-slide">
-          <div class="slide-inner s3">
-            <div class="slide-watermark">
-              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
-            </div>
-            <div class="slide-img-ph-box">
-              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 20c0-2.21 2.239-4 5-4s5 1.79 5 4"/></svg>
-              <span>Promo Image</span>
-            </div>
-            <div class="slide-content">
-              <span class="slide-pill">Bundle & Save</span>
-              <h3 class="slide-title">Internet + 100<br>Channels Bundled</h3>
-              <p class="slide-desc">One bill, one provider. Get fast internet and premium cable TV together. Save up to 30% versus separate plans.</p>
-              <a href="#" class="slide-cta blue-text">See Bundles →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 4 -->
-        <div class="carousel-slide">
-          <div class="slide-inner s4">
-            <div class="slide-watermark">
-              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            </div>
-            <div class="slide-img-ph-box">
-              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 20c0-2.21 2.239-4 5-4s5 1.79 5 4"/></svg>
-              <span>Promo Image</span>
-            </div>
-            <div class="slide-content">
-              <span class="slide-pill">Business Solutions</span>
-              <h3 class="slide-title">Corporate Plans<br>Starting at ₱2,499</h3>
-              <p class="slide-desc">Dedicated business internet with 99.9% uptime SLA, static IP, and 24/7 priority support for your growing team.</p>
-              <a href="#" class="slide-cta blue-text">Contact Sales →</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <div class="carousel-track" id="track"></div>
     </div>
 
-    <!-- Controls -->
     <div class="c-controls">
       <button class="c-btn" id="prev" aria-label="Previous">
         <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
       </button>
-      <div class="c-dots" id="dots">
-        <div class="c-dot on" data-i="0"></div>
-        <div class="c-dot" data-i="1"></div>
-        <div class="c-dot" data-i="2"></div>
-        <div class="c-dot" data-i="3"></div>
-      </div>
+      <div class="c-dots" id="dots"></div>
       <button class="c-btn" id="next" aria-label="Next">
         <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
@@ -796,7 +658,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
   <div class="footer-inner">
     <a href="#" class="footer-logo">
       <div class="logo-mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5c0-2.21 3.134-4 7-4s7 1.79 7 4-3.134 4-7 4-7-1.79-7-4z"/><path d="M2 7c0-2.761 4.477-5 10-5s10 2.239 10 5-4.477 5-10 5S2 9.761 2 7z"/></svg>
+        <img src="../cablelink_messy_design/assets/icons/cablelink_logo.png" alt="Cable Link">
       </div>
       <span>Cable<em>Link</em></span>
     </a>
@@ -812,8 +674,33 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
 
 <script>
 (function(){
-  var cur=0,total=4,timer;
+  var slides=[
+    { src:'../cablelink_messy_design/assets/carousel/2023_fiberlink_pc.jpg' },
+    { src:'../cablelink_messy_design/assets/carousel/2023_bts_pc.jpg' },
+    { src:'../cablelink_messy_design/assets/carousel/2023_channel_revamp_pc.jpg' },
+    { src:'../cablelink_messy_design/assets/carousel/2023_Fiberlink@Home_Web.jpg' },
+    { src:'../cablelink_messy_design/assets/carousel/2023_iblaze_pc.jpg' },
+    { src:'../cablelink_messy_design/assets/carousel/2023_refer_a_friend_pc.jpg' },
+    { src:'../cablelink_messy_design/assets/carousel/2023_sb_pc.jpg' },
+    { src:'../cablelink_messy_design/assets/carousel/2023_TV_Raffle_WBD_Web%20Banner-01.jpg' },
+    { src:'../cablelink_messy_design/assets/carousel/FEB_TBIR_cinemaworld.jpg' },
+    { src:'../cablelink_messy_design/assets/carousel/fwc_desktop.jpg' }
+  ];
+  var cur=0,total=slides.length,timer;
   var track=document.getElementById('track');
+  var dotsWrap=document.getElementById('dots');
+
+  track.innerHTML=slides.map(function(slide){
+    return '<div class="carousel-slide promo-image-slide">' +
+      '<div class="promo-image-card">' +
+      '<img src="'+slide.src+'" alt="Promo image">' +
+      '</div>' +
+      '</div>';
+  }).join('');
+
+  dotsWrap.innerHTML=slides.map(function(_,i){
+    return '<div class="c-dot'+(i===0?' on':'')+'" data-i="'+i+'"></div>';
+  }).join('');
   var dots=document.querySelectorAll('.c-dot');
 
   function go(n){

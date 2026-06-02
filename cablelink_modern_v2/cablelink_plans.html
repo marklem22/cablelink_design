@@ -7,6 +7,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+@font-face{
+  font-family:"SF Grandezza Medium V2";
+  src:url("../cablelink_messy_design/assets/fonts/SF Grandezza Medium V2.woff2") format("woff2"),
+      url("../cablelink_messy_design/assets/fonts/SF Grandezza Medium V2.woff") format("woff"),
+      url("../cablelink_messy_design/assets/fonts/SF Grandezza Medium V2.ttf") format("truetype");
+  font-display:swap;
+}
 :root{
   --blue-deep:#00236e;
   --blue-primary:#0046B0;
@@ -34,9 +41,9 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
   border-bottom:1px solid rgba(255,255,255,0.08);
 }
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo-mark{width:38px;height:38px;border-radius:9px;background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.logo-mark svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.logo-text{font-size:1.35rem;font-weight:900;color:#fff;letter-spacing:-0.5px}
+.logo-mark{width:38px;height:38px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-mark img{width:100%;height:100%;object-fit:contain;display:block}
+.logo-text{font-size:1.1rem;font-weight:500;color:#fff;letter-spacing:-0.4px;font-family:"SF Grandezza Medium V2",'Montserrat',sans-serif;line-height:1}
 .logo-text em{color:var(--orange);font-style:normal}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:.85rem;font-weight:500;transition:color .2s}
@@ -87,7 +94,8 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 .ph-stats{display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:0}
 .ph-stat{text-align:center}
 .ph-stat-num{font-size:1.65rem;font-weight:900;color:#fff;letter-spacing:-1px;line-height:1}
-.ph-stat-num em{color:var(--orange);font-style:normal}
+.ph-stat-num em{font-style:normal}
+.ph-stat-sym{color:var(--orange);font-style:normal}
 .ph-stat-lbl{font-size:.62rem;color:rgba(255,255,255,.48);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-top:4px}
 .ph-stat-div{width:1px;height:40px;background:rgba(255,255,255,.12)}
 
@@ -212,10 +220,31 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 .num-big{font-size:2.65rem;font-weight:900;color:#fff;letter-spacing:-3px;line-height:1}
 .num-unit{font-size:.76rem;font-weight:700;color:rgba(255,255,255,.68);letter-spacing:.5px;align-self:flex-end;padding-bottom:5px}
 .ct-sub{font-size:.66rem;color:rgba(255,255,255,.52);font-weight:600;position:relative;z-index:1;letter-spacing:.2px}
+.ct-sub-img{
+  position:absolute;
+  right:0;
+  bottom:0;
+  z-index:3;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width: 160px;
+  /* min-height: 54px;
+  padding: 8px 12px 6px 14px; */
+  background:#fff;
+  border:2px solid var(--orange);
+  border-bottom:none;
+  border-right:none;
+  border-radius:16px 0 0 0;
+  box-shadow:0 6px 16px rgba(0,0,0,.08);
+}
+.ct-sub-img img{display:block;max-width:140px;height:32px;object-fit:contain}
 
 /* Card Body */
 .card-body{padding:1.1rem 1.3rem 1.5rem;flex:1;display:flex;flex-direction:column}
 .card-price{display:flex;align-items:baseline;gap:1px;margin-bottom:.9rem;line-height:1}
+.plan-card.super .card-body,
+.plan-card.turbo .card-body{padding-top:1.55rem}
 .cp-sym{font-size:.78rem;font-weight:700;color:var(--dark);align-self:flex-start;margin-top:5px}
 .cp-val{font-size:1.9rem;font-weight:900;color:var(--dark);letter-spacing:-1.5px;line-height:1}
 .cp-mo{font-size:.68rem;color:var(--muted);font-weight:600;align-self:flex-end;padding-bottom:4px;margin-left:1px}
@@ -301,9 +330,9 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 footer{background:#000e2e;padding:2rem 5%}
 .footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 .footer-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
-.footer-logo .logo-mark{width:32px;height:32px;border-radius:7px}
-.footer-logo .logo-mark svg{width:16px;height:16px}
-.footer-logo span{font-size:1.1rem;font-weight:900;color:#fff}
+.footer-logo .logo-mark{width:32px;height:32px}
+.footer-logo .logo-mark img{width:100%;height:100%;object-fit:contain;display:block}
+.footer-logo span{font-size:1rem;font-weight:500;color:#fff;font-family:"SF Grandezza Medium V2",'Montserrat',sans-serif;letter-spacing:-0.4px;line-height:1}
 .footer-logo em{color:var(--orange);font-style:normal}
 footer p{font-size:.8rem;color:rgba(255,255,255,.42)}
 .footer-links{display:flex;gap:1.5rem}
@@ -321,6 +350,8 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.42)}
   .plan-grid{grid-template-columns:repeat(2,1fr)}
   .cable-grid{grid-template-columns:1fr}
   .tech-explainer{grid-template-columns:1fr}
+  /* .ct-sub-img{width:150px;min-height:50px;padding:7px 10px 5px 12px}
+  .ct-sub-img img{max-width:128px;height:28px} */
   .footer-inner{flex-direction:column;text-align:center}
   .footer-links{justify-content:center}
   .filter-inner{overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px;-webkit-overflow-scrolling:touch}
@@ -334,6 +365,8 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.42)}
   .filter-bar{padding:.7rem 4%}
   .plan-grid{grid-template-columns:1fr}
   .cable-grid{grid-template-columns:1fr;max-width:100%}
+  /* .ct-sub-img{width:138px;min-height:46px;padding:6px 9px 4px 10px}
+  .ct-sub-img img{max-width:116px;height:24px} */
   .ph-stats{gap:1.2rem}
   .ph-stat-div{height:30px}
   .ph-stat-num{font-size:1.35rem}
@@ -352,7 +385,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.42)}
 <nav class="site-header">
   <a href="cablelink_modern_v2.html#home" class="logo">
     <div class="logo-mark">
-      <svg viewBox="0 0 24 24"><path d="M5 12.5c0-2.21 3.134-4 7-4s7 1.79 7 4-3.134 4-7 4-7-1.79-7-4z"/><path d="M2 7c0-2.761 4.477-5 10-5s10 2.239 10 5-4.477 5-10 5S2 9.761 2 7z"/><path d="M12 17v5M9 22h6"/></svg>
+      <img src="../cablelink_messy_design/assets/icons/cablelink_logo.png" alt="Cable Link">
     </div>
     <span class="logo-text">Cable<em>Link</em></span>
   </a>
@@ -360,7 +393,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.42)}
     <li><a href="cablelink_modern_v2.html#home">Home</a></li>
     <li><a href="#plans" class="active">Plans</a></li>
     <li><a href="cablelink_modern_v2.html#promos">Promos</a></li>
-    <li><a href="#payment-facilities">Payment Facilities</a></li>
+    <li><a href="cablelink_payment.html#payment-facilities">Payment Facilities</a></li>
     <li><a href="cablelink_modern_v2.html#about-us">About Us</a></li>
   </ul>
   <a href="#payment-facilities" class="nav-btn">Get Connected</a>
@@ -372,7 +405,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.42)}
   <a href="cablelink_modern_v2.html#home">Home</a>
   <a href="#plans" style="color:var(--orange)">Plans</a>
   <a href="cablelink_modern_v2.html#promos">Promos</a>
-  <a href="#payment-facilities">Payment Facilities</a>
+  <a href="cablelink_payment.html#payment-facilities">Payment Facilities</a>
   <a href="cablelink_modern_v2.html#about-us">About Us</a>
   <a href="#payment-facilities" class="mob-cta">Get Connected</a>
 </div>
@@ -394,12 +427,12 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.42)}
     <p>From digital cable TV to blazing-fast fiber internet bundles — pick the plan that fits your lifestyle and budget.</p>
     <div class="ph-stats">
       <div class="ph-stat">
-        <div class="ph-stat-num"><em>17</em>+</div>
+        <div class="ph-stat-num">17<span class="ph-stat-sym">+</span></div>
         <div class="ph-stat-lbl">Plan Options</div>
       </div>
       <div class="ph-stat-div"></div>
       <div class="ph-stat">
-        <div class="ph-stat-num">₱<em>495</em></div>
+        <div class="ph-stat-num"><span class="ph-stat-sym">₱</span>495</div>
         <div class="ph-stat-lbl">Starting Price</div>
       </div>
       <div class="ph-stat-div"></div>
@@ -434,10 +467,10 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.42)}
   <div class="plans-container">
 
     <!-- Info note -->
-    <div class="info-note">
+    <!-- <div class="info-note">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
       <div><strong>Service Coverage:</strong> All Cable Link plans are available in <strong>Digitally Activated</strong> service areas. Please contact our team to verify availability in your location before subscribing.</div>
-    </div>
+    </div> -->
 
     <!-- Technology Explainer -->
     <div class="tech-explainer">
@@ -541,7 +574,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.42)}
 </section>
 
 <!-- PAYMENT METHODS -->
-<div class="payment-section" id="payment-facilities">
+<!-- <div class="payment-section" id="payment-facilities">
   <div class="pay-inner">
     <div class="section-head">
       <span class="section-tag">Easy Payments</span>
@@ -575,7 +608,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.42)}
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- CTA STRIP -->
 <div class="cta-strip">
@@ -592,9 +625,9 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.42)}
   <div class="footer-inner">
     <a href="#" class="footer-logo">
       <div class="logo-mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5c0-2.21 3.134-4 7-4s7 1.79 7 4-3.134 4-7 4-7-1.79-7-4z"/><path d="M2 7c0-2.761 4.477-5 10-5s10 2.239 10 5-4.477 5-10 5S2 9.761 2 7z"/></svg>
+        <img src="../cablelink_messy_design/assets/icons/cablelink_logo.png" alt="Cable Link">
       </div>
-      <span>Cable<em>Link</em></span>
+      <span>CABLELINK</span>
     </a>
     <nav class="footer-links">
       <a href="#">Privacy</a>
@@ -615,6 +648,7 @@ var plans = {
     topClass:'ct-super', cardType:'super',
     techLabel:'DOCSIS Cable', techSVG:'wifi',
     subLabel:'Iblaze @ Home', channels:126, tv:'Basic Plus',
+    subIcon:'../assets/icons/Iblaze.png',
     items:[
       {spd:20, price:588},
       {spd:30, price:888},
@@ -628,6 +662,7 @@ var plans = {
     topClass:'ct-super', cardType:'super',
     techLabel:'FTTH Fiber', techSVG:'bolt',
     subLabel:'Fiberlink @ Home', channels:126, tv:'Basic Plus',
+    subIcon:'../assets/icons/Fiberlink_Home.png',
     items:[
       {spd:50, price:888,  badge:'Most Popular', bClass:'pop'},
       {spd:75, price:999},
@@ -640,6 +675,7 @@ var plans = {
     topClass:'ct-turbo', cardType:'turbo',
     techLabel:'DOCSIS Cable', techSVG:'wifi',
     subLabel:'Iblaze @ Home', channels:53, tv:'Basic Lite',
+    subIcon:'../assets/icons/Iblaze.png',
     items:[
       {spd:30, price:599},
       {spd:50, price:999},
@@ -650,6 +686,7 @@ var plans = {
     topClass:'ct-turbo', cardType:'turbo',
     techLabel:'FTTH Fiber', techSVG:'bolt',
     subLabel:'Fiberlink @ Home', channels:53, tv:'Basic Lite',
+    subIcon:'../assets/icons/Fiberlink_Home.png',
     items:[
       {spd:50, price:599,  badge:'Best Value', bClass:'val'},
       {spd:200,price:999},
@@ -685,13 +722,14 @@ function bundleCard(item, meta){
   var cardExtra = hasBadge ? ' is-' + (isPopular ? 'popular' : 'value') : '';
   var ck = meta.cardType === 'turbo' ? SVG.ckO : SVG.ckB;
   var ctaCls = (isPopular ? 'cta-orange-glow' : (meta.cardType === 'turbo' ? 'cta-orange' : 'cta-blue'));
+  var familyLabel = meta.cardType === 'turbo' ? 'Turbocharged' : 'Supercharged';
 
   return '<div class="plan-card '+meta.cardType+cardExtra+'">'
     + (hasBadge ? '<div class="card-badge '+item.bClass+'">'+item.badge+'</div>' : '')
     + '<div class="card-top '+meta.topClass+'">'
-    +   '<div class="ct-tech">'+SVG[meta.techSVG]+' '+meta.techLabel+'</div>'
+    +   '<div class="ct-tech">'+SVG[meta.techSVG]+' '+familyLabel+'</div>'
     +   '<div class="ct-num"><span class="num-big">'+item.spd+'</span><span class="num-unit">Mbps</span></div>'
-    +   '<div class="ct-sub">'+meta.subLabel+'</div>'
+    +   '<div class="ct-sub ct-sub-img"><img src="'+meta.subIcon+'" alt="'+meta.subLabel+'" /></div>'
     + '</div>'
     + '<div class="card-body">'
     +   '<div class="card-price"><span class="cp-sym">₱</span><span class="cp-val">'+fmt(item.price)+'</span><span class="cp-mo">/mo</span></div>'
