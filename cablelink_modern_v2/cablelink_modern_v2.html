@@ -22,9 +22,11 @@
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(--white)}
+.nav-links a.active{color:var(--orange)}
+#home,#about-us,#promos{scroll-margin-top:88px}
 
 /* ===== NAV ===== */
-nav{
+.site-header{
   position:fixed;top:0;left:0;right:0;z-index:900;
   height:68px;padding:0 5%;
   display:flex;align-items:center;justify-content:space-between;
@@ -260,6 +262,88 @@ nav{
 }
 .section-head p{margin-top:.9rem;font-size:.92rem;color:var(--muted);line-height:1.72}
 
+/* ===== ABOUT SECTION ===== */
+.about-section{
+  padding:5.5rem 5%;
+  background:linear-gradient(180deg,#ffffff 0%,#f7f9fe 100%);
+}
+.about-inner{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1.05fr .95fr;
+  gap:2rem;align-items:center;
+}
+.about-copy{max-width:540px}
+.about-copy .section-head{text-align:left;margin:0 0 1.5rem}
+.about-copy .section-head p{max-width:100%}
+.about-points{
+  list-style:none;
+  display:grid;
+  gap:.85rem;
+  margin:1.6rem 0 0;
+}
+.about-points li{
+  display:flex;gap:.8rem;align-items:flex-start;
+  font-size:.9rem;line-height:1.65;color:var(--muted);
+}
+.about-points li svg{
+  width:18px;height:18px;flex-shrink:0;
+  fill:none;stroke:var(--orange);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;
+  margin-top:.15rem;
+}
+.about-panel{
+  background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue-primary) 100%);
+  border-radius:22px;
+  padding:2rem;
+  color:#fff;
+  box-shadow:0 26px 60px rgba(0,35,110,.16);
+  position:relative;
+  overflow:hidden;
+}
+.about-panel::before{
+  content:'';
+  position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50'%3E%3Cpath d='M0 25h50M25 0v50' stroke='rgba(255,255,255,0.05)' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+  background-size:50px 50px;
+}
+.about-panel-inner{position:relative;z-index:1}
+.about-panel h3{
+  font-size:1.4rem;
+  font-weight:900;
+  letter-spacing:-.7px;
+  margin-bottom:.8rem;
+}
+.about-panel p{
+  font-size:.92rem;
+  line-height:1.75;
+  color:rgba(255,255,255,.76);
+}
+.about-metrics{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1rem;
+  margin-top:1.6rem;
+}
+.about-metric{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:16px;
+  padding:1rem;
+}
+.about-metric strong{
+  display:block;
+  font-size:1.35rem;
+  font-weight:900;
+  line-height:1;
+  margin-bottom:.35rem;
+}
+.about-metric span{
+  font-size:.68rem;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.55);
+  font-weight:700;
+}
+
 .carousel-wrap{max-width:1200px;margin:0 auto;position:relative}
 .carousel-viewport{overflow:hidden;border-radius:18px}
 .carousel-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1)}
@@ -382,12 +466,15 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
   .services-grid{grid-template-columns:repeat(2,1fr)}
   .svc-card.svc-center{transform:none;padding:2.5rem 1.8rem 2rem}
   .svc-card.svc-center:hover{transform:translateY(-8px)}
+  .about-inner{grid-template-columns:1fr}
+  .about-copy{max-width:100%}
 }
 @media(max-width:768px){
   .nav-links,.nav-btn{display:none}
   .hamburger{display:flex}
   .services-wrapper{margin-top:-40px}
   .services-grid{grid-template-columns:1fr}
+  .about-section{padding:4.5rem 5%}
   .slide-inner{height:340px}
   .slide-img-ph-box{display:none}
   .footer-inner{flex-direction:column;text-align:center}
@@ -400,8 +487,11 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
   .slide-title{font-size:1.3rem}
   .slide-content{padding:1.5rem 1rem}
   .svc-card{padding:2rem 1.5rem 1.5rem}
-  nav{padding:0 4%}
+  .site-header{padding:0 4%}
   .promo-section{padding:4rem 4%}
+  .about-section{padding:4rem 4%}
+  .about-panel{padding:1.5rem}
+  .about-metrics{grid-template-columns:1fr}
   .services-wrapper{padding:0 4% 4rem}
   .hero{padding:68px 4% 0}
 }
@@ -410,8 +500,8 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
 <body>
 
 <!-- NAV -->
-<nav>
-  <a href="#" class="logo">
+<nav class="site-header">
+  <a href="#home" class="logo">
     <div class="logo-mark">
       <svg viewBox="0 0 24 24"><path d="M5 12.5c0-2.21 3.134-4 7-4s7 1.79 7 4-3.134 4-7 4-7-1.79-7-4z"/><path d="M2 7c0-2.761 4.477-5 10-5s10 2.239 10 5-4.477 5-10 5S2 9.761 2 7z"/><path d="M12 17v5M9 22h6"/></svg>
     </div>
@@ -419,14 +509,14 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
   </a>
 
   <ul class="nav-links">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About Us</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Plans</a></li>
-    <li><a href="#">Contact</a></li>
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="cablelink_plans.html#plans">Plans</a></li>
+    <li><a href="#promos">Promos</a></li>
+    <li><a href="cablelink_plans.html#payment-facilities">Payment Facilities</a></li>
+    <li><a href="#about-us">About Us</a></li>
   </ul>
 
-  <a href="#" class="nav-btn">Get Connected</a>
+  <a href="cablelink_plans.html#plans" class="nav-btn">Get Connected</a>
   <button class="hamburger" id="ham" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -434,16 +524,16 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
 
 <!-- MOBILE MENU -->
 <div class="mob-menu" id="mob">
-  <a href="#">Home</a>
-  <a href="#">About Us</a>
-  <a href="#">Services</a>
-  <a href="#">Plans</a>
-  <a href="#">Contact</a>
-  <a href="#" class="mob-cta">Get Connected</a>
+  <a href="#home">Home</a>
+  <a href="cablelink_plans.html#plans">Plans</a>
+  <a href="#promos">Promos</a>
+  <a href="cablelink_plans.html#payment-facilities">Payment Facilities</a>
+  <a href="#about-us">About Us</a>
+  <a href="cablelink_plans.html#plans" class="mob-cta">Get Connected</a>
 </div>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="home">
   <div class="hero-glow-1"></div>
   <div class="hero-glow-2"></div>
   <div class="blob-big"></div>
@@ -459,8 +549,8 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
       <h1>High-Speed Internet<br>and Cable TV<br>Bundled<span class="dot">.</span></h1>
       <p>Fast, reliable fiber and cable internet with included TV packages — with honest pricing, no hidden fees, and real human support whenever you need it.</p>
       <div class="hero-btns">
-        <a href="#" class="btn-solid">Get Started</a>
-        <a href="#" class="btn-ghost">View Plans</a>
+        <a href="#about-us" class="btn-solid">Get Started</a>
+        <a href="cablelink_plans.html#plans" class="btn-ghost">View Plans</a>
       </div>
     </div>
 
@@ -530,8 +620,60 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
   </div>
 </div>
 
+<!-- ABOUT -->
+<section class="about-section" id="about-us">
+  <div class="about-inner">
+    <div class="about-copy">
+      <div class="section-head">
+        <span class="section-tag">About Us</span>
+        <h2>Built for homes that need speed, reliability, and real support.</h2>
+        <p>Cable Link delivers bundled internet and cable TV plans with clear pricing, practical coverage, and support that actually helps when you need it.</p>
+      </div>
+      <ul class="about-points">
+        <li>
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Fast residential and business-ready connectivity across supported areas.
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Flexible bundles with internet and cable TV options matched to different household needs.
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Transparent pricing, straightforward service terms, and multiple payment channels.
+        </li>
+      </ul>
+    </div>
+
+    <div class="about-panel">
+      <div class="about-panel-inner">
+        <h3>Why customers stay with Cable Link</h3>
+        <p>We focus on stable service, simple plan choices, and practical support. That means less time troubleshooting and more time using the connection you pay for.</p>
+        <div class="about-metrics">
+          <div class="about-metric">
+            <strong>24/7</strong>
+            <span>Support access</span>
+          </div>
+          <div class="about-metric">
+            <strong>2-in-1</strong>
+            <span>Internet + TV bundles</span>
+          </div>
+          <div class="about-metric">
+            <strong>99.9%</strong>
+            <span>Target uptime</span>
+          </div>
+          <div class="about-metric">
+            <strong>Multiple</strong>
+            <span>Payment options</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PROMO CAROUSEL -->
-<section class="promo-section">
+<section class="promo-section" id="promos">
   <div class="section-head">
     <span class="section-tag">Hot Deals</span>
     <h2>Exclusive Promos & Bundles</h2>
