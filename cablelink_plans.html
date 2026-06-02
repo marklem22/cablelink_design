@@ -299,8 +299,9 @@
     }
 
     .plans-sidebar {
+      margin-top: 59px;
       position: sticky;
-      top: 96px;
+      top: 16px;
       z-index: 6;
       align-self: start;
       max-height: none;
@@ -440,16 +441,7 @@
         0 1px 2px rgba(16, 24, 40, 0.06) inset;
     }
     .chip.active::before {
-      content: "✓";
-      width: 16px;
-      height: 16px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      font-size: 10px;
-      line-height: 1;
-      background: var(--midnight-blue-1);
-      color: #fff;
+      content: none;
     }
 
     .filter-reset {
@@ -513,22 +505,23 @@
 
     .plans-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 3fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 20px;
-      min-width: 380px;
+      min-width: 0;
     }
 
     .plan-card {
       background: linear-gradient(135deg, #f0f8ff 0%, #e6f4ff 100%);
-      border: 0.5px solid rgba(225, 120, 0, 0.5);
       border-radius: 22px;
      
-      padding: 26px;
+      padding: 20px;
       box-shadow: 0 8px 30px rgba(14,27,74,0.09);
       position: relative;
       display: flex;
       flex-direction: column;
       gap: 0;
+      align-items: center;
+      text-align: center;
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
       color: var(--charcoal);
       animation: floatUp 0.5s ease both;
@@ -569,6 +562,7 @@
       font-size: 20px; font-weight: 700;
       line-height: 1.15; margin-bottom: 4px;
       color: var(--midnight-blue-1);
+      text-align: center;
     }
 
     .plan-name-prefix {
@@ -591,7 +585,10 @@
     .plan-tech {
       display: flex;
       align-items: center;
+      justify-content: center;
       min-height: 20px;   /* reduce reserved vertical space */
+      width: 100%;
+      margin-bottom: 4px;
     }
 
     .plan-tech img {
@@ -605,40 +602,49 @@
 
     .plan-speed {
       font-family: "Sora", sans-serif;
-      font-size: 40px; font-weight: 700; line-height: 1;
+      font-size: 34px; font-weight: 700; line-height: 1;
+      text-align: center;
     }
     .plan-speed span {
       font-size: 16px; font-weight: 500; color: var(--muted);
     }
 
     .plan-price-row {
-      margin-top: 6px;
-      margin-bottom: 12px;
-      align-items: baseline;
-      justify-content: flex-start;
-      gap: 12px;
-      flex-wrap: nowrap; /* keep price and label on one line */
+      margin-top: 8px;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      flex-wrap: nowrap;
     }
     .plan-price {
-      font-size: 26px; font-weight: 700;
+      font-size: 24px; font-weight: 700;
       color: var(--dark-slate-blue-1);
       font-family: "Sora", sans-serif;
       white-space: nowrap; /* avoid breaking the currency/value */
-      min-width: 4px; /* reserve space so price doesn't get pushed */
-      flex: 0 0 auto;
     }
-    .plan-price-label { font-size: 12px; color: var(--muted); flex: 1 1 auto; }
+    .plan-price-label { font-size: 12px; color: var(--muted); }
 
     .plan-divider {
-      height: 1px; background: rgba(0,28,67,0.08); margin: 14px 0;
+      height: 1px; background: rgba(0,28,67,0.08); margin: 12px 0;
+      width: 100%;
     }
 
     .plan-features {
       list-style: none; display: grid; gap: 10px;
       color: var(--muted); font-size: 13px;
-      margin-bottom: 20px; flex: 1;
+      margin-bottom: 18px; flex: 1;
+      width: 100%;
     }
-    .plan-features li { display: flex; align-items: center; gap: 10px; }
+    .plan-features li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-align: center;
+    }
     .plan-features li::before {
       content: "";
       width: 8px; height: 8px; border-radius: 50%;
@@ -649,10 +655,10 @@
 
     .plan-card .btn {
       display: block;
-      margin: 12px auto 0; /* center the button */
-      width: calc(100% - 28px);
-      max-width: 300px;
-      padding: 10px 14px;
+      margin: 8px auto 0;
+      width: 100%;
+      max-width: 220px;
+      padding: 9px 14px;
       border-radius: 12px;
       font-size: 14px;
       text-align: center;
@@ -959,11 +965,11 @@
       }
 
       .plan-card {
-        padding: 18px;
+        padding: 16px;
         border-radius: 18px;
       }
 
-      .plan-speed { font-size: 34px; }
+      .plan-speed { font-size: 30px; }
       .plan-price { font-size: 20px; }
 
       .filter-reset { padding: 10px; font-size: 13px; }
@@ -983,27 +989,26 @@
       }
 
       .plan-card {
-        padding: 20px;
+        padding: 14px;
         border-radius: 14px;
       
       }
 
       .plan-name {
-        font-size: 13px;
+        font-size: 12px;
         line-height: 1.05;
         margin-bottom: 6px;
       }
 
-      .plan-name-prefix { font-size: 11px; }
-      .plan-name-main { font-size: 12px; }
+      .plan-name-prefix { font-size: 10px; }
+      .plan-name-main { font-size: 11px; }
 
-      .plan-speed { font-size: 28px; }
+      .plan-speed { font-size: 24px; }
       .plan-speed span { font-size: 12px; display: inline; }
 
       .plan-price { font-size: 14px; }
       .plan-price-label { display: block; font-size: 11px; }
       /* smaller reserved space on narrow mobile */
-      .plan-price { min-width: 64px; }
 
       .plan-tech img { width: 64px; max-height: 28px; }
 
@@ -1223,10 +1228,10 @@ function priceBucket(p) {
 }
 
 function tierLabel(tier) {
-  return tier === "supercharged" ? "⚡ Supercharged" : "🔥 Turbocharged";
+  return tier === "supercharged" ? "Supercharged" : "Turbocharged";
 }
 function lineLabel(line) {
-  return line === "fiberlink" ? "🔵 FiberLink (FTTH)" : "🟠 I-Blaze (DOCSIS)";
+  return line === "fiberlink" ? "FiberLink (FTTH)" : "I-Blaze (DOCSIS)";
 }
 
 function lineIcon(line) {

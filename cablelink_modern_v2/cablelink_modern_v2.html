@@ -203,7 +203,8 @@ nav{
 }
 .services-grid{
   max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  align-items:center;
 }
 .svc-card{
   background:#fff;
@@ -215,6 +216,16 @@ nav{
   transition:transform .3s,box-shadow .3s;
 }
 .svc-card:hover{transform:translateY(-8px);box-shadow:0 16px 48px rgba(0,70,176,.18)}
+.svc-card.svc-center{
+  padding:3.2rem 2rem 2.6rem;
+  border-radius:8px;
+  box-shadow:0 16px 56px rgba(0,70,176,.18);
+  border:1px solid rgba(0,70,176,.1);
+  transform:scaleY(1.08);
+  z-index:2;
+  position:relative;
+}
+.svc-card.svc-center:hover{transform:scaleY(1.08) translateY(-6px);box-shadow:0 24px 64px rgba(0,70,176,.24)}
 .svc-icon{
   width:72px;height:72px;border-radius:18px;
   display:flex;align-items:center;justify-content:center;
@@ -369,6 +380,8 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
   .hero-btns{justify-content:center}
   .hero-visual{display:none}
   .services-grid{grid-template-columns:repeat(2,1fr)}
+  .svc-card.svc-center{transform:none;padding:2.5rem 1.8rem 2rem}
+  .svc-card.svc-center:hover{transform:translateY(-8px)}
 }
 @media(max-width:768px){
   .nav-links,.nav-btn{display:none}
@@ -492,7 +505,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
       <a href="#" class="svc-btn">Learn More</a>
     </div>
 
-    <div class="svc-card">
+    <div class="svc-card svc-center">
       <div class="svc-icon c">
         <svg viewBox="0 0 24 24" stroke="var(--orange)">
           <rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/>

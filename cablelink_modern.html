@@ -319,10 +319,9 @@
       color: var(--white);
       position: relative;
       overflow: hidden;
-      min-height: 100vh;
-      min-height: 100svh;
-      display: flex;
-      flex-direction: column;
+      border-bottom-left-radius: 28px;
+      border-bottom-right-radius: 28px;
+      padding-top: 80px;
       background: linear-gradient(135deg, rgba(11, 16, 39, 0.97) 0%, rgba(9, 13, 29, 0.99) 100%);
     }
 
@@ -331,7 +330,7 @@
       grid-template-columns: minmax(340px, 0.95fr) minmax(0, 1.05fr);
       gap: 0;
       align-items: stretch;
-      min-height: clamp(360px, calc(100svh - 280px), 520px);
+      min-height: 520px;
       overflow: hidden;
       background: rgba(6, 8, 22, 0.18);
       box-shadow: 0 34px 80px rgba(0, 0, 0, 0.24);
@@ -386,204 +385,6 @@
       justify-content: flex-start;
       gap: var(--space-2);
       flex-wrap: wrap;
-    }
-
-    .hero-services {
-      width: min(var(--content-width), calc(100% - 48px));
-      margin: clamp(16px, 2.5svh, 24px) auto clamp(18px, 3svh, 28px);
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--space-2);
-    }
-
-    .hero-service-card {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: center;
-      gap: 14px;
-      min-height: 118px;
-      padding: 18px;
-      border-radius: var(--radius-sm);
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      color: var(--white);
-      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.18);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-    }
-
-    .hero-service-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(242, 100, 19, 0.42);
-      background: rgba(255, 255, 255, 0.14);
-    }
-
-    .hero-service-card__icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      color: var(--white);
-      background: linear-gradient(140deg, var(--slate-dark), var(--steel));
-      box-shadow: 0 12px 24px rgba(0, 70, 176, 0.28);
-    }
-
-    .hero-service-card__icon svg {
-      width: 21px;
-      height: 21px;
-      stroke-width: 2;
-    }
-
-    .hero-service-card h2 {
-      font-family: "Montserrat", sans-serif;
-      font-size: 17px;
-      line-height: 1.2;
-      color: var(--white);
-      margin-bottom: 4px;
-    }
-
-    .hero-service-card p {
-      color: rgba(255, 255, 255, 0.76);
-      font-size: 13px;
-      line-height: 1.45;
-    }
-
-    .hero-service-card__arrow {
-      width: 32px;
-      height: 32px;
-      border-radius: 10px;
-      display: grid;
-      place-items: center;
-      color: var(--orange);
-      background: rgba(242, 100, 19, 0.12);
-      border: 1px solid rgba(242, 100, 19, 0.22);
-      flex-shrink: 0;
-    }
-
-    .hero-service-card__arrow svg {
-      width: 17px;
-      height: 17px;
-      stroke-width: 2.4;
-    }
-
-    .service-hover-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 9000;
-      display: grid;
-      align-items: center;
-      justify-items: start;
-      padding: 96px clamp(18px, 5vw, 72px) 32px;
-      background: rgba(4, 8, 22, 0);
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.22s ease, background 0.22s ease;
-    }
-
-    .service-hover-modal.is-visible {
-      opacity: 1;
-      background: rgba(4, 8, 22, 0.42);
-    }
-
-    .service-hover-modal__panel {
-      width: min(460px, calc(100vw - 36px));
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      color: var(--white);
-      background:
-        radial-gradient(circle at 12% 0%, rgba(242, 100, 19, 0.24), transparent 36%),
-        linear-gradient(145deg, rgba(8, 18, 48, 0.98), rgba(0, 28, 67, 0.98));
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      box-shadow: 0 34px 90px rgba(0, 0, 0, 0.42);
-      transform: translateX(-48px);
-      transition: transform 0.32s ease;
-    }
-
-    .service-hover-modal.is-visible .service-hover-modal__panel {
-      transform: translateX(0);
-    }
-
-    .service-hover-modal__media {
-      min-height: 150px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, rgba(51, 122, 183, 0.22), rgba(242, 100, 19, 0.15));
-    }
-
-    .service-hover-modal__media svg {
-      width: 72px;
-      height: 72px;
-      stroke-width: 1.5;
-      color: rgba(255, 255, 255, 0.9);
-    }
-
-    .service-hover-modal__content {
-      padding: var(--space-4);
-    }
-
-    .service-hover-modal__eyebrow {
-      display: inline-flex;
-      margin-bottom: 10px;
-      padding: 5px 12px;
-      border-radius: var(--radius-pill);
-      color: #ffd8c3;
-      background: rgba(242, 100, 19, 0.14);
-      border: 1px solid rgba(242, 100, 19, 0.26);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .service-hover-modal h3 {
-      font-family: "Montserrat", sans-serif;
-      font-size: clamp(24px, 3vw, 34px);
-      line-height: 1.12;
-      margin-bottom: var(--space-1);
-    }
-
-    .service-hover-modal p {
-      color: rgba(255, 255, 255, 0.78);
-      font-size: 15px;
-      line-height: 1.55;
-    }
-
-    .service-hover-modal__list {
-      display: grid;
-      gap: 9px;
-      margin: var(--space-3) 0;
-      list-style: none;
-    }
-
-    .service-hover-modal__list li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: rgba(255, 255, 255, 0.86);
-      font-size: 14px;
-    }
-
-    .service-hover-modal__list li::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--orange);
-      flex: 0 0 auto;
-    }
-
-    .service-hover-modal__cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 18px;
-      border-radius: var(--radius-pill);
-      background: var(--white);
-      color: var(--midnight);
-      font-weight: 700;
-      font-size: 14px;
     }
 
     /* STRIP */
@@ -1708,27 +1509,7 @@
 
       .hero-content {
         grid-template-columns: 1fr 1fr;
-        min-height: clamp(340px, calc(100svh - 260px), 440px);
-      }
-
-      .hero-services {
-        width: calc(100% - 40px);
-        gap: 12px;
-      }
-
-      .hero-service-card {
-        grid-template-columns: 1fr;
-        align-content: start;
-        min-height: 148px;
-      }
-
-      .hero-service-card__arrow {
-        display: none;
-      }
-
-      .service-hover-modal {
-        align-items: start;
-        padding-top: 92px;
+        min-height: 440px;
       }
 
       .pricing {
@@ -1813,6 +1594,9 @@
         display: none;
       }
 
+      .hero {
+        padding-top: 72px;
+      }
 
       .hero-content {
         grid-template-columns: 1fr;
@@ -1822,67 +1606,16 @@
 
       .hero-copy {
         justify-items: center;
-        gap: 12px;
-        padding: 22px var(--space-3);
-      }
-
-      .hero h1 {
-        font-size: clamp(30px, 9.5vw, 40px);
+        padding: var(--space-5) var(--space-3) var(--space-5);
       }
 
       .hero-actions {
         justify-content: center;
-        gap: 10px;
       }
 
       .hero-visual {
-        min-height: clamp(140px, 24svh, 210px);
+        min-height: 240px;
         order: -1;
-      }
-
-      .hero-services {
-        width: calc(100% - 32px);
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 8px;
-        margin: 8px auto 14px;
-      }
-
-      .hero-service-card {
-        min-height: 84px;
-        grid-template-columns: 1fr;
-        justify-items: center;
-        gap: 7px;
-        padding: 10px 6px;
-        text-align: center;
-      }
-
-      .hero-service-card__icon {
-        width: 34px;
-        height: 34px;
-      }
-
-      .hero-service-card__icon svg {
-        width: 18px;
-        height: 18px;
-      }
-
-      .hero-service-card h2 {
-        font-size: 13px;
-        line-height: 1.15;
-        margin-bottom: 0;
-        overflow-wrap: anywhere;
-      }
-
-      .hero-service-card p {
-        display: none;
-      }
-
-      .hero-service-card__arrow {
-        display: none;
-      }
-
-      .service-hover-modal {
-        display: none;
       }
 
       .showcase-grid,
@@ -2071,94 +1804,21 @@
     <section class="hero" aria-label="Hero">
       <div class="hero-content animate">
         <div class="hero-visual" aria-hidden="true">
-          <img src="/assets/people/turbocharge_fiber.png" alt="Family enjoying fast internet and cable TV at home" />
+          <img src="image6.jpg" alt="Family enjoying fast internet and cable TV at home" />
         </div>
         <div class="hero-copy">
-          <!-- <div class="pill pill--dark">Serving Philippine homes</div> -->
+          <div class="pill pill--dark">Serving Philippine homes</div>
           <h1 class="hero-title">High-Speed Internet<br />and <span class="highlight">Cable TV</span> Bundled.</h1>
           <p class="hero-lead">Fast, reliable fiber and cable internet with included TV packages — with honest pricing,
             <span class="text-accent">no hidden fees</span>, and real human support whenever you need it.
           </p>
           <div class="hero-actions">
-            <!-- <a class="btn btn--primary btn--pill btn--lg" href="#plans">Check availability</a>
-            <a class="btn btn--ghost btn--pill btn--lg" href="#plans">View plans</a> -->
+            <a class="btn btn--primary btn--pill btn--lg" href="#plans">Check availability</a>
+            <a class="btn btn--ghost btn--pill btn--lg" href="#plans">View plans</a>
           </div>
         </div>
-      </div>
-      <div class="hero-services" aria-label="CableLink services">
-        <a class="hero-service-card" href="#cable-tv" aria-label="View Cable TV packages" data-service-preview="cable">
-          <span class="hero-service-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="5" width="18" height="12" rx="2" />
-              <path d="M8 21h8" />
-              <path d="M12 17v4" />
-            </svg>
-          </span>
-          <div class="hero-service-card__body">
-            <h2>Cable TV</h2>
-            <p>Live channels and simple home entertainment packages for every household.</p>
-          </div>
-          <span class="hero-service-card__arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14" />
-              <path d="m13 6 6 6-6 6" />
-            </svg>
-          </span>
-        </a>
-        <a class="hero-service-card" href="#plans" aria-label="View Internet plans" data-service-preview="internet">
-          <span class="hero-service-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 13a10 10 0 0 1 14 0" />
-              <path d="M8.5 16.5a5 5 0 0 1 7 0" />
-              <path d="M12 20h.01" />
-              <path d="M2 9a15 15 0 0 1 20 0" />
-            </svg>
-          </span>
-          <div class="hero-service-card__body">
-            <h2>Internet</h2>
-            <p>Reliable fiber and cable internet plans built for streaming, work, and school.</p>
-          </div>
-          <span class="hero-service-card__arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14" />
-              <path d="m13 6 6 6-6 6" />
-            </svg>
-          </span>
-        </a>
-        <a class="hero-service-card" href="#contact" aria-label="Contact CableLink for corporate services">
-          <span class="hero-service-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="7" width="18" height="14" rx="2" />
-              <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-              <path d="M3 13h18" />
-            </svg>
-          </span>
-          <div class="hero-service-card__body">
-            <h2>Corporate</h2>
-            <p>Business connectivity and account support for teams, offices, and properties.</p>
-          </div>
-          <span class="hero-service-card__arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14" />
-              <path d="m13 6 6 6-6 6" />
-            </svg>
-          </span>
-        </a>
       </div>
     </section>
-
-    <div class="service-hover-modal" id="service-hover-modal" aria-hidden="true">
-      <div class="service-hover-modal__panel" role="dialog" aria-modal="false" aria-live="polite">
-        <div class="service-hover-modal__media" aria-hidden="true"></div>
-        <div class="service-hover-modal__content">
-          <span class="service-hover-modal__eyebrow"></span>
-          <h3></h3>
-          <p></p>
-          <ul class="service-hover-modal__list"></ul>
-          <span class="service-hover-modal__cta"></span>
-        </div>
-      </div>
-    </div>
 
     <!-- PAYMENT STRIP -->
     <div class="strip" aria-label="Accepted payment methods">
@@ -2564,72 +2224,6 @@
 
   <!-- SCRIPTS -->
   <script>
-    (() => {
-      const modal = document.getElementById('service-hover-modal');
-      const cards = document.querySelectorAll('[data-service-preview]');
-      if (!modal || !cards.length) return;
-
-      const modalMedia = modal.querySelector('.service-hover-modal__media');
-      const modalEyebrow = modal.querySelector('.service-hover-modal__eyebrow');
-      const modalTitle = modal.querySelector('h3');
-      const modalText = modal.querySelector('p');
-      const modalList = modal.querySelector('.service-hover-modal__list');
-      const modalCta = modal.querySelector('.service-hover-modal__cta');
-
-      const servicePreviews = {
-        cable: {
-          eyebrow: 'Cable TV',
-          title: 'Cable entertainment for the whole household',
-          text: 'Browse local and international channels with clear package choices and simple monthly billing.',
-          cta: 'View Cable TV packages',
-          icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="12" rx="2"></rect><path d="M8 21h8"></path><path d="M12 17v4"></path></svg>',
-          points: ['65 to 126 live TV channels', 'Standalone and bundled options', 'Easy add-on path with internet']
-        },
-        internet: {
-          eyebrow: 'Internet',
-          title: 'Fast home internet for work, streaming, and school',
-          text: 'Choose reliable CableLink internet bundles with speeds built around everyday household usage.',
-          cta: 'View Internet plans',
-          icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13a10 10 0 0 1 14 0"></path><path d="M8.5 16.5a5 5 0 0 1 7 0"></path><path d="M12 20h.01"></path><path d="M2 9a15 15 0 0 1 20 0"></path></svg>',
-          points: ['Fiber and cable internet options', 'Bundles with Basic Plus TV', 'Plans for streaming and video calls']
-        }
-      };
-
-      const showPreview = (type) => {
-        const preview = servicePreviews[type];
-        if (!preview) return;
-
-        modalMedia.innerHTML = preview.icon;
-        modalEyebrow.textContent = preview.eyebrow;
-        modalTitle.textContent = preview.title;
-        modalText.textContent = preview.text;
-        modalCta.textContent = preview.cta;
-        modalList.innerHTML = preview.points.map(point => `<li>${point}</li>`).join('');
-
-        modal.classList.remove('is-visible');
-        modal.setAttribute('aria-hidden', 'false');
-        window.requestAnimationFrame(() => {
-          modal.classList.add('is-visible');
-        });
-      };
-
-      const hidePreview = () => {
-        modal.classList.remove('is-visible');
-        modal.setAttribute('aria-hidden', 'true');
-      };
-
-      cards.forEach(card => {
-        card.addEventListener('mouseenter', () => showPreview(card.dataset.servicePreview));
-        card.addEventListener('focus', () => showPreview(card.dataset.servicePreview));
-        card.addEventListener('mouseleave', hidePreview);
-        card.addEventListener('blur', hidePreview);
-      });
-
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') hidePreview();
-      });
-    })();
-
     (() => {
       const toggle = document.querySelector('.nav-toggle');
       const drawer = document.getElementById('off-canvas-drawer');
