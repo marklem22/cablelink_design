@@ -2,5 +2,5 @@
   "workbench.browser.enableChatTools": false,
   "workbench.browser.openLocalhostLinks": false,
   "liveServer.settings.NoBrowser": true,
-  "liveServer.settings.port": 5501
+  "liveServer.settings.port": 5504
 }

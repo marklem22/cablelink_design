@@ -32,35 +32,66 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 #plans,#payment-facilities{scroll-margin-top:88px}
 
 /* ===== NAV ===== */
-.site-header{
+nav{
   position:fixed;top:0;left:0;right:0;z-index:900;
   height:68px;padding:0 5%;
   display:flex;align-items:center;justify-content:space-between;
-  background:rgba(0,28,88,0.96);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(255,255,255,0.08);
+  background:rgba(0,28,88,0.97);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.07);
 }
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo-mark{width:38px;height:38px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-mark{
+  width:38px;height:38px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.logo-mark svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .logo-mark img{width:100%;height:100%;object-fit:contain;display:block}
-.logo-text{font-size:1.1rem;font-weight:500;color:#fff;letter-spacing:-0.4px;font-family:"SF Grandezza Medium V2",'Montserrat',sans-serif;line-height:1}
-.logo-text em{color:var(--orange);font-style:normal}
+.logo-text{color:#fff;font-family:"SF Grandezza Medium V2",'Montserrat',sans-serif;font-size:1.1rem;font-weight:500;letter-spacing:-0.4px;line-height:1}
 .nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:.85rem;font-weight:500;transition:color .2s}
+.nav-links a{
+  color:rgba(255,255,255,.75);text-decoration:none;
+  font-size:.85rem;font-weight:500;
+  font-family:var(--font);
+  transition:color .2s;
+  position:relative;
+}
 .nav-links a:hover{color:#fff}
-.nav-links a.active{color:var(--orange)}
-.nav-btn{background:var(--orange);color:#fff;padding:10px 24px;border-radius:7px;font-family:var(--font);font-size:.85rem;font-weight:700;text-decoration:none;letter-spacing:.4px;transition:background .2s,transform .15s;border:none;cursor:pointer}
-.nav-btn:hover{background:var(--orange-dark);transform:translateY(-1px)}
+.nav-links a.active{color:#fff}
+.nav-links a.active::after{
+  content:'';position:absolute;bottom:-4px;left:0;right:0;
+  height:2px;background:var(--orange);border-radius:2px;
+}
+.nav-cta{
+  background:var(--orange);color:#fff;
+  padding:10px 22px;border-radius:7px;
+  font-family:var(--font);font-size:.82rem;font-weight:700;
+  text-decoration:none;letter-spacing:.4px;
+  transition:background .2s,transform .15s;border:none;cursor:pointer;
+}
+.nav-cta:hover{background:var(--orange-dark);transform:translateY(-1px)}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none}
-.hamburger span{display:block;width:23px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
-.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-.hamburger.active span:nth-child(2){opacity:0}
-.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.mob-menu{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(0,22,72,0.98);padding:1.5rem 5%;flex-direction:column;gap:0;z-index:899}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mob-menu{
+  display:none;position:fixed;top:68px;left:0;right:0;
+  background:rgba(0,20,70,.98);backdrop-filter:blur(16px);
+  padding:1.2rem 5%;flex-direction:column;gap:0;z-index:899;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
 .mob-menu.open{display:flex}
-.mob-menu a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:.95rem;font-weight:500;padding:.85rem 0;border-bottom:1px solid rgba(255,255,255,0.07);display:block;transition:color .2s}
+.mob-menu a{
+  color:rgba(255,255,255,.8);text-decoration:none;
+  font-size:.92rem;font-weight:500;font-family:var(--font);
+  padding:.85rem 0;border-bottom:1px solid rgba(255,255,255,.06);display:block;
+}
 .mob-menu a:hover{color:#fff}
-.mob-menu .mob-cta{margin-top:1rem;text-align:center;border-bottom:none;background:var(--orange);color:#fff;border-radius:7px;padding:12px;font-weight:700}
+.mob-cta-mob{
+  margin-top:1rem;text-align:center;border-bottom:none!important;
+  background:var(--orange);color:#fff;border-radius:7px;padding:12px;font-weight:700!important;
+}
 
 /* ===== PAGE HERO ===== */
 .page-hero{
@@ -328,15 +359,22 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 
 /* ===== FOOTER ===== */
 footer{background:#000e2e;padding:2rem 5%}
-.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-inner{
+  max-width:1280px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+}
 .footer-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
-.footer-logo .logo-mark{width:32px;height:32px}
-.footer-logo .logo-mark img{width:100%;height:100%;object-fit:contain;display:block}
-.footer-logo span{font-size:1rem;font-weight:500;color:#fff;font-family:"SF Grandezza Medium V2",'Montserrat',sans-serif;letter-spacing:-0.4px;line-height:1}
+.footer-logo .logo-mark{width:32px;height:32px;border-radius:7px}
+.footer-logo span{font-size:1.1rem;font-weight:900;color:#fff;font-family:var(--font)}
 .footer-logo em{color:var(--orange);font-style:normal}
-footer p{font-size:.8rem;color:rgba(255,255,255,.42)}
+footer p{font-size:.78rem;color:rgba(255,255,255,.38)}
 .footer-links{display:flex;gap:1.5rem}
-.footer-links a{font-size:.8rem;color:rgba(255,255,255,.48);text-decoration:none;transition:color .2s}
+.footer-links a{
+  font-size:.78rem;color:rgba(255,255,255,.45);
+  text-decoration:none;transition:color .2s;
+  font-family:var(--font);
+}
 .footer-links a:hover{color:#fff}
 
 /* ===== RESPONSIVE ===== */
@@ -345,7 +383,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.42)}
   .tech-explainer{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
-  .nav-links,.nav-btn{display:none}
+  .nav-links,.nav-cta{display:none}
   .hamburger{display:flex}
   .plan-grid{grid-template-columns:repeat(2,1fr)}
   .cable-grid{grid-template-columns:1fr}
@@ -359,7 +397,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.42)}
   .pay-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:480px){
-  .site-header{padding:0 4%}
+  nav{padding:0 4%}
   .page-hero{padding:6.5rem 4% 3.5rem}
   .plans-section{padding:2.5rem 4% 4rem}
   .filter-bar{padding:.7rem 4%}
@@ -382,32 +420,36 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.42)}
 <body>
 
 <!-- NAV -->
-<nav class="site-header">
+<nav role="banner">
   <a href="cablelink_modern_v2.html#home" class="logo">
     <div class="logo-mark">
       <img src="../cablelink_messy_design/assets/icons/cablelink_logo.png" alt="Cable Link">
     </div>
-    <span class="logo-text">Cable<em>Link</em></span>
+    <span class="logo-text">CABLELINK</em></span>
   </a>
-  <ul class="nav-links">
-    <li><a href="cablelink_modern_v2.html#home">Home</a></li>
-    <li><a href="#plans" class="active">Plans</a></li>
-    <li><a href="cablelink_modern_v2.html#promos">Promos</a></li>
-    <li><a href="cablelink_payment.html#payment-facilities">Payment Facilities</a></li>
-    <li><a href="cablelink_modern_v2.html#about-us">About Us</a></li>
+  <ul class="nav-links" role="list">
+    <li><a href="cablelink_modern_v2.html">Home</a></li>
+    <li><a href="cablelink_plans.html#plans" class="active">Plans</a></li>
+    <li><a href="cablelink_promos.html">Promos</a></li>
+    <li><a href="cablelink_payment.html#payment-facilities" >Payment Facilities</a></li>
+    <li><a href="#about-us">About Us</a></li>
   </ul>
-  <a href="#payment-facilities" class="nav-btn">Get Connected</a>
-  <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  <a href="cablelink_apply.html" class="nav-cta">Apply Now</a>
+  <button class="hamburger" id="ham" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- MOBILE MENU -->
-<div class="mob-menu" id="mob">
-  <a href="cablelink_modern_v2.html#home">Home</a>
-  <a href="#plans" style="color:var(--orange)">Plans</a>
-  <a href="cablelink_modern_v2.html#promos">Promos</a>
-  <a href="cablelink_payment.html#payment-facilities">Payment Facilities</a>
+<div class="mob-menu" id="mob" aria-hidden="true" role="navigation">
+  <a href="cablelink_modern_v2.html">Home</a>
   <a href="cablelink_modern_v2.html#about-us">About Us</a>
-  <a href="#payment-facilities" class="mob-cta">Get Connected</a>
+  <a href="cablelink_modern_v2.html#services">Services</a>
+  <a href="cablelink_plans.html" style="color:var(--orange)">Plans</a>
+  <a href="cablelink_promos.html">Promos</a>
+  <a href="cablelink_payment.html">Payment</a>
+  <a href="cablelink_modern_v2.html#contact">Contact</a>
+  <a href="cablelink_apply.html" class="mob-cta-mob">Apply Now</a>
 </div>
 
 <!-- PAGE HERO -->
@@ -615,7 +657,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.42)}
   <h2>Ready to Get Connected?</h2>
   <p>Join thousands of happy customers across the Philippines enjoying fast, reliable Cable Link service.</p>
   <div class="cta-btns">
-    <a href="#" class="btn-solid">Get Connected Today</a>
+    <a href="cablelink_apply.html" class="btn-solid">Get Connected Today</a>
     <a href="#" class="btn-ghost">Talk to Us</a>
   </div>
 </div>
@@ -623,19 +665,19 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.42)}
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <a href="#" class="footer-logo">
-      <div class="logo-mark">
-        <img src="../cablelink_messy_design/assets/icons/cablelink_logo.png" alt="Cable Link">
+    <a href="cablelink_modern_v2.html" class="footer-logo">
+      <div class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12l3 3 5-5"/></svg>
       </div>
-      <span>CABLELINK</span>
+      <span>Cable<em>Link</em></span>
     </a>
-    <nav class="footer-links">
+    <p>© 2025 CableLink. All rights reserved.</p>
+    <div class="footer-links">
       <a href="#">Privacy</a>
       <a href="#">Terms</a>
       <a href="#">Support</a>
       <a href="#">Careers</a>
-    </nav>
-    <p>© 2025 CableLink. All rights reserved.</p>
+    </div>
   </div>
 </footer>
 
@@ -739,7 +781,7 @@ function bundleCard(item, meta){
     +     '<li>'+ck+' '+meta.tv+' Cable Package</li>'
     +     '<li>'+ck+' '+meta.techLabel+'</li>'
     +   '</ul>'
-    +   '<a href="#" class="card-cta '+ctaCls+'">Get This Plan</a>'
+    +   '<a href="cablelink_apply.html?service=bundle&family='+meta.cardType+'&tech='+(meta.techSVG==='wifi'?'iblaze':'fiberlink')+'&speed='+item.spd+'&price='+item.price+'&tv='+encodeURIComponent(meta.tv)+'" class="card-cta '+ctaCls+'">Get This Plan</a>'
     + '</div>'
     + '</div>';
 }
@@ -749,6 +791,7 @@ function cableCard(plan){
   var hasPrice = plan.price !== null;
   var highlight = plan.highlight;
   var cardExtra = highlight ? ' is-popular' : '';
+  var applyParams = '?service=tv&tvplan='+encodeURIComponent(plan.name.toLowerCase().replace(/\s+/g,'-'))+'&tvname='+encodeURIComponent(plan.name)+(hasPrice?'&price='+plan.price:'');
   return '<div class="plan-card cable-only'+cardExtra+'">'
     + (highlight ? '<div class="card-badge pop">Most Channels</div>' : '')
     + '<div class="card-top ct-cable">'
@@ -768,7 +811,7 @@ function cableCard(plan){
     +     '<li>'+SVG.ckO+' Digitally Activated Areas</li>'
     +     '<li>'+SVG.ckO+' No Internet Required</li>'
     +   '</ul>'
-    +   '<a href="#" class="card-cta '+(hasPrice ? 'cta-orange-glow' : 'cta-outline')+'">'+
+    +   '<a href="cablelink_apply.html'+applyParams+'" class="card-cta '+(hasPrice ? 'cta-orange-glow' : 'cta-outline')+'">'+
     (hasPrice ? 'Subscribe Now' : 'Contact for Price')+'</a>'
     + '</div>'
     + '</div>';
@@ -813,12 +856,12 @@ document.addEventListener('DOMContentLoaded', function(){
   var ham = document.getElementById('ham');
   var mob = document.getElementById('mob');
   ham.addEventListener('click', function(){
-    ham.classList.toggle('active');
+    ham.classList.toggle('open');
     mob.classList.toggle('open');
   });
   document.addEventListener('click', function(e){
     if(!ham.contains(e.target) && !mob.contains(e.target)){
-      ham.classList.remove('active');
+      ham.classList.remove('open');
       mob.classList.remove('open');
     }
   });
