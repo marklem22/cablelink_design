@@ -35,7 +35,7 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 /* ===== NAV ===== */
 .site-header{
   position:fixed;top:0;left:0;right:0;z-index:900;
-  height:68px;padding:0 5%;
+  height:68px;padding:0 2%;
   display:flex;align-items:center;justify-content:space-between;
   background:rgba(0,28,88,0.96);
   backdrop-filter:blur(12px);
@@ -50,13 +50,13 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 }
 .logo-mark img{width:100%;height:100%;object-fit:contain;display:block}
 .logo-text{color:#fff;font-family:"SF Grandezza Medium V2",'Montserrat',sans-serif;font-size:1.1rem;font-weight:500;letter-spacing:-0.4px;line-height:1}
-.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links{display:flex;gap:2vw;list-style:none}
 .nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:.85rem;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:#fff}
 .nav-btn{
   background:var(--orange);color:#fff;
-  padding:10px 24px;border-radius:7px;
-  font-family:var(--font);font-size:.85rem;font-weight:700;
+  padding:.70em 1.30em;border-radius:7px;
+  font-family:var(--font);font-size:.75rem;font-weight:700;
   text-decoration:none;letter-spacing:.4px;
   transition:background .2s,transform .15s;
   border:none;cursor:pointer;
@@ -89,36 +89,36 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 
 /* ===== BANNER CAROUSEL ===== */
 .banner-carousel{
-  position:relative;width:100%;
-  overflow:hidden;line-height:0;
+  position:relative;width:100%;line-height:0;
 }
-.banner-track-wrap{overflow:hidden; margin:5%; border-radius: 20px;}
+.banner-track-wrap{box-shadow:1px 12px 60px 0px rgb(0 50 200 / 36%);overflow:hidden; margin:5%; border-radius: 20px;}
 .banner-track{display:flex;transition:transform .6s cubic-bezier(.4,0,.2,1)}
 .banner-slide{min-width:100%;position:relative;line-height:0}
 .banner-slide img{width:100%;height:auto;max-height:480px;object-fit:cover;object-position:center;display:block}
 .banner-arrow{
   position:absolute;top:50%;transform:translateY(-50%);z-index:20;
   width:48px;height:48px;border-radius:50%;
-  background:rgba(0,0,0,.45);border:2px solid rgba(255,255,255,.25);
+  background:rgb(255, 255, 255);border:1px solid #034db691;
   color:#fff;cursor:pointer;
   display:flex;align-items:center;justify-content:center;
   transition:background .2s,border-color .2s,transform .2s;
   backdrop-filter:blur(6px);
 }
-.banner-arrow:hover{background:var(--orange);border-color:var(--orange);transform:translateY(-50%) scale(1.08)}
-.banner-arrow svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.banner-arrow:hover{background:#034db691;border-color:#ffffff;transform:translateY(-50%) scale(1.08)}
+.banner-arrow:hover svg{stroke:#fff}
+.banner-arrow svg{width:20px;height:20px;stroke:#034db691;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
 .banner-arrow.ba-prev{left:20px}
 .banner-arrow.ba-next{right:20px}
 .banner-dots{
-  position:absolute;bottom:14px;left:50%;transform:translateX(-50%);
+  position:absolute;bottom:-2vw;left:50vw;transform:translateX(-50%);
   display:flex;gap:8px;align-items:center;z-index:20;
 }
 .banner-dot{
   width:28px;height:4px;border-radius:2px;
-  background:rgba(255,255,255,.4);cursor:pointer;
+  background:#337ab7;cursor:pointer;
   border:none;padding:0;transition:background .25s,width .25s;
 }
-.banner-dot.on{background:#fff;width:40px}
+.banner-dot.on{background:#ff7017;width:40px;border: #0046B0; border-width: 3px;}
 
 /* ===== HERO ===== */
 .hero{
@@ -196,7 +196,7 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 /* ===== SERVICES SECTION ===== */
 .services-wrapper{
   position:relative;
-  padding:0 5% 5rem;z-index:10;
+  padding:5% 5% 5rem;z-index:10;
 }
 .services-grid{
   max-width:1200px;margin:0 auto;
@@ -559,7 +559,7 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
   .tvc-featured-video{max-height:420px}
 }
 @media(max-width:768px){
-  .tvc-thumbs{grid-template-columns:repeat(2,1fr)}
+  .tvc-thumbs{grid-template-columns:repeat(4,1fr)}
   .tvc-play-btn{width:60px;height:60px}
   .tvc-play-btn svg{width:22px;height:22px}
   .tvc-section{padding:4.5rem 5%}
@@ -621,8 +621,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
 @media(max-width:768px){
   .nav-links,.nav-btn{display:none}
   .hamburger{display:flex}
-  .services-wrapper{margin-top:-40px}
-  .services-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr;gap:1rem;}
   .about-section{padding:4.5rem 5%}
   .footer-inner{flex-direction:column;text-align:center}
   .footer-links{justify-content:center}
@@ -639,7 +638,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
   .about-section{padding:4rem 4%}
   .about-panel{padding:1.5rem}
   .about-metrics{grid-template-columns:1fr}
-  .services-wrapper{padding:0 4% 4rem}
+  .services-wrapper{padding:4% 4% 4rem}
   .banner-slide img{max-height:220px}
 }
 </style>

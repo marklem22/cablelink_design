@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cablelink – Uninterrupted Fiber for the Way You Live</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: "SF Grandezza Medium V2";
+  src: url("assets/fonts/SF%20Grandezza%20Medium%20V2.woff2") format("woff2"),
+       url("assets/fonts/SF%20Grandezza%20Medium%20V2.woff") format("woff"),
+       url("assets/fonts/SF%20Grandezza%20Medium%20V2.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --midnight:   #001C43;
+  --slate-dark: #0046B0;
+  --slate:      #034DB6;
+  --mid-blue:   #0E1B4A;
+  --deep-blue:  #19347D;
+  --charcoal:   #333333;
+  --steel:      #337AB7;
+  --muted:      #555555;
+  --gray:       #808080;
+  --orange-red: #E04700;
+  --lavender:   #E7E7E7;
+  --orange:     #FF6A00;
+  --white:      #ffffff;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Montserrat', sans-serif; color: var(--charcoal); background: var(--white); overflow-x: hidden; }
+
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 68px;
+  background: rgba(0,28,67,0.97); backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.nav-logo { text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.nav-logo img { display: block; height: 34px; width: auto; }
+.nav-logo-text { color: #fff; font-family: "SF Grandezza Medium V2", 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 500; letter-spacing: -0.4px; }
+.nav-links { display: flex; gap: 24px; list-style: none; position: relative; }
+.nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: color .2s; letter-spacing: 0.2px; position: relative; padding-bottom: 4px; }
+.nav-links a:hover { color: #fff; }
+.nav-links a.active { color: #fff; }
+.nav-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  cursor: pointer;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+  backdrop-filter: blur(8px);
+}
+.nav-toggle:hover { background: rgba(255,106,0,0.14); border-color: rgba(255,106,0,0.35); }
+.nav-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  transition: transform .25s ease, opacity .2s ease, width .25s ease;
+  transform-origin: center;
+}
+.nav-toggle.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); width: 20px; }
+.nav-toggle.is-open span:nth-child(2) { opacity: 0; }
+.nav-toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); width: 20px; }
+.nav-indicator {
+  position: absolute; bottom: -22px; height: 2px; background: var(--orange);
+  border-radius: 2px; transition: left 0.3s cubic-bezier(0.4,0,0.2,1), width 0.3s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 0 8px rgba(255,106,0,0.6);
+  pointer-events: none;
+}
+.nav-actions { display: flex; gap: 10px; align-items: center; }
+.btn-ghost { background: none; border: 1.5px solid rgba(255,255,255,0.2); color: #fff; padding: 8px 18px; border-radius: 8px; font-size: 0.8rem; font-weight: 600; cursor: pointer; font-family: 'Montserrat',sans-serif; transition: border-color .2s; }
+.btn-ghost:hover { border-color: rgba(255,255,255,0.5); }
+.btn-cta { background: var(--orange); border: none; color: #fff; padding: 9px 20px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; cursor: pointer; font-family: 'Montserrat',sans-serif; transition: background .2s, transform .15s; }
+.btn-cta:hover { background: var(--orange-red); transform: translateY(-1px); }
+.hotline-nav { font-size: 0.7rem; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 5px; }
+.hotline-nav strong { color: rgba(255,255,255,0.85); }
+
+/* ── HERO CAROUSEL (Smart-style contained card) ── */
+.hero {
+  /* background: var(--midnight);
+  background-image:
+    radial-gradient(ellipse 70% 60% at 50% 100%, rgba(3,77,182,0.35) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 80% 20%, rgba(255,106,0,0.08) 0%, transparent 60%); */
+  padding: 40px 24px 48px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Outer wrapper: arrows + card in a row */
+.hero-carousel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 1100px;
+  position: relative;
+}
+
+/* The card itself */
+.hero-card {
+  flex: 1;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  min-height:500px;
+  display: flex;
+}
+
+/* Slides */
+.hero-slides {
+  position: absolute; inset: 0;
+  display: flex;
+}
+.hero-slide {
+  position: absolute; inset: 0;
+  display: flex;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.hero-slide.active { opacity: 1; }
+
+/* LEFT visual panel */
+.slide-left {
+  flex: 1.1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 32px;
+  overflow: hidden;
+}
+.slide-left-bg {
+  position: absolute; inset: 0;
+}
+/* Slide backgrounds */
+.hero-slide:nth-child(1) .slide-left-bg {
+  background: var(--slate-dark);
+}
+.hero-slide:nth-child(2) .slide-left-bg {
+  background: var(--midnight);
+}
+.hero-slide:nth-child(3) .slide-left-bg {
+  background: var(--deep-blue);
+}
+/* Glowing orb accent */
+.slide-left-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: none;
+}
+.slide-left-content {
+  position: relative; z-index: 2;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+  padding: 28px 24px;
+}
+/* Visual graphic — SVG-drawn device placeholder */
+.slide-device {
+  width: 260px; height: 200px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  position: relative;
+}
+.slide-device svg { width: 100%; height: 100%; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4)); }
+
+/* Image placeholder panel */
+.slide-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  border: 2px dashed rgba(255,255,255,0.35);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04)),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.08) 0 10px, transparent 10px 20px);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12);
+}
+.slide-image::after { content: attr(data-label); }
+
+/* Slide label text under device */
+.slide-headline {
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  font-weight: 800; color: #fff;
+  letter-spacing: -0.5px; line-height: 1.2;
+  margin-bottom: 4px;
+}
+.slide-tagline {
+  font-size: 0.78rem; color: rgba(255,255,255,0.65);
+  font-weight: 500;
+}
+
+/* RIGHT info panel */
+.slide-right {
+  flex: 0.9;
+  background: var(--midnight);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 44px 36px;
+  position: relative;
+  overflow: hidden;
+}
+.slide-right::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: none;
+}
+.slide-right-inner { position: relative; z-index: 1; width: 100%; }
+.slide-cta-label {
+  font-size: 0.65rem; font-weight: 700; color: rgba(255,255,255,0.45);
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;
+}
+.slide-cta-title {
+  font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+  font-weight: 900; color: #fff; letter-spacing: -0.5px;
+  line-height: 1.15; margin-bottom: 20px;
+}
+.slide-cta-title em { color: var(--orange); font-style: normal; }
+
+/* Price block */
+.slide-price-block {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  width: 100%;
+}
+.slide-price-sub { font-size: 0.65rem; color: rgba(255,255,255,0.4); font-weight: 600; margin-bottom: 4px; letter-spacing: 0.5px; }
+.slide-price-main { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 900; color: #fff; letter-spacing: -1px; line-height: 1; }
+.slide-price-main sup { font-size: 0.85rem; font-weight: 700; vertical-align: super; letter-spacing: 0; }
+.slide-price-main span { font-size: 0.75rem; font-weight: 500; color: rgba(255,255,255,0.5); letter-spacing: 0; }
+.slide-price-note { font-size: 0.65rem; color: rgba(255,255,255,0.35); margin-top: 4px; font-weight: 400; }
+
+.slide-or { text-align: center; font-size: 0.7rem; color: rgba(255,255,255,0.3); font-weight: 700; letter-spacing: 2px; margin: 8px 0; }
+
+.slide-btn {
+  display: inline-block; width: 100%;
+  background: var(--orange);
+  color: #fff; border: none; border-radius: 10px;
+  padding: 13px 24px; font-size: 0.85rem; font-weight: 700;
+  cursor: pointer; font-family: 'Montserrat', sans-serif;
+  text-align: center; margin-top: 16px;
+  box-shadow: 0 4px 20px rgba(255,106,0,0.35);
+  transition: transform .15s, box-shadow .15s;
+}
+.slide-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,106,0,0.45); }
+
+/* Badge chip */
+.slide-badge-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(255,106,0,0.15); border: 1px solid rgba(255,106,0,0.3);
+  color: var(--orange); padding: 3px 10px; border-radius: 100px;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.5px;
+  text-transform: uppercase; margin-top: 12px;
+}
+
+/* Carousel arrows (outside card) */
+.hero-arrow {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff; cursor: pointer; font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background .2s, border-color .2s;
+  backdrop-filter: blur(8px);
+}
+.hero-arrow:hover { background: rgba(255,106,0,0.25); border-color: rgba(255,106,0,0.5); }
+
+/* Dots below */
+.hero-dots {
+  display: flex; gap: 8px; justify-content: center;
+  margin-top: 20px;
+}
+.hero-dot {
+  height: 4px; border-radius: 2px;
+  background: rgba(255,255,255,0.2);
+  border: none; cursor: pointer; padding: 0;
+  transition: background .3s, width .3s;
+  width: 24px;
+}
+.hero-dot.active {
+  background: var(--orange);
+  width: 40px;
+  box-shadow: 0 0 8px rgba(255,106,0,0.6);
+}
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+/* ── BANNER CAROUSEL (above hero) ── */
+.promo-carousel {
+  background: #000e2e;
+  padding: 24px 48px;
+}
+.promo-carousel .promo-carousel-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.promo-carousel .promo-track {
+  flex: 1;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--mid-blue);
+  aspect-ratio: 16 / 5;
+  min-height: 200px;
+  position: relative;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+.promo-carousel .promo-dots {
+  margin-top: 12px;
+}
+
+/* ── PROMO SECTION ── */
+.promo-section {
+  background: #000e2e;
+  padding: 80px 0 72px;
+}
+.promo-section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+.promo-section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.promo-section-header h2 { color: #fff; }
+.promo-section-header p { color: rgba(255,255,255,0.42); }
+
+/* Multi-card track */
+.promo-cards-viewport {
+  overflow: hidden;
+  padding: 16px 0 20px;
+  /* allow side cards to bleed out */
+  margin: 0 -24px;
+}
+.promo-cards-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0 24px;
+}
+.promo-card-item {
+  flex: 0 0 calc(33.333% - 14px);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+  cursor: pointer;
+  opacity: 0.45;
+  transform: scale(0.93);
+  box-shadow: none;
+}
+.promo-card-item.active {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 0 20px 52px rgba(0,0,0,0.55), 0 0 0 2px rgba(255,106,0,0.35);
+}
+.promo-card-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+/* Arrows */
+.promo-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+.promo-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s, border-color .2s;
+  backdrop-filter: blur(8px);
+  flex-shrink: 0;
+}
+.promo-arrow:hover { background: rgba(255,106,0,0.22); border-color: rgba(255,106,0,0.45); }
+
+.promo-dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+.promo-dot {
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.18);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background .3s, width .3s;
+  width: 20px;
+}
+.promo-dot.active {
+  background: var(--orange);
+  width: 36px;
+  box-shadow: 0 0 8px rgba(255,106,0,0.6);
+}
+
+
+/* ── TRUST BAR ── */
+.trust { background: #f7f9fc; padding: 24px 48px; display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; border-bottom: 1px solid var(--lavender); }
+.trust { background: var(--white); }
+.trust-label { font-size: 0.68rem; color: var(--gray); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; white-space: nowrap; }
+.trust-logos { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; justify-content: center; }
+.trust-logo { font-weight: 700; font-size: 0.8rem; color: var(--gray); opacity: 0.55; }
+
+/* ── SECTION LABEL ── */
+.section-label {
+  display: inline-block; font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--orange);
+  border: 1px solid rgba(255,106,0,0.3); padding: 4px 12px; border-radius: 100px; margin-bottom: 14px;
+}
+
+/* ── PLANS SECTION (REDESIGNED) ── */
+.plans-section {
+  padding: 96px 48px;
+  background: var(--white);
+}
+.section-header { text-align: center; margin-bottom: 20px; }
+.section-header h2 { font-size: clamp(1.9rem,4vw,2.7rem); font-weight: 800; letter-spacing: -1px; color: var(--midnight); margin-bottom: 10px; }
+.section-header p { color: var(--muted); font-size: 0.95rem; max-width: 500px; margin: 0 auto; line-height: 1.65; font-weight: 400; }
+
+/* Type switcher */
+.plan-type-switch {
+  display: flex; gap: 0; max-width: 320px; margin: 32px auto 12px;
+  background: rgba(0,28,67,0.07); border-radius: 100px; padding: 4px;
+}
+.type-btn {
+  flex: 1; padding: 9px 16px; border-radius: 100px; border: none; cursor: pointer;
+  font-size: 0.78rem; font-weight: 700; font-family: 'Montserrat',sans-serif;
+  color: var(--muted); background: transparent;
+  transition: all .25s;
+}
+.type-btn.active {
+  background: var(--midnight); color: #fff;
+  box-shadow: 0 4px 16px rgba(0,28,67,0.25);
+}
+
+/* Tier switcher */
+.plan-tier-tabs {
+  display: flex; gap: 10px; justify-content: center; margin-bottom: 48px; flex-wrap: wrap;
+}
+.tier-btn {
+  padding: 8px 22px; border-radius: 100px; border: 1.5px solid var(--lavender);
+  background: #fff; cursor: pointer; font-size: 0.75rem; font-weight: 700;
+  font-family: 'Montserrat',sans-serif; color: var(--muted);
+  transition: all .2s; letter-spacing: 0.3px;
+}
+.tier-btn:hover { border-color: var(--slate-dark); color: var(--slate-dark); }
+.tier-btn.active.super { background: var(--slate-dark); color: #fff; border-color: var(--slate-dark); box-shadow: 0 4px 16px rgba(0,70,176,0.25); }
+.tier-btn.active.turbo { background: var(--orange); color: #fff; border-color: var(--orange); box-shadow: 0 4px 16px rgba(255,106,0,0.3); }
+
+/* Plan filters */
+.plan-filters {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  justify-content: center; align-items: flex-end;
+  max-width: 880px; margin: 24px auto 28px;
+}
+.filter-group {
+  display: flex; flex-direction: column; gap: 6px;
+  min-width: 160px;
+}
+.filter-group label {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--muted);
+}
+.filter-group select {
+  padding: 9px 10px; border: 1.5px solid var(--lavender);
+  background: #fff; color: var(--midnight);
+  font-size: 0.78rem; font-weight: 600;
+}
+.filter-reset {
+  padding: 10px 14px; border: 1.5px solid var(--lavender);
+  background: #fff; color: var(--midnight);
+  font-size: 0.75rem; font-weight: 700;
+  cursor: pointer; height: 40px;
+}
+.filter-reset:hover { border-color: var(--slate-dark); color: var(--slate-dark); }
+.filter-count {
+  font-size: 0.75rem; font-weight: 600; color: var(--muted);
+  align-self: center;
+}
+
+/* Plans grid layout */
+.plans-grid-outer { max-width: 1060px; margin: 0 auto; }
+.plan-group { display: none; }
+.plan-group.active { display: block; }
+
+/* Tier info bar */
+.plans-tier-info {
+  display: flex; align-items: center; justify-content: space-between;
+  background: #fff; border-radius: 16px; padding: 18px 28px;
+  border: 1.5px solid var(--lavender); margin-bottom: 28px; flex-wrap: wrap; gap: 14px;
+  box-shadow: 0 2px 12px rgba(0,28,67,0.05);
+}
+.plans-tier-title { font-size: 1rem; font-weight: 800; color: var(--midnight); }
+.plans-tier-desc { font-size: 0.8rem; color: var(--muted); }
+.plans-tier-pills { display: flex; gap: 8px; }
+
+/* Plan cards — new layout */
+.plan-cards-new {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0;
+}
+.plan-card-new {
+  border-radius: 20px; padding: 28px 22px;
+  position: relative; cursor: default;
+  transition: transform .25s, box-shadow .25s;
+  background: #fff;
+  border: 1.5px solid rgba(0,28,67,0.08);
+  box-shadow: 0 2px 16px rgba(0,28,67,0.06);
+}
+.plan-card-new:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0,28,67,0.13);
+}
+.plan-card-new.best {
+  background: var(--deep-blue);
+  border-color: transparent;
+  box-shadow: 0 8px 32px rgba(0,28,67,0.3);
+}
+.plan-card-new.best:hover {
+  box-shadow: 0 20px 52px rgba(0,28,67,0.4);
+}
+.plan-badge-top {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: linear-gradient(90deg, var(--orange), var(--orange-red));
+  color: #fff; font-size: 0.6rem; font-weight: 700; padding: 4px 12px;
+  border-radius: 100px; white-space: nowrap; letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(255,106,0,0.4);
+}
+.plan-speed-new {
+  font-size: 2.8rem; font-weight: 900; color: var(--midnight);
+  letter-spacing: -2px; line-height: 1;
+}
+.plan-speed-new span { font-size: 1rem; font-weight: 600; color: var(--gray); letter-spacing: 0; }
+.plan-card-new.best .plan-speed-new { color: #fff; }
+.plan-card-new.best .plan-speed-new span { color: rgba(255,255,255,0.5); }
+
+.plan-tag-new {
+  display: inline-block; font-size: 0.62rem; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--steel); margin: 8px 0 0; background: rgba(51,122,183,0.08);
+  padding: 3px 10px; border-radius: 100px;
+}
+.plan-card-new.best .plan-tag-new { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.7); }
+
+.plan-divider-new { height: 1px; background: rgba(0,28,67,0.07); margin: 16px 0; }
+.plan-card-new.best .plan-divider-new { background: rgba(255,255,255,0.12); }
+
+.plan-price-new { font-size: 1.6rem; font-weight: 900; color: var(--midnight); letter-spacing: -1px; }
+.plan-price-new sup { font-size: 0.8rem; font-weight: 700; vertical-align: super; letter-spacing: 0; }
+.plan-price-new sub { font-size: 0.7rem; font-weight: 400; color: var(--gray); letter-spacing: 0; }
+.plan-card-new.best .plan-price-new { color: #fff; }
+.plan-card-new.best .plan-price-new sub { color: rgba(255,255,255,0.45); }
+
+.plan-perks {
+  list-style: none; margin: 14px 0 18px; display: flex; flex-direction: column; gap: 7px;
+}
+.plan-perks li {
+  font-size: 0.73rem; color: var(--muted); display: flex; align-items: center; gap: 7px; font-weight: 500;
+}
+.plan-perks li::before { content: "✓"; color: var(--orange); font-weight: 900; font-size: 0.65rem; flex-shrink: 0; }
+.plan-card-new.best .plan-perks li { color: rgba(255,255,255,0.65); }
+.plan-card-new.best .plan-perks li::before { color: var(--orange); }
+
+.plan-apply-btn {
+  width: 100%; padding: 11px; border-radius: 10px; font-weight: 700; font-size: 0.78rem;
+  cursor: pointer; border: 1.5px solid rgba(0,28,67,0.12); background: #f4f6fb; color: var(--midnight);
+  font-family: 'Montserrat',sans-serif; transition: all .18s;
+}
+.plan-apply-btn:hover { background: var(--midnight); color: #fff; border-color: var(--midnight); }
+.plan-card-new.best .plan-apply-btn {
+  background: linear-gradient(90deg, var(--orange), var(--orange-red));
+  color: #fff; border-color: transparent;
+  box-shadow: 0 4px 16px rgba(255,106,0,0.4);
+}
+.plan-card-new.best .plan-apply-btn:hover {
+  background: linear-gradient(90deg, var(--orange-red), var(--orange-red));
+  box-shadow: 0 6px 20px rgba(255,106,0,0.5);
+}
+
+/* Info badges row */
+.plan-explain { display: flex; gap: 16px; justify-content: center; margin-bottom: 0; flex-wrap: wrap; }
+.badge-explain { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.8); border: 1px solid var(--lavender); border-radius: 100px; padding: 6px 14px; font-size: 0.72rem; color: var(--muted); font-weight: 500; }
+.badge-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+/* Keep tier-pill styles */
+.tier-pill { font-size: 0.68rem; font-weight: 600; padding: 3px 10px; border-radius: 100px; border: 1px solid; }
+.tier-pill.internet { border-color: var(--steel); color: var(--steel); }
+.tier-pill.tv { border-color: var(--orange); color: var(--orange); }
+
+/* ── CABLE TV SECTION ── */
+.tv-section { padding: 96px 48px; background: var(--white); }
+.tv-inner { max-width: 1060px; margin: 0 auto; }
+.tv-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; margin-top: 48px; }
+.tv-card { background: #fff; border-radius: 20px; padding: 32px 28px; border: 1.5px solid var(--lavender); transition: transform .2s, box-shadow .2s; }
+.tv-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,28,67,0.08); }
+.tv-card.highlight { background: var(--midnight); border-color: transparent; }
+.tv-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+.tv-card h3 { font-size: 1.15rem; font-weight: 800; color: var(--midnight); margin-bottom: 8px; letter-spacing: -0.3px; }
+.tv-card.highlight h3 { color: #fff; }
+.tv-channels { font-size: 2.2rem; font-weight: 900; color: var(--orange); letter-spacing: -1px; display: block; }
+.tv-ch-label { font-size: 0.72rem; color: var(--gray); font-weight: 500; margin-bottom: 12px; }
+.tv-card.highlight .tv-ch-label { color: rgba(255,255,255,0.4); }
+.tv-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; font-weight: 400; }
+.tv-card.highlight p { color: rgba(255,255,255,0.55); }
+.tv-price { font-size: 1.6rem; font-weight: 800; color: var(--midnight); margin-top: 14px; letter-spacing: -0.5px; }
+.tv-price sup { font-size: 0.8rem; font-weight: 700; vertical-align: super; }
+.tv-price sub { font-size: 0.75rem; font-weight: 400; color: var(--gray); }
+.tv-card.highlight .tv-price { color: #fff; }
+
+/* ── WHY US ── */
+.why { background: var(--midnight); padding: 96px 48px; }
+.why-inner { max-width: 1060px; margin: 0 auto; }
+.why-header { text-align: center; margin-bottom: 56px; }
+.why-header h2 { font-size: clamp(1.9rem,4vw,2.7rem); font-weight: 800; letter-spacing: -1px; color: #fff; margin-bottom: 10px; }
+.why-header p { color: rgba(255,255,255,0.45); max-width: 440px; margin: 0 auto; line-height: 1.65; font-weight: 400; font-size: 0.9rem; }
+.trust-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
+.trust-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 26px 22px; transition: transform .2s, border-color .2s; }
+.trust-card:hover { transform: translateY(-4px); border-color: rgba(255,106,0,0.4); }
+.trust-icon { font-size: 1.6rem; margin-bottom: 14px; display: block; }
+.trust-card h3 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.trust-card p { font-size: 0.78rem; color: rgba(255,255,255,0.42); line-height: 1.55; font-weight: 400; }
+.trust-stat { font-size: 1.5rem; font-weight: 800; color: var(--orange); margin-top: 10px; }
+
+/* ── SELF-SERVICE HUB ── */
+.selfservice { background: var(--white); padding: 96px 48px; }
+.selfservice-inner { max-width: 1060px; margin: 0 auto; }
+.sh-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; flex-wrap: wrap; gap: 20px; }
+.sh-header h2 { font-size: clamp(1.9rem,4vw,2.7rem); font-weight: 800; letter-spacing: -1px; color: var(--midnight); max-width: 360px; line-height: 1.1; }
+.sh-header p { color: var(--muted); font-size: 0.85rem; max-width: 260px; line-height: 1.65; text-align: right; font-weight: 400; }
+.hub-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; margin-bottom: 20px; }
+.hub-card { background: #fff; border: 1.5px solid var(--lavender); border-radius: 16px; padding: 26px 22px; transition: box-shadow .2s, border-color .2s, transform .2s; cursor: pointer; text-decoration: none; display: block; }
+.hub-card:hover { box-shadow: 0 8px 28px rgba(0,28,67,0.08); border-color: var(--orange); transform: translateY(-3px); }
+.hub-icon { font-size: 1.8rem; margin-bottom: 12px; display: block; }
+.hub-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--midnight); margin-bottom: 6px; }
+.hub-card p { font-size: 0.78rem; color: var(--muted); line-height: 1.5; font-weight: 400; }
+.hub-arrow { font-size: 0.82rem; color: var(--orange); margin-top: 12px; display: block; font-weight: 700; }
+
+/* ── PAYMENT ── */
+.payment {
+  background: var(--white);
+  padding: 96px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.payment::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: none;
+  pointer-events: none;
+}
+.payment-inner { max-width: 1060px; margin: 0 auto; position: relative; z-index: 1; }
+.pay-header { text-align: center; margin-bottom: 56px; }
+.pay-header h2 { font-size: clamp(2rem,4vw,2.8rem); font-weight: 900; letter-spacing: -1px; color: var(--midnight); margin-bottom: 10px; }
+.pay-header p { color: var(--muted); font-size: 0.92rem; max-width: 460px; margin: 0 auto; line-height: 1.65; font-weight: 400; }
+.pay-categories { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; }
+.pay-cat {
+  background: #fff;
+  border: 1px solid var(--lavender);
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 12px 32px rgba(0,28,67,0.08);
+}
+.pay-cat-title {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.8rem; font-weight: 800; color: var(--midnight);
+  margin-bottom: 18px; letter-spacing: 1px; text-transform: uppercase;
+}
+.pay-cat-icon { font-size: 1.2rem; }
+.pay-list { display: flex; flex-wrap: wrap; gap: 10px; }
+.pay-logo {
+  width: 120px;
+  height: 52px;
+  background: #fff;
+  border: 1px solid rgba(0,28,67,0.08);
+  border-radius: 10px;
+  padding: 8px 10px;
+  object-fit: contain;
+  object-position: center;
+  box-shadow: 0 6px 16px rgba(0,28,67,0.08);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.pay-logo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,28,67,0.12);
+}
+.pay-chip { background: #fff; border: 1px solid var(--lavender); border-radius: 8px; padding: 6px 12px; font-size: 0.72rem; font-weight: 600; color: var(--charcoal); white-space: nowrap; transition: border-color .2s; }
+.pay-chip:hover { border-color: var(--orange); color: var(--midnight); }
+
+/* ── CONTACT ── */
+.contact { background: var(--mid-blue); padding: 64px 48px; }
+.contact-inner { max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.contact-left h2 { font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-bottom: 8px; }
+.contact-left p { color: rgba(255,255,255,0.45); font-size: 0.88rem; line-height: 1.65; font-weight: 400; }
+.contact-nums { display: flex; flex-direction: column; gap: 12px; }
+.contact-num { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 14px 18px; }
+.contact-num-icon { font-size: 1.2rem; }
+.contact-num-info { display: flex; flex-direction: column; }
+.contact-num-label { font-size: 0.65rem; color: rgba(255,255,255,0.4); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+.contact-num-val { font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: 0.5px; }
+.contact-num-sub { font-size: 0.7rem; color: rgba(255,255,255,0.35); font-weight: 400; }
+.contact-social { display: flex; gap: 10px; margin-top: 20px; }
+.soc-btn { display: flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 9px; font-size: 0.78rem; font-weight: 600; cursor: pointer; border: none; font-family: 'Montserrat',sans-serif; text-decoration: none; transition: opacity .2s; }
+.soc-btn:hover { opacity: 0.85; }
+.soc-fb { background: #1877f2; color: #fff; }
+.soc-viber { background: #7360f2; color: #fff; }
+
+/* ── HOW IT WORKS ── */
+.how { padding: 96px 48px; background: #fff; }
+.how-inner { max-width: 1060px; margin: 0 auto; text-align: center; }
+.how h2 { font-size: clamp(1.9rem,4vw,2.7rem); font-weight: 800; letter-spacing: -1px; color: var(--midnight); margin-bottom: 56px; }
+.steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; position: relative; }
+.steps::before { content: ''; position: absolute; top: 26px; left: 12%; right: 12%; height: 2px; background: linear-gradient(90deg, var(--slate-dark), var(--orange)); z-index: 0; }
+.step { padding: 0 16px; position: relative; z-index: 1; }
+.step-num { width: 52px; height: 52px; border-radius: 50%; background: var(--slate-dark); color: #fff; font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(3,77,182,0.15); }
+.step:last-child .step-num { background: var(--orange); box-shadow: 0 0 0 4px rgba(255,106,0,0.15); }
+.step h3 { font-size: 0.9rem; font-weight: 700; color: var(--midnight); margin-bottom: 8px; }
+.step p { font-size: 0.78rem; color: var(--muted); line-height: 1.55; font-weight: 400; }
+
+/* ── CTA BANNER ── */
+.cta-banner {
+  background: var(--midnight);
+  padding: 80px 48px; text-align: center; position: relative; overflow: hidden;
+}
+.cta-banner::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.018'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
+.cta-banner h2 { font-size: clamp(2.2rem,5vw,3.6rem); font-weight: 900; color: #fff; letter-spacing: -2px; line-height: 1.05; margin-bottom: 12px; position: relative; }
+.cta-banner h2 em { color: var(--orange); font-style: normal; }
+.cta-banner p { color: rgba(255,255,255,0.45); font-size: 0.9rem; margin-bottom: 36px; position: relative; font-weight: 400; }
+.cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
+.btn-cta-lg { background: var(--orange); color: #fff; border: none; padding: 15px 36px; border-radius: 10px; font-size: 0.95rem; font-weight: 700; cursor: pointer; font-family: 'Montserrat',sans-serif; box-shadow: 0 6px 24px rgba(255,106,0,0.35); transition: background .2s, transform .15s; }
+.btn-cta-lg:hover { background: var(--orange-red); transform: translateY(-2px); }
+.btn-sec-lg { background: rgba(255,255,255,0.08); color: #fff; border: 1.5px solid rgba(255,255,255,0.2); padding: 15px 36px; border-radius: 10px; font-size: 0.95rem; font-weight: 600; cursor: pointer; font-family: 'Montserrat',sans-serif; transition: background .2s; }
+.btn-sec-lg:hover { background: rgba(255,255,255,0.14); }
+
+/* ── FOOTER ── */
+footer { background: #020d1e; color: rgba(255,255,255,0.4); padding: 56px 48px 28px; }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+.footer-logo-wrap .footer-logo { display: inline-block; margin-bottom: 12px; }
+.footer-logo-inner { display: inline-flex; align-items: center; gap: 8px; }
+.footer-logo-wrap .footer-logo img { display: block; height: 34px; width: auto; }
+.footer-logo-text { color: #fff; font-family: "SF Grandezza Medium V2", 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 500; letter-spacing: -0.4px; }
+.footer-logo-wrap p { font-size: 0.78rem; line-height: 1.65; color: rgba(255,255,255,0.32); max-width: 220px; font-weight: 400; }
+.footer-col h4 { font-size: 0.68rem; font-weight: 700; color: rgba(255,255,255,0.55); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
+.footer-col a { display: block; color: rgba(255,255,255,0.32); text-decoration: none; font-size: 0.8rem; margin-bottom: 8px; transition: color .2s; font-weight: 400; }
+.footer-col a:hover { color: rgba(255,255,255,0.8); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.07); flex-wrap: wrap; gap: 12px; }
+.footer-bottom p { font-size: 0.72rem; color: rgba(255,255,255,0.22); }
+.footer-social { display: flex; gap: 8px; }
+.social-icon { width: 34px; height: 34px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; font-size: 0.82rem; cursor: pointer; color: rgba(255,255,255,0.4); transition: background .2s; }
+.social-icon:hover { background: rgba(255,255,255,0.12); color: #fff; }
+
+/* Squared corners (mostly) */
+:root {
+  --radius-sm: 2px;
+  --radius-md: 20px;
+  --radius-lg: 6px;
+}
+
+
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1000px) {
+  nav {
+    padding: 0 16px;
+    position: sticky;
+    overflow: visible;
+  }
+  .nav-toggle { display: inline-flex; }
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 12px;
+    right: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 10px;
+    background: rgba(0,28,67,0.98);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    box-shadow: 0 22px 60px rgba(0,0,0,0.28);
+    transform: translateY(-10px) scale(0.98);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+    z-index: 101;
+  }
+  nav.nav-open .nav-links {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+    visibility: visible;
+  }
+  .nav-links li { width: 100%; }
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.76);
+  }
+  .nav-links a:hover,
+  .nav-links a.active { color: #fff; background: rgba(255,255,255,0.06); }
+  .nav-indicator { display: none; }
+  .plans-section, .tv-section, .why, .selfservice, .payment, .contact, .how, .cta-banner { padding: 64px 20px; }
+  .tv-grid, .trust-grid, .hub-grid, .pay-categories { grid-template-columns: 1fr; }
+  .contact-inner { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: repeat(2,1fr); }
+  .steps::before { display: none; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .ticker-right { display: none; }
+  .sh-header { flex-direction: column; align-items: flex-start; }
+  .sh-header p { text-align: left; }
+  .plan-cards-new { grid-template-columns: repeat(2,1fr); }
+  .hero-carousel-wrapper { gap: 8px; }
+  .hero-arrow { width: 34px; height: 34px; font-size: 0.85rem; flex-shrink: 0; }
+  .slide-device { width: 180px; height: 140px; }
+  .slide-right { padding: 28px 20px; }
+  .plan-filters { justify-content: flex-start; }
+  .promo-section { padding: 56px 20px 48px; }
+  .promo-arrow { width: 34px; height: 34px; font-size: 0.85rem; }
+  .promo-track { min-height: 220px; }
+}
+@media (max-width: 700px) {
+  nav { height: 64px; }
+  .nav-logo-text { font-size: 1rem; }
+  .nav-toggle { width: 40px; height: 40px; border-radius: 11px; }
+  .hero { padding: 28px 12px 36px; }
+  .hero-carousel-wrapper { gap: 6px; }
+  .hero-card { min-height: unset; }
+  .hero-slide { flex-direction: column; }
+  .slide-left { padding: 24px 16px 16px; min-height: 200px; }
+  .slide-device { width: 140px; height: 110px; }
+  .slide-right { padding: 20px 16px; }
+  .slide-cta-title { font-size: 1.1rem; }
+  .slide-price-main { font-size: 1.6rem; }
+  .plan-cards-new { grid-template-columns: 1fr; }
+  .plan-filters { flex-direction: column; align-items: stretch; }
+  .filter-group { min-width: unset; }
+  .filter-reset { width: 100%; }
+  .filter-count { text-align: left; }
+  .footer-top { grid-template-columns: 1fr; }
+  .tv-grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  .trust { padding: 20px 16px; }
+  .plan-type-switch { max-width: 100%; }
+  .promo-carousel-inner { gap: 8px; }
+  .promo-track { min-height: 160px; }
+}
+</style>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+
+
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#" aria-label="Cablelink home"><img src="assets/icons/cablelink_logo.png" alt="Cablelink logo"><span class="nav-logo-text">CABLELINK</span></a>
+ 
+  <ul class="nav-links" id="primary-navigation">
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="internet-plans.html">Internet Plans</a></li>
+    <li><a href="payment-facilities.html">Payment Facilities</a></li>
+    <li><a href="#tv">Cable TV</a></li>
+    <li><a href="#hub">My Account</a></li>
+    <li><a href="contact-us.html">Contact Us</a></li>
+  </ul>
+  <div class="nav-actions">
+    <!-- <div class="hotline-nav"><strong>8-988-5465</strong></div>
+    <button class="btn-ghost">Log In</button> -->
+    <button class="btn-cta">Apply Now</button>
+
+     <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  </div>
+  
+</nav>
+
+<!-- PROMO IMAGE CAROUSEL -->
+<section class="promo-carousel" id="promo-carousel">
+  <div class="promo-carousel-inner">
+    <button class="promo-arrow prev" onclick="promoSlide(-1)">&#8592;</button>
+    <div class="promo-track">
+      <div class="promo-slide active">
+        <img src="assets/carousel/2023_bts_pc.jpg" alt="Promo 1" />
+      </div>
+      <div class="promo-slide">
+        <img src="assets/carousel/2023_channel_revamp_pc.jpg" alt="Promo 2" />
+      </div>
+      <div class="promo-slide">
+        <img src="assets/carousel/2023_Fiberlink@Home_Web.jpg" alt="Promo 3" />
+      </div>
+      <div class="promo-slide">
+        <img src="assets/carousel/2023_fiberlink_pc.jpg" alt="Promo 4" />
+      </div>
+      <div class="promo-slide">
+        <img src="assets/carousel/2023_iblaze_pc.jpg" alt="Promo 5" />
+      </div>
+      <div class="promo-slide">
+        <img src="assets/carousel/2023_refer_a_friend_pc.jpg" alt="Promo 6" />
+      </div>
+      <div class="promo-slide">
+        <img src="assets/carousel/2023_sb_pc.jpg" alt="Promo 7" />
+      </div>
+      <div class="promo-slide">
+        <img src="assets/carousel/2023_TV_Raffle_WBD_Web Banner-01.jpg" alt="Promo 8" />
+      </div>
+      <div class="promo-slide">
+        <img src="assets/carousel/FEB_TBIR_cinemaworld.jpg" alt="Promo 9" />
+      </div>
+      <div class="promo-slide">
+        <img src="assets/carousel/fwc_desktop.jpg" alt="Promo 10" />
+      </div>
+    </div>
+    <button class="promo-arrow next" onclick="promoSlide(1)">&#8594;</button>
+  </div>
+  <div class="promo-dots">
+    <button class="promo-dot active" onclick="promoGoTo(0)"></button>
+    <button class="promo-dot" onclick="promoGoTo(1)"></button>
+    <button class="promo-dot" onclick="promoGoTo(2)"></button>
+    <button class="promo-dot" onclick="promoGoTo(3)"></button>
+    <button class="promo-dot" onclick="promoGoTo(4)"></button>
+    <button class="promo-dot" onclick="promoGoTo(5)"></button>
+    <button class="promo-dot" onclick="promoGoTo(6)"></button>
+    <button class="promo-dot" onclick="promoGoTo(7)"></button>
+    <button class="promo-dot" onclick="promoGoTo(8)"></button>
+    <button class="promo-dot" onclick="promoGoTo(9)"></button>
+  </div>
+</section>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-carousel-wrapper">
+
+    <!-- Prev Arrow -->
+    <button class="hero-arrow" onclick="heroSlide(-1)">&#8592;</button>
+
+    <!-- Card -->
+    <div class="hero-card">
+      <div class="hero-slides">
+
+        <!-- Slide 1: Fiber Plans -->
+        <div class="hero-slide active">
+          <div class="slide-left">
+            <div class="slide-left-bg"></div>
+            <div class="slide-left-content">
+              <div class="slide-image" data-label="Fiber router image"></div>
+              <div class="slide-headline">Cablelink Fiberlink</div>
+              <div class="slide-tagline">Direct Fiber to your Home &mdash; up to 300 Mbps</div>
+            </div>
+          </div>
+          <div class="slide-right">
+            <div class="slide-right-inner">
+              <div class="slide-cta-label">Supercharged Plan</div>
+              <div class="slide-cta-title">Pure fiber speed.<br><em>Starts at ₱888/mo.</em></div>
+              <div class="slide-price-block">
+                <div class="slide-price-sub">Fiberlink 50 Mbps</div>
+                <div class="slide-price-main"><sup>&#8369;</sup>888<span>/mo</span></div>
+                <div class="slide-price-note">Unlimited data &bull; 126 TV channels &bull; Free install</div>
+              </div>
+              <div class="slide-or">— OR —</div>
+              <div class="slide-price-block">
+                <div class="slide-price-sub">Fiberlink 300 Mbps</div>
+                <div class="slide-price-main"><sup>&#8369;</sup>1,699<span>/mo</span></div>
+                <div class="slide-price-note">Best for large households &amp; remote work</div>
+              </div>
+              <button class="slide-btn" onclick="location.href='internet-plans.html'">See All Fiberlink Plans &rarr;</button>
+              <div class="slide-badge-chip">Available in Baguio &amp; Cordillera</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Supercharged Bundle -->
+        <div class="hero-slide">
+          <div class="slide-left">
+            <div class="slide-left-bg"></div>
+            <div class="slide-left-content">
+              <div class="slide-image" data-label="TV bundle image"></div>
+              <div class="slide-headline">Internet + Cable TV Bundle</div>
+              <div class="slide-tagline">126 live channels bundled with your internet</div>
+            </div>
+          </div>
+          <div class="slide-right">
+            <div class="slide-right-inner">
+              <div class="slide-cta-label">Supercharged I-Blaze</div>
+              <div class="slide-cta-title">Cable internet &amp;<br><em>TV in one bill.</em></div>
+              <div class="slide-price-block">
+                <div class="slide-price-sub">Best Value — 35 Mbps</div>
+                <div class="slide-price-main"><sup>&#8369;</sup>999<span>/mo</span></div>
+                <div class="slide-price-note">Unlimited data &bull; Basic Plus TV (126 ch) &bull; Free install</div>
+              </div>
+              <div class="slide-or">— OR —</div>
+              <div class="slide-price-block">
+                <div class="slide-price-sub">120 Mbps — Premium Speed</div>
+                <div class="slide-price-main"><sup>&#8369;</sup>1,699<span>/mo</span></div>
+                <div class="slide-price-note">Great for 4K streaming &amp; multi-device homes</div>
+              </div>
+              <button class="slide-btn" onclick="location.href='internet-plans.html'">View Supercharged Plans &rarr;</button>
+              <div class="slide-badge-chip">Includes 126 TV Channels</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Turbocharged / Budget -->
+        <div class="hero-slide">
+          <div class="slide-left">
+            <div class="slide-left-bg"></div>
+            <div class="slide-left-content">
+              <div class="slide-image" data-label="Speed gauge image"></div>
+              <div class="slide-headline">Turbocharged Fiberlink</div>
+              <div class="slide-tagline">Pure speed, lighter on the wallet</div>
+            </div>
+          </div>
+          <div class="slide-right">
+            <div class="slide-right-inner">
+              <div class="slide-cta-label">Turbocharged Plan</div>
+              <div class="slide-cta-title">Fast fiber speed<br><em>from ₱599/mo.</em></div>
+              <div class="slide-price-block">
+                <div class="slide-price-sub">Most Popular — 200 Mbps</div>
+                <div class="slide-price-main"><sup>&#8369;</sup>999<span>/mo</span></div>
+                <div class="slide-price-note">Dedicated fiber &bull; Basic Lite TV (53 ch) &bull; Free install</div>
+              </div>
+              <div class="slide-or">— OR —</div>
+              <div class="slide-price-block">
+                <div class="slide-price-sub">Entry — 50 Mbps Fiber</div>
+                <div class="slide-price-main"><sup>&#8369;</sup>599<span>/mo</span></div>
+                <div class="slide-price-note">Great starter plan for small households</div>
+              </div>
+              <button class="slide-btn" onclick="location.href='internet-plans.html'">View Turbocharged Plans &rarr;</button>
+              <div class="slide-badge-chip">24/7 Local Support</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /hero-slides -->
+    </div><!-- /hero-card -->
+
+    <!-- Next Arrow -->
+    <button class="hero-arrow" onclick="heroSlide(1)">&#8594;</button>
+
+  </div><!-- /hero-carousel-wrapper -->
+
+  <!-- Dots -->
+  <div class="hero-dots">
+    <button class="hero-dot active" onclick="heroGoTo(0)"></button>
+    <button class="hero-dot" onclick="heroGoTo(1)"></button>
+    <button class="hero-dot" onclick="heroGoTo(2)"></button>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust">
+  <span class="trust-label">Pay via</span>
+  <div class="trust-logos">
+    <span class="trust-logo">GCash</span>
+    <span class="trust-logo">Maya</span>
+    <span class="trust-logo">ShopeePay</span>
+    <span class="trust-logo">GrabPay</span>
+    <span class="trust-logo">BDO</span>
+    <span class="trust-logo">BPI</span>
+    <span class="trust-logo">7-Eleven</span>
+    <span class="trust-logo">Bayad Center</span>
+  </div>
+</div>
+
+<!-- PROMOS -->
+<section class="promo-section" id="promos">
+  <div class="promo-section-inner">
+    <div class="section-header promo-section-header">
+      <span class="section-label">Promotions</span>
+      <h2>Current Promos &amp; Deals</h2>
+      <p>Exclusive offers for new and existing subscribers in La Union.</p>
+    </div>
+    <div class="promo-cards-viewport">
+      <div class="promo-cards-track" id="promoCardsTrack">
+        <div class="promo-card-item active"><img src="assets/carousel/2023_bts_pc.jpg" alt="Back to School Promo" loading="lazy" /></div>
+        <div class="promo-card-item"><img src="assets/carousel/2023_channel_revamp_pc.jpg" alt="Channel Revamp Promo" loading="lazy" /></div>
+        <div class="promo-card-item"><img src="assets/carousel/2023_Fiberlink@Home_Web.jpg" alt="Fiberlink at Home" loading="lazy" /></div>
+        <div class="promo-card-item"><img src="assets/carousel/2023_fiberlink_pc.jpg" alt="Fiberlink Plans Promo" loading="lazy" /></div>
+        <div class="promo-card-item"><img src="assets/carousel/2023_iblaze_pc.jpg" alt="iBlaZe Internet Promo" loading="lazy" /></div>
+        <div class="promo-card-item"><img src="assets/carousel/2023_refer_a_friend_pc.jpg" alt="Refer a Friend Promo" loading="lazy" /></div>
+        <div class="promo-card-item"><img src="assets/carousel/2023_sb_pc.jpg" alt="Small Business Promo" loading="lazy" /></div>
+        <div class="promo-card-item"><img src="assets/carousel/2023_TV_Raffle_WBD_Web Banner-01.jpg" alt="TV Raffle Promo" loading="lazy" /></div>
+        <div class="promo-card-item"><img src="assets/carousel/FEB_TBIR_cinemaworld.jpg" alt="Cinema World Promo" loading="lazy" /></div>
+        <div class="promo-card-item"><img src="assets/carousel/fwc_desktop.jpg" alt="FWC Promo" loading="lazy" /></div>
+      </div>
+    </div>
+    <div class="promo-nav">
+      <button class="promo-arrow" onclick="promoSlide(-1)" aria-label="Previous promo">&#8592;</button>
+      <div class="promo-dots" id="promoDots">
+        <button class="promo-dot active" onclick="promoGoTo(0)"></button>
+        <button class="promo-dot" onclick="promoGoTo(1)"></button>
+        <button class="promo-dot" onclick="promoGoTo(2)"></button>
+        <button class="promo-dot" onclick="promoGoTo(3)"></button>
+        <button class="promo-dot" onclick="promoGoTo(4)"></button>
+        <button class="promo-dot" onclick="promoGoTo(5)"></button>
+        <button class="promo-dot" onclick="promoGoTo(6)"></button>
+        <button class="promo-dot" onclick="promoGoTo(7)"></button>
+        <button class="promo-dot" onclick="promoGoTo(8)"></button>
+        <button class="promo-dot" onclick="promoGoTo(9)"></button>
+      </div>
+      <button class="promo-arrow" onclick="promoSlide(1)" aria-label="Next promo">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<!-- CABLE TV -->
+<section class="tv-section" id="tv">
+  <div class="tv-inner">
+    <div class="section-header">
+      <span class="section-label">Cable TV</span>
+      <h2>Entertainment for every home.</h2>
+      <p>Crystal-clear digital cable TV bundled with your internet, or as a standalone subscription.</p>
+    </div>
+    <div class="tv-grid">
+      <div class="tv-card">
+        <span class="tv-icon"></span>
+        <h3>Basic</h3>
+        <span class="tv-channels">&#8369;495</span>
+        <div class="tv-ch-label">Standalone Cable TV</div>
+        <p>Entry-level cable TV subscription. Great for households that already have internet from another provider.</p>
+        <div class="tv-price" style="font-size:1rem;margin-top:12px;color:var(--muted)">Available in digitally activated areas</div>
+      </div>
+      <div class="tv-card highlight">
+        <span class="tv-icon"></span>
+        <h3>Basic Plus</h3>
+        <span class="tv-channels">126</span>
+        <div class="tv-ch-label">Live Channels &mdash; Included in Supercharged plans</div>
+        <p>Our widest channel lineup. News, sports, entertainment, kids, and international channels &mdash; all in one bundle with your Supercharged internet.</p>
+        <div style="margin-top:16px;font-size:0.75rem;color:rgba(255,255,255,0.4);font-weight:500">Bundled with Supercharged plans</div>
+      </div>
+      <div class="tv-card">
+        <span class="tv-icon"></span>
+        <h3>Basic Lite</h3>
+        <span class="tv-channels">53</span>
+        <div class="tv-ch-label">Live Channels &mdash; Included in Turbocharged plans</div>
+        <p>Essential channels covering news, local programming, and family entertainment. Perfect for those who stream most content online.</p>
+        <div style="margin-top:16px;font-size:0.75rem;color:var(--gray);font-weight:500">Bundled with Turbocharged plans</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<!-- <section class="why">
+  <div class="why-inner">
+    <div class="why-header">
+      <span class="section-label">Why Cablelink</span>
+      <h2>Transparency you can count on.</h2>
+      <p>ISPs have a reputation for fine print. We built ours around the opposite.</p>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <span class="trust-icon"></span>
+        <h3>No Hidden Fees</h3>
+        <p>What you see is what you pay. Transparent monthly billing with free installation on qualifying plans.</p>
+      </div>
+      <div class="trust-card">
+        <span class="trust-icon"></span>
+        <h3>99.9% Network Uptime</h3>
+        <p>Redundant infrastructure built for consistency. Not just fast in the brochure &mdash; fast every day.</p>
+        <div class="trust-stat">99.9%</div>
+      </div>
+      <div class="trust-card">
+        <span class="trust-icon"></span>
+        <h3>Local Technicians</h3>
+        <p>Our team is based in your community. Fast dispatch, no outsourced runaround, no waiting weeks.</p>
+      </div>
+      <div class="trust-card">
+        <span class="trust-icon"></span>
+        <h3>24/7 Hotline</h3>
+        <p>Real humans, any hour. Central: <strong style="color:rgba(255,255,255,0.7)">8-988-5465</strong>. Regional lines for Bacoor, Imus &amp; Bi&#241;an.</p>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- SELF-SERVICE HUB -->
+<!-- <section class="selfservice" id="hub">
+  <div class="selfservice-inner">
+    <div class="sh-header">
+      <div>
+        <span class="section-label">Customer Hub</span>
+        <h2>Everything you need,<br>in two clicks.</h2>
+      </div>
+      <p>Already a subscriber? Manage your account, pay your bill, or troubleshoot &mdash; no hold music required.</p>
+    </div>
+    <div class="hub-grid">
+      <a class="hub-card" href="#">
+        <span class="hub-icon"></span>
+        <h3>Pay My Bill</h3>
+        <p>Settle your monthly statement via GCash, Maya, ShopeePay, GrabPay, bank transfer, or over the counter at 7-Eleven, SM, LBC, and more.</p>
+        <span class="hub-arrow">Pay now &rarr;</span>
+      </a>
+      <a class="hub-card" href="#">
+        <span class="hub-icon"></span>
+        <h3>Test My Speed</h3>
+        <p>Run a real-time speed test directly on our servers to check your actual connection quality right now.</p>
+        <span class="hub-arrow">Run test &rarr;</span>
+      </a>
+      <a class="hub-card" href="#">
+        <span class="hub-icon"></span>
+        <h3>Technical Support</h3>
+        <p>Troubleshoot connectivity issues, reset your router remotely, or book a technician visit at your convenience.</p>
+        <span class="hub-arrow">Get help &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section> -->
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <h2>Ready to say goodbye<br>to <em>slow internet?</em></h2>
+  <p>Check availability in your area and get connected as early as this week.</p>
+  <div class="cta-btns">
+    <button class="btn-sec-lg" onclick="location.href='internet-plans.html'">View All Plans</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo-wrap">
+      <span class="footer-logo"><span class="footer-logo-inner"><img src="assets/icons/cablelink_logo.png" alt="Cablelink logo"><span class="footer-logo-text">CABLELINK</span></span></span>
+      <p>Fast, reliable broadband and cable TV for homes and businesses. Serving Central Luzon and CALABARZON.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Plans</h4>
+      <a href="#">Supercharged I-Blaze</a>
+      <a href="#">Supercharged Fiberlink</a>
+      <a href="#">Turbocharged I-Blaze</a>
+      <a href="#">Turbocharged Fiberlink</a>
+      <a href="#">Cable TV</a>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="#">Pay My Bill</a>
+      <a href="#">Speed Test</a>
+      <a href="#">Technical Help</a>
+      <a href="#">Service Advisory</a>
+      <a href="#">Coverage Map</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About Us</a>
+      <a href="#">Promotions</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Cablelink. All rights reserved. Hotline: 8-988-5465</p>
+    <div class="footer-social">
+      <div class="social-icon">f</div>
+      <div class="social-icon"></div>
+      <div class="social-icon"></div>
+    </div>
+  </div>
+</footer>
+
+
+  
+  <div class="chatbot-badge">1</div>
+</button>
+
+<script>
+/* ── NAV INDICATOR ── */
+function initNavIndicator() {
+  const navLinks = document.querySelector('.nav-links');
+  if (!navLinks) return;
+  const indicator = document.createElement('div');
+  indicator.className = 'nav-indicator';
+  navLinks.appendChild(indicator);
+
+  function moveToLink(link) {
+    const linkRect = link.getBoundingClientRect();
+    const navRect = navLinks.getBoundingClientRect();
+    indicator.style.left = (linkRect.left - navRect.left) + 'px';
+    indicator.style.width = linkRect.width + 'px';
+  }
+
+  const activeLink = navLinks.querySelector('a.active');
+  if (activeLink) moveToLink(activeLink);
+
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', function(e) {
+      navLinks.querySelectorAll('a').forEach(x => x.classList.remove('active'));
+      this.classList.add('active');
+      moveToLink(this);
+    });
+  });
+
+  // Update on scroll to highlight sections
+  window.addEventListener('scroll', () => {
+    const sections = [
+      { id: null, link: navLinks.querySelector('a[href="#"]') },
+      { id: 'plans', link: navLinks.querySelector('a[href="#plans"]') },
+      { id: 'tv', link: navLinks.querySelector('a[href="#tv"]') },
+      { id: 'hub', link: navLinks.querySelector('a[href="#hub"]') },
+    ];
+    let current = sections[0];
+    sections.forEach(s => {
+      if (!s.id) return;
+      const el = document.getElementById(s.id);
+      if (el && window.scrollY >= el.offsetTop - 120) current = s;
+    });
+    navLinks.querySelectorAll('a').forEach(x => x.classList.remove('active'));
+    if (current.link) {
+      current.link.classList.add('active');
+      moveToLink(current.link);
+    }
+  }, { passive: true });
+}
+
+/* ── MOBILE NAV TOGGLE ── */
+function initMobileNav() {
+  const nav = document.querySelector('nav');
+  const toggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (!nav || !toggle || !navLinks) return;
+
+  const setOpen = (isOpen) => {
+    nav.classList.toggle('nav-open', isOpen);
+    toggle.classList.toggle('is-open', isOpen);
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  };
+
+  toggle.addEventListener('click', () => {
+    setOpen(!nav.classList.contains('nav-open'));
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1000) setOpen(false);
+  });
+}
+
+/* ── HERO CAROUSEL ── */
+let heroIndex = 0;
+const heroSlideMessages = [
+  'Fast · Reliable · Local',
+  'I-Blaze Cable Internet',
+  'Fiberlink — Pure Fiber'
+];
+
+function heroUpdateSlides() {
+  document.querySelectorAll('.hero-slide').forEach((s, i) => {
+    s.classList.toggle('active', i === heroIndex);
+  });
+  document.querySelectorAll('.hero-dot').forEach((d, i) => {
+    d.classList.toggle('active', i === heroIndex);
+  });
+}
+
+function heroSlide(dir) {
+  const total = document.querySelectorAll('.hero-slide').length;
+  heroIndex = (heroIndex + dir + total) % total;
+  heroUpdateSlides();
+}
+
+function heroGoTo(i) {
+  heroIndex = i;
+  heroUpdateSlides();
+}
+
+// Auto-advance
+setInterval(() => heroSlide(1), 5000);
+
+/* ── PROMO CAROUSEL ── */
+let promoIndex = 0;
+function promoUpdateSlides() {
+  const slides = document.querySelectorAll('.promo-slide');
+  const dots = document.querySelectorAll('.promo-dot');
+  if (!slides.length) return;
+  slides.forEach((s, i) => s.classList.toggle('active', i === promoIndex));
+  dots.forEach((d, i) => d.classList.toggle('active', i === promoIndex));
+}
+
+function promoSlide(dir) {
+  const total = document.querySelectorAll('.promo-slide').length;
+  if (!total) return;
+  promoIndex = (promoIndex + dir + total) % total;
+  promoUpdateSlides();
+}
+
+function promoGoTo(i) {
+  promoIndex = i;
+  promoUpdateSlides();
+}
+
+setInterval(() => promoSlide(1), 6000);
+
+/* ── PLANS: type + tier switcher ── */
+let currentType = 'iblaze';
+let currentTier = 'super';
+
+function showPlanGroup() {
+  document.querySelectorAll('.plan-group').forEach(g => g.classList.remove('active'));
+  const id = 'group-' + currentTier + '-' + currentType;
+  const el = document.getElementById(id);
+  if (el) el.classList.add('active');
+  applyPlanFilters();
+}
+
+function switchType(type) {
+  currentType = type;
+  document.querySelectorAll('.type-btn').forEach((b, i) => {
+    b.classList.toggle('active', (i === 0 && type === 'iblaze') || (i === 1 && type === 'fiber'));
+  });
+  showPlanGroup();
+}
+
+function switchTier(tier) {
+  currentTier = tier;
+  document.querySelectorAll('.tier-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.tier === tier);
+  });
+  showPlanGroup();
+}
+
+function applyPlanFilters() {
+  const speedSelect = document.getElementById('filter-speed');
+  const priceSelect = document.getElementById('filter-price');
+  const highlightSelect = document.getElementById('filter-highlight');
+  if (!speedSelect || !priceSelect || !highlightSelect) return;
+
+  const speedMin = parseInt(speedSelect.value, 10) || 0;
+  const priceMax = parseInt(priceSelect.value, 10) || 0;
+  const highlight = highlightSelect.value;
+
+  const activeGroup = document.querySelector('.plan-group.active');
+  if (!activeGroup) return;
+
+  let visibleCount = 0;
+  activeGroup.querySelectorAll('.plan-card-new').forEach(card => {
+    const speed = parseInt(card.dataset.speed, 10) || 0;
+    const price = parseInt(card.dataset.price, 10) || 0;
+    const isBest = card.classList.contains('best');
+    const matchSpeed = speed >= speedMin;
+    const matchPrice = !priceMax || price <= priceMax;
+    const matchHighlight = highlight === 'any' || (highlight === 'best' && isBest);
+    const show = matchSpeed && matchPrice && matchHighlight;
+    card.style.display = show ? '' : 'none';
+    if (show) visibleCount += 1;
+  });
+
+  const countEl = document.getElementById('filter-count');
+  if (countEl) {
+    countEl.textContent = visibleCount
+      ? visibleCount + ' plan' + (visibleCount === 1 ? '' : 's') + ' shown'
+      : 'No plans match.';
+  }
+}
+
+function resetPlanFilters() {
+  const speedSelect = document.getElementById('filter-speed');
+  const priceSelect = document.getElementById('filter-price');
+  const highlightSelect = document.getElementById('filter-highlight');
+  if (speedSelect) speedSelect.value = '0';
+  if (priceSelect) priceSelect.value = '0';
+  if (highlightSelect) highlightSelect.value = 'any';
+  applyPlanFilters();
+}
+
+// Assign data-tier attributes
+document.addEventListener('DOMContentLoaded', () => {
+  const tierBtns = document.querySelectorAll('.tier-btn');
+  if (tierBtns[0]) tierBtns[0].dataset.tier = 'super';
+  if (tierBtns[1]) tierBtns[1].dataset.tier = 'turbo';
+  initNavIndicator();
+  initMobileNav();
+  const filterControls = document.querySelectorAll('#filter-speed, #filter-price, #filter-highlight');
+  filterControls.forEach(el => el.addEventListener('change', applyPlanFilters));
+  const resetBtn = document.querySelector('.filter-reset');
+  if (resetBtn) resetBtn.addEventListener('click', resetPlanFilters);
+  applyPlanFilters();
+});
+</script>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</body>
+</html>
