@@ -714,13 +714,14 @@
     }
 
     .promo-cards-viewport {
-      /* overflow: hidden; */
+      overflow: hidden;
       padding: 16px 0 20px;
     }
 
     .promo-cards-track {
       display: flex;
       gap: 16px;
+      align-items: stretch;
       transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -732,6 +733,8 @@
       cursor: pointer;
       opacity: 0.45;
       transform: scale(0.93);
+      aspect-ratio: 1 / 1;
+      display: block;
     }
 
     .promo-card-item.active {
@@ -742,7 +745,7 @@
 
     .promo-card-item img {
       width: 100%;
-      aspect-ratio: 1 / 1;
+      height: 100%;
       object-fit: cover;
       display: block;
     }
@@ -2854,12 +2857,12 @@
       </div>
       <div class="promo-cards-viewport">
         <div class="promo-cards-track" id="promoCardsTrack">
-          <div class="promo-card-item active"><img src="/assets/promos/promo_1.jpg" alt="Promo 1" loading="lazy" />
+          <div class="promo-card-item active"><img src="/cablelink_design/assets/promos/promo_1.jpg" alt="Promo 1" loading="lazy" />
           </div>
-          <div class="promo-card-item"><img src="/assets/promos/promo_2.jpg" alt="Promo 2" loading="lazy" /></div>
-          <div class="promo-card-item"><img src="/assets/promos/promo_3.jpg" alt="Promo 3" loading="lazy" /></div>
-          <div class="promo-card-item"><img src="/assets/promos/promo_4.jpg" alt="Promo 4" loading="lazy" /></div>
-          <div class="promo-card-item"><img src="/assets/promos/promo_5.jpg" alt="Promo 5" loading="lazy" /></div>
+          <div class="promo-card-item"><img src="/cablelink_design/assets/promos/promo_2.jpg" alt="Promo 2" loading="lazy" /></div>
+          <div class="promo-card-item"><img src="/cablelink_design/assets/promos/promo_3.jpg" alt="Promo 3" loading="lazy" /></div>
+          <div class="promo-card-item"><img src="/cablelink_design/assets/promos/promo_4.jpg" alt="Promo 4" loading="lazy" /></div>
+          <div class="promo-card-item"><img src="/cablelink_design/assets/promos/promo_5.jpg" alt="Promo 5" loading="lazy" /></div>
         </div>
       </div>
       <div class="promo-nav">

@@ -31,7 +31,7 @@
       --steel: #337AB7;
       --charcoal: #333333;
       --muted: #555555;
-      --orange: #F26413;
+      --orange: #ff792c;
       --orange-dark: #C94E08;
       --orange-amber: #F99527;
       --lavender: #E7E7E7;
@@ -359,7 +359,7 @@
       align-content: center;
       justify-items: start;
       padding: var(--space-6) var(--space-6) var(--space-6) var(--space-5);
-      background: linear-gradient(180deg, rgba(6, 8, 22, 0.2) 0%, rgba(6, 8, 22, 0.1) 100%), linear-gradient(135deg, rgba(11, 16, 39, 0.94) 0%, rgba(9, 13, 29, 0.98) 100%);
+      background: linear-gradient(180deg, rgba(6, 8, 22, 0.2) 0%, rgba(6, 8, 22, 0.1) 100%), linear-gradient(135deg, rgb(14 95 250 / 94%) 0%, rgb(5 212 255 / 98%) 100%);
     }
 
     .hero h1 {
@@ -721,23 +721,35 @@
     }
 
     .plan-img-panel.theme-iblaze-super {
-      background: linear-gradient(155deg, #000e2e 0%, #00236e 55%, #0046B0 100%);
+      background: linear-gradient(155deg, rgba(0,14,46,0.55) 0%, rgba(0,35,110,0.45) 55%, rgba(0,70,176,0.35) 100%), url("assets/plans_bg/bg1.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     .plan-img-panel.theme-iblaze-turbo {
-      background: linear-gradient(155deg, #1a0600 0%, #6b2000 55%, var(--orange-dark) 100%);
+      background: linear-gradient(155deg, rgba(26,6,0,0.55) 0%, rgba(107,32,0,0.45) 55%, rgba(242,100,19,0.35) 100%), url("assets/plans_bg/bg2.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     .plan-img-panel.theme-fiber-super {
-      background: linear-gradient(155deg, #000e2e 0%, #003580 55%, #0066cc 100%);
+      background: linear-gradient(155deg, rgba(0,14,46,0.55) 0%, rgba(0,53,128,0.45) 55%, rgba(0,102,204,0.35) 100%), url("assets/plans_bg/bg4.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     .plan-img-panel.theme-fiber-turbo {
-      background: linear-gradient(155deg, #001a0a 0%, #00451a 55%, #007a30 100%);
+      background: url("assets/plans_bg/bg3.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     /* Grid lines texture */
-    .plan-img-panel::before {
+    /* .plan-img-panel::before {
       content: "";
       position: absolute;
       inset: 0;
@@ -746,7 +758,7 @@
         linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
       background-size: 28px 28px;
       pointer-events: none;
-    }
+    } */
 
     /* Bottom fade */
     .plan-img-panel::after {
@@ -782,7 +794,7 @@
     }
 
     .theme-fiber-turbo .plan-img-orb {
-      background: radial-gradient(circle, #00c86a, transparent);
+      background: radial-gradient(circle, #2b6cb0, transparent);
     }
 
     .plan-img-content {
@@ -819,9 +831,14 @@
     }
 
     .theme-fiber-turbo .plan-img-tier-badge {
-      background: rgba(0, 122, 48, 0.3);
-      border: 1px solid rgba(0, 200, 100, 0.4);
-      color: #6ee7a0;
+      background: rgba(0, 70, 176, 0.28);
+      border: 1px solid rgba(51, 122, 183, 0.45);
+      color: #93c5fd;
+    }
+
+    /* Remove bottom fade overlay for turbo fiber so bg image shows fully */
+    .plan-img-panel.theme-fiber-turbo::after {
+      background: linear-gradient(0deg, rgba(0,0,0,0) 0%, transparent 100%);
     }
 
     .plan-img-name {
@@ -1109,7 +1126,7 @@
       border-radius: var(--radius-xl);
       overflow: hidden;
       position: relative;
-      min-height: 340px;
+      aspect-ratio: 1 / 1;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -1342,7 +1359,7 @@
     /* Featured/center card larger */
     .promo-card--featured {
       flex: 0 0 calc((100% - 2 * var(--space-3)) / 3 * 1.12 + var(--space-3) * 0.06);
-      min-height: 380px;
+      aspect-ratio: 1 / 1;
       box-shadow: 0 20px 20px rgba(14, 27, 74, 0.18);
       border-color: rgba(51, 122, 183, 0.3);
     }

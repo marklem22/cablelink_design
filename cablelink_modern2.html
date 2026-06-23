@@ -680,19 +680,31 @@
     }
 
     .plan-img-panel.theme-iblaze-super {
-      background: linear-gradient(155deg, #000e2e 0%, #00236e 55%, #0046B0 100%);
+      background: linear-gradient(155deg, rgba(0,14,46,0.55) 0%, rgba(0,35,110,0.45) 55%, rgba(0,70,176,0.35) 100%), url("assets/plans_bg/bg1.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     .plan-img-panel.theme-iblaze-turbo {
-      background: linear-gradient(155deg, #1a0600 0%, #6b2000 55%, var(--orange-dark) 100%);
+      background: linear-gradient(155deg, rgba(26,6,0,0.55) 0%, rgba(107,32,0,0.45) 55%, rgba(242,100,19,0.35) 100%), url("assets/plans_bg/bg2.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     .plan-img-panel.theme-fiber-super {
-      background: linear-gradient(155deg, #000e2e 0%, #003580 55%, #0066cc 100%);
+      background: linear-gradient(155deg, rgba(0,14,46,0.55) 0%, rgba(0,53,128,0.45) 55%, rgba(0,102,204,0.35) 100%), url("assets/plans_bg/bg4.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     .plan-img-panel.theme-fiber-turbo {
-      background: linear-gradient(155deg, #001a0a 0%, #00451a 55%, #007a30 100%);
+      background: url("assets/plans_bg/bg3.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     /* Grid lines texture */
@@ -734,7 +746,7 @@
     .theme-iblaze-super .plan-img-orb,
     .theme-fiber-super .plan-img-orb { background: radial-gradient(circle, var(--steel), transparent); }
     .theme-iblaze-turbo .plan-img-orb { background: radial-gradient(circle, var(--orange), transparent); }
-    .theme-fiber-turbo .plan-img-orb  { background: radial-gradient(circle, #00c86a, transparent); }
+    .theme-fiber-turbo .plan-img-orb  { background: radial-gradient(circle, #2b6cb0, transparent); }
 
     .plan-img-content {
       position: relative;
@@ -770,10 +782,12 @@
     }
 
     .theme-fiber-turbo .plan-img-tier-badge {
-      background: rgba(0, 122, 48, 0.3);
-      border: 1px solid rgba(0, 200, 100, 0.4);
-      color: #6ee7a0;
+      background: rgba(0, 70, 176, 0.28);
+      border: 1px solid rgba(51, 122, 183, 0.45);
+      color: #93c5fd;
     }
+
+    .plan-img-panel.theme-fiber-turbo::after { background: linear-gradient(0deg, rgba(0,0,0,0) 0%, transparent 100%); }
 
     .plan-img-name {
       font-family: "Montserrat", sans-serif;
