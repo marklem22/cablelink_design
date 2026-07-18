@@ -6,626 +6,26 @@
 <title>Cable Link — Payment Facilities</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-@font-face{
-  font-family:"SF Grandezza Medium V2";
-  src:url("../cablelink_messy_design/assets/fonts/SF Grandezza Medium V2.woff2") format("woff2"),
-      url("../cablelink_messy_design/assets/fonts/SF Grandezza Medium V2.woff") format("woff"),
-      url("../cablelink_messy_design/assets/fonts/SF Grandezza Medium V2.ttf") format("truetype");
-  font-display:swap;
-}
-:root{
-  --blue-deep:#00236e;
-  --blue-primary:#0046B0;
-  --blue-secondary:#034DB6;
-  --blue-light:#337AB7;
-  --orange:#F26413;
-  --orange-dark:#C94E08;
-  --white:#fff;
-  --off-white:#f4f7fc;
-  --dark:#0d1b3e;
-  --muted:#64748b;
-  --green:#16a34a;
-  --green-light:#dcfce7;
-  --font:'Montserrat',sans-serif;
-}
-html{scroll-behavior:smooth}
-body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(--white)}
-#payment-facilities{scroll-margin-top:88px}
-
-/* ===== NAV ===== */
-.site-header{
-  position:fixed;top:0;left:0;right:0;z-index:900;
-  height:68px;padding:0 5%;
-  display:flex;align-items:center;justify-content:space-between;
-  background:rgba(0,28,88,0.96);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(255,255,255,0.08);
-  transition:all 0.3s;
-}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo-mark{
-  width:38px;height:38px;
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
-}
-.logo-mark img{width:100%;height:100%;object-fit:contain;display:block}
-.logo-text{font-size:1.1rem;font-weight:500;color:#fff;letter-spacing:-0.4px;font-family:"SF Grandezza Medium V2",'Montserrat',sans-serif;line-height:1}
-.logo-text em{color:var(--orange);font-style:normal}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:.85rem;font-weight:500;transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:#fff}
-.nav-links a.active{color:var(--orange)}
-.nav-btn{
-  background:var(--orange);color:#fff;
-  padding:10px 24px;border-radius:7px;
-  font-family:var(--font);font-size:.85rem;font-weight:700;
-  text-decoration:none;letter-spacing:.4px;
-  transition:background .2s,transform .15s;
-  border:none;cursor:pointer;
-}
-.nav-btn:hover{background:var(--orange-dark);transform:translateY(-1px)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none}
-.hamburger span{display:block;width:23px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
-.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-.hamburger.active span:nth-child(2){opacity:0}
-.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.mob-menu{
-  display:none;position:fixed;top:68px;left:0;right:0;
-  background:rgba(0,22,72,0.98);
-  padding:1.5rem 5%;flex-direction:column;gap:0;
-  z-index:899;
-}
-.mob-menu.open{display:flex}
-.mob-menu a{
-  color:rgba(255,255,255,0.85);text-decoration:none;
-  font-size:.95rem;font-weight:500;
-  padding:.85rem 0;border-bottom:1px solid rgba(255,255,255,0.07);
-  display:block;transition:color .2s;
-}
-.mob-menu a:hover{color:#fff}
-.mob-menu .mob-cta{
-  margin-top:1rem;text-align:center;border-bottom:none;
-  background:var(--orange);color:#fff;
-  border-radius:7px;padding:12px;font-weight:700;
-}
-
-/* ===== PAGE HERO ===== */
-.page-hero{
-  padding-top:68px;
-  background:linear-gradient(130deg, var(--blue-deep) 0%, var(--blue-primary) 55%, var(--blue-secondary) 100%);
-  position:relative;overflow:hidden;
-}
-.page-hero::before{
-  content:'';position:absolute;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M30 0v60M10 10h10v10M40 10h10v10M10 40h10v10M40 40h10v10' stroke='rgba(255,255,255,0.04)' stroke-width='1' fill='none'/%3E%3C/svg%3E");
-  background-size:60px 60px;
-}
-.hero-glow-1{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(51,122,183,.18) 0%,transparent 70%);right:-80px;top:-100px;pointer-events:none}
-.hero-glow-2{position:absolute;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(242,100,19,.12) 0%,transparent 70%);left:-50px;bottom:0;pointer-events:none}
-
-.page-hero-inner{
-  position:relative;z-index:2;
-  max-width:1200px;margin:0 auto;
-  padding:4.5rem 5% 5rem;
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:3rem;align-items:center;
-}
-.page-hero-text{animation:fadeUp .7s ease both}
-@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-.welcome-tag{
-  font-size:.7rem;font-weight:700;letter-spacing:2.5px;
-  text-transform:uppercase;color:var(--orange);
-  margin-bottom:1.1rem;display:block;
-}
-.page-hero-text h1{
-  font-size:clamp(1.9rem,4vw,3.1rem);
-  font-weight:900;color:#fff;line-height:1.1;
-  margin-bottom:1.2rem;letter-spacing:-1.5px;
-}
-.page-hero-text h1 .dot{color:var(--orange)}
-.page-hero-text p{
-  font-size:.975rem;color:rgba(255,255,255,.78);
-  line-height:1.75;max-width:460px;
-  font-weight:400;
-}
-
-/* Breadcrumb */
-.breadcrumb{
-  display:flex;align-items:center;gap:.5rem;
-  margin-bottom:1.5rem;
-  font-size:.75rem;font-weight:600;
-  color:rgba(255,255,255,.5);
-  letter-spacing:.5px;
-}
-.breadcrumb a{color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
-.breadcrumb a:hover{color:#fff}
-.breadcrumb svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-
-/* Hero right — quick pay card */
-.hero-right{
-  display:flex;justify-content:center;
-  animation:fadeUp .9s .15s ease both;
-}
-.quick-pay-card{
-  background:rgba(255,255,255,.1);
-  border:1px solid rgba(255,255,255,.16);
-  border-radius:18px;padding:2rem;width:320px;
-  backdrop-filter:blur(10px);
-}
-.qp-label{
-  font-size:.68rem;font-weight:700;letter-spacing:2px;
-  text-transform:uppercase;color:var(--orange);margin-bottom:1rem;
-}
-.qp-title{
-  font-size:1rem;font-weight:800;color:#fff;
-  margin-bottom:1.4rem;letter-spacing:-.3px;
-}
-.qp-field{
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:9px;padding:11px 14px;
-  margin-bottom:.75rem;
-  display:flex;align-items:center;gap:10px;
-}
-.qp-field svg{width:16px;height:16px;fill:none;stroke:rgba(255,255,255,.45);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
-.qp-field span{font-size:.82rem;color:rgba(255,255,255,.4);font-weight:500}
-.qp-btn{
-  width:100%;margin-top:.5rem;
-  background:var(--orange);color:#fff;
-  border:none;border-radius:9px;
-  font-family:var(--font);font-size:.85rem;font-weight:700;
-  padding:13px;cursor:pointer;
-  transition:background .2s,transform .15s;
-  letter-spacing:.4px;
-}
-.qp-btn:hover{background:var(--orange-dark);transform:translateY(-1px)}
-.qp-note{
-  margin-top:.9rem;font-size:.7rem;
-  color:rgba(255,255,255,.38);text-align:center;font-weight:500;
-  display:flex;align-items:center;gap:5px;justify-content:center;
-}
-.qp-note svg{width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-
-/* ===== STATS STRIP ===== */
-.stats-strip{
-  background:#fff;
-  border-bottom:1px solid rgba(0,70,176,.07);
-  padding:1.6rem 5%;
-}
-.stats-inner{
-  max-width:1200px;margin:0 auto;
-  display:flex;align-items:center;justify-content:space-around;
-  flex-wrap:wrap;gap:1rem;
-}
-.stat-item{
-  display:flex;align-items:center;gap:.8rem;
-}
-.stat-icon{
-  width:42px;height:42px;border-radius:10px;
-  background:rgba(0,70,176,.07);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
-.stat-icon svg{width:19px;height:19px;fill:none;stroke:var(--blue-primary);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.stat-icon.orange{background:rgba(242,100,19,.09)}
-.stat-icon.orange svg{stroke:var(--orange)}
-.stat-icon.green{background:rgba(22,163,74,.09)}
-.stat-icon.green svg{stroke:var(--green)}
-.stat-num{font-size:1.15rem;font-weight:900;color:var(--dark);line-height:1}
-.stat-lbl{font-size:.68rem;color:var(--muted);font-weight:600;margin-top:2px}
-.stat-divider{width:1px;height:36px;background:rgba(0,70,176,.1)}
-
-/* ===== SECTION SCAFFOLDING ===== */
-.section-head{text-align:center;max-width:580px;margin:0 auto 3rem}
-.section-tag{
-  font-size:.7rem;font-weight:700;letter-spacing:2.5px;
-  text-transform:uppercase;color:var(--orange);
-  margin-bottom:.8rem;display:block;
-}
-.section-head h2{
-  font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;
-  color:var(--dark);letter-spacing:-.8px;line-height:1.18;
-}
-.section-head p{margin-top:.9rem;font-size:.92rem;color:var(--muted);line-height:1.72}
-
-/* ===== ONLINE PAYMENT ===== */
-.online-section{padding:5.5rem 5%;background:var(--off-white)}
-.online-grid{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
-}
-.pay-card{
-  background:#fff;border-radius:14px;
-  padding:2rem 1.8rem;
-  box-shadow:0 4px 20px rgba(0,70,176,.07);
-  border:1px solid rgba(0,70,176,.06);
-  transition:transform .3s,box-shadow .3s;
-  display:flex;flex-direction:column;
-}
-.pay-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,70,176,.13)}
-.pay-card.featured{
-  background:linear-gradient(145deg,var(--blue-primary),var(--blue-secondary));
-  border:none;
-  box-shadow:0 8px 32px rgba(0,70,176,.3);
-}
-.pay-card.featured:hover{box-shadow:0 16px 52px rgba(0,70,176,.4)}
-.pay-logo{
-  height:54px;
-  border:2px dashed rgba(0,70,176,.18);
-  border-radius:10px;
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  margin-bottom:1.5rem;
-  background:rgba(0,70,176,.03);
-  font-size:.7rem;font-weight:700;color:rgba(0,70,176,.35);
-  letter-spacing:.5px;
-}
-.pay-card.featured .pay-logo{
-  border-color:rgba(255,255,255,.25);
-  background:rgba(255,255,255,.08);
-  color:rgba(255,255,255,.4);
-}
-.pay-logo svg{width:22px;height:22px;fill:none;stroke:rgba(0,70,176,.3);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.pay-card.featured .pay-logo svg{stroke:rgba(255,255,255,.3)}
-.pay-card h3{font-size:.98rem;font-weight:800;color:var(--dark);margin-bottom:.5rem}
-.pay-card.featured h3{color:#fff}
-.pay-card > p{font-size:.83rem;color:var(--muted);line-height:1.65;flex:1;margin-bottom:1.4rem}
-.pay-card.featured > p{color:rgba(255,255,255,.75)}
-.pay-steps{list-style:none;margin-bottom:1.5rem}
-.pay-steps li{
-  font-size:.8rem;color:var(--muted);
-  padding:.45rem 0;
-  border-bottom:1px solid rgba(0,70,176,.06);
-  display:flex;align-items:flex-start;gap:.6rem;
-  line-height:1.5;
-}
-.pay-card.featured .pay-steps li{color:rgba(255,255,255,.7);border-bottom-color:rgba(255,255,255,.1)}
-.step-num{
-  width:18px;height:18px;border-radius:50%;
-  background:rgba(0,70,176,.1);
-  color:var(--blue-primary);
-  font-size:.65rem;font-weight:800;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;
-}
-.pay-card.featured .step-num{background:rgba(255,255,255,.2);color:#fff}
-.pay-action{
-  display:inline-flex;align-items:center;gap:.5rem;
-  background:var(--blue-primary);color:#fff;
-  padding:11px 22px;border-radius:8px;
-  font-family:var(--font);font-size:.8rem;font-weight:700;
-  text-decoration:none;letter-spacing:.4px;
-  transition:background .2s,transform .15s;align-self:flex-start;
-}
-.pay-action:hover{background:var(--blue-secondary);transform:translateY(-1px)}
-.pay-action svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-.pay-card.featured .pay-action{background:#fff;color:var(--blue-primary)}
-.pay-card.featured .pay-action:hover{background:var(--off-white)}
-.pay-badge{
-  display:inline-block;background:var(--orange);color:#fff;
-  font-size:.62rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
-  padding:3px 9px;border-radius:5px;margin-bottom:1rem;
-}
-
-/* ===== WALK-IN SECTION ===== */
-.walkin-section{padding:5.5rem 5%;background:#fff}
-.walkin-grid{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr;gap:4rem;
-  align-items:start;
-}
-/* Location cards */
-.office-list{display:flex;flex-direction:column;gap:1rem}
-.office-list.custom-locations .office-card:nth-child(-n+4){display:none}
-.office-card{
-  background:var(--off-white);border-radius:12px;
-  padding:1rem 1.4rem;
-  display:flex;align-items:center;gap:1rem;
-  border:1px solid rgba(0,70,176,.07);
-  transition:border-color .2s,box-shadow .2s,transform .2s,background .2s;
-  cursor:pointer;
-}
-.office-card:hover{border-color:rgba(0,70,176,.2);box-shadow:0 4px 20px rgba(0,70,176,.08);transform:translateY(-2px)}
-.office-card.is-active{
-  background:#fff;
-  border-color:rgba(242,100,19,.45);
-  box-shadow:0 10px 28px rgba(0,70,176,.12);
-}
-.office-icon{
-  width:44px;height:44px;border-radius:10px;
-  background:var(--blue-primary);flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;margin-top:2px;
-}
-.office-icon svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.office-icon.orange-bg{background:var(--orange)}
-.office-name{font-size:.9rem;font-weight:800;color:var(--dark);margin-bottom:.25rem}
-.office-addr{font-size:.78rem;color:var(--muted);line-height:1.55;margin-bottom:.4rem}
-.office-hours{
-  display:inline-flex;align-items:center;gap:.4rem;
-  font-size:.72rem;font-weight:600;color:var(--green);
-  background:var(--green-light);padding:3px 9px;border-radius:5px;
-}
-.office-hours svg{width:11px;height:11px;fill:none;stroke:var(--green);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-
-/* Office map */
-.map-panel{
-  position:sticky;
-  top:92px;
-  align-self:start;
-  min-height:420px;
-  border-radius:16px;
-  overflow:hidden;
-  border:1px solid rgba(0,70,176,.12);
-  background:#dbeafe;
-  box-shadow:0 20px 50px rgba(0,35,110,.12);
-}
-.map-canvas{position:absolute;inset:0;z-index:1}
-.map-status{
-  position:absolute;top:18px;left:18px;right:18px;z-index:2;
-  display:flex;justify-content:space-between;align-items:center;gap:1rem;
-  pointer-events:none;
-}
-.map-badge,.map-help{
-  pointer-events:auto;
-  display:inline-flex;align-items:center;gap:.45rem;
-  padding:8px 12px;border-radius:999px;
-  backdrop-filter:blur(12px);
-  background:rgba(255,255,255,.9);
-  color:var(--blue-deep);
-  box-shadow:0 10px 30px rgba(0,35,110,.1);
-  font-size:.7rem;font-weight:800;letter-spacing:.7px;text-transform:uppercase;
-}
-.map-badge{
-  background:rgba(242,100,19,.92);
-  color:#fff;
-}
-.map-help{font-size:.72rem;font-weight:700;letter-spacing:.2px;text-transform:none}
-.map-help svg,.map-badge svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.office-map-marker{
-  width:18px;height:18px;border-radius:50%;
-  background:var(--orange);
-  border:3px solid rgba(255,255,255,.95);
-  box-shadow:0 6px 16px rgba(201,78,8,.35);
-}
-.leaflet-popup-content-wrapper{border-radius:12px}
-.leaflet-popup-content{margin:12px 14px;font-family:var(--font);color:var(--dark)}
-.leaflet-popup-content strong{display:block;margin-bottom:4px;font-size:.85rem}
-.leaflet-popup-content span{font-size:.76rem;color:var(--muted);line-height:1.5;display:block}
-.leaflet-control-attribution{font-family:var(--font)}
-.map-fallback{
-  position:absolute;inset:0;z-index:0;
-  display:flex;align-items:center;justify-content:center;
-  padding:2rem;text-align:center;
-  color:var(--blue-deep);font-size:.85rem;font-weight:600;
-}
-
-/* ===== PARTNER BANKS ===== */
-.banks-section{padding:5rem 5%;background:var(--off-white)}
-.banks-grid{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:1.2rem;
-}
-.bank-card{
-  background:#fff;border-radius:12px;padding:1.6rem 1.2rem;
-  border:1px solid rgba(0,70,176,.07);
-  text-align:center;
-  transition:transform .3s,box-shadow .3s;
-}
-.bank-card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,70,176,.1)}
-.bank-logo-ph{
-  height:72px;
-  border:2px dashed rgba(0,70,176,.14);
-  border-radius:10px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
-  margin-bottom:1rem;
-  background:rgba(0,70,176,.02);
-  padding:.8rem;
-}
-.bank-logo-ph svg{width:28px;height:28px;fill:none;stroke:rgba(0,70,176,.25);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.bank-logo-ph span{font-size:.6rem;color:rgba(0,70,176,.28);font-weight:700;letter-spacing:.5px}
-.bank-logo-ph img{max-width:100%;max-height:100%;object-fit:contain;display:block}
-.bank-name{font-size:.82rem;font-weight:800;color:var(--dark);margin-bottom:.25rem;min-height:2.2em}
-.bank-type{font-size:.72rem;color:var(--muted);font-weight:500;min-height:2.4em}
-.bank-tag{
-  display:inline-block;margin-top:.6rem;
-  font-size:.62rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
-  padding:3px 8px;border-radius:4px;
-}
-.bank-tag.ott{background:rgba(0,70,176,.08);color:var(--blue-primary)}
-.bank-tag.cdm{background:rgba(242,100,19,.08);color:var(--orange)}
-.bank-tag.online{background:rgba(22,163,74,.08);color:var(--green)}
-
-/* ===== HOW IT WORKS ===== */
-.how-section{padding:5.5rem 5%;background:#fff}
-.steps-row{
-  max-width:1100px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
-  position:relative;
-}
-.steps-row::before{
-  content:'';position:absolute;
-  top:36px;left:12.5%;right:12.5%;height:2px;
-  background:linear-gradient(90deg,var(--blue-primary),var(--orange));
-  z-index:0;
-}
-.how-step{
-  text-align:center;padding:0 1rem;position:relative;z-index:1;
-}
-.how-num{
-  width:72px;height:72px;border-radius:50%;
-  background:#fff;border:3px solid var(--blue-primary);
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 1.2rem;
-  font-size:1.2rem;font-weight:900;color:var(--blue-primary);
-  transition:all .3s;
-}
-.how-step:hover .how-num{background:var(--blue-primary);color:#fff}
-.how-step:nth-child(4) .how-num{border-color:var(--orange)}
-.how-step:nth-child(4):hover .how-num{background:var(--orange);color:#fff}
-.how-step h4{font-size:.88rem;font-weight:800;color:var(--dark);margin-bottom:.5rem}
-.how-step p{font-size:.8rem;color:var(--muted);line-height:1.65}
-
-/* ===== FAQ ===== */
-.faq-section{padding:5.5rem 5%;background:var(--off-white)}
-.faq-inner{max-width:800px;margin:0 auto}
-.faq-item{
-  background:#fff;border-radius:12px;
-  margin-bottom:.75rem;
-  border:1px solid rgba(0,70,176,.07);
-  overflow:hidden;
-  transition:box-shadow .2s;
-}
-.faq-item:hover{box-shadow:0 4px 20px rgba(0,70,176,.08)}
-.faq-q{
-  width:100%;background:none;border:none;
-  padding:1.25rem 1.5rem;
-  display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  cursor:pointer;text-align:left;
-  font-family:var(--font);font-size:.9rem;font-weight:700;
-  color:var(--dark);transition:color .2s;
-}
-.faq-q:hover{color:var(--blue-primary)}
-.faq-q svg{width:18px;height:18px;fill:none;stroke:var(--blue-primary);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;transition:transform .3s}
-.faq-item.open .faq-q svg{transform:rotate(45deg)}
-.faq-a{
-  max-height:0;overflow:hidden;
-  transition:max-height .35s ease,padding .35s ease;
-}
-.faq-item.open .faq-a{max-height:300px}
-.faq-a-inner{
-  padding:0 1.5rem 1.25rem;
-  font-size:.85rem;color:var(--muted);line-height:1.75;
-}
-
-/* ===== CTA STRIP ===== */
-.cta-strip{
-  background:linear-gradient(130deg,var(--blue-deep) 0%,var(--blue-primary) 100%);
-  padding:4rem 5%;text-align:center;position:relative;overflow:hidden;
-}
-.cta-strip::before{
-  content:'';position:absolute;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M30 0v60' stroke='rgba(255,255,255,0.04)' stroke-width='1' fill='none'/%3E%3C/svg%3E");
-  background-size:60px 60px;
-}
-.cta-strip h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;color:#fff;letter-spacing:-.5px;margin-bottom:.75rem;position:relative;z-index:1}
-.cta-strip p{font-size:.95rem;color:rgba(255,255,255,.75);margin-bottom:2rem;position:relative;z-index:1}
-.cta-strip-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
-.btn-solid{
-  background:var(--orange);color:#fff;
-  padding:14px 32px;border-radius:7px;
-  font-family:var(--font);font-weight:700;font-size:.85rem;
-  letter-spacing:.6px;text-transform:uppercase;
-  text-decoration:none;border:2px solid var(--orange);
-  transition:background .2s,border-color .2s,transform .15s;display:inline-block;
-}
-.btn-solid:hover{background:var(--orange-dark);border-color:var(--orange-dark);transform:translateY(-2px)}
-.btn-ghost{
-  background:transparent;color:#fff;
-  padding:14px 32px;border-radius:7px;
-  font-family:var(--font);font-weight:700;font-size:.85rem;
-  letter-spacing:.6px;text-transform:uppercase;
-  text-decoration:none;border:2px solid rgba(255,255,255,.45);
-  transition:background .2s,border-color .2s,transform .15s;display:inline-block;
-}
-.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff;transform:translateY(-2px)}
-
-/* ===== FOOTER ===== */
-footer{background:#000e2e;padding:2rem 5%;text-align:center}
-.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-.footer-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
-.footer-logo .logo-mark{width:32px;height:32px}
-.footer-logo .logo-mark img{width:100%;height:100%;object-fit:contain;display:block}
-.footer-logo span{font-size:1rem;font-weight:500;color:#fff;font-family:"SF Grandezza Medium V2",'Montserrat',sans-serif;letter-spacing:-0.4px;line-height:1}
-.footer-logo em{color:var(--orange);font-style:normal}
-footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
-.footer-links{display:flex;gap:1.5rem}
-.footer-links a{font-size:.8rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
-.footer-links a:hover{color:#fff}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:1024px){
-  .page-hero-inner{grid-template-columns:1fr;text-align:center}
-  .hero-right{display:none}
-  .online-grid{grid-template-columns:1fr 1fr}
-  .walkin-grid{grid-template-columns:1fr;gap:2.5rem}
-  .map-panel{position:relative;top:auto;min-height:460px}
-  .banks-grid{grid-template-columns:repeat(2,1fr)}
-  .steps-row{grid-template-columns:repeat(2,1fr);gap:2rem}
-  .steps-row::before{display:none}
-}
-@media(max-width:768px){
-  .nav-links,.nav-btn{display:none}
-  .hamburger{display:flex}
-  .online-grid{grid-template-columns:1fr}
-  .stats-inner{gap:.75rem}
-  .stat-divider{display:none}
-  .banks-grid{grid-template-columns:repeat(2,1fr)}
-  .steps-row{grid-template-columns:1fr 1fr}
-  .footer-inner{flex-direction:column;text-align:center}
-  .footer-links{justify-content:center}
-  .map-status{flex-direction:column;align-items:flex-start;right:auto}
-}
-@media(max-width:480px){
-  .page-hero-inner{padding:3rem 4% 4rem}
-  .page-hero-text h1{font-size:1.9rem;letter-spacing:-1px}
-  .banks-grid{grid-template-columns:1fr 1fr}
-  .steps-row{grid-template-columns:1fr}
-  .site-header{padding:0 4%}
-  .walkin-section,.online-section,.how-section,.faq-section,.banks-section{padding:4rem 4%}
-  .map-panel{min-height:400px}
-  .map-status{top:14px;left:14px}
-  .map-badge,.map-help{font-size:.68rem;padding:7px 10px}
-}
-</style>
+<link rel="stylesheet" href="assets/css/cablelink_payment.css?v=20260717-5">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260717-15">
+  <script src="assets/js/site-shell.js?v=20260717-3" defer></script>
 </head>
-<body>
-
-<!-- NAV -->
-<nav class="site-header">
-  <a href="cablelink_modern_v2.html#home" class="logo">
-    <div class="logo-mark">
-      <img src="../cablelink_messy_design/assets/icons/cablelink_logo.png" alt="Cable Link">
-    </div>
-    <span class="logo-text">CABLELINK</em></span>
-  </a>
-
-  <ul class="nav-links">
-     <li><a href="cablelink_modern_v2.html" >Home</a></li>
-    <li><a href="cablelink_plans.html#plans">Plans</a></li>
-    <li><a href="cablelink_promos.html">Promos</a></li>
-    <li><a href="cablelink_payment.html#payment-facilities" class="active">Payment Facilities</a></li>
-    <li><a href="#about-us">About Us</a></li>
-  </ul>
-
-  <a href="cablelink_apply.html" class="nav-btn">Get Connected</a>
-  <button class="hamburger" id="ham" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- MOBILE MENU -->
-<div class="mob-menu" id="mob">
-  <a href="cablelink_modern_v2.html#home">Home</a>
-  <a href="cablelink_plans.html#plans">Plans</a>
-  <a href="cablelink_modern_v2.html#promos">Promos</a>
-  <a href="#payment-facilities" style="color:var(--orange)">Payment Facilities</a>
-  <a href="cablelink_modern_v2.html#about-us">About Us</a>
-  <a href="cablelink_apply.html" class="mob-cta">Get Connected</a>
-</div>
+<body data-page="payment">
 
 <!-- PAGE HERO -->
-<section class="page-hero" id="payment-facilities">
+<section class="hero hero--payment" id="payment-facilities">
   <div class="hero-glow-1"></div>
   <div class="hero-glow-2"></div>
-  <div class="page-hero-inner">
-    <div class="page-hero-text">
+  <div class="container hero__inner">
+    <div class="hero__content">
       <div class="breadcrumb">
         <a href="cablelink_modern_v2.html#home">Home</a>
         <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
         <span>Payment Facilities</span>
       </div>
-      <span class="welcome-tag">Billing & Payments</span>
-      <h1>Easy & Secure<br>Payment Options<span class="dot">.</span></h1>
-      <p>Pay your Cable Link bill anytime, anywhere — through online banking, e-wallets, partner payment centers, or visit any of our offices. Multiple channels, zero hassle.</p>
+      <span class="welcome-tag hero__eyebrow">Billing & Payments</span>
+      <h1 class="hero__title">Easy & Secure Payment Options<span class="dot">.</span></h1>
+      <p class="hero__description">Pay your Cable Link bill anytime, anywhere — through online banking, e-wallets, partner payment centers, or visit any of our offices. Multiple channels, zero hassle.</p>
     </div>
 
     <!-- Quick Pay Card (placeholder fields) -->
@@ -657,7 +57,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
 
 <!-- STATS STRIP -->
 <div class="stats-strip">
-  <div class="stats-inner">
+  <div class="container stats-inner">
     <!-- <div class="stat-item">
       <div class="stat-icon">
         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -673,24 +73,24 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       </div>
       <div>
-        <div class="stat-num">24 / 7</div>
+        <div class="stat-num">24/7</div>
         <div class="stat-lbl">Online Payment</div>
       </div>
     </div>
     <div class="stat-divider"></div>
     <div class="stat-item">
       <div class="stat-icon green">
-        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
       </div>
       <div>
-        <div class="stat-num">10+</div>
-        <div class="stat-lbl">Payment Channels</div>
+        <div class="stat-num">100%</div>
+        <div class="stat-lbl">Payment Secured</div>
       </div>
     </div>
     <div class="stat-divider"></div>
     <div class="stat-item">
-      <div class="stat-icon">
-        <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      <div class="stat-icon blue">
+        <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 11 14 11 22 21 10 13 10 13 2"/></svg>
       </div>
       <div>
         <div class="stat-num">Instant</div>
@@ -710,10 +110,131 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
   </div>
 </div>
 
+<!-- COVERAGE AREAS -->
+<section class="coverage-section" id="coverage-areas">
+  <div class="container coverage-layout">
+    <div class="coverage-panel">
+      <div class="section__header coverage-head">
+        <span class="section__tag">Service Availability</span>
+        <h2><span class="line-break">Coverage Areas for</span><span class="line-break">Iblaze &amp; Fiberlink</span></h2>
+        <p>Explore the available service areas and find coverage in your location. Buy or update your Cable Link service with confidence.</p>
+      </div>
+
+      <div class="coverage-tabs" role="tablist" aria-label="Coverage provider">
+        <button class="coverage-tab is-active" type="button" role="tab" aria-selected="true" data-tab="iblaze">
+          <span class="coverage-tab-dot iblaze"></span>Iblaze <span class="coverage-tab-sub">(Cable Internet)</span>
+        </button>
+        <button class="coverage-tab" type="button" role="tab" aria-selected="false" data-tab="fiberlink">
+          <span class="coverage-tab-dot fiberlink"></span>Fiberlink <span class="coverage-tab-sub">(Fiber Internet)</span>
+        </button>
+      </div>
+
+      <div class="coverage-items" data-panel="iblaze">
+        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Muntinlupa" data-lat="14.4081" data-lng="121.0415" data-zoom="12.8">
+          <span class="coverage-item-pin iblaze"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span class="coverage-item-text">
+            <span class="coverage-item-name">Muntinlupa</span>
+            <span class="coverage-item-meta">Includes Filinvest coverage zone</span>
+          </span>
+          <svg class="coverage-item-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Pasay" data-lat="14.5378" data-lng="120.9980" data-zoom="13.2">
+          <span class="coverage-item-pin iblaze"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span class="coverage-item-text">
+            <span class="coverage-item-name">Pasay</span>
+            <span class="coverage-item-meta">Includes SMDC developments</span>
+          </span>
+          <svg class="coverage-item-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Manila" data-lat="14.5995" data-lng="120.9842" data-zoom="12.6">
+          <span class="coverage-item-pin iblaze"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span class="coverage-item-text">
+            <span class="coverage-item-name">Manila</span>
+            <span class="coverage-item-meta">Includes SMDC, DMCI, and Cityland</span>
+          </span>
+          <svg class="coverage-item-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Bacoor, Cavite" data-lat="14.4624" data-lng="120.9645" data-zoom="12.3">
+          <span class="coverage-item-pin iblaze"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span class="coverage-item-text">
+            <span class="coverage-item-name">Bacoor, Cavite</span>
+            <span class="coverage-item-meta">Metro south expansion zone</span>
+          </span>
+          <svg class="coverage-item-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Mandaluyong" data-lat="14.5794" data-lng="121.0359" data-zoom="13.3">
+          <span class="coverage-item-pin iblaze"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span class="coverage-item-text">
+            <span class="coverage-item-name">Mandaluyong</span>
+            <span class="coverage-item-meta">Includes Cityland sites</span>
+          </span>
+          <svg class="coverage-item-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+      <div class="coverage-items" data-panel="fiberlink" hidden>
+        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Paranaque" data-lat="14.4793" data-lng="121.0198" data-zoom="12.9">
+          <span class="coverage-item-pin fiberlink"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span class="coverage-item-text">
+            <span class="coverage-item-name">Paranaque</span>
+            <span class="coverage-item-meta">Fiber corridor in the south metro</span>
+          </span>
+          <svg class="coverage-item-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Las Pinas" data-lat="14.4445" data-lng="120.9939" data-zoom="12.9">
+          <span class="coverage-item-pin fiberlink"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span class="coverage-item-text">
+            <span class="coverage-item-name">Las Pinas</span>
+            <span class="coverage-item-meta">Residential and mixed-use coverage zone</span>
+          </span>
+          <svg class="coverage-item-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Imus, Cavite" data-lat="14.4297" data-lng="120.9367" data-zoom="12.2">
+          <span class="coverage-item-pin fiberlink"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span class="coverage-item-text">
+            <span class="coverage-item-name">Imus, Cavite</span>
+            <span class="coverage-item-meta">Cavite expansion coverage</span>
+          </span>
+          <svg class="coverage-item-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Sta. Maria, Bulacan" data-lat="14.8187" data-lng="120.9569" data-zoom="11.6">
+          <span class="coverage-item-pin fiberlink"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span class="coverage-item-text">
+            <span class="coverage-item-name">Sta. Maria, Bulacan</span>
+            <span class="coverage-item-meta">Northern coverage cluster</span>
+          </span>
+          <svg class="coverage-item-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Quezon City" data-lat="14.6760" data-lng="121.0437" data-zoom="12.2">
+          <span class="coverage-item-pin fiberlink"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span class="coverage-item-text">
+            <span class="coverage-item-name">Quezon City</span>
+            <span class="coverage-item-meta">Includes SMDC, Cityland, and DMCI</span>
+          </span>
+          <svg class="coverage-item-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+      <a href="#coverage-areas" class="coverage-view-all">View All Coverage Areas <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+
+    <div class="coverage-map-shell" aria-label="Coverage area map">
+      <div class="coverage-map-toolbar">
+        <div class="coverage-map-badges">
+          <div class="coverage-map-pill"><span class="iblaze"></span>Iblaze Coverage</div>
+          <div class="coverage-map-pill"><span class="fiberlink"></span>Fiberlink Coverage</div>
+        </div>
+      </div>
+      <div id="coverage-map" class="coverage-map" role="application" aria-label="Cable Link proposed coverage area map"></div>
+      <div class="coverage-map-fallback">Loading coverage map...</div>
+    </div>
+  </div>
+</section>
+
 <!-- ONLINE PAYMENT SECTION -->
 <!-- <section class="online-section" id="online">
-  <div class="section-head">
-    <span class="section-tag">Digital Channels</span>
+  <div class="section__header">
+    <span class="section__tag">Digital Channels</span>
     <h2>Pay Online — Anytime, Anywhere</h2>
     <p>Use your preferred e-wallet or online banking platform to settle your bill instantly from the comfort of your home.</p>
   </div>
@@ -779,13 +300,14 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
 
 <!-- WALK-IN SECTION -->
 <section class="walkin-section" id="offices">
-  <div class="section-head" style="margin-bottom:2.5rem">
-    <span class="section-tag">Walk-In Payment</span>
+  <div class="container">
+  <div class="section__header" style="margin-bottom:2.5rem">
+    <span class="section__tag">Walk-In Payment</span>
     <h2>Visit Our Payment Centers</h2>
     <p>Prefer paying in person? Our offices are open on weekdays and Saturdays to assist you with billing and payments.</p>
   </div>
 
-  <div class="walkin-grid" style="max-width:1200px;margin:0 auto;">
+  <div class="walkin-grid">
 
     <div class="office-list custom-locations">
 
@@ -795,7 +317,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
         </div>
         <div>
           <div class="office-name">Main Office — Bauang</div>
-          <div class="office-addr">National Highway, Bauang, La Union<br>Near Bauang Municipal Hall</div>
+          <div class="office-addr"><span class="line-break">National Highway, Bauang, La Union</span><span class="line-break">Near Bauang Municipal Hall</span></div>
           <div class="office-hours">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             Mon–Fri 8:00 AM – 5:00 PM
@@ -809,7 +331,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
         </div>
         <div>
           <div class="office-name">Branch — San Fernando</div>
-          <div class="office-addr">Quezon Ave., San Fernando City, La Union<br>2nd Floor, CableLink Building</div>
+          <div class="office-addr"><span class="line-break">Quezon Ave., San Fernando City, La Union</span><span class="line-break">2nd Floor, CableLink Building</span></div>
           <div class="office-hours">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             Mon–Sat 8:00 AM – 5:00 PM
@@ -823,7 +345,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
         </div>
         <div>
           <div class="office-name">Sub-Office — Agoo</div>
-          <div class="office-addr">Rizal St., Agoo, La Union<br>Ground Floor, Plaza Commercial Center</div>
+          <div class="office-addr"><span class="line-break">Rizal St., Agoo, La Union</span><span class="line-break">Ground Floor, Plaza Commercial Center</span></div>
           <div class="office-hours">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             Mon–Fri 8:00 AM – 4:30 PM
@@ -837,7 +359,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
         </div>
         <div>
           <div class="office-name">Drop Box — SM San Fernando</div>
-          <div class="office-addr">SM City San Fernando, La Union<br>Near Main Entrance, Customer Service Area</div>
+          <div class="office-addr"><span class="line-break">SM City San Fernando, La Union</span><span class="line-break">Near Main Entrance, Customer Service Area</span></div>
           <div class="office-hours">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             Daily 10:00 AM – 8:00 PM
@@ -1017,17 +539,19 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
     </div>
 
   </div>
+  </div>
 </section>
 
 <!-- PARTNER BANKS & PAYMENT CENTERS -->
 <section class="banks-section" id="partners">
-  <div class="section-head">
-    <span class="section-tag">Accredited Partners</span>
+  <div class="container">
+  <div class="section__header">
+    <span class="section__tag">Accredited Partners</span>
     <h2>Banks & Payment Centers</h2>
     <p>Choose from banks, cards, e-wallets, kiosks, and partner payment centers using the supported channels below.</p>
   </div>
 
-  <div class="banks-grid" style="max-width:1200px;margin:0 auto;">
+  <div class="banks-grid">
 
     <div class="bank-card">
       <div class="bank-logo-ph">
@@ -1363,12 +887,103 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
     </div>
 
   </div>
+  </div>
+</section>
+
+<!-- PAYMENT REMINDERS -->
+<section class="reminders-section" id="reminders">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__tag">Helpful Reminders</span>
+      <h2>General Payment Reminders</h2>
+      <p>A few important notes to keep in mind whichever payment channel you choose.</p>
+    </div>
+
+    <div class="reminders-layout">
+      <div class="reminders-column">
+        <article class="reminder-card">
+          <span class="reminder-icon reminder-icon--blue" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 10h18M5 10v8m4-8v8m6-8v8m4-8v8M3 20h18M4 7l8-4 8 4v2H4z" /></svg>
+          </span>
+          <div class="reminder-body">
+            <h4>Over-the-Counter Payment</h4>
+            <p>Always bring your Statement of Account (SOA) when paying through accredited payment centers and banks.</p>
+            <p>Available at Bayad Center, 7-Eleven, and GPRS.</p>
+          </div>
+        </article>
+
+        <article class="reminder-card">
+          <span class="reminder-icon reminder-icon--orange" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2" /><path d="M2.5 10h19M6 15h4" /></svg>
+          </span>
+          <div class="reminder-body">
+            <h4>Credit Card Payment &mdash; Two Ways to Pay</h4>
+            <ul>
+              <li><strong>Auto Debit Arrangement</strong> &mdash; Subscribers may enroll at any Cable Link satellite office.</li>
+              <li><strong>Over-the-Counter</strong> &mdash; Credit card payment is accepted at selected Cable Link offices. Visa, Mastercard, AMEX, and JCB are accepted.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="reminder-card">
+          <span class="reminder-icon reminder-icon--green" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 7.5h13a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10" /><path d="M16 11h4v4h-4a2 2 0 0 1 0-4Z" /><circle cx="16.5" cy="13" r=".5" /></svg>
+          </span>
+          <div class="reminder-body">
+            <h4>e-Wallets &amp; Digital Payments</h4>
+            <p>GCash, Maya, ShopeePay, GrabPay, Peppermint, Bayad Online, Coins.ph, Sold, JuanPay, Diskartech, Juan Cash, WeChat Pay, and BaryaCard.</p>
+          </div>
+        </article>
+      </div>
+
+      <figure class="reminders-visual">
+        <img src="../assets/images/checklist.png" alt="Checklist with a payment shield">
+      </figure>
+
+      <div class="reminders-column">
+        <article class="reminder-card">
+          <span class="reminder-icon reminder-icon--cyan" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 7h16v13H4zM6 4h12v3H6zM8 11h8M8 15h5" /></svg>
+          </span>
+          <div class="reminder-body">
+            <h4>Cheque Payments</h4>
+            <p>Please make your cheque payable to <strong>Cable Link and Holdings Corp.</strong></p>
+          </div>
+        </article>
+
+        <article class="reminder-card">
+          <span class="reminder-icon reminder-icon--orange" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2" /><path d="M8 7h8M8 11h8M8 15h5" /></svg>
+          </span>
+          <div class="reminder-body">
+            <h4>Pay Without Your SOA</h4>
+            <p>You can conveniently pay without your SOA at Cable Link satellite offices, banks, payment centers, and digital platforms.</p>
+          </div>
+        </article>
+
+        <article class="reminder-card">
+          <span class="reminder-icon reminder-icon--purple" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M12 7v5l3 2" /></svg>
+          </span>
+          <div class="reminder-body">
+            <h4>Crediting of Payments</h4>
+            <p>Payments made through payment centers, banks, and credit cards will be credited to your account after 3 working days.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="reminder-note">
+      <svg viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.29 3.86l-8.18 14.18A2 2 0 0 0 3.82 21h16.36a2 2 0 0 0 1.71-2.96L13.71 3.86a2 2 0 0 0-3.42 0z" /></svg>
+      For questions about a specific payment, please contact our billing hotline or visit any Cable Link office.
+    </div>
+  </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="how-section" id="how">
-  <div class="section-head">
-    <span class="section-tag">Simple Process</span>
+<!-- <section class="how-section" id="how">
+  <div class="section__header">
+    <span class="section__tag">Simple Process</span>
     <h2>How to Pay in 4 Easy Steps</h2>
     <p>Paying your Cable Link bill is fast and straightforward — pick your channel and follow these steps.</p>
   </div>
@@ -1400,12 +1015,12 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
     </div>
 
   </div>
-</section>
+</section> -->
 
 <!-- FAQ -->
-<section class="faq-section" id="faq">
-  <div class="section-head">
-    <span class="section-tag">Common Questions</span>
+<!-- <section class="faq-section" id="faq">
+  <div class="section__header">
+    <span class="section__tag">Common Questions</span>
     <h2>Payment FAQs</h2>
     <p>Can't find an answer? Call our billing hotline or visit any of our offices.</p>
   </div>
@@ -1473,36 +1088,19 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
     </div>
 
   </div>
-</section>
+</section> -->
 
 <!-- CTA STRIP -->
 <div class="cta-strip">
-  <h2>Need Help With Your Bill?</h2>
-  <p>Our billing team is ready to assist you. Reach us by phone, email, or visit any of our offices.</p>
-  <div class="cta-strip-btns">
-    <a href="cablelink_apply.html" class="btn-solid">Contact Billing Support</a>
-    <a href="cablelink_plans.html#plans" class="btn-ghost">View Plans & Pricing</a>
+  <div class="container cta-strip__inner">
+    <h2>Need Help With Your Bill?</h2>
+    <p>Our billing team is ready to assist you. Reach us by phone, email, or visit any of our offices.</p>
+    <div class="cta-strip-btns">
+      <a href="cablelink_apply.html" class="button button--primary btn-solid">Contact Billing Support</a>
+      <a href="cablelink_plans.html#plans" class="button button--outline btn-ghost">View Plans & Pricing</a>
+    </div>
   </div>
 </div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <a href="#" class="footer-logo">
-      <div class="logo-mark">
-        <img src="../cablelink_messy_design/assets/icons/cablelink_logo.png" alt="Cable Link">
-      </div>
-      <span>Cable<em>Link</em></span>
-    </a>
-    <nav class="footer-links">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-      <a href="#">Support</a>
-      <a href="#">Careers</a>
-    </nav>
-    <p>© 2025 CableLink. All rights reserved.</p>
-  </div>
-</footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
 <script>
@@ -1517,17 +1115,233 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
     });
   });
 
-  // Hamburger
-  var ham = document.getElementById('ham'), mob = document.getElementById('mob');
-  ham.addEventListener('click', function(){
-    ham.classList.toggle('active');
-    mob.classList.toggle('open');
-  });
-  document.addEventListener('click', function(e){
-    if(!ham.contains(e.target) && !mob.contains(e.target)){
-      ham.classList.remove('active'); mob.classList.remove('open');
+  var coverageTabs = Array.prototype.slice.call(document.querySelectorAll('.coverage-tab'));
+  var coveragePanels = Array.prototype.slice.call(document.querySelectorAll('.coverage-items[data-panel]'));
+  var coverageViewAll = document.querySelector('.coverage-view-all');
+  var coverageMapElement = document.getElementById('coverage-map');
+  var coverageFallback = document.querySelector('.coverage-map-fallback');
+  var coverageItems = Array.prototype.slice.call(document.querySelectorAll('.coverage-item'));
+  var coverageAreas = [
+    {provider:'iblaze', name:'Muntinlupa', lat:14.4081, lng:121.0415, radius:5200, notes:'Includes Filinvest coverage zone.'},
+    {provider:'iblaze', name:'Pasay', lat:14.5378, lng:120.9980, radius:3800, notes:'Includes SMDC developments.'},
+    {provider:'iblaze', name:'Manila', lat:14.5995, lng:120.9842, radius:5600, notes:'Includes SMDC, DMCI, and Cityland.'},
+    {provider:'iblaze', name:'Bacoor, Cavite', lat:14.4624, lng:120.9645, radius:6200, notes:'Metro south expansion zone.'},
+    {provider:'iblaze', name:'Mandaluyong', lat:14.5794, lng:121.0359, radius:3600, notes:'Includes Cityland sites.'},
+    {provider:'fiberlink', name:'Paranaque', lat:14.4793, lng:121.0198, radius:4600, notes:'Fiber corridor in the south metro.'},
+    {provider:'fiberlink', name:'Las Pinas', lat:14.4445, lng:120.9939, radius:4300, notes:'Residential and mixed-use coverage zone.'},
+    {provider:'fiberlink', name:'Imus, Cavite', lat:14.4297, lng:120.9367, radius:5600, notes:'Cavite expansion coverage.'},
+    {provider:'fiberlink', name:'Sta. Maria, Bulacan', lat:14.8187, lng:120.9569, radius:9000, notes:'Northern coverage cluster.'},
+    {provider:'fiberlink', name:'Quezon City', lat:14.6760, lng:121.0437, radius:6800, notes:'Includes SMDC, Cityland, and DMCI.'}
+  ];
+  var coverageMap = null;
+  var coverageLayers = new Map();
+  var activeCoverageItem = null;
+  var activeCoverageFilter = 'iblaze';
+  var coverageBoundsByProvider = {
+    all: [],
+    iblaze: [],
+    fiberlink: []
+  };
+
+  function setActiveCoverageItem(item){
+    if(activeCoverageItem) activeCoverageItem.classList.remove('is-active');
+    activeCoverageItem = item || null;
+    if(activeCoverageItem) activeCoverageItem.classList.add('is-active');
+  }
+
+  function setCoverageTabs(filter){
+    coverageTabs.forEach(function(tab){
+      var active = filter !== 'all' && tab.getAttribute('data-tab') === filter;
+      tab.classList.toggle('is-active', active);
+      tab.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+  }
+
+  function setCoveragePanels(filter){
+    coverageItems.forEach(function(item){
+      item.hidden = filter !== 'all' && item.dataset.provider !== filter;
+    });
+
+    coveragePanels.forEach(function(panel){
+      var panelItems = Array.prototype.slice.call(panel.querySelectorAll('.coverage-item'));
+      var hasVisibleItems = panelItems.some(function(item){
+        return !item.hidden;
+      });
+
+      panel.hidden = !hasVisibleItems;
+    });
+  }
+
+  function toggleCoverageLayer(layerSet, visible){
+    if(!coverageMap || !layerSet) return;
+
+    if(visible){
+      if(!coverageMap.hasLayer(layerSet.circle)) layerSet.circle.addTo(coverageMap);
+      if(!coverageMap.hasLayer(layerSet.label)) layerSet.label.addTo(coverageMap);
+      return;
     }
+
+    if(coverageMap.hasLayer(layerSet.circle)) coverageMap.removeLayer(layerSet.circle);
+    if(coverageMap.hasLayer(layerSet.label)) coverageMap.removeLayer(layerSet.label);
+    layerSet.circle.closePopup();
+  }
+
+  function syncCoverageMapLayers(){
+    if(!coverageMap) return;
+
+    var selectedKey = activeCoverageItem
+      ? activeCoverageItem.dataset.provider + '|' + activeCoverageItem.dataset.area
+      : null;
+
+    coverageLayers.forEach(function(layerSet, key){
+      var visible = selectedKey
+        ? key === selectedKey
+        : (activeCoverageFilter === 'all' || layerSet.data.provider === activeCoverageFilter);
+
+      toggleCoverageLayer(layerSet, visible);
+    });
+  }
+
+  function fitCoverageBounds(filter){
+    if(!coverageMap) return;
+
+    if(activeCoverageItem){
+      var selectedKey = activeCoverageItem.dataset.provider + '|' + activeCoverageItem.dataset.area;
+      var selectedLayerSet = coverageLayers.get(selectedKey);
+      if(selectedLayerSet){
+        coverageMap.fitBounds(selectedLayerSet.circle.getBounds(), {
+          padding:[20, 20],
+          maxZoom:Number(activeCoverageItem.dataset.zoom) || 13
+        });
+      }
+      return;
+    }
+
+    var bounds = coverageBoundsByProvider[filter] || coverageBoundsByProvider.all;
+    if(!bounds.length) return;
+
+    coverageMap.fitBounds(bounds, {
+      padding:[18, 18],
+      maxZoom: filter === 'all' ? 11 : 12
+    });
+  }
+
+  function setCoverageFilter(filter, options){
+    options = options || {};
+    activeCoverageFilter = filter === 'all'
+      ? 'all'
+      : (filter === 'fiberlink' ? 'fiberlink' : 'iblaze');
+
+    setCoverageTabs(activeCoverageFilter);
+    setCoveragePanels(activeCoverageFilter);
+
+    if(options.preserveActive !== true || (activeCoverageItem && activeCoverageItem.hidden)){
+      setActiveCoverageItem(null);
+    }
+
+    if(!coverageMap) return;
+
+    syncCoverageMapLayers();
+
+    if(options.resetView !== false){
+      coverageMap.closePopup();
+      fitCoverageBounds(activeCoverageFilter);
+    }
+  }
+
+  coverageTabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      setCoverageFilter(tab.getAttribute('data-tab'));
+    });
   });
+
+  if(coverageViewAll){
+    coverageViewAll.addEventListener('click', function(){
+      setCoverageFilter('all');
+    });
+  }
+
+  setCoverageFilter(activeCoverageFilter, {
+    preserveActive:true,
+    resetView:false
+  });
+
+  if(coverageMapElement && coverageFallback && window.L && coverageItems.length){
+    var providerStyles = {
+      iblaze:{
+        color:'#F78220',
+        fillColor:'#F78220'
+      },
+      fiberlink:{
+        color:'#007AFE',
+        fillColor:'#31AAFE'
+      }
+    };
+    coverageMap = L.map(coverageMapElement, {scrollWheelZoom:false, zoomControl:true});
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution:'&copy; OpenStreetMap contributors'
+    }).addTo(coverageMap);
+
+    function focusCoverageArea(item, openPopup){
+      if(!item) return;
+      var key = item.dataset.provider + '|' + item.dataset.area;
+      var layerSet = coverageLayers.get(key);
+      if(!layerSet) return;
+      setActiveCoverageItem(item);
+      syncCoverageMapLayers();
+      fitCoverageBounds(activeCoverageFilter);
+      if(openPopup) layerSet.circle.openPopup();
+    }
+
+    coverageAreas.forEach(function(area){
+      var style = providerStyles[area.provider];
+      if(!style) return;
+
+      var circle = L.circle([area.lat, area.lng], {
+        radius:area.radius,
+        color:style.color,
+        weight:2,
+        opacity:.95,
+        fillColor:style.fillColor,
+        fillOpacity:.24
+      });
+
+      circle.bindPopup('<strong>' + area.name + '</strong><span>' + (area.provider === 'iblaze' ? 'Iblaze' : 'Fiberlink') + ' proposed coverage area. ' + area.notes + '</span>');
+
+      var label = L.marker([area.lat, area.lng], {
+        interactive:false,
+        icon:L.divIcon({
+          className:'coverage-label-wrap',
+          html:'<div class="coverage-label ' + area.provider + '">' + area.name + '</div>',
+          iconSize:null,
+          iconAnchor:[0, 0]
+        })
+      });
+
+      coverageBoundsByProvider.all.push([area.lat, area.lng]);
+      coverageBoundsByProvider[area.provider].push([area.lat, area.lng]);
+
+      var key = area.provider + '|' + area.name;
+      coverageLayers.set(key, {circle:circle, label:label, data:area});
+    });
+
+    coverageItems.forEach(function(item){
+      item.addEventListener('click', function(){
+        focusCoverageArea(item, true);
+      });
+    });
+
+    if(coverageBoundsByProvider.iblaze.length){
+      setCoverageFilter(activeCoverageFilter, {preserveActive:true});
+      setTimeout(function(){
+        coverageMap.invalidateSize();
+      }, 0);
+    }
+
+    coverageFallback.style.display = 'none';
+  } else if(coverageFallback) {
+    coverageFallback.textContent = 'The coverage map could not be loaded right now. Please reload the page and try again.';
+  }
 
   var officeCards = Array.prototype.slice.call(document.querySelectorAll('.office-card[data-lat][data-lng]'));
   var mapElement = document.getElementById('office-map');
@@ -1598,6 +1412,41 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
   } else if(mapFallback) {
     mapFallback.textContent = 'The map could not be loaded right now. Please check your internet connection and reload the page.';
   }
+
+  (function(){
+    var banksGrid = document.querySelector('.banks-grid');
+    if(!banksGrid) return;
+
+    var bankCards = Array.prototype.slice.call(banksGrid.querySelectorAll('.bank-card'));
+    if(bankCards.length <= 10) return;
+
+    var extraCards = bankCards.slice(10);
+    extraCards.forEach(function(card){
+      card.classList.add('is-hidden-by-limit');
+    });
+
+    var toggleWrap = document.createElement('div');
+    toggleWrap.className = 'banks-toggle-wrap';
+
+    var toggleBtn = document.createElement('button');
+    toggleBtn.type = 'button';
+    toggleBtn.className = 'banks-see-more';
+    toggleBtn.textContent = 'See More';
+
+    toggleBtn.addEventListener('click', function(){
+      var expanded = toggleBtn.getAttribute('data-expanded') === 'true';
+      toggleBtn.setAttribute('data-expanded', expanded ? 'false' : 'true');
+
+      extraCards.forEach(function(card){
+        card.classList.toggle('is-hidden-by-limit', expanded);
+      });
+
+      toggleBtn.textContent = expanded ? 'See More' : 'Show Less';
+    });
+
+    toggleWrap.appendChild(toggleBtn);
+    banksGrid.insertAdjacentElement('afterend', toggleWrap);
+  })();
 })();
 </script>
 </body>
