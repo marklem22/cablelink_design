@@ -204,7 +204,7 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 .coverage-tab.is-active[data-tab="fiberlink"]{border-color:var(--blue-primary)}
 
 .coverage-items{
-  display:flex;flex-direction:column;gap:.65rem;
+  display:flex;flex-direction:column;gap:.65rem;margin-bottom: .65rem;
 }
 .coverage-items[hidden],
 .coverage-item[hidden]{
@@ -717,7 +717,7 @@ body[data-page='payment'] .banks-section{
 
 /* ===== CTA STRIP ===== */
 .cta-strip{
-  background:linear-gradient(130deg,rgba(0,35,110,.88) 0%,rgba(0,70,176,.82) 100%), url("../../../assets/hero_bg/ready-to-get-connected_bg.png") center/cover no-repeat;
+  background: url("../../../assets/hero_bg/ready-to-get-connected_bg.png") center/cover no-repeat;
   padding-block:4rem;text-align:center;position:relative;overflow:hidden;
 }
 .cta-strip::before{
