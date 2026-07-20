@@ -1,3 +1,4 @@
+@font-face { font-family: 'SF Grandezza'; src: url('../fonts/SF Grandezza Medium V2.ttf') format('truetype'), url('../fonts/SF Grandezza Medium V2.woff2') format('woff2'), url('../fonts/SF Grandezza Medium V2.woff') format('woff'); font-style: normal; font-weight: 500 900; font-display: swap; }
 /* CableLink shared design system - maps to CI3 public/assets/css/site.css */
 :root {
   --blue-deep: #007afe;
@@ -22,6 +23,7 @@
   --cloud: #f5faff;
   --mist: #e6f5ff;
   --font: 'Montserrat', sans-serif;
+  --font-logo: 'SF Grandezza', var(--font);
   --space-1: .5rem;
   --space-2: 1rem;
   --space-3: 1.5rem;
@@ -110,7 +112,7 @@ body[data-page='services'] .services-section { padding-top: 0; }
 /* Shared shell matches the original Payment Facilities header. */
 .global-header { position: fixed; z-index: 1000; inset: 0 0 auto; height: var(--header-height); background: #007afe; backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.2); }
 .global-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; height: 100%; }
-.global-logo { display: inline-flex; align-items: center; gap: .55rem; color: var(--white); font-family: var(--font); font-weight: 800; font-size: 1.1rem; letter-spacing: -.04em; text-decoration: none; white-space: nowrap; }
+.global-logo { display: inline-flex; align-items: center; gap: .55rem; color: var(--white); font-family: var(--font-logo); font-weight: 500; font-size: 1.12rem; letter-spacing: .01em; text-decoration: none; white-space: nowrap; }
 .global-logo img { width: 34px; height: 34px; object-fit: contain; }
 .global-primary-nav { display: flex; flex: 0 0 auto; }
 .global-nav { display: flex; flex: 0 0 auto; align-items: center; justify-content: center; gap: clamp(.8rem, 2vw, 1.75rem); margin: 0; padding: 0; overflow: visible; list-style: none; }
@@ -172,7 +174,7 @@ body[data-page='services'] .services-section { padding-top: 0; }
 html.is-mobile-menu-open, body.is-mobile-menu-open { overflow: hidden; }
 .global-footer { padding-block: 2rem; color: rgba(255,255,255,.78); background: var(--dark); }
 .global-footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; font-size: .74rem; }
-.global-footer-logo { color: var(--white); font-size: 1rem; font-weight: 900; text-decoration: none; }
+.global-footer-logo { color: var(--white); font-family: var(--font-logo); font-size: 1.08rem; font-weight: 500; letter-spacing: .01em; text-decoration: none; }
 .global-footer-links { display: flex; flex-wrap: wrap; gap: 1.2rem; }
 .global-footer a { color: inherit; text-decoration: none; }
 @media (max-width: 1050px) {  .global-primary-nav, .global-header-inner > .global-cta { display: none; } .global-menu-button { display: inline-flex; } .global-mobile-menu { display: grid; visibility: hidden; opacity: 0; pointer-events: none; clip-path: inset(0 0 100% 0); transform: translateY(-.75rem); transition: clip-path .28s ease, opacity .2s ease, transform .28s ease, visibility 0s linear .28s; } .global-mobile-menu a { opacity: 0; transform: translateY(-.75rem); transition: opacity .18s ease, transform .22s ease; } .global-mobile-menu.is-open { visibility: visible; opacity: 1; pointer-events: auto; clip-path: inset(0); transform: translateY(0); transition-delay: 0s; } .global-mobile-menu.is-open a { opacity: 1; transform: translateY(0); } .global-mobile-menu.is-open .global-mobile-menu__links a:nth-child(1) { transition-delay: .08s; } .global-mobile-menu.is-open .global-mobile-menu__links a:nth-child(2) { transition-delay: .12s; } .global-mobile-menu.is-open .global-mobile-menu__links a:nth-child(3) { transition-delay: .16s; } .global-mobile-menu.is-open .global-mobile-menu__links a:nth-child(4) { transition-delay: .20s; } .global-mobile-menu.is-open .global-cta { transition-delay: .28s; } .global-mobile-menu.is-open .global-mobile-menu__links a:nth-child(5) { transition-delay: .24s; } }
