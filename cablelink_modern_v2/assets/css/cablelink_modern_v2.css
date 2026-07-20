@@ -219,10 +219,29 @@
     /* ===== BANNER CAROUSEL ===== */
     .banner-carousel {
       position: relative;
+      z-index: 1;
       width: 100%;
+      --section-transition-size: clamp(3rem, 6vw, 5.5rem);
       padding-block: 2rem 1.75rem;
-      background: linear-gradient(180deg, #f7faff 0%, #eef5ff 100%);
+      background: var(--off-white) url("../../../assets/hero_bg/home_carousel_bg.png") center / cover no-repeat;
       line-height: 0;
+    }
+
+    .banner-carousel::after {
+      content: '';
+      position: absolute;
+      z-index: 2;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: var(--section-transition-size);
+      pointer-events: none;
+      background: linear-gradient(to bottom, rgba(244, 247, 252, 0), var(--off-white));
+    }
+
+    .banner-carousel > .container {
+      position: relative;
+      z-index: 3;
     }
 
     .banner-track-wrap {
@@ -334,13 +353,12 @@
 
     /* ===== HERO ===== */
     .hero--home {
+      --hero-space-y: var(--section-space-y);
       min-height: 100vh;
       background:
-        url("../../../assets/people/hero_section.png") center center/cover no-repeat;
+        url("../../../assets/hero_bg/home_hero_bg.png") center center/cover no-repeat;
       position: relative;
       overflow: hidden;
-      display: flex;
-      align-items: center;
       box-sizing: border-box;
     }
 
@@ -609,8 +627,28 @@
 
     /* ===== PROMO SECTION ===== */
     .promo-section {
-      background: var(--off-white);
+      position: relative;
+      z-index: 0;
+      --section-transition-size: clamp(3rem, 6vw, 5.5rem);
+      background: var(--off-white) url("../../../assets/hero_bg/home_promo_bg.png") center / cover no-repeat;
       padding-block: 5.5rem
+    }
+
+    .promo-section::before {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: var(--section-transition-size);
+      pointer-events: none;
+      background: linear-gradient(to bottom, var(--off-white), rgba(244, 247, 252, 0));
+    }
+
+    .promo-section > .container {
+      position: relative;
+      z-index: 1;
     }
 
     .section__header {
@@ -915,6 +953,16 @@
     .promo-cta {
       text-align: center;
       margin: 1.75rem auto 0;
+    }
+
+    /* Separate the blue promo CTA from the blue artwork without changing the brand color. */
+    .promo-cta .svc-btn {
+      border: 1px solid rgba(255, 255, 255, .82);
+      box-shadow: 0 10px 24px rgba(0, 84, 180, .26), 0 0 0 3px rgba(255, 255, 255, .28);
+    }
+
+    .promo-cta .svc-btn:hover {
+      box-shadow: 0 14px 28px rgba(0, 84, 180, .34), 0 0 0 3px rgba(255, 255, 255, .42);
     }
 
     /* ===== TVC SECTION ===== */
@@ -1510,7 +1558,6 @@
       .hero--home {
         min-height: 100vh;
         height: 100vh;
-        align-items: center;
         background-position: 62% center;
       }
 
@@ -1615,7 +1662,6 @@
       .hero--home {
         min-height: 100vh;
         height: 100vh;
-        align-items: center;
       }
 
       .hero__inner {
@@ -1692,5 +1738,25 @@
         width: 14px;
         height: 14px;
       }
+    }
+
+    /* Home-page content sections share one vertical rhythm. The hero remains a full-screen campaign layout. */
+    body[data-page='home'] :is(.banner-carousel, .promo-section, .tvc-section, .cta-strip) {
+      padding-block: var(--section-space-y);
+    }
+
+    @media (max-width: 600px) {
+      body[data-page='home'] .hero--home {
+        --hero-space-y: var(--section-space-y-mobile);
+      }
+
+      body[data-page='home'] :is(.banner-carousel, .promo-section, .tvc-section, .cta-strip) {
+        padding-block: var(--section-space-y-mobile);
+      }
+    }
+
+    /* The carousel and promo section share the same background treatment on home. */
+    body[data-page='home'] .promo-section {
+      padding-top: 0;
     }
   

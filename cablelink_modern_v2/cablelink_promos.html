@@ -6,18 +6,14 @@
 <title>Cable Link — Promos & Exclusive Deals</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/cablelink_promos.css?v=20260717-8">
-  <link rel="stylesheet" href="assets/css/site.css?v=20260718-1">
-  <script src="assets/js/site-shell.js?v=20260717-3" defer></script>
+<link rel="stylesheet" href="assets/css/cablelink_promos.css?v=20260720-4">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260720-10">
+  <script src="assets/js/site-shell.js?v=20260720-4" defer></script>
 </head>
 <body data-page="promos">
 
-<!-- ═══════════════════════════════════════════════
-     NAV
-═══════════════════════════════════════════════ -->
-<!-- ═══════════════════════════════════════════════
-     PAGE HERO
-═══════════════════════════════════════════════ -->
+<!-- NAV -->
+<!-- PAGE HERO -->
 <section class="hero hero--promos" aria-label="Featured Promotions">
   <div class="hero-radial-1" aria-hidden="true"></div>
   <div class="hero-radial-2" aria-hidden="true"></div>
@@ -102,18 +98,15 @@
 
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     PROMO GRID
-═══════════════════════════════════════════════ -->
-<div id="promos">
+<!-- PROMO GRID -->
+<section class="promo-section" id="promos" aria-label="Promotions grid">
   <div class="container section-label" aria-hidden="true">
     <div class="section-label-line"></div>
     <span class="section-label-text">Valentine Promos</span>
     <div class="section-label-line"></div>
   </div>
 
-  <section class="promo-section" id="promoGrid" aria-label="Promotions grid">
-    <div class="container promo-grid" id="promoCards" role="list">
+  <div class="container promo-grid" id="promoCards" role="list">
 
       <!-- ═══ CARD 1 — FEATURED: Cable TV Packages ═══ -->
       <article
@@ -354,13 +347,10 @@
         </button>
       </div>
 
-    </div><!-- /promo-grid -->
-  </section>
-</div>
+  </div><!-- /promo-grid -->
+</section>
 
-<!-- ═══════════════════════════════════════════════
-     STATS STRIP
-═══════════════════════════════════════════════ -->
+<!-- STATS STRIP -->
 <!-- <div class="stats-strip" aria-label="CableLink statistics">
   <div class="container stats-inner">
     <div class="stat-item">
@@ -382,9 +372,7 @@
   </div>
 </div> -->
 
-<!-- ═══════════════════════════════════════════════
-     CTA SECTION
-═══════════════════════════════════════════════ -->
+<!-- CTA SECTION -->
 <section class="cta-section" aria-label="Call to action">
   <div class="cta-bg-accent" aria-hidden="true"></div>
   <div class="container cta-inner">
@@ -428,17 +416,13 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     FOOTER
-═══════════════════════════════════════════════ -->
-<!-- ═══════════════════════════════════════════════
-     JAVASCRIPT
-═══════════════════════════════════════════════ */-->
+<!-- FOOTER -->
+<!-- JAVASCRIPT -->
 <script>
 (function(){
   'use strict';
 
-  /* ─── Countdown ─── */
+  /* --- Countdown --- */
   function updateCountdown(){
     var end = new Date();
     end.setHours(23,59,59,999);
@@ -454,11 +438,11 @@
   updateCountdown();
   setInterval(updateCountdown,1000);
 
-  /* ─── Hamburger ─── */
-  /* ─── Cards & Counts ─── */
+  /* --- Hamburger --- */
+  /* --- Cards & Counts --- */
   var cards = Array.from(document.querySelectorAll('.promo-card[data-category]'));
 
-  /* ─── Scroll reveal (IntersectionObserver) ─── */
+  /* --- Scroll reveal (IntersectionObserver) --- */
   function revealCards(){
     var observer = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
@@ -481,7 +465,7 @@
   }
   revealCards();
 
-  /* ─── Smooth scroll for hero CTA ─── */
+  /* --- Smooth scroll for hero CTA --- */
   document.querySelectorAll('a[href="#promos"]').forEach(function(a){
     a.addEventListener('click',function(e){
       e.preventDefault();

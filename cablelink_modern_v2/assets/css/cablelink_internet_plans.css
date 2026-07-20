@@ -258,6 +258,23 @@
       margin-inline: auto;
     }
 
+    /* This hero uses a light image, so it needs brand colors instead of the shared white-on-dark breadcrumb treatment. */
+    .hero--internet .breadcrumb a {
+      color: #007AFE;
+    }
+
+    .hero--internet .breadcrumb a:hover {
+      color: #0D1B3E;
+    }
+
+    .hero--internet .bc-sep {
+      color: #31AAFE;
+    }
+
+    .hero--internet .bc-cur {
+      color: #0D1B3E;
+    }
+
     .hero--internet .hero__title {
       font-size: clamp(2rem, 4.4vw, 3.375rem);
       line-height: 1.05;

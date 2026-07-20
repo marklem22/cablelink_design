@@ -93,8 +93,6 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 
 .hero__inner{
   position:relative;z-index:2;
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:3rem;align-items:center;
 }
 .hero__content{animation:fadeUp .7s ease both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
@@ -127,51 +125,6 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 .breadcrumb a{color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
 .breadcrumb a:hover{color:#fff}
 .breadcrumb svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-
-/* Hero right — quick pay card */
-.hero-right{
-  display:flex;justify-content:center;
-  animation:fadeUp .9s .15s ease both;
-}
-.quick-pay-card{
-  background:rgba(255,255,255,.1);
-  border:1px solid rgba(255,255,255,.16);
-  border-radius:18px;padding:2rem;width:320px;
-  backdrop-filter:blur(10px);
-}
-.qp-label{
-  font-size:.68rem;font-weight:700;letter-spacing:2px;
-  text-transform:uppercase;color:var(--orange);margin-bottom:1rem;
-}
-.qp-title{
-  font-size:1rem;font-weight:800;color:#fff;
-  margin-bottom:1.4rem;letter-spacing:-.3px;
-}
-.qp-field{
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:9px;padding:11px 14px;
-  margin-bottom:.75rem;
-  display:flex;align-items:center;gap:10px;
-}
-.qp-field svg{width:16px;height:16px;fill:none;stroke:rgba(255,255,255,.45);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
-.qp-field span{font-size:.82rem;color:rgba(255,255,255,.4);font-weight:500}
-.qp-btn{
-  width:100%;margin-top:.5rem;
-  background:var(--orange);color:#fff;
-  border:none;border-radius:9px;
-  font-family:var(--font);font-size:.85rem;font-weight:700;
-  padding:13px;cursor:pointer;
-  transition:background .2s,transform .15s;
-  letter-spacing:.4px;
-}
-.qp-btn:hover{background:var(--orange-dark);transform:translateY(-1px)}
-.qp-note{
-  margin-top:.9rem;font-size:.7rem;
-  color:rgba(255,255,255,.38);text-align:center;font-weight:500;
-  display:flex;align-items:center;gap:5px;justify-content:center;
-}
-.qp-note svg{width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
 /* ===== STATS STRIP ===== */
 .stats-strip{
@@ -218,9 +171,8 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 /* ===== COVERAGE SECTION ===== */
 .coverage-section{
   padding-block:5.5rem;
-  /* background:
-    radial-gradient(circle at top left, rgba(242,100,19,.08), transparent 26%),
-    linear-gradient(180deg, #f9fbff 0%, #edf4ff 100%); */
+  background: var(--off-white) url("../../../assets/hero_bg/payment_coverage_bg.png") center/cover no-repeat;
+  background-attachment: fixed;
 }
 .coverage-layout{
   display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;
@@ -259,11 +211,12 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
   display:none !important;
 }
 .coverage-item{
-  border:1px solid transparent;
+  border:1px solid rgba(255,255,255,.78);
   width:100%;
   padding:.75rem .9rem;
   border-radius:12px;
   background:var(--off-white);
+  box-shadow:0 8px 22px rgba(0,35,110,.1);
   cursor:pointer;
   text-align:left;
   font-family:var(--font);
@@ -471,7 +424,7 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 }
 
 /* ===== WALK-IN SECTION ===== */
-.walkin-section{padding-block:5.5rem;background:#fff}
+.walkin-section{padding-block:5.5rem;background:#fff url("../../../assets/hero_bg/payment_office_bg.png") center/cover no-repeat;background-attachment:fixed}
 .walkin-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:4rem;
   align-items:start;
@@ -566,6 +519,11 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 
 /* ===== PARTNER BANKS ===== */
 .banks-section{padding-block:5rem;background:var(--off-white)}
+body[data-page='payment'] .banks-section{
+  padding-top:0;
+  background:#fff url("../../../assets/hero_bg/payment_office_bg.png") center/cover no-repeat;
+  background-attachment:fixed;
+}
 .banks-grid{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:1.2rem;
 }
@@ -804,11 +762,9 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
-  .hero__inner{grid-template-columns:1fr;text-align:center;gap:2rem}
+  .hero__inner{text-align:center}
   .hero__content p{margin:0 auto}
   .hero.hero--payment .breadcrumb{justify-content:center}
-  .hero-right{display:flex}
-  .quick-pay-card{width:min(100%,420px)}
   .online-grid{grid-template-columns:1fr 1fr}
   .walkin-grid{grid-template-columns:1fr;gap:2.5rem}
   .map-panel{position:relative;top:auto;min-height:460px}
@@ -821,17 +777,8 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
   .mob-menu{top:60px}
   .nav-links,.nav-btn{display:none}
   .hamburger{display:flex}
-  .hero__inner{gap:1.6rem}
   .hero__content h1{font-size:2rem;letter-spacing:-1px}
   .hero__content p{font-size:.92rem;line-height:1.7}
-  .quick-pay-card{
-    width:min(100%,360px);
-    padding:1.35rem;
-    border-radius:16px;
-  }
-  .qp-title{font-size:.95rem;margin-bottom:1.05rem}
-  .qp-field{padding:10px 12px}
-  .qp-btn{padding:12px;font-size:.8rem}
   .coverage-layout{grid-template-columns:1fr;gap:2rem}
   .coverage-map-shell{
     position:relative;

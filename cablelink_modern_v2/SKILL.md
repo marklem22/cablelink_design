@@ -228,6 +228,8 @@ Rules:
 
 ## Section and Component Spacing
 
+Promo sections own their full-width background and shared vertical rhythm. Keep the section label inside the `.promo-section`, immediately before the promo card grid, and place the stable navigation anchor on the section itself (for example, `id="promos"`). Do not wrap a promo section in an extra anchor div or add label margins/padding that duplicate the section's top spacing.
+
 Default section:
 
 ```css
@@ -403,9 +405,13 @@ Rules:
 
 - `.hero` owns the full-width background and vertical spacing.
 - `.hero__inner` uses the same 1440px content edge as all other sections.
-- Page-specific CSS may change hero background art, grid columns, alignment, or foreground color.
+- Shared heroes are top-aligned by default: content begins after the fixed-header offset and the hero's vertical padding. Do not vertically center hero content with flex or grid alignment.
+- Shared hero content is left-aligned by default: `.hero__inner`, `.hero__content`, and hero actions use start alignment. The Services hero is the shared centered exception. All heroes keep `justify-content: flex-start` so their content begins at the top of the padded hero area. Page-specific hero CSS should preserve this contract unless a deliberate exception is documented.
+- A full-screen campaign hero may retain intentional empty space below its content; do not add compensating margins or padding to simulate top alignment.
+- Page-specific CSS may change hero background art, grid columns, horizontal alignment, or foreground color.
 - Page-specific CSS must not redefine the general hero container, typography scale, buttons, or header offset.
 - Background artwork must preserve text contrast and must not compete with the copy.
+- Hero background images and fixed background surfaces must clear the fixed header through the shared `site.css` header-offset rule. Mark non-hero fixed surfaces with `.background-fixed`; do not add arbitrary page-local offsets.
 - Provide a mobile crop or mobile background asset when the desktop artwork does not crop safely.
 
 ## 3. Section Header
@@ -740,6 +746,13 @@ Rules:
 - Keep critical text out of background images.
 - Avoid remote image dependencies in the final production build unless approved.
 - Keep third-party libraries such as Leaflet version-pinned and load them only on pages that need them.
+
+### Fixed-header background artwork
+
+- Shared hero backgrounds and surfaces with `background-attachment: fixed` use `background-position: center var(--header-height)` so artwork is not hidden beneath the fixed header.
+- Keep this behavior in `site.css`; page styles should supply the image, fallback color, sizing, and attachment behavior only.
+- Add `.background-fixed` to a new fixed full-width background surface; do not apply it to ordinary section backgrounds.
+- Do not apply this utility to card thumbnails, icons, decorative SVG overlays, or other component-level artwork.
 
 # Prototype Page Template
 

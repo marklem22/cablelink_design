@@ -197,6 +197,20 @@
       }
     });
   }
+  function ensureServicesMegaMenuHelp(header) {
+    var menu = header.querySelector('.mega-menu');
+    var inner;
+    var help;
+
+    if (!menu) return;
+    inner = menu.querySelector('.mega-menu__inner');
+    if (!inner || inner.querySelector('.mega-menu__help')) return;
+
+    help = document.createElement('aside');
+    help.className = 'mega-menu__help';
+    help.innerHTML = '<div><p class="mega-menu__help-title">Need help choosing?</p><p class="mega-menu__help-copy">We&rsquo;ll help you find the best plan for your needs.</p><a class="btn btn-secondary mega-menu__cta" href="cablelink_apply.html">Talk to Us <span aria-hidden="true">&rarr;</span></a></div>';
+    inner.appendChild(help);
+  }
   function loadShell() {
     removeLegacyShell();
     Promise.all([
@@ -215,6 +229,7 @@
       mobile = ensureMobileNavigation(mobile);
       header.insertAdjacentElement('afterend', mobile);
       var button = ensureMenuButton(header);
+      ensureServicesMegaMenuHelp(header);
       setActiveLink(header);
       setActiveLink(mobile);
       setupServicesMegaMenu(header);

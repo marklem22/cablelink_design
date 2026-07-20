@@ -153,7 +153,7 @@ body{
 .hero--promos .hero__inner{
   position:relative;z-index:2;
   display:flex;flex-direction:column;
-  align-items:flex-start;justify-content:center;
+  justify-content:center;
   min-height:480px;
 }
 /* .hero__content{padding-bottom:4rem} */
@@ -393,9 +393,6 @@ body{
 /* ═══════════════════════════════════════════════
    PROMO GRID
 ═══════════════════════════════════════════════ */
-.promo-section{
-  padding-block:.5rem 4rem;
-}
 .promo-grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
@@ -750,9 +747,9 @@ footer p{font-size:.78rem;color:rgba(255,255,255,.38)}
 
 /* Section label */
 .section-label{
-  padding-block:.5rem .45rem;
+  padding-block:0 .45rem;
   display:flex;align-items:center;gap:.8rem;
-  margin-top:20px
+  margin-top:0
 }
 .section-label-line{flex:1;height:1px;background:var(--border)}
 .section-label-text{
@@ -776,9 +773,7 @@ footer p{font-size:.78rem;color:rgba(255,255,255,.38)}
   .hero--promos .hero__inner{min-height:auto}
   .hero-featured-wrap{display:none}
   .hero-float-badge{display:none}
-  .hero__content{padding-bottom:0;text-align:center}
-  .hero__actions{justify-content:center}
-  .hero-trust{justify-content:center}
+  .hero__content{padding-bottom:0}
   .nav-links,.nav-btn,.nav-cta{display:none}
   .hamburger{display:flex}
   .promo-search{display:none}
@@ -799,5 +794,4 @@ footer p{font-size:.78rem;color:rgba(255,255,255,.38)}
   .hero__title{font-size:2rem;letter-spacing:-1px}
   .stats-inner{grid-template-columns:1fr 1fr}
   .stat-num{font-size:2rem}
-  .promo-section{padding-block:.4rem 3.2rem}
 }
