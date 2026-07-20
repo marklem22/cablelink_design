@@ -211,6 +211,31 @@
     help.innerHTML = '<div><p class="mega-menu__help-title">Need help choosing?</p><p class="mega-menu__help-copy">We&rsquo;ll help you find the best plan for your needs.</p><a class="btn btn-secondary mega-menu__cta" href="cablelink_apply.html">Talk to Us <span aria-hidden="true">&rarr;</span></a></div>';
     inner.appendChild(help);
   }
+  function ensureCorporateMegaMenuGroup(header) {
+    var menu = header.querySelector('.mega-menu');
+    var inner;
+    var corporate;
+    var help;
+
+    if (!menu) return;
+    inner = menu.querySelector('.mega-menu__inner');
+    if (!inner) return;
+    corporate = inner.querySelector('.mega-menu__group--corporate');
+    if (!corporate) {
+      corporate = inner.querySelector('.mega-menu__icon--corporate');
+      corporate = corporate ? corporate.closest('.mega-menu__group') : null;
+    }
+    if (!corporate) {
+      corporate = document.createElement('div');
+      help = inner.querySelector('.mega-menu__help');
+      if (help) inner.insertBefore(corporate, help);
+      else inner.appendChild(corporate);
+    }
+
+    corporate.className = 'mega-menu__group mega-menu__group--corporate';
+    if (corporate.querySelector('.mega-menu__title') && corporate.querySelector('.mega-menu__links')) return;
+    corporate.innerHTML = '<div class="mega-menu__group-heading"><span class="mega-menu__icon mega-menu__icon--corporate" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2" /><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2" /></svg></span><a class="mega-menu__title" href="cablelink_services.html">Corporate Plans</a></div><p class="mega-menu__description">Business connectivity solutions, launching soon.</p><ul class="mega-menu__links"><li><span class="mega-menu__link-placeholder">Business Internet <small>Coming soon</small></span></li><li><span class="mega-menu__link-placeholder">Dedicated Fiber <small>Coming soon</small></span></li><li><span class="mega-menu__link-placeholder">Managed WiFi <small>Coming soon</small></span></li></ul>';
+  }
   function loadShell() {
     removeLegacyShell();
     Promise.all([
@@ -229,6 +254,7 @@
       mobile = ensureMobileNavigation(mobile);
       header.insertAdjacentElement('afterend', mobile);
       var button = ensureMenuButton(header);
+      ensureCorporateMegaMenuGroup(header);
       ensureServicesMegaMenuHelp(header);
       setActiveLink(header);
       setActiveLink(mobile);

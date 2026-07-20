@@ -146,6 +146,10 @@ body[data-page='services'] .services-section { padding-top: 0; }
 .mega-menu__link-copy { color: var(--muted); font-size: .63rem; line-height: 1.38; }
 .mega-menu__links a { display: inline-block; color: var(--dark); font-size: .71rem; font-weight: 600; line-height: 1.32; text-decoration: none; transition: color .18s ease, transform .18s ease; }
 .mega-menu__links a:hover { color: var(--blue-primary); transform: translateX(2px); }
+.mega-menu__link-placeholder { display: inline-flex; flex-wrap: wrap; gap: .3rem; align-items: baseline; color: var(--muted); font-size: .71rem; font-weight: 600; line-height: 1.32; }
+.mega-menu__link-placeholder small { color: var(--blue-primary); font-size: .6rem; font-weight: 700; letter-spacing: .02em; text-transform: uppercase; }
+.mega-menu__group--corporate .mega-menu__title { display: inline-block; color: var(--blue-primary); }
+.mega-menu__group--corporate .mega-menu__links { display: grid; }
 .mega-menu__help { display: flex; position: relative; flex-direction: column; justify-content: space-between; min-width: 0; min-height: 12.75rem; overflow: hidden; margin-left: clamp(.75rem, 1.5vw, 1.65rem); padding: 1.25rem; border: 1px solid #b9dcff; border-radius: var(--radius-md); background: #eaf4ff url('../../../assets/hero_bg/megamenu_needhelpchoosing_bg.png') center / cover no-repeat; }
 .mega-menu__help-title { margin: 0; color: var(--blue-primary); font-size: .76rem; font-weight: 800; }
 .mega-menu__help-copy { max-width: 18ch; margin: .55rem 0 .9rem; color: var(--muted); font-size: .67rem; line-height: 1.45; }
