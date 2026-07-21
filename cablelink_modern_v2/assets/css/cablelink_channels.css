@@ -610,3 +610,34 @@
       }
     }
   
+
+/* The shared hero is start-aligned by default; channels is a centered page hero. */
+body[data-page='channels'] .hero__inner {
+  align-items: center;
+  text-align: center;
+}
+
+body[data-page='channels'] .hero__content {
+  margin-inline: auto;
+  text-align: center;
+}
+
+body[data-page='channels'] .hero__actions {
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  body[data-page='channels'] .hero__inner {
+    align-items: center;
+    text-align: center !important;
+  }
+
+  body[data-page='channels'] .hero__content {
+    margin-inline: auto !important;
+    text-align: center !important;
+  }
+
+  body[data-page='channels'] .hero__actions {
+    justify-content: center !important;
+  }
+}
