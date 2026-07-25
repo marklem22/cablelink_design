@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cable Link — High-Speed Internet & Cable TV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="assets/css/cablelink_modern_v2.css?v=20260720-12">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260720-15">
+  <script src="assets/js/site-shell.js?v=20260720-5" defer></script>
+</head>
+
+<body data-page="home">
+
+  <!-- HERO -->
+  <section class="hero hero--home" id="home">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <span class="welcome-tag hero__eyebrow">Welcome to CableLink</span>
+        <h1 class="hero__title">High-Speed Internet and Cable TV Bundled<span class="dot">.</span></h1>
+        <p class="hero__description">Fast, reliable fiber and cable internet with included TV packages — with honest pricing, no hidden fees, and
+          real human support whenever you need it.</p>
+        <div class="hero__actions">
+          <a href="#about-us" class="button button--primary btn-solid">Get Started</a>
+          <a href="cablelink_plans.html#plans" class="button button--outline btn-ghost">View Plans</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="banner-carousel" id="bannerCarousel" aria-label="Featured offers">
+    <div class="container">
+      <div class="banner-track-wrap">
+        <div class="banner-track" id="bannerTrack"></div>
+        <button class="banner-arrow ba-prev" id="bannerPrev" aria-label="Previous slide">
+          <svg viewBox="0 0 24 24">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+        <button class="banner-arrow ba-next" id="bannerNext" aria-label="Next slide">
+          <svg viewBox="0 0 24 24">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+      </div>
+      <div class="banner-dots" id="bannerDots"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <!-- <section class="about-section" id="about-us">
+  <div class="about-inner">
+    <div class="about-copy">
+      <div class="section__header">
+        <span class="section__tag">About Us</span>
+        <h2>Built for homes that need speed, reliability, and real support.</h2>
+        <p>Cable Link delivers bundled internet and cable TV plans with clear pricing, practical coverage, and support that actually helps when you need it.</p>
+      </div>
+      <ul class="about-points">
+        <li>
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Fast residential and business-ready connectivity across supported areas.
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Flexible bundles with internet and cable TV options matched to different household needs.
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Transparent pricing, straightforward service terms, and multiple payment channels.
+        </li>
+      </ul>
+    </div>
+
+    <div class="about-panel">
+      <div class="about-panel-inner">
+        <h3>Why customers stay with Cable Link</h3>
+        <p>We focus on stable service, simple plan choices, and practical support. That means less time troubleshooting and more time using the connection you pay for.</p>
+        <div class="about-metrics">
+          <div class="about-metric">
+            <strong>24/7</strong>
+            <span>Support access</span>
+          </div>
+          <div class="about-metric">
+            <strong>2-in-1</strong>
+            <span>Internet + TV bundles</span>
+          </div>
+          <div class="about-metric">
+            <strong>99.9%</strong>
+            <span>Target uptime</span>
+          </div>
+          <div class="about-metric">
+            <strong>Multiple</strong>
+            <span>Payment options</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+  <!-- Old promo carousel disabled in favor of the image-based carousel below. -->
+
+  <section class="promo-section" id="promos">
+    <div class="container">
+    <div class="section__header">
+      <span class="section__tag">Hot Deals</span>
+      <h2>Exclusive Promos & Bundles</h2>
+      <p>Limited-time offers, seasonal discounts, and special bundles tailored to get you connected for less.</p>
+    </div>
+
+
+
+    <div class="fan-stage" id="fanStage"></div>
+
+    <div class="fan-controls">
+      <button class="fan-btn" id="fanPrev" aria-label="Previous">
+        <svg viewBox="0 0 24 24">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+      <div class="fan-dots" id="fanDots"></div>
+      <button class="fan-btn" id="fanNext" aria-label="Next">
+        <svg viewBox="0 0 24 24">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
+    </div>
+    <div class="promo-cta">
+      <a href="cablelink_promos.html" class="button button--primary svc-btn">See All Promos</a>
+    </div>
+    </div>
+  </section>
+
+  <!-- TVC SECTION -->
+  <section class="tvc-section" id="tvc">
+    <div class="tvc-glow"></div>
+    <div class="tvc-glow-2"></div>
+    <div class="container tvc-inner">
+
+      <div class="section__header">
+        <span class="section__tag">On Air</span>
+        <h2>Watch Our Commercials</h2>
+        <p>See CableLink in action — from high-speed internet promos to cable TV highlights, watch our latest TV
+          commercials.</p>
+      </div>
+
+      <!-- Featured / Active Video -->
+      <div class="tvc-featured" id="tvcFeatured">
+        <video class="tvc-featured-video" id="tvcFeaturedVideo" preload="metadata" poster="" muted playsinline loop>
+          <source id="tvcFeaturedSrc" src="" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="tvc-featured-overlay" id="tvcFeaturedOverlay">
+          <div class="tvc-play-btn" id="tvcPlayBtn">
+            <svg viewBox="0 0 24 24">
+              <polygon points="5 3 19 12 5 21 5 3" />
+            </svg>
+          </div>
+          <div class="tvc-featured-meta">
+            <span class="tvc-featured-label">Now Playing</span>
+            <div class="tvc-featured-title" id="tvcFeaturedTitle">CableLink TVC</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thumbnail Strip -->
+      <div class="tvc-thumbs" id="tvcThumbs"></div>
+
+      <!-- Nav dots & arrows -->
+      <div class="tvc-nav" id="tvcNav">
+        <button class="tvc-nav-btn" id="tvcPrev" aria-label="Previous">
+          <svg viewBox="0 0 24 24">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+        <div class="tvc-nav-dots" id="tvcDots"></div>
+        <button class="tvc-nav-btn" id="tvcNext" aria-label="Next">
+          <svg viewBox="0 0 24 24">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TVC Full-screen Modal -->
+  <div class="tvc-modal" id="tvcModal">
+    <div class="tvc-modal-inner">
+      <video class="tvc-modal-video" id="tvcModalVideo" controls></video>
+      <button class="tvc-modal-close" id="tvcModalClose">&#x2715;</button>
+    </div>
+  </div>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <div class="container cta-strip__inner">
+      <h2>Ready to Get Connected?</h2>
+      <p>Join thousands of happy customers across the Philippines enjoying fast, reliable Cable Link service.</p>
+      <div class="cta-strip-btns">
+        <a href="cablelink_apply.html" class="button button--primary btn-solid">Get Started Today</a>
+        <a href="#" class="button button--outline btn-ghost">Talk to Us</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+
+      /* ============================================================
+         1. BANNER CAROUSEL — full-width image slider above hero
+         ============================================================ */
+      var bannerSlides = [
+        '../cablelink_messy_design/assets/carousel/2023_fiberlink_pc.jpg',
+        '../cablelink_messy_design/assets/carousel/2023_bts_pc.jpg',
+        '../cablelink_messy_design/assets/carousel/2023_channel_revamp_pc.jpg',
+        '../cablelink_messy_design/assets/carousel/2023_Fiberlink@Home_Web.jpg',
+        '../cablelink_messy_design/assets/carousel/2023_iblaze_pc.jpg',
+        '../cablelink_messy_design/assets/carousel/2023_refer_a_friend_pc.jpg',
+        '../cablelink_messy_design/assets/carousel/2023_sb_pc.jpg',
+        '../cablelink_messy_design/assets/carousel/2023_TV_Raffle_WBD_Web%20Banner-01.jpg',
+        '../cablelink_messy_design/assets/carousel/FEB_TBIR_cinemaworld.jpg',
+        '../cablelink_messy_design/assets/carousel/fwc_desktop.jpg'
+      ];
+      var bCur = 0, bN = bannerSlides.length, bTimer;
+      var bTrack = document.getElementById('bannerTrack');
+      var bDotsWrap = document.getElementById('bannerDots');
+      var INTERVAL = 5000;
+
+      bTrack.innerHTML = bannerSlides.map(function (src, i) {
+        return '<div class="banner-slide"><img src="' + src + '" alt="Promo banner ' + (i + 1) + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '"></div>';
+      }).join('');
+      bDotsWrap.innerHTML = bannerSlides.map(function (_, i) {
+        return '<button class="banner-dot' + (i === 0 ? ' on' : '') + '" data-i="' + i + '" aria-label="Slide ' + (i + 1) + '"></button>';
+      }).join('');
+      var bDotEls = bDotsWrap.querySelectorAll('.banner-dot');
+
+      function bGo(n) {
+        bCur = ((n % bN) + bN) % bN;
+        bTrack.style.transform = 'translateX(-' + (bCur * 100) + '%)';
+        bDotEls.forEach(function (d, i) { d.classList.toggle('on', i === bCur) });
+      }
+      function bReset() {
+        clearInterval(bTimer);
+        bTimer = setInterval(function () { bGo(bCur + 1) }, INTERVAL);
+      }
+      document.getElementById('bannerPrev').addEventListener('click', function () { bGo(bCur - 1); bReset() });
+      document.getElementById('bannerNext').addEventListener('click', function () { bGo(bCur + 1); bReset() });
+      bDotEls.forEach(function (d) { d.addEventListener('click', function () { bGo(+d.dataset.i); bReset() }) });
+      var bSx;
+      bTrack.parentElement.addEventListener('touchstart', function (e) { bSx = e.touches[0].clientX }, { passive: true });
+      bTrack.parentElement.addEventListener('touchend', function (e) {
+        var dx = e.changedTouches[0].clientX - bSx;
+        if (Math.abs(dx) > 40) { bGo(dx < 0 ? bCur + 1 : bCur - 1); bReset() }
+      }, { passive: true });
+      var bWrap = document.getElementById('bannerCarousel');
+      bWrap.addEventListener('mouseenter', function () { clearInterval(bTimer) });
+      bWrap.addEventListener('mouseleave', function () { bReset() });
+      bReset();
+
+
+      /* ============================================================
+         2. FAN CAROUSEL — 3D fan in promo section
+         ============================================================ */
+      var fanImages = [
+        '../assets/promos/promo_1.jpg',
+        '../assets/promos/promo_2.jpg',
+        '../assets/promos/promo_3.jpg',
+        '../assets/promos/promo_4.jpg',
+        '../assets/promos/promo_5.jpg'
+      ];
+      var cur = 0, n = fanImages.length, timer;
+      var stage = document.getElementById('fanStage');
+      var dotsWrap = document.getElementById('fanDots');
+
+      var cards = fanImages.map(function (src, i) {
+        var d = document.createElement('div');
+        d.className = 'fan-card';
+        var img = document.createElement('img');
+        img.src = src;
+        img.alt = 'Promo slide ' + (i + 1);
+        d.appendChild(img);
+        d.addEventListener('click', function () { if (getClass(i) !== 'active') { go(i); reset() } });
+        stage.appendChild(d);
+        return d;
+      });
+      dotsWrap.innerHTML = fanImages.map(function (_, i) {
+        return '<button class="fan-dot' + (i === 0 ? ' on' : '') + '" data-i="' + i + '" aria-label="Slide ' + (i + 1) + '"></button>';
+      }).join('');
+      var dots = dotsWrap.querySelectorAll('.fan-dot');
+
+      function mod(x) { return ((x % n) + n) % n }
+      function getClass(i) {
+        var d = mod(i - cur);
+        if (d === 0) return 'active';
+        if (d === 1) return 'next';
+        if (d === n - 1) return 'prev';
+        if (d === 2) return 'far-next';
+        if (d === n - 2) return 'far-prev';
+        return 'hidden';
+      }
+      function render() {
+        cards.forEach(function (c, i) { c.className = 'fan-card ' + getClass(i) });
+        dots.forEach(function (d, i) { d.classList.toggle('on', i === cur) });
+      }
+      function go(idx) { cur = mod(idx); render() }
+      function reset() { clearInterval(timer); timer = setInterval(function () { go(cur + 1) }, 4500) }
+
+      document.getElementById('fanPrev').addEventListener('click', function () { go(cur - 1); reset() });
+      document.getElementById('fanNext').addEventListener('click', function () { go(cur + 1); reset() });
+      dots.forEach(function (d) { d.addEventListener('click', function () { go(+d.dataset.i); reset() }) });
+      var sx;
+      stage.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX }, { passive: true });
+      stage.addEventListener('touchend', function (e) {
+        var dx = e.changedTouches[0].clientX - sx;
+        if (Math.abs(dx) > 40) { go(dx < 0 ? cur + 1 : cur - 1); reset() }
+      }, { passive: true });
+      render();
+      reset();
+
+
+      /* ============================================================
+         3. TVC SECTION — video gallery with featured + thumbnail grid
+         ============================================================ */
+      var tvcClips = [
+        { file: 'christmas_specials.mp4', title: 'Christmas Specials' },
+        { file: 'cny.mp4', title: 'Chinese New Year Promo' },
+        { file: 'DECEMBER_VIDEO_(1).mp4', title: 'December Promo' },
+        { file: 'enterprise.mp4', title: 'Enterprise Solutions' },
+        { file: 'new-cpi-channel-teaser.mp4', title: 'Channel Teaser' },
+        { file: 'online payment_1.mp4', title: 'Online Payment' },
+        { file: 'Pacquiao_TVC_YT_TIKTOK_2.mp4', title: 'Pacquiao TVC' },
+        { file: 'Premium-Channels-(1).mp4', title: 'Premium Channels' },
+        { file: 'Promotional_VIDEO.mp4', title: 'Promotional Video' },
+        { file: 'RAIN-PROMOTION-VIDEO.mp4', title: 'Rain Promo' },
+        { file: 'residential.mp4', title: 'Residential Promo' },
+        { file: 'testing.mp4', title: 'Testing Clip' },
+        { file: 'vd.mp4', title: 'VD Clip' }
+      ];
+
+      var THUMBS_PER_PAGE = 4;
+      var tvcActivePage = 0;
+      var tvcActiveClip = 0;
+      var tvcPages = Math.ceil(tvcClips.length / THUMBS_PER_PAGE);
+
+      var tvcFeaturedVideo = document.getElementById('tvcFeaturedVideo');
+      var tvcFeaturedSrc = document.getElementById('tvcFeaturedSrc');
+      var tvcFeaturedTitle = document.getElementById('tvcFeaturedTitle');
+      var tvcFeaturedOverlay = document.getElementById('tvcFeaturedOverlay');
+      var tvcThumbsWrap = document.getElementById('tvcThumbs');
+      var tvcDotsWrap = document.getElementById('tvcDots');
+      var tvcModal = document.getElementById('tvcModal');
+      var tvcModalVideo = document.getElementById('tvcModalVideo');
+      var tvcModalClose = document.getElementById('tvcModalClose');
+      var tvcNavWrap = document.getElementById('tvcNav');
+      var tvcSection = document.getElementById('tvc');
+      var tvcIsOnScreen = false;
+
+      tvcFeaturedVideo.muted = true;
+      tvcFeaturedVideo.loop = true;
+      tvcFeaturedVideo.playsInline = true;
+
+      function tvcPath(file) { return '../assets/tvc/' + encodeURIComponent(file); }
+
+      function tvcPauseFeatured() {
+        tvcFeaturedVideo.pause();
+        document.getElementById('tvcFeatured').classList.remove('is-playing');
+      }
+
+      function tvcPlayFeatured() {
+        if (!tvcIsOnScreen || tvcModal.classList.contains('open')) return;
+        var playPromise = tvcFeaturedVideo.play();
+        if (playPromise && typeof playPromise.then === 'function') {
+          playPromise
+            .then(function () {
+              document.getElementById('tvcFeatured').classList.add('is-playing');
+            })
+            .catch(function () {
+              document.getElementById('tvcFeatured').classList.remove('is-playing');
+            });
+        } else {
+          document.getElementById('tvcFeatured').classList.add('is-playing');
+        }
+      }
+
+      function tvcSetFeatured(idx) {
+        tvcActiveClip = idx;
+        var clip = tvcClips[idx];
+        tvcPauseFeatured();
+        tvcFeaturedSrc.src = tvcPath(clip.file);
+        tvcFeaturedVideo.load();
+        tvcFeaturedTitle.textContent = clip.title;
+        tvcThumbsWrap.querySelectorAll('.tvc-thumb').forEach(function (t) {
+          t.classList.toggle('tvc-active', +t.dataset.idx === idx);
+        });
+        tvcFeaturedVideo.addEventListener('loadedmetadata', tvcPlayFeatured, { once: true });
+      }
+
+      function tvcRenderPage(page) {
+        tvcActivePage = page;
+        var start = page * THUMBS_PER_PAGE;
+        var pageClips = tvcClips.slice(start, start + THUMBS_PER_PAGE);
+
+        tvcThumbsWrap.innerHTML = pageClips.map(function (clip, i) {
+          var globalIdx = start + i;
+          var isActive = globalIdx === tvcActiveClip;
+          var src = tvcPath(clip.file) + '#t=1';
+          return [
+            '<div class="tvc-thumb' + (isActive ? ' tvc-active' : '') + '" data-idx="' + globalIdx + '" data-src="' + tvcPath(clip.file) + '">',
+            '<video class="tvc-thumb-video" preload="metadata" muted playsinline>',
+            '<source src="' + src + '" type="video/mp4">',
+            '</video>',
+            '<div class="tvc-thumb-overlay">',
+            '<div class="tvc-thumb-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>',
+            '</div>',
+            '<div class="tvc-thumb-bar"><div class="tvc-thumb-name">' + clip.title + '</div></div>',
+            '</div>'
+          ].join('');
+        }).join('');
+
+        tvcDotsWrap.querySelectorAll('.tvc-nav-dot').forEach(function (d, i) { d.classList.toggle('on', i === page) });
+        tvcThumbsWrap.querySelectorAll('.tvc-thumb').forEach(function (thumb) {
+          thumb.addEventListener('click', function () { tvcSetFeatured(+thumb.dataset.idx); });
+        });
+      }
+
+      if (tvcPages > 1) {
+        tvcDotsWrap.innerHTML = Array.from({ length: tvcPages }, function (_, i) {
+          return '<button class="tvc-nav-dot' + (i === 0 ? ' on' : '') + '" data-p="' + i + '" aria-label="Page ' + (i + 1) + '"></button>';
+        }).join('');
+        tvcDotsWrap.querySelectorAll('.tvc-nav-dot').forEach(function (d) {
+          d.addEventListener('click', function () { tvcRenderPage(+d.dataset.p) });
+        });
+      } else {
+        tvcNavWrap.style.display = 'none';
+      }
+
+      document.getElementById('tvcPrev').addEventListener('click', function () {
+        tvcRenderPage((tvcActivePage - 1 + tvcPages) % tvcPages);
+      });
+      document.getElementById('tvcNext').addEventListener('click', function () {
+        tvcRenderPage((tvcActivePage + 1) % tvcPages);
+      });
+
+      tvcFeaturedOverlay.addEventListener('click', function () {
+        tvcPauseFeatured();
+        tvcModalVideo.src = tvcPath(tvcClips[tvcActiveClip].file);
+        tvcModal.classList.add('open');
+        tvcModalVideo.play();
+      });
+      tvcModalClose.addEventListener('click', function () {
+        tvcModal.classList.remove('open');
+        tvcModalVideo.pause(); tvcModalVideo.src = '';
+        tvcPlayFeatured();
+      });
+      tvcModal.addEventListener('click', function (e) {
+        if (e.target === tvcModal) { tvcModal.classList.remove('open'); tvcModalVideo.pause(); tvcModalVideo.src = ''; tvcPlayFeatured(); }
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && tvcModal.classList.contains('open')) {
+          tvcModal.classList.remove('open'); tvcModalVideo.pause(); tvcModalVideo.src = '';
+          tvcPlayFeatured();
+        }
+      });
+
+      tvcSetFeatured(0);
+      tvcRenderPage(0);
+
+      if ('IntersectionObserver' in window) {
+        var tvcObserver = new IntersectionObserver(function (entries) {
+          tvcIsOnScreen = entries[0].isIntersecting;
+          if (tvcIsOnScreen) {
+            tvcPlayFeatured();
+          } else {
+            tvcPauseFeatured();
+          }
+        }, { threshold: 0.35 });
+        tvcObserver.observe(tvcSection);
+      } else {
+        tvcIsOnScreen = true;
+        tvcPlayFeatured();
+      }
+
+
+    })();
+  </script>
+</body>
+
+</html>

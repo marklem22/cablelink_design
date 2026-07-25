@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply for a New Connection — CableLink</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/cablelink_apply.css?v=20260717-4">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260720-15">
+  <script src="assets/js/site-shell.js?v=20260720-5" defer></script>
+</head>
+<body data-page="apply">
+
+<!-- HERO -->
+<main id="main-content">
+<section class="hero hero--apply hero--compact" aria-labelledby="apply-title">
+  <div class="hero__glow hero__glow--apply"></div>
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="cablelink_modern_v2.html#home">Home</a>
+        <span class="bc-sep" aria-hidden="true">&rsaquo;</span>
+        <span class="bc-cur" aria-current="page">Apply for Service</span>
+      </nav>
+      <span class="section__tag hero__eyebrow">New Connection</span>
+      <h1 class="hero__title" id="apply-title">Apply for a New Connection</h1>
+      <p class="hero__description">Get connected with CableLink Internet and Cable TV services in just a few simple steps.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN LAYOUT -->
+<section class="apply-section">
+<div class="container apply-layout">
+
+  <!-- STEP INDICATOR -->
+  <div class="steps-strip">
+    <ul class="steps-list" id="stepsList">
+      <li class="step-item active" id="si1">
+        <div class="step-num"><span class="n">1</span></div>
+        <div class="step-label">Service</div>
+      </li>
+      <div class="step-connector" id="sc1"></div>
+      <li class="step-item" id="si2">
+        <div class="step-num"><span class="n">2</span></div>
+        <div class="step-label">Plan</div>
+      </li>
+      <div class="step-connector" id="sc2"></div>
+      <li class="step-item" id="si3">
+        <div class="step-num"><span class="n">3</span></div>
+        <div class="step-label">Personal Info</div>
+      </li>
+      <div class="step-connector" id="sc3"></div>
+      <li class="step-item" id="si4">
+        <div class="step-num"><span class="n">4</span></div>
+        <div class="step-label">Address</div>
+      </li>
+      <div class="step-connector" id="sc4"></div>
+      <li class="step-item" id="si5">
+        <div class="step-num"><span class="n">5</span></div>
+        <div class="step-label">Review</div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- FORM AREA -->
+  <div class="form-area" id="formArea">
+
+    <!-- STEP 1: Service Selection -->
+    <div class="step-block active-step" id="step1">
+      <div class="step-card">
+        <div class="step-card-head">
+          <div class="step-num-badge"><div class="badge-dot"></div> Step 1 of 5</div>
+          <h2>Choose Your Service</h2>
+          <p>Select the type of connection you'd like to apply for.</p>
+        </div>
+        <div class="service-cards">
+          <div class="svc-select-card" id="svcTV" onclick="selectService('tv')">
+            <div class="svc-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="svc-select-icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
+            </div>
+            <h3>Cable TV</h3>
+            <p>53–126 live channels across Basic, Basic Lite, and Basic Plus packages.</p>
+          </div>
+          <div class="svc-select-card" id="svcBundle" onclick="selectService('bundle')">
+            <div class="svc-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="svc-select-icon">
+              <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
+            </div>
+            <h3>Internet Bundle</h3>
+            <p>High-speed internet plus included Cable TV — Supercharged or Turbocharged.</p>
+          </div>
+        </div>
+        <div class="step-nav">
+          <div></div>
+          <button class="button button--primary btn-next" id="nextBtn1" onclick="goStep(2)" disabled>
+            Continue <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: Plan Selection -->
+    <div class="step-block" id="step2">
+      <div class="step-card">
+        <div class="step-card-head">
+          <div class="step-num-badge"><div class="badge-dot"></div> Step 2 of 5</div>
+          <h2>Choose Your Plan</h2>
+          <p id="step2Desc">Select the plan that suits your needs.</p>
+        </div>
+
+        <!-- TV Plans -->
+        <div id="tvPlanSection">
+          <div class="plan-info-banner">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <p>Cable TV plans are available in Digitally Activated service areas. Contact us to verify coverage in your area.</p>
+          </div>
+          <div class="tv-plan-cards">
+            <div class="tv-plan-card" onclick="selectTVPlan('basic495','Basic 495','₱495/month')">
+              <div class="tv-plan-price-box">
+                <div class="tv-plan-price">₱495<span>/month</span></div>
+              </div>
+              <div class="tv-plan-name">Basic 495</div>
+              <div class="tv-plan-channels">
+                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
+                65 Live Channels
+              </div>
+              <div class="tv-plan-area">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                Digitally Activated Areas
+              </div>
+            </div>
+            <div class="tv-plan-card" onclick="selectTVPlan('basiclite','Basic Lite','—')">
+              <div class="tv-plan-price-box">
+                <div class="tv-plan-price">Basic<span> Lite</span></div>
+              </div>
+              <div class="tv-plan-name">Basic Lite</div>
+              <div class="tv-plan-channels">
+                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
+                53 Live Channels
+              </div>
+              <div class="tv-plan-area">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                Digitally Activated Areas
+              </div>
+            </div>
+            <div class="tv-plan-card" onclick="selectTVPlan('basicplus','Basic Plus','—')">
+              <div class="tv-plan-price-box">
+                <div class="tv-plan-price">Basic<span> Plus</span></div>
+              </div>
+              <div class="tv-plan-name">Basic Plus</div>
+              <div class="tv-plan-channels">
+                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
+                126 Live Channels
+              </div>
+              <div class="tv-plan-area">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                Digitally Activated Areas
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Internet Bundle Plans -->
+        <div id="bundlePlanSection" class="hidden">
+          <!-- Family Toggle -->
+          <div class="plan-group">
+            <span class="plan-group-label">Bundle Type</span>
+            <div class="toggle-group family-toggle">
+              <button class="toggle-btn active" id="fam-supercharged" onclick="selectFamily('supercharged')">⚡ Supercharged</button>
+              <button class="toggle-btn" id="fam-turbocharged" onclick="selectFamily('turbocharged')">🚀 Turbocharged</button>
+            </div>
+            <p id="familyDesc" style="margin-top:.6rem;font-size:.8rem;color:var(--muted)">Includes Basic Plus TV — 126 channels.</p>
+          </div>
+          <!-- Tech Toggle -->
+          <div class="plan-group">
+            <span class="plan-group-label">Technology</span>
+            <div class="toggle-group tech-toggle">
+              <button class="toggle-btn active" id="tech-iblaze" onclick="selectTech('iblaze')">Iblaze (DOCSIS)</button>
+              <button class="toggle-btn" id="tech-fiberlink" onclick="selectTech('fiberlink')">Fiberlink (FTTH)</button>
+            </div>
+          </div>
+          <!-- Speed Cards -->
+          <div class="plan-group">
+            <span class="plan-group-label">Choose Speed</span>
+            <div class="speed-cards" id="speedCards"></div>
+          </div>
+        </div>
+
+        <div class="step-nav">
+          <button class="button button--secondary btn-prev" onclick="goStep(1)">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Back
+          </button>
+          <button class="button button--primary btn-next" id="nextBtn2" onclick="goStep(3)" disabled>
+            Continue <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: Personal Information -->
+    <div class="step-block" id="step3">
+      <div class="step-card">
+        <div class="step-card-head">
+          <div class="step-num-badge"><div class="badge-dot"></div> Step 3 of 5</div>
+          <h2>Personal Information</h2>
+          <p>Tell us a bit about yourself so we can process your application.</p>
+        </div>
+        <div class="form-grid form-row-3" id="nameGrid">
+          <div class="field">
+            <label for="fname">First Name <span style="color:#e53e3e">*</span></label>
+            <input type="text" id="fname" placeholder="e.g. Juan" autocomplete="given-name">
+          </div>
+          <div class="field">
+            <label for="mname">Middle Name</label>
+            <input type="text" id="mname" placeholder="Optional" autocomplete="additional-name">
+          </div>
+          <div class="field">
+            <label for="lname">Last Name <span style="color:#e53e3e">*</span></label>
+            <input type="text" id="lname" placeholder="e.g. Dela Cruz" autocomplete="family-name">
+          </div>
+        </div>
+        <div class="form-grid form-row-2" style="margin-top:1.1rem">
+          <div class="field">
+            <label for="mobile">Mobile Number <span style="color:#e53e3e">*</span></label>
+            <input type="tel" id="mobile" placeholder="09XX XXX XXXX" autocomplete="tel" maxlength="11">
+          </div>
+          <div class="field">
+            <label for="email">Email Address <span style="color:#e53e3e">*</span></label>
+            <input type="email" id="email" placeholder="your@email.com" autocomplete="email">
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="button button--secondary btn-prev" onclick="goStep(2)">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Back
+          </button>
+          <button class="button button--primary btn-next" onclick="validateStep3()">
+            Continue <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4: Installation Address -->
+    <div class="step-block" id="step4">
+      <div class="step-card">
+        <div class="step-card-head">
+          <div class="step-num-badge"><div class="badge-dot"></div> Step 4 of 5</div>
+          <h2>Installation Address</h2>
+          <p>Where would you like your CableLink service installed?</p>
+        </div>
+        <div class="form-grid form-row-2">
+          <div class="field">
+            <label for="province">Province <span style="color:#e53e3e">*</span></label>
+            <input type="text" id="province" placeholder="e.g. La Union" autocomplete="address-level1">
+          </div>
+          <div class="field">
+            <label for="city">City / Municipality <span style="color:#e53e3e">*</span></label>
+            <input type="text" id="city" placeholder="e.g. San Fernando" autocomplete="address-level2">
+          </div>
+          <div class="field">
+            <label for="barangay">Barangay <span style="color:#e53e3e">*</span></label>
+            <input type="text" id="barangay" placeholder="e.g. Brgy. Pagudpud" autocomplete="address-level3">
+          </div>
+          <div class="field">
+            <label for="housenum">House Number <span style="color:#e53e3e">*</span></label>
+            <input type="text" id="housenum" placeholder="e.g. 123" autocomplete="address-line2">
+          </div>
+          <div class="field">
+            <label for="street">Street Name <span style="color:#e53e3e">*</span></label>
+            <input type="text" id="street" placeholder="e.g. Quezon Ave." autocomplete="street-address">
+          </div>
+          <div class="field">
+            <label for="village">Village / Subdivision</label>
+            <input type="text" id="village" placeholder="e.g. Greenview Subd." autocomplete="address-line1">
+          </div>
+        </div>
+
+        <!-- Property Type -->
+        <div style="margin-top:1.5rem">
+          <span class="seg-label">Property Type <span style="color:#e53e3e">*</span></span>
+          <div class="seg-ctrl">
+            <button class="seg-opt active" id="prop-owner" onclick="selectProp('owner')">Owner</button>
+            <button class="seg-opt" id="prop-tenant" onclick="selectProp('tenant')">Tenant</button>
+          </div>
+        </div>
+
+        <div class="step-nav">
+          <button class="button button--secondary btn-prev" onclick="goStep(3)">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Back
+          </button>
+          <button class="button button--primary btn-next" onclick="validateStep4()">
+            Continue <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 5: Review & Submit -->
+    <div class="step-block" id="step5">
+      <div class="step-card">
+        <div class="step-card-head">
+          <div class="step-num-badge"><div class="badge-dot"></div> Step 5 of 5</div>
+          <h2>Review Your Application</h2>
+          <p>Please verify all information before submitting your application.</p>
+        </div>
+
+        <!-- Service & Plan -->
+        <div class="review-section">
+          <span class="review-section-title">Service & Plan</span>
+          <div class="review-grid">
+            <div class="review-row">
+              <div class="review-key">Service Type</div>
+              <div class="review-val highlight" id="rv-service">—</div>
+            </div>
+            <div class="review-row">
+              <div class="review-key">Plan</div>
+              <div class="review-val" id="rv-plan">—</div>
+            </div>
+            <div class="review-row">
+              <div class="review-key">Monthly Fee</div>
+              <div class="review-val highlight" id="rv-fee">—</div>
+            </div>
+            <div class="review-row">
+              <div class="review-key">TV Package</div>
+              <div class="review-val" id="rv-tv">—</div>
+            </div>
+          </div>
+          <button class="review-edit" onclick="goStep(2)">
+            <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            Edit Plan
+          </button>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="review-section">
+          <span class="review-section-title">Contact Information</span>
+          <div class="review-grid">
+            <div class="review-row">
+              <div class="review-key">Full Name</div>
+              <div class="review-val" id="rv-name">—</div>
+            </div>
+            <div class="review-row">
+              <div class="review-key">Mobile</div>
+              <div class="review-val" id="rv-mobile">—</div>
+            </div>
+            <div class="review-row">
+              <div class="review-key">Email</div>
+              <div class="review-val" id="rv-email">—</div>
+            </div>
+          </div>
+          <button class="review-edit" onclick="goStep(3)">
+            <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            Edit Info
+          </button>
+        </div>
+
+        <!-- Address -->
+        <div class="review-section">
+          <span class="review-section-title">Installation Address</span>
+          <div class="review-grid">
+            <div class="review-row">
+              <div class="review-key">Address</div>
+              <div class="review-val" id="rv-address">—</div>
+            </div>
+            <div class="review-row">
+              <div class="review-key">Property Type</div>
+              <div class="review-val" id="rv-prop">—</div>
+            </div>
+          </div>
+          <button class="review-edit" onclick="goStep(4)">
+            <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            Edit Address
+          </button>
+        </div>
+
+        <!-- Submit -->
+        <div class="submit-cta">
+          <p>By submitting, you agree to CableLink's <a href="#" style="color:var(--blue-primary);font-weight:700">Terms of Service</a> and <a href="#" style="color:var(--blue-primary);font-weight:700">Privacy Policy</a>. A representative will contact you to confirm your application within 1–2 business days.</p>
+          <button class="button button--primary btn-apply" onclick="submitApplication()">
+            Apply Now
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+
+        <div class="step-nav" style="border-top:none;margin-top:1rem;justify-content:flex-start">
+          <button class="button button--secondary btn-prev" onclick="goStep(4)">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Back
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUCCESS SCREEN -->
+    <div class="success-screen" id="successScreen">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h2>Application Submitted!</h2>
+      <p>Thank you for applying with CableLink. We've received your application and our team will reach out within 1–2 business days to confirm your installation schedule.</p>
+      <div class="success-ref" id="successRef">REF: CL-XXXXXX</div>
+      <a href="cablelink_modern_v2.html" class="button button--primary btn-next" style="display:inline-flex;text-decoration:none">
+        Back to Home <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+
+  </div><!-- /form-area -->
+
+  <!-- SIDEBAR -->
+  <aside class="summary-sidebar">
+    <div class="summary-card">
+      <h3>Application Summary</h3>
+      <div class="summary-item">
+        <div class="summary-item-label">Service</div>
+        <div class="summary-item-val" id="sum-service"><span class="empty">Not selected</span></div>
+      </div>
+      <div class="summary-divider"></div>
+      <div class="summary-item">
+        <div class="summary-item-label">Plan</div>
+        <div class="summary-item-val" id="sum-plan"><span class="empty">Not selected</span></div>
+      </div>
+      <div class="summary-item">
+        <div class="summary-item-label">Speed</div>
+        <div class="summary-item-val" id="sum-speed"><span class="empty">—</span></div>
+      </div>
+      <div class="summary-item">
+        <div class="summary-item-label">TV Package</div>
+        <div class="summary-item-val" id="sum-tv"><span class="empty">—</span></div>
+      </div>
+      <div class="summary-price-box" id="sumPriceBox">
+        <div class="summary-price-label">Monthly Fee</div>
+        <div class="summary-price-val" id="sum-price">—</div>
+        <div class="summary-price-period" id="sum-period">per month</div>
+      </div>
+    </div>
+    <div class="help-card">
+      <h4>Need help choosing?</h4>
+      <p>Our team can help you pick the right plan for your home and area.</p>
+      <a href="#" class="help-link">
+        Chat with us
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </aside>
+
+</div><!-- /apply-layout -->
+</section>
+</main>
+
+<script>
+(function(){
+  // ===== STATE =====
+  var state = {
+    service: null,           // 'tv' | 'bundle'
+    tvPlan: null,            // object
+    bundleFamily: 'supercharged',
+    bundleTech: 'iblaze',
+    bundleSpeed: null,       // object
+    propType: 'owner',
+    currentStep: 1
+  };
+
+  // Plan data
+  var plans = {
+    supercharged: {
+      iblaze: [
+        {speed:'20 Mbps', price:'₱588', tech:'Iblaze DOCSIS', tv:'Basic Plus'},
+        {speed:'30 Mbps', price:'₱888', tech:'Iblaze DOCSIS', tv:'Basic Plus'},
+        {speed:'35 Mbps', price:'₱999', tech:'Iblaze DOCSIS', tv:'Basic Plus'},
+        {speed:'50 Mbps', price:'₱1,088', tech:'Iblaze DOCSIS', tv:'Basic Plus'},
+        {speed:'88 Mbps', price:'₱1,388', tech:'Iblaze DOCSIS', tv:'Basic Plus'},
+        {speed:'120 Mbps', price:'₱1,699', tech:'Iblaze DOCSIS', tv:'Basic Plus'}
+      ],
+      fiberlink: [
+        {speed:'50 Mbps', price:'₱888', tech:'Fiberlink FTTH', tv:'Basic Plus'},
+        {speed:'75 Mbps', price:'₱999', tech:'Fiberlink FTTH', tv:'Basic Plus'},
+        {speed:'88 Mbps', price:'₱1,088', tech:'Fiberlink FTTH', tv:'Basic Plus'},
+        {speed:'188 Mbps', price:'₱1,388', tech:'Fiberlink FTTH', tv:'Basic Plus'},
+        {speed:'300 Mbps', price:'₱1,699', tech:'Fiberlink FTTH', tv:'Basic Plus'}
+      ]
+    },
+    turbocharged: {
+      iblaze: [
+        {speed:'30 Mbps', price:'₱599', tech:'Iblaze DOCSIS', tv:'Basic Lite'},
+        {speed:'50 Mbps', price:'₱999', tech:'Iblaze DOCSIS', tv:'Basic Lite'},
+        {speed:'100 Mbps', price:'₱1,499', tech:'Iblaze DOCSIS', tv:'Basic Lite'}
+      ],
+      fiberlink: [
+        {speed:'50 Mbps', price:'₱599', tech:'Fiberlink FTTH', tv:'Basic Lite'},
+        {speed:'200 Mbps', price:'₱999', tech:'Fiberlink FTTH', tv:'Basic Lite'},
+        {speed:'300 Mbps', price:'₱1,299', tech:'Fiberlink FTTH', tv:'Basic Lite'}
+      ]
+    }
+  };
+
+  // ===== STEP NAV =====
+  window.goStep = function(n){
+    document.querySelectorAll('.step-block').forEach(function(b){b.classList.remove('active-step')});
+    var el = document.getElementById('step'+n);
+    if(el) el.classList.add('active-step');
+    state.currentStep = n;
+    updateStepIndicator();
+    if(n===5) populateReview();
+    window.scrollTo({top:document.querySelector('.apply-layout').offsetTop - 80, behavior:'smooth'});
+  };
+
+  function updateStepIndicator(){
+    var n = state.currentStep;
+    for(var i=1;i<=5;i++){
+      var si = document.getElementById('si'+i);
+      si.classList.remove('active','done');
+      if(i < n) si.classList.add('done');
+      else if(i === n) si.classList.add('active');
+    }
+    for(var j=1;j<=4;j++){
+      var sc = document.getElementById('sc'+j);
+      sc.classList.toggle('done', j < n);
+    }
+  }
+
+  // ===== SERVICE SELECTION =====
+  window.selectService = function(type){
+    state.service = type;
+    document.getElementById('svcTV').classList.toggle('selected', type==='tv');
+    document.getElementById('svcBundle').classList.toggle('selected', type==='bundle');
+    document.getElementById('nextBtn1').disabled = false;
+    // Show/hide plan sections on step 2
+    document.getElementById('tvPlanSection').classList.toggle('hidden', type!=='tv');
+    document.getElementById('bundlePlanSection').classList.toggle('hidden', type!=='bundle');
+    // Reset plan
+    state.tvPlan = null; state.bundleSpeed = null;
+    document.getElementById('nextBtn2').disabled = true;
+    // Update summary
+    document.getElementById('sum-service').innerHTML = type==='tv' ? 'Cable TV' : 'Internet Bundle';
+    document.getElementById('sum-plan').innerHTML = '<span class="empty">Not selected</span>';
+    document.getElementById('sum-speed').innerHTML = '<span class="empty">—</span>';
+    document.getElementById('sum-tv').innerHTML = '<span class="empty">—</span>';
+    document.getElementById('sum-price').textContent = '—';
+    if(type==='bundle') renderSpeedCards();
+  };
+
+  // ===== TV PLAN =====
+  window.selectTVPlan = function(id, name, price){
+    state.tvPlan = {id:id, name:name, price:price};
+    document.querySelectorAll('.tv-plan-card').forEach(function(c){c.classList.remove('selected')});
+    event.currentTarget.classList.add('selected');
+    document.getElementById('nextBtn2').disabled = false;
+    document.getElementById('sum-plan').textContent = name;
+    document.getElementById('sum-tv').textContent = name;
+    document.getElementById('sum-speed').innerHTML = '<span class="empty">—</span>';
+    document.getElementById('sum-price').textContent = price;
+  };
+
+  // ===== BUNDLE: FAMILY =====
+  window.selectFamily = function(fam){
+    state.bundleFamily = fam;
+    state.bundleSpeed = null;
+    document.getElementById('nextBtn2').disabled = true;
+    document.getElementById('fam-supercharged').classList.toggle('active', fam==='supercharged');
+    document.getElementById('fam-turbocharged').classList.toggle('active', fam==='turbocharged');
+    document.getElementById('familyDesc').textContent = fam==='supercharged' ?
+      'Includes Basic Plus TV — 126 channels.' : 'Includes Basic Lite TV — 53 channels.';
+    renderSpeedCards();
+    document.getElementById('sum-plan').innerHTML = '<span class="empty">Not selected</span>';
+    document.getElementById('sum-price').textContent = '—';
+  };
+
+  // ===== BUNDLE: TECH =====
+  window.selectTech = function(tech){
+    state.bundleTech = tech;
+    state.bundleSpeed = null;
+    document.getElementById('nextBtn2').disabled = true;
+    document.getElementById('tech-iblaze').classList.toggle('active', tech==='iblaze');
+    document.getElementById('tech-fiberlink').classList.toggle('active', tech==='fiberlink');
+    renderSpeedCards();
+    document.getElementById('sum-plan').innerHTML = '<span class="empty">Not selected</span>';
+    document.getElementById('sum-price').textContent = '—';
+  };
+
+  // ===== RENDER SPEED CARDS =====
+  function renderSpeedCards(){
+    var data = plans[state.bundleFamily][state.bundleTech];
+    var html = data.map(function(p, i){
+      var speedNum = p.speed.replace(' Mbps','');
+      return '<div class="speed-card" onclick="selectSpeed('+i+')" id="sc'+i+'">' +
+        '<div class="speed-card-top">' +
+          '<div class="speed-badge">'+p.tech+'</div>' +
+          '<div class="speed-select-dot"></div>' +
+        '</div>' +
+        '<div class="speed-val">'+speedNum+'</div>' +
+        '<div class="speed-unit">Mbps</div>' +
+        '<div class="speed-tv">'+p.tv+' Included</div>' +
+        '<div class="speed-price">'+p.price+'<span>/mo</span></div>' +
+      '</div>';
+    }).join('');
+    document.getElementById('speedCards').innerHTML = html;
+  }
+
+  // ===== SELECT SPEED =====
+  window.selectSpeed = function(i){
+    var data = plans[state.bundleFamily][state.bundleTech];
+    state.bundleSpeed = data[i];
+    document.querySelectorAll('#speedCards .speed-card').forEach(function(c,j){
+      c.classList.toggle('selected', j===i);
+    });
+    document.getElementById('nextBtn2').disabled = false;
+    var p = state.bundleSpeed;
+    var famLabel = state.bundleFamily==='supercharged' ? 'Supercharged' : 'Turbocharged';
+    var techLabel = state.bundleTech==='iblaze' ? 'Iblaze' : 'Fiberlink';
+    document.getElementById('sum-plan').textContent = famLabel+' '+techLabel;
+    document.getElementById('sum-speed').textContent = p.speed;
+    document.getElementById('sum-tv').textContent = p.tv;
+    document.getElementById('sum-price').textContent = p.price;
+  };
+
+  // ===== PROPERTY TYPE =====
+  window.selectProp = function(type){
+    state.propType = type;
+    document.getElementById('prop-owner').classList.toggle('active', type==='owner');
+    document.getElementById('prop-tenant').classList.toggle('active', type==='tenant');
+  };
+
+  // ===== VALIDATE STEP 3 =====
+  window.validateStep3 = function(){
+    var ok = true;
+    ['fname','lname','mobile','email'].forEach(function(id){
+      var el = document.getElementById(id);
+      el.classList.remove('error');
+      if(!el.value.trim()){el.classList.add('error');ok=false;}
+    });
+    var emailEl = document.getElementById('email');
+    if(emailEl.value && !/^[^@]+@[^@]+\.[^@]+$/.test(emailEl.value)){
+      emailEl.classList.add('error');ok=false;
+    }
+    if(ok) goStep(4);
+    else { var first = document.querySelector('#step3 .error'); if(first) first.scrollIntoView({behavior:'smooth',block:'center'});}
+  };
+
+  // ===== VALIDATE STEP 4 =====
+  window.validateStep4 = function(){
+    var ok = true;
+    ['province','city','barangay','housenum','street'].forEach(function(id){
+      var el = document.getElementById(id);
+      el.classList.remove('error');
+      if(!el.value.trim()){el.classList.add('error');ok=false;}
+    });
+    if(ok) goStep(5);
+    else { var first = document.querySelector('#step4 .error'); if(first) first.scrollIntoView({behavior:'smooth',block:'center'});}
+  };
+
+  // ===== POPULATE REVIEW =====
+  function populateReview(){
+    // Service & Plan
+    if(state.service==='tv'){
+      var tp = state.tvPlan;
+      document.getElementById('rv-service').textContent = 'Cable TV';
+      document.getElementById('rv-plan').textContent = tp ? tp.name : '—';
+      document.getElementById('rv-fee').textContent = tp ? tp.price : '—';
+      document.getElementById('rv-tv').textContent = tp ? tp.name : '—';
+    } else {
+      var sp = state.bundleSpeed;
+      var fam = state.bundleFamily==='supercharged' ? 'Supercharged' : 'Turbocharged';
+      var tech = state.bundleTech==='iblaze' ? 'Iblaze' : 'Fiberlink';
+      document.getElementById('rv-service').textContent = 'Internet Bundle';
+      document.getElementById('rv-plan').textContent = sp ? fam+' '+tech+' — '+sp.speed : '—';
+      document.getElementById('rv-fee').textContent = sp ? sp.price+'/month' : '—';
+      document.getElementById('rv-tv').textContent = sp ? sp.tv : '—';
+    }
+    // Personal
+    var fn=document.getElementById('fname').value.trim();
+    var mn=document.getElementById('mname').value.trim();
+    var ln=document.getElementById('lname').value.trim();
+    document.getElementById('rv-name').textContent = [fn,mn,ln].filter(Boolean).join(' ');
+    document.getElementById('rv-mobile').textContent = document.getElementById('mobile').value.trim();
+    document.getElementById('rv-email').textContent = document.getElementById('email').value.trim();
+    // Address
+    var hn=document.getElementById('housenum').value.trim();
+    var st=document.getElementById('street').value.trim();
+    var vl=document.getElementById('village').value.trim();
+    var br=document.getElementById('barangay').value.trim();
+    var ct=document.getElementById('city').value.trim();
+    var pv=document.getElementById('province').value.trim();
+    var addr = [hn+' '+st, vl, br, ct, pv].filter(Boolean).join(', ');
+    document.getElementById('rv-address').textContent = addr;
+    document.getElementById('rv-prop').textContent = state.propType==='owner' ? 'Property Owner' : 'Tenant';
+  }
+
+  // ===== SUBMIT =====
+  window.submitApplication = function(){
+    var ref = 'CL-' + Math.floor(100000 + Math.random()*900000);
+    document.getElementById('successRef').textContent = 'REF: ' + ref;
+    document.querySelectorAll('.step-block').forEach(function(b){b.classList.remove('active-step')});
+    document.getElementById('steps-strip') && (document.getElementById('steps-strip').style.display='none');
+    document.querySelector('.steps-strip').style.display='none';
+    document.getElementById('successScreen').classList.add('show');
+    document.getElementById('sum-service').innerHTML = '✓ Submitted';
+    window.scrollTo({top:0,behavior:'smooth'});
+  };
+
+  // ===== INIT =====
+  renderSpeedCards();
+
+  // ===== PRE-FILL FROM URL PARAMS =====
+  (function prefillFromURL(){
+    var params = new URLSearchParams(window.location.search);
+    var service = params.get('service');   // 'bundle' | 'tv'
+    if(!service) return;
+
+    // Step 1: select service
+    selectService(service);
+
+    if(service === 'bundle'){
+      var family = params.get('family') || 'supercharged'; // 'super' | 'turbo'
+      var tech   = params.get('tech')   || 'iblaze';       // 'iblaze' | 'fiberlink'
+      var speed  = params.get('speed');
+      var price  = params.get('price');
+      var tv     = params.get('tv');
+
+      // Normalise family: plans page uses 'super'/'turbo' card types
+      if(family === 'super') family = 'supercharged';
+      if(family === 'turbo') family = 'turbocharged';
+      if(tech === 'fiber') tech = 'fiberlink';
+
+      selectFamily(family);
+      selectTech(tech === 'fiberlink' ? 'fiberlink' : 'iblaze');
+
+      // Wait a tick for speed cards to render then select the matching card
+      setTimeout(function(){
+        if(speed){
+          var cards = document.querySelectorAll('#speedCards .speed-card');
+          cards.forEach(function(card){
+            var cardSpeed = card.querySelector('.speed-val');
+            if(cardSpeed && cardSpeed.textContent.trim() === speed + ''){
+              card.click();
+            }
+          });
+        }
+        // If everything is filled, jump to step 2 (plan already chosen)
+        if(speed && price){
+          document.getElementById('nextBtn2').disabled = false;
+          goStep(2);
+        } else {
+          goStep(2);
+        }
+      }, 80);
+
+    } else if(service === 'tv'){
+      var tvplan = params.get('tvplan'); // slug like 'basic-495'
+      var tvname = params.get('tvname'); // display name
+      var price  = params.get('price');
+
+      // Map slug to the selectTVPlan call params
+      var slugMap = {
+        'basic-495': ['basic495', 'Basic 495', price ? '₱'+price+'/month' : '—'],
+        'basic-lite': ['basiclite', 'Basic Lite', '—'],
+        'basic-plus': ['basicplus', 'Basic Plus', '—']
+      };
+      var mapped = slugMap[tvplan];
+      if(mapped) selectTVPlan(mapped[0], mapped[1], mapped[2]);
+      goStep(2);
+    }
+  })();
+
+})();
+</script>
+
+</body>
+</html>

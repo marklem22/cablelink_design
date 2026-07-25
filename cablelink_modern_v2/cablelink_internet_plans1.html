@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plans & Pricing — CableLink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/site.css?v=20260720-15">
+<link rel="stylesheet" href="assets/css/cablelink_internet_plans.css?v=20260720-1">
+  <script src="assets/js/site-shell.js?v=20260720-5" defer></script>
+</head>
+
+<body data-page="internet-plans" data-nav-page="services">
+  <main id="main-content">
+    <section class="hero hero--internet" aria-labelledby="plans-heading">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="cablelink_services.html">Services</a>
+            <span class="bc-sep" aria-hidden="true">&rsaquo;</span>
+            <span class="bc-cur" aria-current="page">Internet Plans</span>
+          </nav>
+          <span class="section__tag hero__eyebrow">Plans &amp; Pricing</span>
+          <h1 class="hero__title" id="plans-heading">Choose the <span class="text-accent">best plan</span> for you.</h1>
+          <p class="hero__description">No introductory rates that skyrocket after year one. No surprise fees. Just one clear monthly price.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="plans" class="pricing" aria-labelledby="plans-heading">
+      <div class="container pricing__content">
+        <div class="plans-toggle-bar" role="group" aria-label="Plan selection">
+          <div class="plans-toggle-group" id="tech-toggle" role="group" aria-label="Connection technology">
+            <button class="plans-toggle-btn active" id="btn-iblaze" data-tech="iblaze" aria-pressed="true" onclick="setTech('iblaze')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+                <path d="M1.42 9a16 16 0 0 1 21.16 0" />
+                <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+                <circle cx="12" cy="20" r="1" fill="currentColor" />
+              </svg>
+              iBlaZe (DOCSIS)
+            </button>
+            <button class="plans-toggle-btn" id="btn-fiber" data-tech="fiber" aria-pressed="false" onclick="setTech('fiber')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+              </svg>
+              FiberLink (FTTH)
+            </button>
+          </div>
+
+          <div class="plans-toggle-sep" aria-hidden="true"></div>
+
+          <div class="plans-toggle-group" id="tier-toggle" role="group" aria-label="Plan tier">
+            <button class="plans-toggle-btn active" id="btn-super" data-tier="super" aria-pressed="true" onclick="setTier('super')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg>
+              Supercharged
+            </button>
+            <button class="plans-toggle-btn" id="btn-turbo" data-tier="turbo" aria-pressed="false" onclick="setTier('turbo')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z" />
+                <path d="M12 8v4l3 3" />
+              </svg>
+              Turbocharged
+            </button>
+          </div>
+        </div>
+
+        <div id="plan-card-container"></div>
+
+        <a class="plans-help" href="cablelink_apply.html">
+          <span class="plans-help__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><path d="M18 14h1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-1zM6 14H5a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h1z"/><path d="M18 18c0 1.1-.9 2-2 2h-2"/></svg>
+          </span>
+          <span class="plans-help__copy">
+            <span>Need help choosing? <strong>Reach out to the CableLink team</strong></span>
+            <span>for availability in your area.</span>
+          </span>
+          <svg class="plans-help__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      const PLANS = {
+        iblaze: {
+          super: {
+            themeClass: 'theme-iblaze-super',
+            techLabel: 'DOCSIS Internet',
+            tierLabel: 'Supercharged',
+            nameMain: 'iBlaZe@Home',
+            bundle: 'Basic Plus · 126 Channels',
+            desc: 'Full cable internet bundled with 126 TV channels — news, sports, entertainment, kids, and international. The most popular all-in-one package for Philippine households.',
+            features: ['DOCSIS Technology', '126 Live TV Channels', 'No Hidden Fees', '24/7 Support', 'Free Installation'],
+            tiers: [{ speed: '20', price: 588 }, { speed: '30', price: 888 }, { speed: '35', price: 999 }, { speed: '50', price: 1088 }, { speed: '88', price: 1388 }, { speed: '120', price: 1699 }]
+          },
+          turbo: {
+            themeClass: 'theme-iblaze-turbo',
+            techLabel: 'DOCSIS Internet',
+            tierLabel: 'Turbocharged',
+            nameMain: 'iBlaZe@Home',
+            bundle: 'Basic Lite · 53 Channels',
+            desc: 'Budget-friendly DOCSIS internet paired with essential TV channels. Great for digital streamers who want core cable coverage without paying for the full lineup.',
+            features: ['DOCSIS Technology', '53 Live TV Channels', 'Budget-Friendly', 'No Contracts', 'Free Installation'],
+            tiers: [{ speed: '30', price: 599 }, { speed: '50', price: 999 }, { speed: '100', price: 1499 }]
+          }
+        },
+        fiber: {
+          super: {
+            themeClass: 'theme-fiber-super',
+            techLabel: 'Fiber-to-Home (FTTH)',
+            tierLabel: 'Supercharged',
+            nameMain: 'FiberLink@Home',
+            bundle: 'Basic Plus · 126 Channels',
+            desc: 'Pure dedicated fiber straight to your home with the full 126-channel TV bundle. The fastest, most future-proof internet CableLink offers — zero congestion, maximum reliability.',
+            features: ['Dedicated Fiber Line', '126 Live TV Channels', 'Free Router Included', 'Priority Support', 'Free Installation'],
+            tiers: [{ speed: '50', price: 888 }, { speed: '75', price: 999 }, { speed: '88', price: 1088 }, { speed: '188', price: 1388 }, { speed: '300', price: 1699 }]
+          },
+          turbo: {
+            themeClass: 'theme-fiber-turbo',
+            techLabel: 'Fiber-to-Home (FTTH)',
+            tierLabel: 'Turbocharged',
+            nameMain: 'FiberLink@Home',
+            bundle: 'Basic Lite · 53 Channels',
+            desc: 'Gigabit-ready fiber infrastructure at a budget-conscious price. Get the speed and reliability of FTTH with essential TV channels — perfect for heavy internet users who stream content online.',
+            features: ['Dedicated Fiber Line', '53 Live TV Channels', 'Gigabit-Ready Line', 'Budget-Friendly', 'Free Installation'],
+            tiers: [{ speed: '50', price: 599 }, { speed: '200', price: 999 }, { speed: '300', price: 1299 }]
+          }
+        }
+      };
+
+      let curTech = 'iblaze';
+      let curTier = 'super';
+
+      window.setTech = function (tech) {
+        curTech = tech;
+        document.getElementById('btn-iblaze').classList.toggle('active', tech === 'iblaze');
+        document.getElementById('btn-fiber').classList.toggle('active', tech === 'fiber');
+        document.getElementById('btn-iblaze').setAttribute('aria-pressed', String(tech === 'iblaze'));
+        document.getElementById('btn-fiber').setAttribute('aria-pressed', String(tech === 'fiber'));
+        render();
+      };
+
+      window.setTier = function (tier) {
+        curTier = tier;
+        const isSuper = tier === 'super';
+        const btnSuper = document.getElementById('btn-super');
+        const btnTurbo = document.getElementById('btn-turbo');
+        btnSuper.classList.toggle('active', isSuper);
+        btnTurbo.classList.toggle('active', !isSuper);
+        btnTurbo.classList.toggle('active-turbo', !isSuper);
+        btnSuper.setAttribute('aria-pressed', String(isSuper));
+        btnTurbo.setAttribute('aria-pressed', String(!isSuper));
+        render();
+      };
+
+      function isTurbo() {
+        return curTier === 'turbo';
+      }
+
+      function checkIcon() {
+        return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+      }
+
+      function arrowIcon() {
+        return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+      }
+
+      function render() {
+        const plan = PLANS[curTech][curTier];
+        const turbo = isTurbo();
+        const prices = plan.tiers.map(t => t.price);
+        const speeds = plan.tiers.map(t => parseInt(t.speed, 10));
+        const minPrice = Math.min(...prices);
+        const maxSpeed = Math.max(...speeds);
+        const minSpeed = Math.min(...speeds);
+        const tierCount = plan.tiers.length;
+        const accentCls = turbo ? 'accent-turbo' : 'accent';
+        const ctaClass = turbo ? 'plan-cta-primary turbo-cta' : 'plan-cta-primary';
+        const familyParam = curTier;
+        const techParam = curTech === 'fiber' ? 'fiberlink' : 'iblaze';
+        const applyHref = `cablelink_apply.html?service=bundle&family=${encodeURIComponent(familyParam)}&tech=${encodeURIComponent(techParam)}&speed=${encodeURIComponent(String(minSpeed))}&price=${encodeURIComponent(String(minPrice))}`;
+
+        const featureItems = plan.features.map(f => `<div class="plan-feature-item${turbo ? ' turbo-feat' : ''}">${checkIcon()}<span>${f}</span></div>`).join('');
+
+        document.getElementById('plan-card-container').innerHTML = `
+          <div class="plan-card-wrap">
+            <div class="plan-card">
+              <div class="plan-img-panel ${plan.themeClass}" aria-hidden="true">
+                <div class="plan-img-orb"></div>
+                <div class="plan-img-content">
+                  <div class="plan-img-tier-badge">${plan.techLabel}</div>
+                  <div class="plan-img-name">
+                    ${plan.tierLabel}
+                    <span>${plan.nameMain}</span>
+                  </div>
+                  <div class="plan-img-bundle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M17 2l-5 5-5-5"/></svg>
+                    ${plan.bundle}
+                  </div>
+                </div>
+              </div>
+              <div class="plan-details-panel">
+                <p class="plan-desc-text">${plan.desc}</p>
+                <div class="plan-divider"></div>
+                <div class="plan-summary-row">
+                  <div class="plan-stat">
+                    <span class="plan-stat__label">Starts at</span>
+                    <span class="plan-stat__value ${accentCls}">₱${minPrice.toLocaleString()}</span>
+                    <span class="plan-stat__sub">per month</span>
+                  </div>
+                  <div class="plan-stat-sep"></div>
+                  <div class="plan-stat">
+                    <span class="plan-stat__label">Speed range</span>
+                    <span class="plan-stat__value">${minSpeed}–${maxSpeed}</span>
+                    <span class="plan-stat__sub">Mbps</span>
+                  </div>
+                  <div class="plan-stat-sep"></div>
+                  <div class="plan-stat">
+                    <span class="plan-stat__label">Available tiers</span>
+                    <span class="plan-stat__value">${tierCount}</span>
+                    <span class="plan-stat__sub">plans to choose from</span>
+                  </div>
+                </div>
+                <div class="plan-divider"></div>
+                <div class="plan-price-row">
+                  <div class="plan-features-row" style="flex:1">${featureItems}</div>
+                  <div class="plan-cta-group">
+                    <a class="${ctaClass}" href="${applyHref}">Get this plan ${arrowIcon()}</a>
+                    <a class="plan-cta-secondary" href="cablelink_plans.html">See all tiers</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      render();
+    })();
+  </script>
+</body>
+
+</html>

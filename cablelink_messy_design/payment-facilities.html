@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cablelink – Payment Facilities</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: "SF Grandezza Medium V2";
+  src: url("assets/fonts/SF%20Grandezza%20Medium%20V2.woff2") format("woff2"),
+       url("assets/fonts/SF%20Grandezza%20Medium%20V2.woff") format("woff"),
+       url("assets/fonts/SF%20Grandezza%20Medium%20V2.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --midnight:   #001C43;
+  --slate-dark: #0046B0;
+  --slate:      #034DB6;
+  --mid-blue:   #0E1B4A;
+  --deep-blue:  #19347D;
+  --charcoal:   #333333;
+  --steel:      #337AB7;
+  --muted:      #555555;
+  --gray:       #808080;
+  --orange-red: #E04700;
+  --lavender:   #E7E7E7;
+  --orange:     #FF6A00;
+  --white:      #ffffff;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Montserrat', sans-serif; color: var(--charcoal); background: var(--white); overflow-x: hidden; }
+
+/* ── STATUS TICKER ── */
+.status-ticker {
+  background: var(--mid-blue); border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 7px 48px; display: flex; align-items: center; justify-content: space-between;
+  font-size: 0.72rem; color: rgba(255,255,255,0.7); position: relative; z-index: 200;
+}
+.status-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; display: inline-block; margin-right: 7px; box-shadow: 0 0 6px #22c55e; animation: pulse-dot 2s ease-in-out infinite; }
+@keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.ticker-right { display: flex; gap: 24px; }
+.ticker-right a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.7rem; transition: color .2s; }
+.ticker-right a:hover { color: #fff; }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 68px;
+  background: rgba(0,28,67,0.97); backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.nav-logo { text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.nav-logo img { display: block; height: 34px; width: auto; }
+.nav-logo-text { color: #fff; font-family: "SF Grandezza Medium V2", 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 500; letter-spacing: -0.4px; }
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: color .2s; letter-spacing: 0.2px; position: relative; padding-bottom: 4px; }
+.nav-links a:hover { color: #fff; }
+.nav-links a.active { color: #fff; }
+.nav-actions { display: flex; gap: 10px; align-items: center; }
+.btn-ghost { background: none; border: 1.5px solid rgba(255,255,255,0.2); color: #fff; padding: 8px 18px; border-radius: 8px; font-size: 0.8rem; font-weight: 600; cursor: pointer; font-family: 'Montserrat',sans-serif; transition: border-color .2s; }
+.btn-ghost:hover { border-color: rgba(255,255,255,0.5); }
+.btn-cta { background: var(--orange); border: none; color: #fff; padding: 9px 20px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; cursor: pointer; font-family: 'Montserrat',sans-serif; transition: background .2s, transform .15s; }
+.btn-cta:hover { background: var(--orange-red); transform: translateY(-1px); }
+.hotline-nav { font-size: 0.7rem; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 5px; }
+.hotline-nav strong { color: rgba(255,255,255,0.85); }
+
+/* ── SECTION LABEL ── */
+.section-label {
+  display: inline-block; font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--orange);
+  border: 1px solid rgba(255,106,0,0.3); padding: 4px 12px; border-radius: 100px; margin-bottom: 14px;
+}
+
+/* ── PAYMENT ── */
+.payment {
+  background: linear-gradient(160deg, #f6f9ff 0%, #eef3fb 55%, #e9eef9 100%);
+  padding: 96px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.payment::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #e9eef9;
+  pointer-events: none;
+}
+.payment-inner { max-width: 1060px; margin: 0 auto; position: relative; z-index: 1; }
+.pay-header { text-align: center; margin-bottom: 56px; }
+.pay-header h2 { font-size: clamp(2rem,4vw,2.8rem); font-weight: 900; letter-spacing: -1px; color: var(--midnight); margin-bottom: 10px; }
+.pay-header p { color: var(--muted); font-size: 0.92rem; max-width: 460px; margin: 0 auto; line-height: 1.65; font-weight: 400; }
+.pay-categories {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 0;
+  background: #fff;
+  border: 1px solid var(--lavender);
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0,28,67,0.08);
+  overflow: hidden;
+}
+.pay-cat {
+  padding: 28px 24px;
+}
+.pay-cat + .pay-cat {
+  position: relative;
+}
+.pay-cat + .pay-cat::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 22px;
+  bottom: 22px;
+  width: 1px;
+  background: var(--lavender);
+}
+.pay-cat-title {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.8rem; font-weight: 800; color: var(--midnight);
+  margin-bottom: 18px; letter-spacing: 1px; text-transform: uppercase;
+}
+.pay-cat-icon { font-size: 1.2rem; }
+.pay-list { display: flex; flex-wrap: wrap; gap: 10px; }
+.pay-logo {
+  width: 120px;
+  height: 52px;
+  background: #fff;
+  border: 1px solid rgba(0,28,67,0.08);
+  border-radius: 10px;
+  padding: 8px 10px;
+  object-fit: contain;
+  object-position: center;
+  box-shadow: 0 6px 16px rgba(0,28,67,0.08);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.pay-logo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,28,67,0.12);
+}
+
+/* ── CONTACT ── */
+.contact { background: var(--mid-blue); padding: 64px 48px; }
+.contact-inner { max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.contact-left h2 { font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-bottom: 8px; }
+.contact-left p { color: rgba(255,255,255,0.45); font-size: 0.88rem; line-height: 1.65; font-weight: 400; }
+.contact-nums { display: flex; flex-direction: column; gap: 12px; }
+.contact-num { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 14px 18px; }
+.contact-num-icon { font-size: 1.2rem; }
+.contact-num-info { display: flex; flex-direction: column; }
+.contact-num-label { font-size: 0.65rem; color: rgba(255,255,255,0.4); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+.contact-num-val { font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: 0.5px; }
+.contact-num-sub { font-size: 0.7rem; color: rgba(255,255,255,0.35); font-weight: 400; }
+.contact-social { display: flex; gap: 10px; margin-top: 20px; }
+.soc-btn { display: flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 9px; font-size: 0.78rem; font-weight: 600; cursor: pointer; border: none; font-family: 'Montserrat',sans-serif; text-decoration: none; transition: opacity .2s; }
+.soc-btn:hover { opacity: 0.85; }
+.soc-fb { background: #1877f2; color: #fff; }
+.soc-viber { background: #7360f2; color: #fff; }
+
+/* ── FOOTER ── */
+footer { background: #020d1e; color: rgba(255,255,255,0.4); padding: 56px 48px 28px; }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+.footer-logo-wrap .footer-logo { display: inline-block; margin-bottom: 12px; }
+.footer-logo-inner { display: inline-flex; align-items: center; gap: 8px; }
+.footer-logo-wrap .footer-logo img { display: block; height: 34px; width: auto; }
+.footer-logo-text { color: #fff; font-family: "SF Grandezza Medium V2", 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 500; letter-spacing: -0.4px; }
+.footer-logo-wrap p { font-size: 0.78rem; line-height: 1.65; color: rgba(255,255,255,0.32); max-width: 220px; font-weight: 400; }
+.footer-col h4 { font-size: 0.68rem; font-weight: 700; color: rgba(255,255,255,0.55); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
+.footer-col a { display: block; color: rgba(255,255,255,0.32); text-decoration: none; font-size: 0.8rem; margin-bottom: 8px; transition: color .2s; font-weight: 400; }
+.footer-col a:hover { color: rgba(255,255,255,0.8); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.07); flex-wrap: wrap; gap: 12px; }
+.footer-bottom p { font-size: 0.72rem; color: rgba(255,255,255,0.22); }
+.footer-social { display: flex; gap: 8px; }
+.social-icon { width: 34px; height: 34px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; font-size: 0.82rem; cursor: pointer; color: rgba(255,255,255,0.4); transition: background .2s; }
+.social-icon:hover { background: rgba(255,255,255,0.12); color: #fff; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  nav { padding: 0 20px; }
+  .nav-links, .hotline-nav { display: none; }
+  .payment, .contact { padding: 64px 20px; }
+  .pay-categories { grid-template-columns: 1fr; }
+  .pay-cat + .pay-cat {
+    border-left: none;
+    border-top: 1px solid var(--lavender);
+  }
+  .pay-cat + .pay-cat::before { display: none; }
+  .contact-inner { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .status-ticker { padding: 7px 20px; }
+  .ticker-right { display: none; }
+}
+@media (max-width: 700px) {
+  .footer-top { grid-template-columns: 1fr; }
+}
+</style>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+
+<!-- STATUS TICKER -->
+<div class="status-ticker">
+  <div><span class="status-dot"></span> All Systems Operational &mdash; Central Luzon &amp; CALABARZON</div>
+  <div class="ticker-right">
+    <a href="#">Service Advisory</a>
+    <a href="#">Coverage Areas</a>
+    <a href="#">Hotline: 8-988-5465</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="cablelink-v4.html" aria-label="Cablelink home"><img src="assets/icons/cablelink_logo.png" alt="Cablelink logo"><span class="nav-logo-text">CABLELINK</span></a>
+  <ul class="nav-links">
+    <li><a href="cablelink-v4.html">Home</a></li>
+    <li><a href="internet-plans.html">Internet Plans</a></li>
+    <li><a href="payment-facilities.html" class="active">Payment Facilities</a></li>
+    <li><a href="cablelink-v4.html#tv">Cable TV</a></li>
+    <li><a href="cablelink-v4.html#hub">My Account</a></li>
+    <li><a href="contact-us.html">Contact Us</a></li>
+  </ul>
+  <div class="nav-actions">
+    <div class="hotline-nav"><strong>8-988-5465</strong></div>
+    <button class="btn-ghost">Log In</button>
+    <button class="btn-cta">Apply Now</button>
+  </div>
+</nav>
+
+<!-- PAYMENT FACILITIES -->
+<section class="payment">
+  <div class="payment-inner">
+    <div class="pay-header">
+      <span class="section-label">Payment Facilities</span>
+      <h2>Pay your way.</h2>
+      <p>We accept 25+ payment channels so you can settle your bill wherever is most convenient for you.</p>
+    </div>
+    <div class="pay-categories">
+      <div class="pay-cat">
+        <div class="pay-cat-title"><span class="pay-cat-icon"></span> Mobile Apps</div>
+        <div class="pay-list">
+            <img class="pay-logo" src="assets/remittance/gcash.png" alt="GCash" />
+            <img class="pay-logo" src="assets/remittance/maya.png" alt="Maya" />
+            <img class="pay-logo" src="assets/remittance/shopeepay.png" alt="ShopeePay" />
+            <img class="pay-logo" src="assets/remittance/GrabPay.jpg" alt="GrabPay" />
+            <img class="pay-logo" src="assets/remittance/coinsph.jpg" alt="Coins.ph" />
+            <img class="pay-logo" src="assets/remittance/DISKARTECH.png" alt="Diskartech" />
+            <img class="pay-logo" src="assets/remittance/juancash.webp" alt="JuanCash" />
+            <img class="pay-logo" src="assets/remittance/justpayto.png" alt="JustPay.to" />
+            <img class="pay-logo" src="assets/remittance/lazada.jpg" alt="Lazada" />
+            <img class="pay-logo" src="assets/remittance/alipay.png" alt="Alipay" />
+            <img class="pay-logo" src="assets/remittance/wechat.png" alt="WeChat Pay" />
+            <img class="pay-logo" src="assets/remittance/bayad.png" alt="Bayad" />
+        </div>
+      </div>
+      <div class="pay-cat">
+        <div class="pay-cat-title"><span class="pay-cat-icon"></span> Banks</div>
+        <div class="pay-list">
+            <img class="pay-logo" src="assets/remittance/bdo.png" alt="BDO" />
+            <img class="pay-logo" src="assets/remittance/bpi.png" alt="BPI" />
+            <img class="pay-logo" src="assets/remittance/unionbank.png" alt="UnionBank" />
+            <img class="pay-logo" src="assets/remittance/rcbc.png" alt="RCBC" />
+            <img class="pay-logo" src="assets/remittance/eastwest.png" alt="EastWest" />
+            <img class="pay-logo" src="assets/remittance/aub.png" alt="AUB" />
+            <img class="pay-logo" src="assets/remittance/Bankcom.png" alt="Bank of Commerce" />
+            <img class="pay-logo" src="assets/remittance/Bancnet.png" alt="BancNet" />
+            <img class="pay-logo" src="assets/remittance/Security%20Bank.png" alt="Security Bank" />
+            <img class="pay-logo" src="assets/remittance/ucpb.png" alt="UCPB" />
+        </div>
+      </div>
+      <div class="pay-cat">
+        <div class="pay-cat-title"><span class="pay-cat-icon"></span> Over the Counter</div>
+        <div class="pay-list">
+            <img class="pay-logo" src="assets/remittance/7-Eleven.png" alt="7-Eleven" />
+            <img class="pay-logo" src="assets/remittance/cliqq.png" alt="Cliqq" />
+            <img class="pay-logo" src="assets/remittance/Bayad%20Center.png" alt="Bayad Center" />
+            <img class="pay-logo" src="assets/remittance/SM.png" alt="SM Bills Payment" />
+            <img class="pay-logo" src="assets/remittance/lbc.png" alt="LBC" />
+            <img class="pay-logo" src="assets/remittance/ECPay.png" alt="ECPay" />
+            <img class="pay-logo" src="assets/remittance/TouchPay.png" alt="TouchPay" />
+            <img class="pay-logo" src="assets/remittance/robinsons.png" alt="Robinsons" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <span class="section-label">Contact Us</span>
+      <h2>We&#39;re always here<br>when you need us.</h2>
+      <p style="margin-top:12px">Real support, 24 hours a day, 7 days a week. Reach us by phone, Viber, or social media.</p>
+      <div class="contact-social" style="margin-top:24px">
+        <a class="soc-btn soc-fb" href="#">Facebook</a>
+        <a class="soc-btn soc-viber" href="#">Viber</a>
+      </div>
+    </div>
+    <div class="contact-nums">
+      <div class="contact-num">
+        <span class="contact-num-icon"></span>
+        <div class="contact-num-info">
+          <span class="contact-num-label">Central Customer Service</span>
+          <span class="contact-num-val">8-988-5465</span>
+          <span class="contact-num-sub">Available 24/7</span>
+        </div>
+      </div>
+      <div class="contact-num">
+        <span class="contact-num-icon"></span>
+        <div class="contact-num-info">
+          <span class="contact-num-label">Bacoor</span>
+          <span class="contact-num-val">Regional Hotline</span>
+          <span class="contact-num-sub">Local technical support</span>
+        </div>
+      </div>
+      <div class="contact-num">
+        <span class="contact-num-icon"></span>
+        <div class="contact-num-info">
+          <span class="contact-num-label">Imus</span>
+          <span class="contact-num-val">Regional Hotline</span>
+          <span class="contact-num-sub">Local technical support</span>
+        </div>
+      </div>
+      <div class="contact-num">
+        <span class="contact-num-icon"></span>
+        <div class="contact-num-info">
+          <span class="contact-num-label">Bi&ntilde;an</span>
+          <span class="contact-num-val">Regional Hotline</span>
+          <span class="contact-num-sub">Local technical support</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo-wrap">
+      <span class="footer-logo"><span class="footer-logo-inner"><img src="assets/icons/cablelink_logo.png" alt="Cablelink logo"><span class="footer-logo-text">CABLELINK</span></span></span>
+      <p>Fast, reliable broadband and cable TV for homes and businesses. Serving Central Luzon and CALABARZON.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Plans</h4>
+      <a href="#">Supercharged I-Blaze</a>
+      <a href="#">Supercharged Fiberlink</a>
+      <a href="#">Turbocharged I-Blaze</a>
+      <a href="#">Turbocharged Fiberlink</a>
+      <a href="cablelink-v4.html#tv">Cable TV</a>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="#">Pay My Bill</a>
+      <a href="#">Speed Test</a>
+      <a href="#">Technical Help</a>
+      <a href="#">Service Advisory</a>
+      <a href="#">Coverage Map</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About Us</a>
+      <a href="#">Promotions</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Cablelink. All rights reserved. Hotline: 8-988-5465</p>
+    <div class="footer-social">
+      <div class="social-icon">f</div>
+      <div class="social-icon"></div>
+      <div class="social-icon"></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

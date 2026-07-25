@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cablelink - Contact Us</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: "SF Grandezza Medium V2";
+  src: url("assets/fonts/SF%20Grandezza%20Medium%20V2.woff2") format("woff2"),
+       url("assets/fonts/SF%20Grandezza%20Medium%20V2.woff") format("woff"),
+       url("assets/fonts/SF%20Grandezza%20Medium%20V2.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --midnight:   #001C43;
+  --slate-dark: #0046B0;
+  --slate:      #034DB6;
+  --mid-blue:   #0E1B4A;
+  --deep-blue:  #19347D;
+  --charcoal:   #333333;
+  --steel:      #337AB7;
+  --muted:      #555555;
+  --gray:       #808080;
+  --orange-red: #E04700;
+  --lavender:   #E7E7E7;
+  --orange:     #FF6A00;
+  --white:      #ffffff;
+}
+
+html { scroll-behavior: smooth; }
+body { 
+  font-family: "Montserrat", sans-serif; 
+  color: var(--charcoal); 
+  background: var(--white); 
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+a { text-decoration: none; color: inherit; }
+
+/* Status Ticker */
+.status-ticker {
+  background: var(--mid-blue);
+  color: rgba(255,255,255,0.75);
+  padding: 10px 48px;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.status-ticker-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.status-dot { 
+  width: 8px; 
+  height: 8px; 
+  border-radius: 50%; 
+  background: #22c55e; 
+  display: inline-block;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.6); 
+  animation: pulse-dot 2s ease-in-out infinite; 
+}
+@keyframes pulse-dot { 
+  0%, 100% { opacity: 1; transform: scale(1); } 
+  50% { opacity: 0.4; transform: scale(0.95); } 
+}
+.ticker-right { display: flex; gap: 28px; align-items: center; }
+.ticker-right a { 
+  color: rgba(255,255,255,0.65); 
+  font-size: 0.72rem; 
+  transition: color .2s; 
+  font-weight: 500;
+}
+.ticker-right a:hover { color: #fff; }
+
+/* Navigation */
+nav {
+  position: sticky; 
+  top: 0; 
+  z-index: 100;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  padding: 0 48px; 
+  height: 70px;
+  background: rgba(0,28,67,0.98);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 2px 12px rgba(0,28,67,0.15);
+}
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity .2s;
+}
+.nav-logo:hover { opacity: 0.9; }
+.nav-logo img {
+  display: block;
+  height: 34px;
+  width: auto;
+}
+.nav-logo-text {
+  color: #fff;
+  font-family: "SF Grandezza Medium V2", "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+}
+.nav-links { 
+  display: flex; 
+  gap: 28px; 
+  list-style: none; 
+}
+.nav-links a { 
+  color: rgba(255,255,255,0.75); 
+  font-size: 0.82rem; 
+  font-weight: 600; 
+  letter-spacing: 0.3px; 
+  padding-bottom: 5px; 
+  border-bottom: 2px solid transparent; 
+  transition: all .25s ease;
+  position: relative;
+}
+.nav-links a:hover { 
+  color: #fff; 
+  border-color: rgba(255,255,255,0.5); 
+}
+.nav-links a.active { 
+  color: #fff; 
+  border-color: var(--orange); 
+}
+.nav-actions { 
+  display: flex; 
+  gap: 12px; 
+  align-items: center; 
+}
+.hotline-nav { 
+  font-size: 0.75rem; 
+  color: rgba(255,255,255,0.65); 
+  font-weight: 500;
+}
+.hotline-nav strong { 
+  color: rgba(255,255,255,0.95); 
+  font-weight: 700;
+}
+.btn-ghost { 
+  background: none; 
+  border: 1.5px solid rgba(255,255,255,0.22); 
+  color: #fff; 
+  padding: 9px 20px; 
+  border-radius: 8px; 
+  font-size: 0.82rem; 
+  font-weight: 600; 
+  cursor: pointer; 
+  font-family: "Montserrat", sans-serif; 
+  transition: all .2s ease;
+}
+.btn-ghost:hover { 
+  border-color: rgba(255,255,255,0.6); 
+  background: rgba(255,255,255,0.05);
+  transform: translateY(-1px); 
+}
+.btn-cta { 
+  background: linear-gradient(135deg, var(--orange) 0%, var(--orange-red) 100%);
+  border: none; 
+  color: #fff; 
+  padding: 10px 22px; 
+  border-radius: 8px; 
+  font-size: 0.82rem; 
+  font-weight: 700; 
+  cursor: pointer; 
+  font-family: "Montserrat", sans-serif; 
+  transition: all .2s ease;
+  box-shadow: 0 4px 12px rgba(255,106,0,0.25);
+}
+.btn-cta:hover { 
+  transform: translateY(-2px); 
+  box-shadow: 0 6px 20px rgba(255,106,0,0.35);
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  padding: 100px 48px 70px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fd 100%);
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 400px;
+  background: radial-gradient(ellipse at top, rgba(3,77,182,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner { 
+  max-width: 1140px; 
+  margin: 0 auto; 
+  position: relative; 
+  z-index: 1; 
+  display: grid; 
+  grid-template-columns: 1.05fr 0.95fr; 
+  gap: 48px; 
+  align-items: start; 
+}
+.hero-stack { 
+  display: grid; 
+  gap: 28px; 
+}
+.hero-tag {
+  display: inline-flex; 
+  align-items: center; 
+  gap: 10px;
+  background: #fff; 
+  border: 1px solid rgba(0,28,67,0.1);
+  border-radius: 999px; 
+  padding: 7px 16px; 
+  font-size: 0.7rem; 
+  font-weight: 700; 
+  letter-spacing: 1.8px; 
+  text-transform: uppercase; 
+  color: var(--orange);
+  box-shadow: 0 8px 24px rgba(0,28,67,0.08);
+  margin-bottom: 16px;
+  width: fit-content;
+}
+.hero-title { 
+  font-size: clamp(2.3rem, 4.5vw, 3.2rem); 
+  color: var(--midnight); 
+  letter-spacing: -1px; 
+  margin-bottom: 16px; 
+  font-weight: 800;
+  line-height: 1.15;
+}
+.hero-lead { 
+  color: var(--muted); 
+  font-size: 1rem; 
+  line-height: 1.75; 
+  max-width: 540px; 
+}
+
+/* Panels */
+.panel {
+  border-radius: 18px;
+  box-shadow: 0 16px 40px rgba(0,28,67,0.1);
+  border: 1px solid rgba(0,28,67,0.08);
+  background: var(--white);
+  overflow: hidden;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+/* Info Panel */
+.info-panel { 
+  padding: 32px; 
+  display: grid; 
+  gap: 20px; 
+}
+.info-card {
+  border-radius: 12px;
+  border: 1px solid rgba(0,28,67,0.08);
+  padding: 18px 20px 20px;
+  background: #fff;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.info-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,28,67,0.08);
+}
+.info-title { 
+  font-size: 0.72rem; 
+  font-weight: 700; 
+  letter-spacing: 1.6px; 
+  text-transform: uppercase; 
+  color: var(--slate-dark); 
+  margin-bottom: 10px; 
+}
+.info-line { 
+  font-weight: 700; 
+  font-size: 1.05rem; 
+  color: var(--midnight); 
+  margin-bottom: 2px;
+}
+.info-sub { 
+  margin-top: 8px; 
+  color: var(--muted); 
+  font-size: 0.9rem; 
+  line-height: 1.6; 
+}
+.social-row { 
+  display: flex; 
+  gap: 10px; 
+  margin-top: 12px; 
+  flex-wrap: wrap; 
+}
+.soc-btn { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 8px; 
+  padding: 10px 16px; 
+  border-radius: 10px; 
+  font-size: 0.8rem; 
+  font-weight: 600; 
+  border: 1px solid rgba(0,28,67,0.12); 
+  background: transparent; 
+  font-family: "Montserrat", sans-serif; 
+  transition: all .2s ease;
+  cursor: pointer;
+}
+.soc-btn:hover { 
+  transform: translateY(-2px); 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.soc-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+.soc-fb { color: #1877f2; border-color: rgba(24,119,242,0.3); }
+.soc-fb:hover { background: rgba(24,119,242,0.05); border-color: #1877f2; }
+.soc-ig { color: #dd2a7b; border-color: rgba(221,42,123,0.3); }
+.soc-ig:hover { background: rgba(221,42,123,0.05); border-color: #dd2a7b; }
+.soc-tt { color: #111111; border-color: rgba(17,17,17,0.2); }
+.soc-tt:hover { background: rgba(17,17,17,0.03); border-color: #111111; }
+.soc-yt { color: #ff0000; border-color: rgba(255,0,0,0.25); }
+.soc-yt:hover { background: rgba(255,0,0,0.05); border-color: #ff0000; }
+.soc-tw { color: #1d9bf0; border-color: rgba(29,155,240,0.3); }
+.soc-tw:hover { background: rgba(29,155,240,0.05); border-color: #1d9bf0; }
+
+/* Form Panel */
+.form-panel { 
+  background: linear-gradient(135deg, var(--midnight) 0%, #001a3d 100%);
+  color: #fff; 
+  padding: 32px; 
+  position: relative; 
+}
+.form-panel::after {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border: 1px dashed rgba(255,255,255,0.15);
+  border-radius: 14px;
+  pointer-events: none;
+}
+.form-heading { 
+  font-size: 1.2rem; 
+  font-weight: 700; 
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+.form-grid { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 14px; 
+  position: relative; 
+  z-index: 1; 
+}
+.field-full { grid-column: 1 / -1; }
+.form-panel input,
+.form-panel select,
+.form-panel textarea {
+  width: 100%;
+  border-radius: 9px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: #f8f9fd;
+  color: var(--midnight);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  padding: 12px 14px;
+  transition: all .2s ease;
+  font-weight: 500;
+}
+.form-panel input:focus,
+.form-panel select:focus,
+.form-panel textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(255,106,0,0.1);
+}
+.form-panel textarea { 
+  min-height: 150px; 
+  resize: vertical; 
+  font-family: "Montserrat", sans-serif;
+}
+.form-panel select {
+  cursor: pointer;
+}
+.consent-row {
+  margin-top: 16px;
+  position: relative;
+  z-index: 1;
+}
+.consent-label {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.92);
+  cursor: pointer;
+}
+.consent-label input[type="checkbox"] {
+  margin-top: 4px;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--orange);
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+.consent-label span {
+  flex: 1;
+}
+.submit-wrap { 
+  margin-top: 18px; 
+  display: flex; 
+  justify-content: center; 
+  position: relative; 
+  z-index: 1; 
+}
+.btn-submit { 
+  border: none; 
+  background: linear-gradient(135deg, var(--orange) 0%, var(--orange-red) 100%);
+  color: #fff; 
+  font-weight: 700; 
+  font-size: 1rem; 
+  border-radius: 10px; 
+  padding: 14px 40px; 
+  cursor: pointer; 
+  transition: all .25s ease;
+  box-shadow: 0 6px 20px rgba(255,106,0,0.3);
+  font-family: "Montserrat", sans-serif;
+}
+.btn-submit:hover { 
+  transform: translateY(-2px); 
+  box-shadow: 0 8px 28px rgba(255,106,0,0.4);
+}
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+/* Contact Shell */
+.contact-shell { 
+  max-width: 1140px; 
+  margin: 0 auto; 
+  padding: 0 48px 100px; 
+}
+.contact-grid { 
+  display: grid; 
+  grid-template-columns: 1fr 1.35fr; 
+  gap: 32px; 
+  align-items: stretch; 
+}
+
+/* Footer */
+footer { 
+  background: linear-gradient(180deg, #020d1e 0%, #010812 100%);
+  color: rgba(255,255,255,0.4); 
+  padding: 64px 48px 32px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.footer-top { 
+  display: grid; 
+  grid-template-columns: 2fr 1fr 1fr 1fr; 
+  gap: 48px; 
+  margin-bottom: 42px; 
+}
+.footer-logo { 
+  display: inline-block; 
+  margin-bottom: 12px; 
+}
+.footer-logo-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-logo img { 
+  display: block; 
+  height: 34px; 
+  width: auto; 
+}
+.footer-logo-text {
+  color: #fff;
+  font-family: "SF Grandezza Medium V2", "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+}
+.footer-logo-wrap p { 
+  font-size: 0.82rem; 
+  line-height: 1.7; 
+  color: rgba(255,255,255,0.35); 
+  max-width: 260px; 
+}
+.footer-col h4 { 
+  font-size: 0.72rem; 
+  font-weight: 700; 
+  color: rgba(255,255,255,0.6); 
+  letter-spacing: 2px; 
+  text-transform: uppercase; 
+  margin-bottom: 16px; 
+}
+.footer-col a { 
+  display: block; 
+  color: rgba(255,255,255,0.35); 
+  font-size: 0.85rem; 
+  margin-bottom: 10px; 
+  transition: all .2s ease;
+  width: fit-content;
+}
+.footer-col a:hover { 
+  color: rgba(255,255,255,0.9);
+  transform: translateX(2px);
+}
+.footer-bottom { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding-top: 28px; 
+  border-top: 1px solid rgba(255,255,255,0.08); 
+  flex-wrap: wrap; 
+  gap: 16px; 
+}
+.footer-bottom p { 
+  font-size: 0.75rem; 
+  color: rgba(255,255,255,0.25); 
+}
+.footer-social { 
+  display: flex; 
+  gap: 10px; 
+}
+.social-icon { 
+  width: 36px; 
+  height: 36px; 
+  border-radius: 9px; 
+  background: rgba(255,255,255,0.05); 
+  border: 1px solid rgba(255,255,255,0.08); 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-size: 0.85rem; 
+  cursor: pointer; 
+  color: rgba(255,255,255,0.4); 
+  transition: all .2s ease;
+  font-weight: 600;
+}
+.social-icon:hover { 
+  background: rgba(255,255,255,0.12); 
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Animations */
+.fade-up { 
+  animation: fade-up 0.8s ease both; 
+}
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+@keyframes fade-up { 
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  } 
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  } 
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  nav { padding: 0 32px; height: 68px; }
+  .nav-links { gap: 20px; }
+  .nav-links a { font-size: 0.78rem; }
+  .hero { padding: 90px 32px 70px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .contact-shell { padding: 0 32px 90px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .status-ticker { padding: 10px 32px; }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 0 24px; height: 64px; }
+  .nav-links, .hotline-nav { display: none; }
+  .nav-actions { gap: 8px; }
+  .btn-ghost, .btn-cta { padding: 8px 16px; font-size: 0.78rem; }
+  .hero { padding: 70px 24px 60px; }
+  .hero-title { font-size: 2rem; }
+  .hero-lead { font-size: 0.92rem; }
+  .contact-shell { padding: 0 24px 70px; }
+  .info-panel { padding: 24px; }
+  .form-panel { padding: 24px; }
+  .social-row { gap: 8px; }
+  .soc-btn { padding: 8px 12px; font-size: 0.75rem; }
+  footer { padding: 48px 24px 24px; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .status-ticker { 
+    padding: 10px 24px; 
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .ticker-right { display: none; }
+}
+
+@media (max-width: 480px) {
+  .hero-tag { font-size: 0.65rem; padding: 6px 12px; }
+  .hero-title { font-size: 1.75rem; }
+  .info-card { padding: 16px; }
+  .form-panel { padding: 20px; }
+  .btn-submit { padding: 12px 32px; font-size: 0.95rem; }
+}
+</style>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+
+<div class="status-ticker">
+  <div class="status-ticker-left">
+    <span class="status-dot"></span>
+    <span>All Systems Operational — Central Luzon &amp; CALABARZON</span>
+  </div>
+  <div class="ticker-right">
+    <a href="#">Service Advisory</a>
+    <a href="#">Coverage Areas</a>
+    <a href="#">Hotline: 8-988-5465</a>
+  </div>
+</div>
+
+<nav>
+  <a class="nav-logo" href="cablelink-v4.html" aria-label="Cablelink home">
+    <img src="assets/icons/cablelink_logo.png" alt="Cablelink logo">
+    <span class="nav-logo-text">CABLELINK</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="cablelink-v4.html">Home</a></li>
+    <li><a href="internet-plans.html">Internet Plans</a></li>
+    <li><a href="payment-facilities.html">Payment Facilities</a></li>
+    <li><a href="cablelink-v4.html#tv">Cable TV</a></li>
+    <li><a href="cablelink-v4.html#hub">My Account</a></li>
+    <li><a href="contact-us.html" class="active">Contact Us</a></li>
+  </ul>
+  <div class="nav-actions">
+    <div class="hotline-nav"><strong>8-988-5465</strong></div>
+    <button class="btn-ghost">Log In</button>
+    <button class="btn-cta">Apply Now</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-stack">
+      <div class="fade-up">
+        <div class="hero-tag">Contact Us</div>
+        <h1 class="hero-title">We'd love to hear from you.</h1>
+        <p class="hero-lead">Need account help, billing support, or technical assistance? Send us a message and our team will get back to you.</p>
+      </div>
+      <div class="panel info-panel fade-up delay-1">
+        <div class="info-card">
+          <div class="info-title">Head Office</div>
+          <div class="info-sub">8210 Dr. A. Santos Avenue, Sucat Road, Parañaque City</div>
+        </div>
+        <div class="info-card">
+          <div class="info-title">Customer Service</div>
+          <div class="info-line">8-988-5465</div>
+          <div class="info-line">Cablelink (Viber Business)</div>
+          <div class="info-sub">customerservice@cablelink.com.ph</div>
+        </div>
+        <div class="info-card">
+          <div class="info-title">Alternative Contact Numbers</div>
+          <div class="info-line">(046) 471-5541 to 42</div>
+          <div class="info-sub">Bacoor and Imus, Cavite</div>
+        </div>
+        <div class="info-card">
+          <div class="info-title">Follow us</div>
+          <div class="social-row">
+            <a class="soc-btn soc-fb" href="#" aria-label="Facebook">
+              <img class="soc-icon" src="assets/icons/facebook_2024.png" alt="">
+              <span>Facebook</span>
+            </a>
+            <a class="soc-btn soc-ig" href="#" aria-label="Instagram">
+              <img class="soc-icon" src="assets/icons/instagram_2024.png" alt="">
+              <span>Instagram</span>
+            </a>
+            <a class="soc-btn soc-tt" href="#" aria-label="TikTok">
+              <img class="soc-icon" src="assets/icons/tiktok_2024.png" alt="">
+              <span>TikTok</span>
+            </a>
+            <a class="soc-btn soc-yt" href="#" aria-label="YouTube">
+              <img class="soc-icon" src="assets/icons/youtube_2024.png" alt="">
+              <span>YouTube</span>
+            </a>
+            <a class="soc-btn soc-tw" href="#" aria-label="Twitter">
+              <img class="soc-icon" src="assets/icons/twitter_2024.png" alt="">
+              <span>Twitter</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel form-panel fade-up delay-2">
+      <h2 class="form-heading">Send a message</h2>
+      <form action="#" method="POST">
+        <div class="form-grid">
+          <input type="text" name="name" placeholder="Name" class="field-full" required>
+          <input type="text" name="address" placeholder="Address" class="field-full" required>
+          <input type="text" name="account_number" placeholder="Account Number" required>
+          <input type="email" name="email" placeholder="Email Address" required>
+          <select name="topic" required>
+            <option value="" selected disabled>Select a topic</option>
+            <option value="billing">Billing Concern</option>
+            <option value="technical">Technical Support</option>
+            <option value="account">Account Assistance</option>
+            <option value="payment">Payment Inquiry</option>
+            <option value="installation">Installation / Application</option>
+            <option value="advisory">Service Advisory</option>
+            <option value="general">General Inquiry</option>
+          </select>
+          <input type="tel" name="contact_number" placeholder="Contact Number" required>
+          <textarea name="message" class="field-full" placeholder="Message" required></textarea>
+        </div>
+        <div class="consent-row">
+          <label class="consent-label">
+            <input type="checkbox" id="privacy-consent" name="privacy_consent" required>
+            <span>I allow Cablelink to use the information, including all supporting documents I have provided for communication related to my application process, managing my subscription, or cross-marketing of products and services. I am assured that this information will be treated with utmost confidentiality following the strict guidelines under Republic Act 10173, the Data Privacy Act of 2012.</span>
+          </label>
+        </div>
+        <div class="submit-wrap">
+          <button class="btn-submit" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo-wrap">
+      <span class="footer-logo">
+        <span class="footer-logo-inner">
+          <img src="assets/icons/cablelink_logo.png" alt="Cablelink logo">
+          <span class="footer-logo-text">CABLELINK</span>
+        </span>
+      </span>
+      <p>Fast, reliable broadband and cable TV for homes and businesses. Serving Central Luzon and CALABARZON.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Plans</h4>
+      <a href="#">Supercharged I-Blaze</a>
+      <a href="#">Supercharged Fiberlink</a>
+      <a href="#">Turbocharged I-Blaze</a>
+      <a href="#">Turbocharged Fiberlink</a>
+      <a href="cablelink-v4.html#tv">Cable TV</a>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="#">Pay My Bill</a>
+      <a href="#">Speed Test</a>
+      <a href="#">Technical Help</a>
+      <a href="#">Service Advisory</a>
+      <a href="#">Coverage Map</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About Us</a>
+      <a href="#">Promotions</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="contact-us.html">Contact Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Cablelink. All rights reserved. Hotline: 8-988-5465</p>
+    <div class="footer-social">
+      <div class="social-icon">f</div>
+      <div class="social-icon">📷</div>
+      <div class="social-icon">▶</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
