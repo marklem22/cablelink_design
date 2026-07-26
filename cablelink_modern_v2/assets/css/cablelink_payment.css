@@ -760,6 +760,132 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
 .footer-links a{font-size:.8rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
 .footer-links a:hover{color:#fff}
 
+.facility-search {
+  max-width: 48rem;
+  margin: 0 auto 2rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.facility-search > label {
+  display: block;
+  margin-bottom: .65rem;
+  color: var(--dark);
+  font-weight: 800;
+}
+
+.facility-search__controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: .75rem;
+}
+
+.facility-search__controls input {
+  min-width: 0;
+  padding: .8rem .9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font: inherit;
+}
+
+.facility-search__status {
+  min-height: 1.35rem;
+  margin: .65rem 0 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.bank-card[hidden],
+.banks-toggle-wrap[hidden] {
+  display: none;
+}
+
+.auto-debit-section {
+  padding-block: var(--section-space-y);
+  background: var(--off-white);
+}
+
+.auto-debit-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(30rem, 1.2fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.auto-debit-layout h2 {
+  margin: 0 0 1rem;
+  color: var(--dark);
+}
+
+.auto-debit-layout > div > p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.integration-note {
+  margin-top: 1.25rem;
+  padding: 1rem 1.1rem;
+  border-left: 4px solid var(--orange);
+  background: var(--white);
+  color: var(--dark);
+  line-height: 1.65;
+}
+
+.auto-debit-form {
+  padding: clamp(1.35rem, 3vw, 2rem);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.auto-debit-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.auto-debit-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+  margin-top: 1.25rem;
+  color: var(--dark);
+  font-size: .85rem;
+  line-height: 1.65;
+}
+
+.auto-debit-consent input {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: .2rem;
+  flex: 0 0 auto;
+}
+
+.auto-debit-privacy {
+  color: var(--muted);
+  font-size: .8rem;
+  line-height: 1.6;
+}
+
+.application-status {
+  min-height: 1.5rem;
+  margin: .8rem 0 0;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.application-status.is-error {
+  color: #b42318;
+}
+
+.application-status.is-warning {
+  color: #8a4b08;
+}
+
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
   .hero__inner{text-align:center}
@@ -771,6 +897,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
   .banks-grid{grid-template-columns:repeat(2,1fr)}
   .steps-row{grid-template-columns:repeat(2,1fr);gap:2rem}
   .steps-row::before{display:none}
+  .auto-debit-layout{grid-template-columns:1fr}
 }
 @media(max-width:768px){
   .site-header{height:60px}
@@ -825,4 +952,5 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
   .map-panel{min-height:400px}
   .map-status{top:14px;left:14px}
   .map-badge,.map-help{font-size:.68rem;padding:7px 10px}
+  .facility-search__controls,.auto-debit-form__grid{grid-template-columns:1fr}
 }

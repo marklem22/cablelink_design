@@ -456,3 +456,17 @@ footer p{font-size:.78rem;color:rgba(255,255,255,.38)}
   .te-item{padding:1.2rem}
   .pgh{flex-direction:column;gap:.75rem}
 }
+.plan-no-results {
+  margin: 0 0 2rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--off-white);
+  color: var(--muted);
+  text-align: center;
+  font-weight: 700;
+}
+
+.plan-no-results[hidden] {
+  display: none;
+}

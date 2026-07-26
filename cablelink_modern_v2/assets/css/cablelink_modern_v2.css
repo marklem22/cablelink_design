@@ -354,7 +354,6 @@
     /* ===== HERO ===== */
     .hero--home {
       --hero-space-y: var(--section-space-y);
-      min-height: 100vh;
       background:
         url("../../../assets/hero_bg/home_hero_bg.png") center center/cover no-repeat;
       position: relative;
@@ -607,7 +606,9 @@
     }
 
     .svc-btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background: var(--blue-primary);
       color: #fff;
       padding: 10px 24px;
@@ -615,6 +616,7 @@
       font-family: var(--font);
       font-size: .8rem;
       font-weight: 700;
+      line-height: 1;
       text-decoration: none;
       letter-spacing: .4px;
       transition: background .2s, transform .15s;
@@ -1555,8 +1557,6 @@
       }
 
       .hero--home {
-        min-height: 100vh;
-        height: 100vh;
         background-position: 62% center;
       }
 
@@ -1658,11 +1658,6 @@
     }
 
     @media(max-width:480px) {
-      .hero--home {
-        min-height: 100vh;
-        height: 100vh;
-      }
-
       .hero__inner {
         transform: none;
       }
@@ -1739,9 +1734,57 @@
       }
     }
 
-    /* Home-page content sections share one vertical rhythm. The hero remains a full-screen campaign layout. */
-    body[data-page='home'] :is(.banner-carousel, .promo-section, .tvc-section, .cta-strip) {
+    /* Home-page content sections share one vertical rhythm. */
+    body[data-page='home'] :is(.home-journey, .banner-carousel, .promo-section, .tvc-section, .cta-strip) {
       padding-block: var(--section-space-y);
+    }
+
+    .home-journey {
+      background: var(--off-white);
+    }
+
+    .home-journey__grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--grid-gap, 1.5rem);
+      margin-top: 2rem;
+    }
+
+    .home-journey__card {
+      position: relative;
+      min-width: 0;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .home-journey__step {
+      display: inline-grid;
+      width: 2.25rem;
+      height: 2.25rem;
+      margin-bottom: 1rem;
+      border-radius: 50%;
+      place-items: center;
+      background: var(--orange);
+      color: var(--white);
+      font-weight: 800;
+    }
+
+    .home-journey__card h3 {
+      margin: 0 0 .65rem;
+    }
+
+    .home-journey__card p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .home-journey__card a {
+      color: var(--blue);
+      font-weight: 800;
     }
 
     @media (max-width: 600px) {
@@ -1749,8 +1792,18 @@
         --hero-space-y: var(--section-space-y-mobile);
       }
 
-      body[data-page='home'] :is(.banner-carousel, .promo-section, .tvc-section, .cta-strip) {
+      body[data-page='home'] :is(.home-journey, .banner-carousel, .promo-section, .tvc-section, .cta-strip) {
         padding-block: var(--section-space-y-mobile);
+      }
+
+      .home-journey__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .home-journey__grid {
+        grid-template-columns: 1fr;
       }
     }
 

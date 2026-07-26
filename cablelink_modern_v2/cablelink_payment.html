@@ -6,11 +6,14 @@
 <title>Cable Link — Payment Facilities</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
-<link rel="stylesheet" href="assets/css/cablelink_payment.css?v=20260720-12">
-  <link rel="stylesheet" href="assets/css/site.css?v=20260720-15">
-  <script src="assets/js/site-shell.js?v=20260720-5" defer></script>
+  <link rel="stylesheet" href="assets/css/site.css?v=20260725-2">
+  <link rel="stylesheet" href="assets/css/cablelink_payment.css?v=20260725-1">
+  <script src="assets/js/site-config.js?v=20260725-1" defer></script>
+  <script src="assets/js/site-shell.js?v=20260725-2" defer></script>
+  <script src="assets/js/pages/payment.js?v=20260725-1" defer></script>
 </head>
 <body data-page="payment">
+<main id="main-content">
 
 <!-- PAGE HERO -->
 <section class="hero hero--payment" id="payment-facilities">
@@ -24,255 +27,13 @@
         <span>Payment Facilities</span>
       </div>
       <span class="welcome-tag hero__eyebrow">Billing & Payments</span>
-      <h1 class="hero__title">Easy & Secure Payment Options<span class="dot">.</span></h1>
-      <p class="hero__description">Pay your Cable Link bill anytime, anywhere — through online banking, e-wallets, partner payment centers, or visit any of our offices. Multiple channels, zero hassle.</p>
+      <h1 class="hero__title">CableLink Payment Options<span class="dot">.</span></h1>
+      <p class="hero__description">Review the payment partners, facilities, and general instructions currently listed by CableLink.</p>
     </div>
   </div>
 </section>
 
-<!-- STATS STRIP -->
-<div class="stats-strip">
-  <div class="container stats-inner">
-    <!-- <div class="stat-item">
-      <div class="stat-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      </div>
-      <div>
-        <div class="stat-num">256-bit</div>
-        <div class="stat-lbl">SSL Encryption</div>
-      </div>
-    </div>
-    <div class="stat-divider"></div> -->
-    <div class="stat-item">
-      <div class="stat-icon orange">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      </div>
-      <div>
-        <div class="stat-num">24/7</div>
-        <div class="stat-lbl">Online Payment</div>
-      </div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat-item">
-      <div class="stat-icon green">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-      </div>
-      <div>
-        <div class="stat-num">100%</div>
-        <div class="stat-lbl">Payment Secured</div>
-      </div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat-item">
-      <div class="stat-icon blue">
-        <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 11 14 11 22 21 10 13 10 13 2"/></svg>
-      </div>
-      <div>
-        <div class="stat-num">Instant</div>
-        <div class="stat-lbl">Payment Posting</div>
-      </div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat-item">
-      <div class="stat-icon orange">
-        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg>
-      </div>
-      <div>
-        <div class="stat-num">Hotline</div>
-        <div class="stat-lbl">Billing Support</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- COVERAGE AREAS -->
-<section class="coverage-section background-fixed" id="coverage-areas">
-  <div class="container coverage-layout">
-    <div class="coverage-panel">
-      <div class="section__header coverage-head">
-        <span class="section__tag">Service Availability</span>
-        <h2><span class="line-break">Coverage Areas for</span><span class="line-break">Iblaze &amp; Fiberlink</span></h2>
-        <p>Explore the available service areas and find coverage in your location. Buy or update your Cable Link service with confidence.</p>
-      </div>
-
-      <div class="coverage-tabs" role="tablist" aria-label="Coverage provider">
-        <button class="coverage-tab is-active" type="button" role="tab" aria-selected="true" data-tab="iblaze">
-          <span class="coverage-tab-dot iblaze"></span>Iblaze <span class="coverage-tab-sub">(Cable Internet)</span>
-        </button>
-        <button class="coverage-tab" type="button" role="tab" aria-selected="false" data-tab="fiberlink">
-          <span class="coverage-tab-dot fiberlink"></span>Fiberlink <span class="coverage-tab-sub">(Fiber Internet)</span>
-        </button>
-      </div>
-
-      <div class="coverage-items" data-panel="iblaze">
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Muntinlupa" data-lat="14.4081" data-lng="121.0415" data-zoom="12.8">
-          <span class="coverage-item-pin iblaze"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <span class="coverage-item-text">
-            <span class="coverage-item-name">Muntinlupa</span>
-            <span class="coverage-item-meta">Includes Filinvest coverage zone</span>
-          </span>
-          <svg class="coverage-item-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Pasay" data-lat="14.5378" data-lng="120.9980" data-zoom="13.2">
-          <span class="coverage-item-pin iblaze"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <span class="coverage-item-text">
-            <span class="coverage-item-name">Pasay</span>
-            <span class="coverage-item-meta">Includes SMDC developments</span>
-          </span>
-          <svg class="coverage-item-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Manila" data-lat="14.5995" data-lng="120.9842" data-zoom="12.6">
-          <span class="coverage-item-pin iblaze"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <span class="coverage-item-text">
-            <span class="coverage-item-name">Manila</span>
-            <span class="coverage-item-meta">Includes SMDC, DMCI, and Cityland</span>
-          </span>
-          <svg class="coverage-item-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Bacoor, Cavite" data-lat="14.4624" data-lng="120.9645" data-zoom="12.3">
-          <span class="coverage-item-pin iblaze"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <span class="coverage-item-text">
-            <span class="coverage-item-name">Bacoor, Cavite</span>
-            <span class="coverage-item-meta">Metro south expansion zone</span>
-          </span>
-          <svg class="coverage-item-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Mandaluyong" data-lat="14.5794" data-lng="121.0359" data-zoom="13.3">
-          <span class="coverage-item-pin iblaze"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <span class="coverage-item-text">
-            <span class="coverage-item-name">Mandaluyong</span>
-            <span class="coverage-item-meta">Includes Cityland sites</span>
-          </span>
-          <svg class="coverage-item-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
-
-      <div class="coverage-items" data-panel="fiberlink" hidden>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Paranaque" data-lat="14.4793" data-lng="121.0198" data-zoom="12.9">
-          <span class="coverage-item-pin fiberlink"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <span class="coverage-item-text">
-            <span class="coverage-item-name">Paranaque</span>
-            <span class="coverage-item-meta">Fiber corridor in the south metro</span>
-          </span>
-          <svg class="coverage-item-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Las Pinas" data-lat="14.4445" data-lng="120.9939" data-zoom="12.9">
-          <span class="coverage-item-pin fiberlink"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <span class="coverage-item-text">
-            <span class="coverage-item-name">Las Pinas</span>
-            <span class="coverage-item-meta">Residential and mixed-use coverage zone</span>
-          </span>
-          <svg class="coverage-item-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Imus, Cavite" data-lat="14.4297" data-lng="120.9367" data-zoom="12.2">
-          <span class="coverage-item-pin fiberlink"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <span class="coverage-item-text">
-            <span class="coverage-item-name">Imus, Cavite</span>
-            <span class="coverage-item-meta">Cavite expansion coverage</span>
-          </span>
-          <svg class="coverage-item-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Sta. Maria, Bulacan" data-lat="14.8187" data-lng="120.9569" data-zoom="11.6">
-          <span class="coverage-item-pin fiberlink"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <span class="coverage-item-text">
-            <span class="coverage-item-name">Sta. Maria, Bulacan</span>
-            <span class="coverage-item-meta">Northern coverage cluster</span>
-          </span>
-          <svg class="coverage-item-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Quezon City" data-lat="14.6760" data-lng="121.0437" data-zoom="12.2">
-          <span class="coverage-item-pin fiberlink"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <span class="coverage-item-text">
-            <span class="coverage-item-name">Quezon City</span>
-            <span class="coverage-item-meta">Includes SMDC, Cityland, and DMCI</span>
-          </span>
-          <svg class="coverage-item-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
-
-      <a href="#coverage-areas" class="coverage-view-all">View All Coverage Areas <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    </div>
-
-    <div class="coverage-map-shell" aria-label="Coverage area map">
-      <div class="coverage-map-toolbar">
-        <div class="coverage-map-badges">
-          <div class="coverage-map-pill"><span class="iblaze"></span>Iblaze Coverage</div>
-          <div class="coverage-map-pill"><span class="fiberlink"></span>Fiberlink Coverage</div>
-        </div>
-      </div>
-      <div id="coverage-map" class="coverage-map" role="application" aria-label="Cable Link proposed coverage area map"></div>
-      <div class="coverage-map-fallback">Loading coverage map...</div>
-    </div>
-  </div>
-</section>
-
-<!-- ONLINE PAYMENT SECTION -->
-<!-- <section class="online-section" id="online">
-  <div class="section__header">
-    <span class="section__tag">Digital Channels</span>
-    <h2>Pay Online — Anytime, Anywhere</h2>
-    <p>Use your preferred e-wallet or online banking platform to settle your bill instantly from the comfort of your home.</p>
-  </div>
-
-  <div class="online-grid">
-
-   
-    <div class="pay-card">
-      <div class="pay-logo">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        GCash Logo Placeholder
-      </div>
-      <span class="pay-badge">E-Wallet</span>
-      <h3>GCash</h3>
-      <p>Pay directly through the GCash app using your registered mobile number. Instant posting, available 24/7.</p>
-      <ol class="pay-steps">
-        <li><div class="step-num">1</div> Open GCash app and tap <strong>Pay Bills</strong></li>
-        <li><div class="step-num">2</div> Search for <strong>Cable Link</strong> under Utilities</li>
-        <li><div class="step-num">3</div> Enter your Account Number and Amount</li>
-        <li><div class="step-num">4</div> Confirm payment with your MPIN</li>
-      </ol>
-      <a href="#" class="pay-action">Pay via GCash <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    </div>
-
-   
-    <div class="pay-card featured">
-      <div class="pay-logo">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        CableLink Portal Logo
-      </div>
-      <span class="pay-badge">Recommended</span>
-      <h3>CableLink Online Portal</h3>
-      <p>Our official self-service portal gives you complete billing visibility — view your bill, check payment history, and pay instantly.</p>
-      <ol class="pay-steps">
-        <li><div class="step-num">1</div> Visit <strong>pay.cablelink.ph</strong> or tap below</li>
-        <li><div class="step-num">2</div> Log in or create your free account</li>
-        <li><div class="step-num">3</div> Select your billing period to pay</li>
-        <li><div class="step-num">4</div> Choose card or e-wallet to complete</li>
-      </ol>
-      <a href="#" class="pay-action">Open Payment Portal <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    </div>
-
-   
-    <div class="pay-card">
-      <div class="pay-logo">
-        <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-        Maya Logo Placeholder
-      </div>
-      <span class="pay-badge">E-Wallet</span>
-      <h3>Maya (PayMaya)</h3>
-      <p>Use Maya's Pay Bills feature or scan our QR code to pay your Cable Link subscription quickly and securely.</p>
-      <ol class="pay-steps">
-        <li><div class="step-num">1</div> Open the Maya app and tap <strong>Pay Bills</strong></li>
-        <li><div class="step-num">2</div> Find <strong>Cable Link</strong> in the biller list</li>
-        <li><div class="step-num">3</div> Enter your Account Number and Amount</li>
-        <li><div class="step-num">4</div> Confirm with your PIN to complete</li>
-      </ol>
-      <a href="#" class="pay-action">Pay via Maya <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    </div>
-
-  </div>
-</section> -->
-
+<!-- Coverage checking belongs to the Get Connected journey and is intentionally absent from Payment Facilities. -->
 <!-- WALK-IN SECTION -->
 <section class="walkin-section background-fixed" id="offices">
   <div class="container">
@@ -502,7 +263,7 @@
       <div class="map-status">
         <div class="map-badge">
           <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          11 Active Locations
+          11 Listed Locations
         </div>
         <div class="map-help">
           <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M12 4h9"/><path d="M4 9h16"/><path d="M4 15h16"/></svg>
@@ -525,6 +286,15 @@
     <h2>Banks & Payment Centers</h2>
     <p>Choose from banks, cards, e-wallets, kiosks, and partner payment centers using the supported channels below.</p>
   </div>
+
+  <form class="facility-search" id="facility-search" role="search">
+    <label for="payment-facility-search">Search payment facilities or methods</label>
+    <div class="facility-search__controls">
+      <input id="payment-facility-search" name="query" type="search" placeholder="Search by partner, facility, or method" autocomplete="off">
+      <button class="button button--primary" type="submit">Search</button>
+    </div>
+    <p class="facility-search__status" id="facility-search-status" role="status" aria-live="polite"></p>
+  </form>
 
   <div class="banks-grid">
 
@@ -865,6 +635,46 @@
   </div>
 </section>
 
+<section class="auto-debit-section" id="auto-debit" aria-labelledby="auto-debit-title">
+  <div class="container auto-debit-layout">
+    <div>
+      <span class="section__tag">Auto Debit Arrangement</span>
+      <h2 id="auto-debit-title">Review the Auto Debit application form</h2>
+      <p>The fields and authorization below are retained from the existing CableLink project. This frontend does not transmit, store, or enroll the supplied information.</p>
+      <div class="integration-note" role="note">
+        Production submission remains disabled until CableLink confirms the secure destination, server validation, data handling, and signed or legal workflow.
+      </div>
+    </div>
+    <form class="auto-debit-form" id="auto-debit-form" novalidate>
+      <div class="auto-debit-form__grid">
+        <div class="field">
+          <label for="ada-account-number">Account Number <span aria-hidden="true">*</span></label>
+          <input type="text" id="ada-account-number" name="account_number" autocomplete="off" required>
+        </div>
+        <div class="field">
+          <label for="ada-account-name">Account Name <span aria-hidden="true">*</span></label>
+          <input type="text" id="ada-account-name" name="account_name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="ada-card-number">Card Number <span aria-hidden="true">*</span></label>
+          <input type="text" id="ada-card-number" name="card_number" inputmode="numeric" autocomplete="cc-number" required>
+        </div>
+        <div class="field">
+          <label for="ada-card-expiry">Card Expiry <span aria-hidden="true">*</span></label>
+          <input type="text" id="ada-card-expiry" name="card_expiry" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY" required>
+        </div>
+      </div>
+      <label class="auto-debit-consent" for="ada-consent">
+        <input type="checkbox" id="ada-consent" name="dprivacy" required>
+        <span>I, a credit cardholder, hereby enroll in the auto-charge facility with Cable Link and Holdings Corp and authorize the payment of all subscription fees associated with my account number(s) stated herein. These fees will be charged to my credit card account. Should my credit limit not be sufficient to cover my cable subscription fees, Cable Link Holdings will have the right to collect the outstanding amount directly from me. This authorization will remain valid until canceled by me in writing to Cable Link or by Cable Link itself.</span>
+      </label>
+      <p class="auto-debit-privacy">By clicking Submit, I agree to CableLink&rsquo;s <a href="cablelink_privacy.html">Privacy Policy</a>. This legacy project wording remains subject to client legal approval.</p>
+      <button class="button button--primary" type="submit">Submit</button>
+      <p class="application-status" id="auto-debit-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
 <!-- PAYMENT REMINDERS -->
 <section class="reminders-section" id="reminders">
   <div class="container">
@@ -1071,12 +881,13 @@
     <h2>Need Help With Your Bill?</h2>
     <p>Our billing team is ready to assist you. Reach us by phone, email, or visit any of our offices.</p>
     <div class="cta-strip-btns">
-      <a href="cablelink_apply.html" class="button button--primary btn-solid">Contact Billing Support</a>
+      <a href="cablelink_support.html#billing-support" class="button button--primary btn-solid">Contact Billing Support</a>
       <a href="cablelink_plans.html#plans" class="button button--outline btn-ghost">View Plans & Pricing</a>
     </div>
   </div>
 </div>
 
+</main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
 <script>
 (function(){
@@ -1089,234 +900,6 @@
       if(!wasOpen) item.classList.add('open');
     });
   });
-
-  var coverageTabs = Array.prototype.slice.call(document.querySelectorAll('.coverage-tab'));
-  var coveragePanels = Array.prototype.slice.call(document.querySelectorAll('.coverage-items[data-panel]'));
-  var coverageViewAll = document.querySelector('.coverage-view-all');
-  var coverageMapElement = document.getElementById('coverage-map');
-  var coverageFallback = document.querySelector('.coverage-map-fallback');
-  var coverageItems = Array.prototype.slice.call(document.querySelectorAll('.coverage-item'));
-  var coverageAreas = [
-    {provider:'iblaze', name:'Muntinlupa', lat:14.4081, lng:121.0415, radius:5200, notes:'Includes Filinvest coverage zone.'},
-    {provider:'iblaze', name:'Pasay', lat:14.5378, lng:120.9980, radius:3800, notes:'Includes SMDC developments.'},
-    {provider:'iblaze', name:'Manila', lat:14.5995, lng:120.9842, radius:5600, notes:'Includes SMDC, DMCI, and Cityland.'},
-    {provider:'iblaze', name:'Bacoor, Cavite', lat:14.4624, lng:120.9645, radius:6200, notes:'Metro south expansion zone.'},
-    {provider:'iblaze', name:'Mandaluyong', lat:14.5794, lng:121.0359, radius:3600, notes:'Includes Cityland sites.'},
-    {provider:'fiberlink', name:'Paranaque', lat:14.4793, lng:121.0198, radius:4600, notes:'Fiber corridor in the south metro.'},
-    {provider:'fiberlink', name:'Las Pinas', lat:14.4445, lng:120.9939, radius:4300, notes:'Residential and mixed-use coverage zone.'},
-    {provider:'fiberlink', name:'Imus, Cavite', lat:14.4297, lng:120.9367, radius:5600, notes:'Cavite expansion coverage.'},
-    {provider:'fiberlink', name:'Sta. Maria, Bulacan', lat:14.8187, lng:120.9569, radius:9000, notes:'Northern coverage cluster.'},
-    {provider:'fiberlink', name:'Quezon City', lat:14.6760, lng:121.0437, radius:6800, notes:'Includes SMDC, Cityland, and DMCI.'}
-  ];
-  var coverageMap = null;
-  var coverageLayers = new Map();
-  var activeCoverageItem = null;
-  var activeCoverageFilter = 'iblaze';
-  var coverageBoundsByProvider = {
-    all: [],
-    iblaze: [],
-    fiberlink: []
-  };
-
-  function setActiveCoverageItem(item){
-    if(activeCoverageItem) activeCoverageItem.classList.remove('is-active');
-    activeCoverageItem = item || null;
-    if(activeCoverageItem) activeCoverageItem.classList.add('is-active');
-  }
-
-  function setCoverageTabs(filter){
-    coverageTabs.forEach(function(tab){
-      var active = filter !== 'all' && tab.getAttribute('data-tab') === filter;
-      tab.classList.toggle('is-active', active);
-      tab.setAttribute('aria-selected', active ? 'true' : 'false');
-    });
-  }
-
-  function setCoveragePanels(filter){
-    coverageItems.forEach(function(item){
-      item.hidden = filter !== 'all' && item.dataset.provider !== filter;
-    });
-
-    coveragePanels.forEach(function(panel){
-      var panelItems = Array.prototype.slice.call(panel.querySelectorAll('.coverage-item'));
-      var hasVisibleItems = panelItems.some(function(item){
-        return !item.hidden;
-      });
-
-      panel.hidden = !hasVisibleItems;
-    });
-  }
-
-  function toggleCoverageLayer(layerSet, visible){
-    if(!coverageMap || !layerSet) return;
-
-    if(visible){
-      if(!coverageMap.hasLayer(layerSet.circle)) layerSet.circle.addTo(coverageMap);
-      if(!coverageMap.hasLayer(layerSet.label)) layerSet.label.addTo(coverageMap);
-      return;
-    }
-
-    if(coverageMap.hasLayer(layerSet.circle)) coverageMap.removeLayer(layerSet.circle);
-    if(coverageMap.hasLayer(layerSet.label)) coverageMap.removeLayer(layerSet.label);
-    layerSet.circle.closePopup();
-  }
-
-  function syncCoverageMapLayers(){
-    if(!coverageMap) return;
-
-    var selectedKey = activeCoverageItem
-      ? activeCoverageItem.dataset.provider + '|' + activeCoverageItem.dataset.area
-      : null;
-
-    coverageLayers.forEach(function(layerSet, key){
-      var visible = selectedKey
-        ? key === selectedKey
-        : (activeCoverageFilter === 'all' || layerSet.data.provider === activeCoverageFilter);
-
-      toggleCoverageLayer(layerSet, visible);
-    });
-  }
-
-  function fitCoverageBounds(filter){
-    if(!coverageMap) return;
-
-    if(activeCoverageItem){
-      var selectedKey = activeCoverageItem.dataset.provider + '|' + activeCoverageItem.dataset.area;
-      var selectedLayerSet = coverageLayers.get(selectedKey);
-      if(selectedLayerSet){
-        coverageMap.fitBounds(selectedLayerSet.circle.getBounds(), {
-          padding:[20, 20],
-          maxZoom:Number(activeCoverageItem.dataset.zoom) || 13
-        });
-      }
-      return;
-    }
-
-    var bounds = coverageBoundsByProvider[filter] || coverageBoundsByProvider.all;
-    if(!bounds.length) return;
-
-    coverageMap.fitBounds(bounds, {
-      padding:[18, 18],
-      maxZoom: filter === 'all' ? 11 : 12
-    });
-  }
-
-  function setCoverageFilter(filter, options){
-    options = options || {};
-    activeCoverageFilter = filter === 'all'
-      ? 'all'
-      : (filter === 'fiberlink' ? 'fiberlink' : 'iblaze');
-
-    setCoverageTabs(activeCoverageFilter);
-    setCoveragePanels(activeCoverageFilter);
-
-    if(options.preserveActive !== true || (activeCoverageItem && activeCoverageItem.hidden)){
-      setActiveCoverageItem(null);
-    }
-
-    if(!coverageMap) return;
-
-    syncCoverageMapLayers();
-
-    if(options.resetView !== false){
-      coverageMap.closePopup();
-      fitCoverageBounds(activeCoverageFilter);
-    }
-  }
-
-  coverageTabs.forEach(function(tab){
-    tab.addEventListener('click', function(){
-      setCoverageFilter(tab.getAttribute('data-tab'));
-    });
-  });
-
-  if(coverageViewAll){
-    coverageViewAll.addEventListener('click', function(){
-      setCoverageFilter('all');
-    });
-  }
-
-  setCoverageFilter(activeCoverageFilter, {
-    preserveActive:true,
-    resetView:false
-  });
-
-  if(coverageMapElement && coverageFallback && window.L && coverageItems.length){
-    var providerStyles = {
-      iblaze:{
-        color:'#F78220',
-        fillColor:'#F78220'
-      },
-      fiberlink:{
-        color:'#007AFE',
-        fillColor:'#31AAFE'
-      }
-    };
-    coverageMap = L.map(coverageMapElement, {scrollWheelZoom:false, zoomControl:true});
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution:'&copy; OpenStreetMap contributors'
-    }).addTo(coverageMap);
-
-    function focusCoverageArea(item, openPopup){
-      if(!item) return;
-      var key = item.dataset.provider + '|' + item.dataset.area;
-      var layerSet = coverageLayers.get(key);
-      if(!layerSet) return;
-      setActiveCoverageItem(item);
-      syncCoverageMapLayers();
-      fitCoverageBounds(activeCoverageFilter);
-      if(openPopup) layerSet.circle.openPopup();
-    }
-
-    coverageAreas.forEach(function(area){
-      var style = providerStyles[area.provider];
-      if(!style) return;
-
-      var circle = L.circle([area.lat, area.lng], {
-        radius:area.radius,
-        color:style.color,
-        weight:2,
-        opacity:.95,
-        fillColor:style.fillColor,
-        fillOpacity:.24
-      });
-
-      circle.bindPopup('<strong>' + area.name + '</strong><span>' + (area.provider === 'iblaze' ? 'Iblaze' : 'Fiberlink') + ' proposed coverage area. ' + area.notes + '</span>');
-
-      var label = L.marker([area.lat, area.lng], {
-        interactive:false,
-        icon:L.divIcon({
-          className:'coverage-label-wrap',
-          html:'<div class="coverage-label ' + area.provider + '">' + area.name + '</div>',
-          iconSize:null,
-          iconAnchor:[0, 0]
-        })
-      });
-
-      coverageBoundsByProvider.all.push([area.lat, area.lng]);
-      coverageBoundsByProvider[area.provider].push([area.lat, area.lng]);
-
-      var key = area.provider + '|' + area.name;
-      coverageLayers.set(key, {circle:circle, label:label, data:area});
-    });
-
-    coverageItems.forEach(function(item){
-      item.addEventListener('click', function(){
-        focusCoverageArea(item, true);
-      });
-    });
-
-    if(coverageBoundsByProvider.iblaze.length){
-      setCoverageFilter(activeCoverageFilter, {preserveActive:true});
-      setTimeout(function(){
-        coverageMap.invalidateSize();
-      }, 0);
-    }
-
-    coverageFallback.style.display = 'none';
-  } else if(coverageFallback) {
-    coverageFallback.textContent = 'The coverage map could not be loaded right now. Please reload the page and try again.';
-  }
 
   var officeCards = Array.prototype.slice.call(document.querySelectorAll('.office-card[data-lat][data-lng]'));
   var mapElement = document.getElementById('office-map');

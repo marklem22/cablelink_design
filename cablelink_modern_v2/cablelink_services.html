@@ -1,97 +1,70 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cable Link — Services</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-<link rel="stylesheet" href="assets/css/cablelink_services.css?v=20260717-2">
-  <link rel="stylesheet" href="assets/css/site.css?v=20260720-15">
-    <script src="assets/js/site-shell.js?v=20260720-5" defer></script>
-  </head>
-
-  <body data-page="services">
-    <main>
-      <section class="hero hero--services" aria-labelledby="services-title">
-        <div class="container hero__inner">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore CableLink residential internet, cable TV, bundled, and enterprise service categories.">
+  <title>Services &mdash; CableLink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260725-2">
+  <link rel="stylesheet" href="assets/css/cablelink_services.css?v=20260725-1">
+  <script src="assets/js/site-config.js?v=20260725-1" defer></script>
+  <script src="assets/js/site-shell.js?v=20260725-2" defer></script>
+</head>
+<body data-page="services">
+  <main id="main-content">
+    <section class="hero hero--services" aria-labelledby="services-title">
+      <div class="container hero__inner">
         <span class="section__tag hero__eyebrow">Our Services</span>
         <h1 class="hero__title" id="services-title">CableLink services for homes and businesses</h1>
-        <p class="hero__description">
-          Explore reliable internet, cable TV, and corporate connectivity
-          designed for speed, stability, and value.
-        </p>
+        <p class="hero__description">Explore the residential, bundled, and enterprise service categories currently represented in this project.</p>
+      </div>
+    </section>
+
+    <section class="services-section" id="services" aria-labelledby="service-categories-title">
+      <div class="container services-wrapper">
+        <h2 class="visually-hidden" id="service-categories-title">Service categories</h2>
+        <div class="services-grid">
+          <article class="svc-card">
+            <div class="svc-icon i" aria-hidden="true">
+              <svg viewBox="0 0 24 24" stroke="var(--blue-primary)"><circle cx="12" cy="12" r="3"/><path d="M6.3 6.3a8 8 0 0 0 0 11.4M17.7 6.3a8 8 0 0 1 0 11.4M3.5 3.5a13 13 0 0 0 0 17M20.5 3.5a13 13 0 0 1 0 17"/></svg>
+            </div>
+            <h3>Residential Internet</h3>
+            <p>Review CableLink&rsquo;s iBlaZe cable internet and FiberLink fiber-to-the-home plan options.</p>
+            <a href="cablelink_internet_plans1.html" class="button button--primary svc-btn">View Internet Plans</a>
+          </article>
+
+          <article class="svc-card">
+            <div class="svc-icon c" aria-hidden="true">
+              <svg viewBox="0 0 24 24" stroke="var(--orange)"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
+            </div>
+            <h3>Cable TV</h3>
+            <p>Compare the Basic 495, Basic Lite, and Basic Plus channel packages included in the current project information.</p>
+            <a href="cablelink_channels.html" class="button button--primary svc-btn svc-btn--orange">View Channel Lineup</a>
+          </article>
+
+          <article class="svc-card">
+            <div class="svc-icon b" aria-hidden="true">
+              <svg viewBox="0 0 24 24" stroke="var(--blue-secondary)"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3>Bundled Plans</h3>
+            <p>Compare Supercharged and Turbocharged internet-and-cable combinations using the plan information already supplied.</p>
+            <a href="cablelink_plans.html#bundle-groups" class="button button--primary svc-btn svc-btn--cyan">View Bundled Plans</a>
+          </article>
+
+          <article class="svc-card">
+            <div class="svc-icon e" aria-hidden="true">
+              <svg viewBox="0 0 24 24" stroke="var(--blue-primary)"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg>
+            </div>
+            <h3>Enterprise</h3>
+            <p>CableLink has an enterprise service category. Final products, service details, and availability still require client confirmation.</p>
+            <a href="cablelink_contact.html" class="button button--primary svc-btn">Contact Us</a>
+          </article>
         </div>
-      </section>
-
-      <section class="services-section" id="services">
-        <div class="container services-wrapper">
-          <div class="services-grid">
-          <div class="svc-card">
-            <div class="svc-icon i">
-              <svg viewBox="0 0 24 24" stroke="var(--blue-primary)">
-                <circle cx="12" cy="12" r="3" />
-                <path
-                  d="M6.3 6.3a8 8 0 0 0 0 11.4M17.7 6.3a8 8 0 0 1 0 11.4M3.5 3.5a13 13 0 0 0 0 17M20.5 3.5a13 13 0 0 1 0 17"
-                />
-              </svg>
-            </div>
-            <h3>Internet Service</h3>
-            <p>
-              Blazing-fast fiber and cable internet from 100 Mbps to 1 Gbps —
-              perfect for streaming, gaming, and working from home.
-            </p>
-            <a href="cablelink_internet_plans1.html" class="button button--primary svc-btn"
-              >Explore Internet Plans</a
-            >
-          </div>
-
-          <div class="svc-card svc-center">
-            <div class="svc-icon c">
-              <svg viewBox="0 0 24 24" stroke="var(--orange)">
-                <rect x="2" y="7" width="20" height="15" rx="2" />
-                <polyline points="17 2 12 7 7 2" />
-              </svg>
-            </div>
-            <h3>Cable TV Service</h3>
-            <p>
-              100+ premium channels including sports, entertainment, and news —
-              bundled with your internet for one simple monthly price.
-            </p>
-            <a
-              href="cablelink_channels.html"
-              class="button button--primary svc-btn"
-              style="background: var(--orange)"
-              >Channel Lineups</a
-            >
-          </div>
-
-          <div class="svc-card">
-            <div class="svc-icon b">
-              <svg viewBox="0 0 24 24" stroke="var(--blue-secondary)">
-                <rect x="2" y="3" width="20" height="14" rx="2" />
-                <line x1="8" y1="21" x2="16" y2="21" />
-                <line x1="12" y1="17" x2="12" y2="21" />
-              </svg>
-            </div>
-            <h3>Corporate Plans</h3>
-            <p>
-              Dedicated business-grade connectivity with SLA guarantees, static
-              IPs, and 24/7 priority support for enterprises of any size.
-            </p>
-            <a
-              href="#"
-              class="button button--primary svc-btn"
-              style="background: var(--blue-secondary)"
-              >Learn More</a
-            >
-          </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-  </body>
+      </div>
+    </section>
+  </main>
+</body>
 </html>

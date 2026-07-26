@@ -7,8 +7,10 @@
     // { page: 'about', href: 'cablelink_about.html', label: 'About Us' },
     { page: 'services', href: 'cablelink_services.html', label: 'Services' },
     { page: 'promos', href: 'cablelink_promos.html', label: 'Promos' },
-    { page: 'payment', href: 'cablelink_payment.html#payment-facilities', label: 'Payment Facilities' }
+    { page: 'payment', href: 'cablelink_payment.html#payment-facilities', label: 'Payment Facilities' },
+    { page: 'support', href: 'cablelink_support.html', label: 'Support' }
   ];
+  var config = window.CableLinkConfig || { externalLinks: {} };
   function removeLegacyShell() {
     var legacyHeader = document.querySelector('body > .site-header');
     var legacyMobile = document.querySelector('body > .mob-menu');
@@ -20,6 +22,30 @@
   function setActiveLink(scope) {
     scope.querySelectorAll('[data-page-link]').forEach(function (link) {
       if (link.dataset.pageLink === page) link.setAttribute('aria-current', 'page');
+    });
+  }
+  function configureExternalLinks(scope) {
+    var available = 0;
+    scope.querySelectorAll('[data-config-link]').forEach(function (link) {
+      var key = link.dataset.configLink;
+      var href = config.externalLinks && config.externalLinks[key];
+
+      if (!href) {
+        link.hidden = true;
+        link.removeAttribute('href');
+        return;
+      }
+
+      link.href = href;
+      link.hidden = false;
+      available += 1;
+    });
+
+    scope.querySelectorAll('.global-footer__social').forEach(function (group) {
+      group.hidden = available === 0;
+      if (group.parentElement) {
+        group.parentElement.classList.toggle('global-footer-inner--no-social', available === 0);
+      }
     });
   }
   function ensurePrimaryNavigation(header) {
@@ -43,20 +69,23 @@
       var link = nav.querySelector('[data-page-link="' + item.page + '"]');
       var listItem;
 
-      if (!link) {
-        listItem = document.createElement('li');
-        link = document.createElement('a');
-        link.dataset.pageLink = item.page;
-        link.href = item.href;
-        link.textContent = item.label;
-        listItem.appendChild(link);
-      } else {
-        listItem = link.closest('li');
-      }
-
+      if (link) return;
+      listItem = document.createElement('li');
+      link = document.createElement('a');
+      link.dataset.pageLink = item.page;
+      link.href = item.href;
+      link.textContent = item.label;
+      listItem.appendChild(link);
       nav.appendChild(listItem);
     });
 
+    if (!header.querySelector('.global-contact-cta')) {
+      var contact = document.createElement('a');
+      contact.className = 'btn global-contact-cta';
+      contact.href = 'cablelink_contact.html';
+      contact.textContent = 'Contact Us';
+      headerInner.insertBefore(contact, headerInner.querySelector('.global-cta'));
+    }
     if (!header.querySelector('.global-cta')) {
       var cta = document.createElement('a');
       cta.className = 'btn global-cta';
@@ -197,6 +226,58 @@
       }
     });
   }
+  function setupSupportMenu(header) {
+    var item = header.querySelector('.global-nav__item--support');
+    var supportLink;
+    var menu;
+    var suppressFocusOpen = false;
+
+    if (!item) return;
+    supportLink = item.querySelector('.global-nav__support-link');
+    menu = item.querySelector('.support-menu');
+    if (!supportLink || !menu) return;
+
+    function openMenu() {
+      item.classList.add('is-open');
+      supportLink.setAttribute('aria-expanded', 'true');
+    }
+    function closeMenu(returnFocus) {
+      item.classList.remove('is-open');
+      supportLink.setAttribute('aria-expanded', 'false');
+      if (returnFocus) {
+        suppressFocusOpen = true;
+        supportLink.focus();
+      }
+    }
+
+    supportLink.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        openMenu();
+        menu.querySelector('a').focus();
+      }
+    });
+    item.addEventListener('mouseenter', openMenu);
+    item.addEventListener('mouseleave', function () {
+      if (!item.contains(document.activeElement)) closeMenu(false);
+    });
+    item.addEventListener('focusin', function () {
+      if (suppressFocusOpen) {
+        suppressFocusOpen = false;
+        return;
+      }
+      openMenu();
+    });
+    item.addEventListener('focusout', function (event) {
+      if (!item.contains(event.relatedTarget)) closeMenu(false);
+    });
+    document.addEventListener('click', function (event) {
+      if (!item.contains(event.target)) closeMenu(false);
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && item.classList.contains('is-open')) closeMenu(true);
+    });
+  }
   function ensureServicesMegaMenuHelp(header) {
     var menu = header.querySelector('.mega-menu');
     var inner;
@@ -208,7 +289,7 @@
 
     help = document.createElement('aside');
     help.className = 'mega-menu__help';
-    help.innerHTML = '<div><p class="mega-menu__help-title">Need help choosing?</p><p class="mega-menu__help-copy">We&rsquo;ll help you find the best plan for your needs.</p><a class="btn btn-secondary mega-menu__cta" href="cablelink_apply.html">Talk to Us <span aria-hidden="true">&rarr;</span></a></div>';
+    help.innerHTML = '<div><p class="mega-menu__help-title">Need help choosing?</p><p class="mega-menu__help-copy">Choose a direct contact channel.</p><div class="mega-menu__help-actions"><a class="btn btn-secondary mega-menu__cta" data-config-link="messenger" target="_blank" rel="noopener noreferrer" hidden>Messenger</a><a class="btn btn-secondary mega-menu__cta" data-config-link="viber" target="_blank" rel="noopener noreferrer" hidden>Viber</a><a class="btn btn-secondary mega-menu__cta" href="cablelink_contact.html">Contact Us <span aria-hidden="true">&rarr;</span></a></div></div>';
     inner.appendChild(help);
   }
   function ensureCorporateMegaMenuGroup(header) {
@@ -234,13 +315,14 @@
 
     corporate.className = 'mega-menu__group mega-menu__group--corporate';
     if (corporate.querySelector('.mega-menu__title') && corporate.querySelector('.mega-menu__links')) return;
-    corporate.innerHTML = '<div class="mega-menu__group-heading"><span class="mega-menu__icon mega-menu__icon--corporate" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2" /><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2" /></svg></span><a class="mega-menu__title" href="cablelink_services.html">Corporate Plans</a></div><p class="mega-menu__description">Business connectivity solutions, launching soon.</p><ul class="mega-menu__links"><li><span class="mega-menu__link-placeholder">Business Internet <small>Coming soon</small></span></li><li><span class="mega-menu__link-placeholder">Dedicated Fiber <small>Coming soon</small></span></li><li><span class="mega-menu__link-placeholder">Managed WiFi <small>Coming soon</small></span></li></ul>';
+    corporate.innerHTML = '<div class="mega-menu__group-heading"><span class="mega-menu__icon mega-menu__icon--corporate" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2" /><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2" /></svg></span><a class="mega-menu__title" href="cablelink_services.html">Enterprise</a></div><p class="mega-menu__description">Final enterprise products and availability require client confirmation.</p><ul class="mega-menu__links"><li><a href="cablelink_contact.html">Contact Us</a></li></ul>';
   }
   function loadShell() {
     removeLegacyShell();
     Promise.all([
       fetch('partials/header.html', { cache: 'no-store' }).then(function (response) { return response.text(); }),
-      fetch('partials/footer.html', { cache: 'no-store' }).then(function (response) { return response.text(); })
+      fetch('partials/footer.html', { cache: 'no-store' }).then(function (response) { return response.text(); }),
+      fetch('partials/privacy-modal.html', { cache: 'no-store' }).then(function (response) { return response.text(); })
     ]).then(function (parts) {
       var shell = document.createElement('div');
       shell.innerHTML = parts[0];
@@ -250,15 +332,22 @@
       if (mobile) document.body.prepend(mobile);
       document.body.prepend(header);
       document.body.insertAdjacentHTML('beforeend', parts[1]);
+      document.body.insertAdjacentHTML('beforeend', parts[2]);
       ensurePrimaryNavigation(header);
       mobile = ensureMobileNavigation(mobile);
       header.insertAdjacentElement('afterend', mobile);
       var button = ensureMenuButton(header);
       ensureCorporateMegaMenuGroup(header);
       ensureServicesMegaMenuHelp(header);
+      configureExternalLinks(document);
+      document.querySelectorAll('[data-current-year]').forEach(function (year) {
+        year.textContent = String(new Date().getFullYear());
+      });
       setActiveLink(header);
       setActiveLink(mobile);
       setupServicesMegaMenu(header);
+      setupSupportMenu(header);
+      setupPrivacyModal();
       if (!button || !mobile) return;
 
       function setMobileMenu(open, returnFocus) {
@@ -314,6 +403,79 @@
     }).catch(function (error) {
       console.error('CableLink shell could not load. Use a local HTTP server.', error);
     });
+  }
+  function setupPrivacyModal() {
+    var modal = document.getElementById('privacy-entry-modal');
+    var continueButton;
+    var closeButtons;
+    var previousFocus = null;
+    var storageKey = 'cablelink-privacy-notice-seen-v1';
+
+    if (!modal) return;
+    continueButton = modal.querySelector('[data-privacy-continue]');
+    closeButtons = modal.querySelectorAll('[data-privacy-close]');
+
+    function hasSeenNotice() {
+      try {
+        return window.sessionStorage.getItem(storageKey) === 'true';
+      } catch (error) {
+        return false;
+      }
+    }
+    function rememberNotice() {
+      try {
+        window.sessionStorage.setItem(storageKey, 'true');
+      } catch (error) {
+        /* Session storage may be unavailable; closing still works for this page. */
+      }
+    }
+    function getFocusable() {
+      return Array.from(modal.querySelectorAll('a[href], button:not([disabled])')).filter(function (element) {
+        return !element.hidden;
+      });
+    }
+    function closeModal() {
+      rememberNotice();
+      modal.hidden = true;
+      document.documentElement.classList.remove('is-privacy-modal-open');
+      document.body.classList.remove('is-privacy-modal-open');
+      if (previousFocus) previousFocus.focus();
+    }
+    function openModal() {
+      previousFocus = document.activeElement;
+      modal.hidden = false;
+      document.documentElement.classList.add('is-privacy-modal-open');
+      document.body.classList.add('is-privacy-modal-open');
+      var focusable = getFocusable();
+      if (focusable.length) focusable[0].focus();
+    }
+
+    closeButtons.forEach(function (button) {
+      button.addEventListener('click', closeModal);
+    });
+    if (continueButton) continueButton.addEventListener('click', closeModal);
+    modal.addEventListener('keydown', function (event) {
+      var focusable;
+      var currentIndex;
+      var nextIndex;
+
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeModal();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      focusable = getFocusable();
+      if (!focusable.length) return;
+      currentIndex = focusable.indexOf(document.activeElement);
+      nextIndex = event.shiftKey ? currentIndex - 1 : currentIndex + 1;
+      if (nextIndex < 0) nextIndex = focusable.length - 1;
+      if (nextIndex >= focusable.length) nextIndex = 0;
+      event.preventDefault();
+      focusable[nextIndex].focus();
+    });
+
+    if (!hasSeenNotice()) openModal();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', loadShell);
   else loadShell();

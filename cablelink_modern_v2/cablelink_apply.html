@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Apply for a New Connection — CableLink</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/cablelink_apply.css?v=20260717-4">
-  <link rel="stylesheet" href="assets/css/site.css?v=20260720-15">
-  <script src="assets/js/site-shell.js?v=20260720-5" defer></script>
+  <link rel="stylesheet" href="assets/css/site.css?v=20260725-2">
+  <link rel="stylesheet" href="assets/css/cablelink_apply.css?v=20260725-1">
+  <script src="assets/js/site-config.js?v=20260725-1" defer></script>
+  <script src="assets/js/site-shell.js?v=20260725-2" defer></script>
 </head>
 <body data-page="apply">
 
@@ -31,7 +32,28 @@
 
 <!-- MAIN LAYOUT -->
 <section class="apply-section">
-<div class="container apply-layout">
+<div class="container">
+  <form class="availability-card" id="availability-form" novalidate>
+    <div>
+      <span class="section__tag">Serviceability Preflight</span>
+      <h2>Check your location before choosing a plan</h2>
+      <p>This frontend can record your location for review, but it cannot confirm live coverage until CableLink provides a coverage source or API.</p>
+    </div>
+    <div class="availability-card__fields">
+      <div class="field">
+        <label for="availability-city">City / Municipality</label>
+        <input type="text" id="availability-city" name="availability_city" autocomplete="address-level2" required>
+      </div>
+      <div class="field">
+        <label for="availability-barangay">Barangay</label>
+        <input type="text" id="availability-barangay" name="availability_barangay" autocomplete="address-level3" required>
+      </div>
+      <button class="button button--primary btn-next" type="submit">Continue Application</button>
+    </div>
+    <p class="application-status" id="availability-status" role="status" aria-live="polite"></p>
+  </form>
+</div>
+<div class="container apply-layout" id="application-journey" hidden>
 
   <!-- STEP INDICATOR -->
   <div class="steps-strip">
@@ -117,7 +139,7 @@
             <p>Cable TV plans are available in Digitally Activated service areas. Contact us to verify coverage in your area.</p>
           </div>
           <div class="tv-plan-cards">
-            <div class="tv-plan-card" onclick="selectTVPlan('basic495','Basic 495','₱495/month')">
+            <div class="tv-plan-card" onclick="selectTVPlan('basic495','Basic 495','₱495/month',this)">
               <div class="tv-plan-price-box">
                 <div class="tv-plan-price">₱495<span>/month</span></div>
               </div>
@@ -131,7 +153,7 @@
                 Digitally Activated Areas
               </div>
             </div>
-            <div class="tv-plan-card" onclick="selectTVPlan('basiclite','Basic Lite','—')">
+            <div class="tv-plan-card" onclick="selectTVPlan('basiclite','Basic Lite','—',this)">
               <div class="tv-plan-price-box">
                 <div class="tv-plan-price">Basic<span> Lite</span></div>
               </div>
@@ -145,7 +167,7 @@
                 Digitally Activated Areas
               </div>
             </div>
-            <div class="tv-plan-card" onclick="selectTVPlan('basicplus','Basic Plus','—')">
+            <div class="tv-plan-card" onclick="selectTVPlan('basicplus','Basic Plus','—',this)">
               <div class="tv-plan-price-box">
                 <div class="tv-plan-price">Basic<span> Plus</span></div>
               </div>
@@ -210,25 +232,25 @@
         <div class="form-grid form-row-3" id="nameGrid">
           <div class="field">
             <label for="fname">First Name <span style="color:#e53e3e">*</span></label>
-            <input type="text" id="fname" placeholder="e.g. Juan" autocomplete="given-name">
+            <input type="text" id="fname" name="first_name" placeholder="e.g. Juan" autocomplete="given-name">
           </div>
           <div class="field">
             <label for="mname">Middle Name</label>
-            <input type="text" id="mname" placeholder="Optional" autocomplete="additional-name">
+            <input type="text" id="mname" name="middle_name" placeholder="Optional" autocomplete="additional-name">
           </div>
           <div class="field">
             <label for="lname">Last Name <span style="color:#e53e3e">*</span></label>
-            <input type="text" id="lname" placeholder="e.g. Dela Cruz" autocomplete="family-name">
+            <input type="text" id="lname" name="last_name" placeholder="e.g. Dela Cruz" autocomplete="family-name">
           </div>
         </div>
         <div class="form-grid form-row-2" style="margin-top:1.1rem">
           <div class="field">
             <label for="mobile">Mobile Number <span style="color:#e53e3e">*</span></label>
-            <input type="tel" id="mobile" placeholder="09XX XXX XXXX" autocomplete="tel" maxlength="11">
+            <input type="tel" id="mobile" name="mobile" placeholder="09XX XXX XXXX" autocomplete="tel" maxlength="11">
           </div>
           <div class="field">
             <label for="email">Email Address <span style="color:#e53e3e">*</span></label>
-            <input type="email" id="email" placeholder="your@email.com" autocomplete="email">
+            <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email">
           </div>
         </div>
         <div class="step-nav">
@@ -253,27 +275,27 @@
         <div class="form-grid form-row-2">
           <div class="field">
             <label for="province">Province <span style="color:#e53e3e">*</span></label>
-            <input type="text" id="province" placeholder="e.g. La Union" autocomplete="address-level1">
+            <input type="text" id="province" name="province" placeholder="e.g. La Union" autocomplete="address-level1">
           </div>
           <div class="field">
             <label for="city">City / Municipality <span style="color:#e53e3e">*</span></label>
-            <input type="text" id="city" placeholder="e.g. San Fernando" autocomplete="address-level2">
+            <input type="text" id="city" name="city" placeholder="e.g. San Fernando" autocomplete="address-level2">
           </div>
           <div class="field">
             <label for="barangay">Barangay <span style="color:#e53e3e">*</span></label>
-            <input type="text" id="barangay" placeholder="e.g. Brgy. Pagudpud" autocomplete="address-level3">
+            <input type="text" id="barangay" name="barangay" placeholder="e.g. Brgy. Pagudpud" autocomplete="address-level3">
           </div>
           <div class="field">
             <label for="housenum">House Number <span style="color:#e53e3e">*</span></label>
-            <input type="text" id="housenum" placeholder="e.g. 123" autocomplete="address-line2">
+            <input type="text" id="housenum" name="house_number" placeholder="e.g. 123" autocomplete="address-line2">
           </div>
           <div class="field">
             <label for="street">Street Name <span style="color:#e53e3e">*</span></label>
-            <input type="text" id="street" placeholder="e.g. Quezon Ave." autocomplete="street-address">
+            <input type="text" id="street" name="street" placeholder="e.g. Quezon Ave." autocomplete="street-address">
           </div>
           <div class="field">
             <label for="village">Village / Subdivision</label>
-            <input type="text" id="village" placeholder="e.g. Greenview Subd." autocomplete="address-line1">
+            <input type="text" id="village" name="village" placeholder="e.g. Greenview Subd." autocomplete="address-line1">
           </div>
         </div>
 
@@ -375,13 +397,33 @@
           </button>
         </div>
 
-        <!-- Submit -->
+        <div class="review-section application-attachments">
+          <span class="review-section-title">Supporting Documents</span>
+          <p class="application-note">Accepted file types and maximum sizes require client confirmation. Files remain in your browser because online submission is not connected.</p>
+          <div class="form-grid form-row-2">
+            <div class="field">
+              <label for="proof-billing">Proof of billing <span aria-hidden="true">*</span></label>
+              <input type="file" id="proof-billing" name="proof_billing" required>
+            </div>
+            <div class="field">
+              <label for="supporting-document">Additional supporting document</label>
+              <input type="file" id="supporting-document" name="supporting_document">
+            </div>
+          </div>
+          <label class="application-consent" for="privacy-consent">
+            <input type="checkbox" id="privacy-consent" name="privacy_consent" required>
+            <span>I have read and agree to the <a href="cablelink_privacy.html">CableLink Privacy Notice</a>. Consent wording is pending client approval.</span>
+          </label>
+        </div>
+
+        <!-- Submission boundary -->
         <div class="submit-cta">
-          <p>By submitting, you agree to CableLink's <a href="#" style="color:var(--blue-primary);font-weight:700">Terms of Service</a> and <a href="#" style="color:var(--blue-primary);font-weight:700">Privacy Policy</a>. A representative will contact you to confirm your application within 1–2 business days.</p>
-          <button class="button button--primary btn-apply" onclick="submitApplication()">
-            Apply Now
+          <p>Review is available in this prototype. Transmission requires a client-approved endpoint, payload contract, validation rules, and secure document handling.</p>
+          <button class="button button--primary btn-apply" type="button" onclick="submitApplication()">
+            Submit Application
             <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </button>
+          <p class="application-status" id="application-submit-status" role="status" aria-live="polite"></p>
         </div>
 
         <div class="step-nav" style="border-top:none;margin-top:1rem;justify-content:flex-start">
@@ -390,19 +432,6 @@
           </button>
         </div>
       </div>
-    </div>
-
-    <!-- SUCCESS SCREEN -->
-    <div class="success-screen" id="successScreen">
-      <div class="success-icon">
-        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-      </div>
-      <h2>Application Submitted!</h2>
-      <p>Thank you for applying with CableLink. We've received your application and our team will reach out within 1–2 business days to confirm your installation schedule.</p>
-      <div class="success-ref" id="successRef">REF: CL-XXXXXX</div>
-      <a href="cablelink_modern_v2.html" class="button button--primary btn-next" style="display:inline-flex;text-decoration:none">
-        Back to Home <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      </a>
     </div>
 
   </div><!-- /form-area -->
@@ -436,11 +465,13 @@
     </div>
     <div class="help-card">
       <h4>Need help choosing?</h4>
-      <p>Our team can help you pick the right plan for your home and area.</p>
-      <a href="#" class="help-link">
-        Chat with us
+      <p>Use an available client-approved support channel or visit the contact page.</p>
+      <a href="cablelink_contact.html" class="help-link">
+        Contact Us
         <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
+      <a data-config-link="messenger" class="help-link" target="_blank" rel="noopener noreferrer" hidden>Messenger</a>
+      <a data-config-link="viber" class="help-link" target="_blank" rel="noopener noreferrer" hidden>Viber</a>
     </div>
   </aside>
 
@@ -541,10 +572,10 @@
   };
 
   // ===== TV PLAN =====
-  window.selectTVPlan = function(id, name, price){
+  window.selectTVPlan = function(id, name, price, sourceCard){
     state.tvPlan = {id:id, name:name, price:price};
     document.querySelectorAll('.tv-plan-card').forEach(function(c){c.classList.remove('selected')});
-    event.currentTarget.classList.add('selected');
+    if(sourceCard) sourceCard.classList.add('selected');
     document.getElementById('nextBtn2').disabled = false;
     document.getElementById('sum-plan').textContent = name;
     document.getElementById('sum-tv').textContent = name;
@@ -688,18 +719,50 @@
 
   // ===== SUBMIT =====
   window.submitApplication = function(){
-    var ref = 'CL-' + Math.floor(100000 + Math.random()*900000);
-    document.getElementById('successRef').textContent = 'REF: ' + ref;
-    document.querySelectorAll('.step-block').forEach(function(b){b.classList.remove('active-step')});
-    document.getElementById('steps-strip') && (document.getElementById('steps-strip').style.display='none');
-    document.querySelector('.steps-strip').style.display='none';
-    document.getElementById('successScreen').classList.add('show');
-    document.getElementById('sum-service').innerHTML = '✓ Submitted';
-    window.scrollTo({top:0,behavior:'smooth'});
+    var config = window.CableLinkConfig || { integrations: {} };
+    var proof = document.getElementById('proof-billing');
+    var consent = document.getElementById('privacy-consent');
+    var status = document.getElementById('application-submit-status');
+
+    if(!proof.files.length || !consent.checked){
+      status.textContent = 'Add the required proof of billing and confirm the Privacy Notice before submission can be reviewed.';
+      status.className = 'application-status is-error';
+      (!proof.files.length ? proof : consent).focus();
+      return;
+    }
+
+    status.textContent = config.integrations.applicationEndpoint
+      ? 'Not submitted. An endpoint is configured, but the approved payload contract and secure server-side document workflow are not implemented.'
+      : 'Not submitted. CableLink must provide and approve the application endpoint, payload contract, and secure document workflow.';
+    status.className = 'application-status is-warning';
   };
 
   // ===== INIT =====
   renderSpeedCards();
+
+  var availabilityForm = document.getElementById('availability-form');
+  availabilityForm.addEventListener('submit', function(event){
+    event.preventDefault();
+    var city = document.getElementById('availability-city');
+    var barangay = document.getElementById('availability-barangay');
+    var status = document.getElementById('availability-status');
+    city.classList.toggle('error', !city.value.trim());
+    barangay.classList.toggle('error', !barangay.value.trim());
+
+    if(!city.value.trim() || !barangay.value.trim()){
+      status.textContent = 'Enter both your city or municipality and barangay to continue.';
+      status.className = 'application-status is-error';
+      (!city.value.trim() ? city : barangay).focus();
+      return;
+    }
+
+    document.getElementById('city').value = city.value.trim();
+    document.getElementById('barangay').value = barangay.value.trim();
+    document.getElementById('application-journey').hidden = false;
+    status.textContent = 'Location recorded for serviceability review. Availability has not been confirmed by this prototype.';
+    status.className = 'application-status is-warning';
+    document.getElementById('application-journey').scrollIntoView({behavior:'smooth', block:'start'});
+  });
 
   // ===== PRE-FILL FROM URL PARAMS =====
   (function prefillFromURL(){

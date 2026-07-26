@@ -262,9 +262,9 @@
 
       .services-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0;
-        align-items: center;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+        align-items: stretch;
       }
 
       .svc-card {
@@ -277,6 +277,9 @@
         transition:
           transform 0.3s,
           box-shadow 0.3s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
       .svc-card:hover {
@@ -321,6 +324,10 @@
         background: rgba(3, 77, 182, 0.09);
       }
 
+      .svc-icon.e {
+        background: rgba(0, 122, 254, 0.09);
+      }
+
       .svc-icon svg {
         width: 34px;
         height: 34px;
@@ -342,10 +349,13 @@
         color: var(--muted);
         line-height: 1.65;
         margin-bottom: 1.4rem;
+        flex: 1;
       }
 
       .svc-btn {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         background: var(--blue-primary);
         color: #fff;
         padding: 10px 24px;
@@ -353,6 +363,7 @@
         font-family: var(--font);
         font-size: 0.8rem;
         font-weight: 700;
+        line-height: 1;
         text-decoration: none;
         letter-spacing: 0.4px;
         transition:
@@ -363,6 +374,14 @@
       .svc-btn:hover {
         background: var(--blue-secondary);
         transform: translateY(-1px);
+      }
+
+      .svc-btn--orange {
+        background: var(--orange);
+      }
+
+      .svc-btn--cyan {
+        background: var(--blue-secondary);
       }
 
       @media (max-width: 950px) {
