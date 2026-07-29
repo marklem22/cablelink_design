@@ -5,10 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Apply for a New Connection — CableLink</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css?v=20260725-2">
-  <link rel="stylesheet" href="assets/css/cablelink_apply.css?v=20260725-1">
-  <script src="assets/js/site-config.js?v=20260725-1" defer></script>
-  <script src="assets/js/site-shell.js?v=20260725-2" defer></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260729-footer-3">
+  <link rel="stylesheet" href="assets/css/cablelink_apply.css?v=20260729-1">
+  <script src="assets/js/site-config.js?v=20260728-4" defer></script>
+  <script src="assets/js/site-shell.js?v=20260729-footer-inc-1" defer></script>
+  <script src="assets/js/pages/apply-agreements.js?v=20260727-1" defer></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous" defer></script>
+  <script src="assets/js/pages/apply-coverage.js?v=20260729-1" defer></script>
 </head>
 <body data-page="apply">
 
@@ -30,30 +34,46 @@
   </div>
 </section>
 
-<!-- MAIN LAYOUT -->
-<section class="apply-section">
-<div class="container">
-  <form class="availability-card" id="availability-form" novalidate>
-    <div>
-      <span class="section__tag">Serviceability Preflight</span>
-      <h2>Check your location before choosing a plan</h2>
-      <p>This frontend can record your location for review, but it cannot confirm live coverage until CableLink provides a coverage source or API.</p>
-    </div>
-    <div class="availability-card__fields">
-      <div class="field">
-        <label for="availability-city">City / Municipality</label>
-        <input type="text" id="availability-city" name="availability_city" autocomplete="address-level2" required>
+<!-- COVERAGE AREAS -->
+<section class="coverage-section background-fixed" id="coverage-areas" aria-labelledby="coverage-title">
+  <div class="container coverage-layout">
+    <div class="coverage-panel">
+      <header class="section__header coverage-head">
+        <span class="section__tag">Service Availability</span>
+        <h2 id="coverage-title">Coverage Areas for Iblaze &amp; Fiberlink</h2>
+        <p>Explore the available service areas and find coverage in your location before choosing a plan.</p>
+      </header>
+      <div class="coverage-tabs" role="tablist" aria-label="Coverage provider">
+        <button class="coverage-tab is-active" type="button" role="tab" aria-selected="true" data-tab="iblaze"><span class="coverage-tab-dot iblaze"></span>Iblaze <span class="coverage-tab-sub">(Cable Internet)</span></button>
+        <button class="coverage-tab" type="button" role="tab" aria-selected="false" data-tab="fiberlink"><span class="coverage-tab-dot fiberlink"></span>Fiberlink <span class="coverage-tab-sub">(Fiber Internet)</span></button>
       </div>
-      <div class="field">
-        <label for="availability-barangay">Barangay</label>
-        <input type="text" id="availability-barangay" name="availability_barangay" autocomplete="address-level3" required>
+      <div class="coverage-items" data-panel="iblaze">
+        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Muntinlupa" data-zoom="12.8"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Muntinlupa</span><span class="coverage-item-meta">Includes Filinvest coverage zone</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
+        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Pasay" data-zoom="13.2"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Pasay</span><span class="coverage-item-meta">Includes SMDC developments</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
+        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Manila" data-zoom="12.6"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Manila</span><span class="coverage-item-meta">Includes SMDC, DMCI, and Cityland</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
+        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Bacoor, Cavite" data-zoom="12.3"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Bacoor, Cavite</span><span class="coverage-item-meta">Metro south expansion zone</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
+        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Mandaluyong" data-zoom="13.3"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Mandaluyong</span><span class="coverage-item-meta">Includes Cityland sites</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
       </div>
-      <button class="button button--primary btn-next" type="submit">Continue Application</button>
+      <div class="coverage-items" data-panel="fiberlink" hidden>
+        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Paranaque" data-zoom="12.9"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Paranaque</span><span class="coverage-item-meta">Fiber corridor in the south metro</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
+        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Las Pinas" data-zoom="12.9"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Las Pinas</span><span class="coverage-item-meta">Residential and mixed-use coverage zone</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
+        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Imus, Cavite" data-zoom="12.2"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Imus, Cavite</span><span class="coverage-item-meta">Cavite expansion coverage</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
+        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Sta. Maria, Bulacan" data-zoom="11.6"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Sta. Maria, Bulacan</span><span class="coverage-item-meta">Northern coverage cluster</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
+        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Quezon City" data-zoom="12.2"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Quezon City</span><span class="coverage-item-meta">Includes SMDC, Cityland, and DMCI</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
+      </div>
+      <button class="coverage-view-all" type="button">View All Coverage Areas <span aria-hidden="true">&rarr;</span></button>
     </div>
-    <p class="application-status" id="availability-status" role="status" aria-live="polite"></p>
-  </form>
-</div>
-<div class="container apply-layout" id="application-journey" hidden>
+    <div class="coverage-map-shell" aria-label="Coverage area map">
+      <div class="coverage-map-toolbar" aria-hidden="true"><div class="coverage-map-pill"><span class="iblaze"></span>Iblaze Coverage</div><div class="coverage-map-pill"><span class="fiberlink"></span>Fiberlink Coverage</div></div>
+      <div id="coverage-map" class="coverage-map" role="application" aria-label="Cable Link proposed coverage area map"></div>
+      <div class="coverage-map-fallback">Loading coverage map...</div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION FORM -->
+<section class="apply-section" id="application-journey">
+<div class="container apply-layout">
 
   <!-- STEP INDICATOR -->
   <div class="steps-strip">
@@ -399,27 +419,33 @@
 
         <div class="review-section application-attachments">
           <span class="review-section-title">Supporting Documents</span>
-          <p class="application-note">Accepted file types and maximum sizes require client confirmation. Files remain in your browser because online submission is not connected.</p>
+          <p class="application-note">Valid ID and Proof of Billing are required for the reviewed frontend flow. Approved file types and maximum sizes still require client confirmation. Files remain in your browser because online submission is not connected.</p>
           <div class="form-grid form-row-2">
             <div class="field">
-              <label for="proof-billing">Proof of billing <span aria-hidden="true">*</span></label>
-              <input type="file" id="proof-billing" name="proof_billing" required>
+              <label for="valid-id">Valid ID <span aria-hidden="true">*</span></label>
+              <input type="file" id="valid-id" name="valid_id" required>
             </div>
             <div class="field">
-              <label for="supporting-document">Additional supporting document</label>
-              <input type="file" id="supporting-document" name="supporting_document">
+              <label for="proof-billing">Proof of Billing <span aria-hidden="true">*</span></label>
+              <input type="file" id="proof-billing" name="proof_billing" required>
             </div>
           </div>
-          <label class="application-consent" for="privacy-consent">
-            <input type="checkbox" id="privacy-consent" name="privacy_consent" required>
-            <span>I have read and agree to the <a href="cablelink_privacy.html">CableLink Privacy Notice</a>. Consent wording is pending client approval.</span>
-          </label>
+          <div class="application-consent-list">
+            <label class="application-consent" for="terms-consent">
+              <input type="checkbox" id="terms-consent" name="terms_consent" required>
+              <span>I have opened and accepted the <button class="application-agreement-link" type="button" data-agreement-open="terms">Terms of Service</button>. Final legal content is pending client approval.</span>
+            </label>
+            <label class="application-consent" for="privacy-consent">
+              <input type="checkbox" id="privacy-consent" name="privacy_consent" required>
+              <span>I have opened and accepted the <button class="application-agreement-link" type="button" data-agreement-open="privacy">Privacy Policy</button>. Final legal content is pending client approval.</span>
+            </label>
+          </div>
         </div>
 
         <!-- Submission boundary -->
         <div class="submit-cta">
           <p>Review is available in this prototype. Transmission requires a client-approved endpoint, payload contract, validation rules, and secure document handling.</p>
-          <button class="button button--primary btn-apply" type="button" onclick="submitApplication()">
+          <button class="button button--primary btn-apply" id="application-submit" type="button" disabled>
             Submit Application
             <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </button>
@@ -477,6 +503,50 @@
 
 </div><!-- /apply-layout -->
 </section>
+
+<div class="agreement-modal" id="terms-agreement-modal" role="dialog" aria-modal="true" aria-labelledby="terms-agreement-title" hidden>
+  <div class="agreement-modal__backdrop" data-agreement-close></div>
+  <div class="agreement-modal__dialog">
+    <button class="agreement-modal__close" type="button" aria-label="Close Terms of Service" data-agreement-close>&times;</button>
+    <header class="agreement-modal__header">
+      <h2 id="terms-agreement-title">Terms of Service</h2>
+      <p>The final client-approved Terms of Service has not yet been supplied.</p>
+    </header>
+    <div class="agreement-modal__body">
+      <div class="status-panel" role="note">
+        <h3>Legal content pending approval</h3>
+        <p>No Terms of Service language has been invented. Open the prepared Terms route to review its current status.</p>
+        <a class="button button--secondary" href="cablelink_terms.html" target="_blank" rel="noopener noreferrer">Open Terms Route</a>
+      </div>
+    </div>
+    <div class="agreement-modal__actions">
+      <button class="button button--secondary" type="button" data-agreement-close>Cancel</button>
+      <button class="button button--primary" type="button" data-agreement-accept="terms">Accept Terms</button>
+    </div>
+  </div>
+</div>
+
+<div class="agreement-modal" id="privacy-agreement-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-agreement-title" hidden>
+  <div class="agreement-modal__backdrop" data-agreement-close></div>
+  <div class="agreement-modal__dialog">
+    <button class="agreement-modal__close" type="button" aria-label="Close Privacy Policy" data-agreement-close>&times;</button>
+    <header class="agreement-modal__header">
+      <h2 id="privacy-agreement-title">Privacy Policy</h2>
+      <p>The final client-approved Privacy Policy has not yet been supplied.</p>
+    </header>
+    <div class="agreement-modal__body">
+      <div class="status-panel" role="note">
+        <h3>Legal content pending approval</h3>
+        <p>No privacy language has been invented. Open the prepared Privacy Notice route to review its current status.</p>
+        <a class="button button--secondary" href="cablelink_privacy.html" target="_blank" rel="noopener noreferrer">Open Privacy Route</a>
+      </div>
+    </div>
+    <div class="agreement-modal__actions">
+      <button class="button button--secondary" type="button" data-agreement-close>Cancel</button>
+      <button class="button button--primary" type="button" data-agreement-accept="privacy">Accept Privacy Policy</button>
+    </div>
+  </div>
+</div>
 </main>
 
 <script>
@@ -720,14 +790,17 @@
   // ===== SUBMIT =====
   window.submitApplication = function(){
     var config = window.CableLinkConfig || { integrations: {} };
+    var validId = document.getElementById('valid-id');
     var proof = document.getElementById('proof-billing');
-    var consent = document.getElementById('privacy-consent');
+    var terms = document.getElementById('terms-consent');
+    var privacy = document.getElementById('privacy-consent');
     var status = document.getElementById('application-submit-status');
+    var firstInvalid = !validId.files.length ? validId : !proof.files.length ? proof : !terms.checked ? terms : !privacy.checked ? privacy : null;
 
-    if(!proof.files.length || !consent.checked){
-      status.textContent = 'Add the required proof of billing and confirm the Privacy Notice before submission can be reviewed.';
+    if(firstInvalid){
+      status.textContent = 'Add the required Valid ID and Proof of Billing, then accept both the Terms of Service and Privacy Policy before submission can be reviewed.';
       status.className = 'application-status is-error';
-      (!proof.files.length ? proof : consent).focus();
+      firstInvalid.focus();
       return;
     }
 
@@ -740,29 +813,6 @@
   // ===== INIT =====
   renderSpeedCards();
 
-  var availabilityForm = document.getElementById('availability-form');
-  availabilityForm.addEventListener('submit', function(event){
-    event.preventDefault();
-    var city = document.getElementById('availability-city');
-    var barangay = document.getElementById('availability-barangay');
-    var status = document.getElementById('availability-status');
-    city.classList.toggle('error', !city.value.trim());
-    barangay.classList.toggle('error', !barangay.value.trim());
-
-    if(!city.value.trim() || !barangay.value.trim()){
-      status.textContent = 'Enter both your city or municipality and barangay to continue.';
-      status.className = 'application-status is-error';
-      (!city.value.trim() ? city : barangay).focus();
-      return;
-    }
-
-    document.getElementById('city').value = city.value.trim();
-    document.getElementById('barangay').value = barangay.value.trim();
-    document.getElementById('application-journey').hidden = false;
-    status.textContent = 'Location recorded for serviceability review. Availability has not been confirmed by this prototype.';
-    status.className = 'application-status is-warning';
-    document.getElementById('application-journey').scrollIntoView({behavior:'smooth', block:'start'});
-  });
 
   // ===== PRE-FILL FROM URL PARAMS =====
   (function prefillFromURL(){
@@ -827,6 +877,40 @@
 
 })();
 </script>
+
+<!-- Privacy Notice Modal -->
+<div class="privacy-modal" id="privacy-entry-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-entry-title" aria-describedby="privacy-entry-description" hidden>
+  <div class="privacy-modal__backdrop" data-privacy-close></div>
+  <div class="privacy-modal__dialog" role="document">
+    <button class="privacy-modal__close" type="button" aria-label="Close privacy notice" data-privacy-close><span aria-hidden="true">&times;</span></button>
+    <div class="privacy-modal__heading">
+      <span class="privacy-modal__shield" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 5.5 38 11v10.1c0 9.4-5.8 17.7-14 21.4-8.2-3.7-14-12-14-21.4V11l14-5.5Z" /><rect x="18.5" y="21.5" width="11" height="9" rx="1.5" /><path d="M20.5 21.5v-3a3.5 3.5 0 0 1 7 0v3M24 25v2" /></svg></span>
+      <div>
+        <span class="section__tag">Privacy Notice</span>
+        <h2 id="privacy-entry-title"><span>Your Privacy Matters</span><span>to CableLink</span></h2>
+      </div>
+    </div>
+    <div class="privacy-modal__copy" id="privacy-entry-description">
+      <p>We are committed to protecting your personal information and being transparent about how we collect, use, and safeguard your data.</p>
+      <p>By continuing to browse this website, you acknowledge CableLink&rsquo;s Privacy Notice.</p>
+    </div>
+    <div class="privacy-modal__choices" aria-label="Privacy notice options">
+      <a class="privacy-modal__choice" href="cablelink_privacy.html">
+        <span class="privacy-modal__choice-icon privacy-modal__choice-icon--document" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M14 5.5h15l7 7v29H14z" /><path d="M29 5.5v8h7M19 22h12M19 28h12M19 34h8" /></svg></span>
+        View Privacy Notice
+        <small>Learn how we protect your information.</small>
+        <span class="privacy-modal__choice-arrow" aria-hidden="true">&rsaquo;</span>
+      </a>
+      <a class="privacy-modal__choice" data-config-link="facebook" href="https://www.facebook.com/CablelinkTV" target="_blank" rel="noopener noreferrer">
+        <span class="privacy-modal__choice-icon privacy-modal__choice-icon--facebook" aria-hidden="true">f</span>
+        Like Us on Facebook
+        <small>Stay updated and connect with us.</small>
+        <span class="privacy-modal__choice-arrow" aria-hidden="true">&rsaquo;</span>
+      </a>
+      <button class="privacy-modal__continue button button--primary" type="button" data-privacy-continue>Continue to Website <span aria-hidden="true">&rarr;</span></button>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

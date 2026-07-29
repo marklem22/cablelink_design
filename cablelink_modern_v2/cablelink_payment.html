@@ -6,11 +6,11 @@
 <title>Cable Link — Payment Facilities</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/site.css?v=20260725-2">
-  <link rel="stylesheet" href="assets/css/cablelink_payment.css?v=20260725-1">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260729-footer-3">
+  <link rel="stylesheet" href="assets/css/cablelink_payment.css?v=20260729-1">
   <script src="assets/js/site-config.js?v=20260725-1" defer></script>
-  <script src="assets/js/site-shell.js?v=20260725-2" defer></script>
-  <script src="assets/js/pages/payment.js?v=20260725-1" defer></script>
+  <script src="assets/js/site-shell.js?v=20260729-footer-inc-1" defer></script>
+  <script src="assets/js/pages/payment.js?v=20260729-1" defer></script>
 </head>
 <body data-page="payment">
 <main id="main-content">
@@ -34,606 +34,1456 @@
 </section>
 
 <!-- Coverage checking belongs to the Get Connected journey and is intentionally absent from Payment Facilities. -->
-<!-- WALK-IN SECTION -->
-<section class="walkin-section background-fixed" id="offices">
-  <div class="container">
-  <div class="section__header" style="margin-bottom:2.5rem">
-    <span class="section__tag">Walk-In Payment</span>
-    <h2>Visit Our Payment Centers</h2>
-    <p>Prefer paying in person? Our offices are open on weekdays and Saturdays to assist you with billing and payments.</p>
-  </div>
-
-  <div class="walkin-grid">
-
-    <div class="office-list custom-locations">
-
-      <div class="office-card">
-        <div class="office-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Main Office — Bauang</div>
-          <div class="office-addr"><span class="line-break">National Highway, Bauang, La Union</span><span class="line-break">Near Bauang Municipal Hall</span></div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Mon–Fri 8:00 AM – 5:00 PM
-          </div>
-        </div>
-      </div>
-
-      <div class="office-card">
-        <div class="office-icon orange-bg">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Branch — San Fernando</div>
-          <div class="office-addr"><span class="line-break">Quezon Ave., San Fernando City, La Union</span><span class="line-break">2nd Floor, CableLink Building</span></div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Mon–Sat 8:00 AM – 5:00 PM
-          </div>
-        </div>
-      </div>
-
-      <div class="office-card">
-        <div class="office-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Sub-Office — Agoo</div>
-          <div class="office-addr"><span class="line-break">Rizal St., Agoo, La Union</span><span class="line-break">Ground Floor, Plaza Commercial Center</span></div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Mon–Fri 8:00 AM – 4:30 PM
-          </div>
-        </div>
-      </div>
-
-      <div class="office-card">
-        <div class="office-icon orange-bg">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Drop Box — SM San Fernando</div>
-          <div class="office-addr"><span class="line-break">SM City San Fernando, La Union</span><span class="line-break">Near Main Entrance, Customer Service Area</span></div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Daily 10:00 AM – 8:00 PM
-          </div>
-        </div>
-      </div>
-
-      <div class="office-card" data-office="Las Pinas" data-lat="14.480381749145401" data-lng="120.9811410085882">
-        <div class="office-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Las Pinas</div>
-          <div class="office-addr">Cable Link walk-in payment center serving the Las Pinas area.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
-          </div>
-        </div>
-      </div>
-
-      <div class="office-card" data-office="Paranaque" data-lat="14.473252598769863" data-lng="121.00363723112575">
-        <div class="office-icon orange-bg">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Paranaque</div>
-          <div class="office-addr">Cable Link walk-in payment center serving the Paranaque area.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
-          </div>
-        </div>
-      </div>
-
-      <div class="office-card" data-office="Muntinlupa" data-lat="14.395334079355175" data-lng="121.04526049649293">
-        <div class="office-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Muntinlupa</div>
-          <div class="office-addr">Cable Link walk-in payment center serving the Muntinlupa area.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
-          </div>
-        </div>
-      </div>
-
-      <div class="office-card" data-office="Bacoor / Imus" data-lat="14.432482610072915" data-lng="120.94651608465576">
-        <div class="office-icon orange-bg">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Bacoor / Imus</div>
-          <div class="office-addr">Cable Link walk-in payment center serving Bacoor and Imus.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
-          </div>
-        </div>
-      </div>
-
-      <div class="office-card" data-office="Taguig / Pateros" data-lat="14.54126567003397" data-lng="121.06694008465577">
-        <div class="office-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Taguig / Pateros</div>
-          <div class="office-addr">Cable Link walk-in payment center serving Taguig and Pateros.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
-          </div>
-        </div>
-      </div>
-
-      <div class="office-card" data-office="Pasay" data-lat="14.545432891859454" data-lng="120.99429891534423">
-        <div class="office-icon orange-bg">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Pasay</div>
-          <div class="office-addr">Cable Link walk-in payment center serving the Pasay area.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
-          </div>
-        </div>
-      </div>
-
-      <div class="office-card" data-office="Quezon City" data-lat="14.652048201300053" data-lng="121.02912932851166">
-        <div class="office-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Quezon City</div>
-          <div class="office-addr">Cable Link walk-in payment center serving the Quezon City area.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
-          </div>
-        </div>
-      </div>
-
-      <div class="office-card" data-office="Binan" data-lat="14.335028772466464" data-lng="121.07932441534425">
-        <div class="office-icon orange-bg">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Binan</div>
-          <div class="office-addr">Cable Link walk-in payment center serving the Binan area.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
-          </div>
-        </div>
-      </div>
-
-      <div class="office-card" data-office="San Pedro" data-lat="14.36663369654569" data-lng="121.05093517116391">
-        <div class="office-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div>
-          <div class="office-name">San Pedro</div>
-          <div class="office-addr">Cable Link walk-in payment center serving the San Pedro area.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
-          </div>
-        </div>
-      </div>
-
-      <div class="office-card" data-office="Antipolo" data-lat="14.583514123317864" data-lng="121.16975508465578">
-        <div class="office-icon orange-bg">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Antipolo</div>
-          <div class="office-addr">Cable Link walk-in payment center serving the Antipolo area.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
-          </div>
-        </div>
-      </div>
-
-      <div class="office-card" data-office="Bulacan" data-lat="14.822538818475078" data-lng="120.95882276160106">
-        <div class="office-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Bulacan</div>
-          <div class="office-addr">Cable Link walk-in payment center serving the Bulacan area.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="map-panel" aria-label="Office locator map">
-      <div class="map-status">
-        <div class="map-badge">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          11 Listed Locations
-        </div>
-        <div class="map-help">
-          <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M12 4h9"/><path d="M4 9h16"/><path d="M4 15h16"/></svg>
-          Tap a branch card to zoom the map
-        </div>
-      </div>
-      <div id="office-map" class="map-canvas" role="application" aria-label="Cable Link office locations map"></div>
-      <div class="map-fallback">Loading office map...</div>
-    </div>
-
-  </div>
-  </div>
-</section>
-
-<!-- PARTNER BANKS & PAYMENT CENTERS -->
+<!-- PAYMENT PARTNERS -->
 <section class="banks-section background-fixed" id="partners">
   <div class="container">
-  <div class="section__header">
-    <span class="section__tag">Accredited Partners</span>
-    <h2>Banks & Payment Centers</h2>
-    <p>Choose from banks, cards, e-wallets, kiosks, and partner payment centers using the supported channels below.</p>
+    <div class="section__header">
+      <span class="section__tag">Accredited Partners</span>
+      <h2>Payment Partners</h2>
+      <p>Select a partner to view its available CableLink payment instructions.</p>
+    </div>
+
+    <!-- <form class="facility-search" id="facility-search" role="search">
+      <label for="payment-facility-search">Search payment partners</label>
+      <div class="facility-search__controls">
+        <input id="payment-facility-search" name="query" type="search" placeholder="Search by payment partner" autocomplete="off">
+        <button class="button button--primary" type="submit">Search</button>
+      </div>
+      <p class="facility-search__status" id="facility-search-status" role="status" aria-live="polite"></p>
+    </form> -->
+
+    <div class="banks-grid">
+      <button class="bank-card" type="button" aria-label="View Bayad Center payment instructions" aria-haspopup="dialog" aria-controls="bank-details-bayad" data-bank-dialog="bank-details-bayad">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/bayad.png" alt="ecpay"></span>
+        <span class="bank-name">Bayad Center</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View BDO payment instructions" aria-haspopup="dialog" aria-controls="bank-details-bdo" data-bank-dialog="bank-details-bdo">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/bdo.png" alt="BDO"></span>
+        <span class="bank-name">BDO</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View ECPay payment instructions" aria-haspopup="dialog" aria-controls="bank-details-ecpay" data-bank-dialog="bank-details-ecpay">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/ECPay.png" alt="ecpay"></span>
+        <span class="bank-name">ECPay</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View 7-Eleven payment instructions" aria-haspopup="dialog" aria-controls="bank-details-seven-eleven" data-bank-dialog="bank-details-seven-eleven">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/7-Eleven.png" alt="7/11"></span>
+        <span class="bank-name">7-Eleven</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View TouchPay payment instructions" aria-haspopup="dialog" aria-controls="bank-details-touchpay" data-bank-dialog="bank-details-touchpay">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/TouchPay.png" alt="touchpay"></span>
+        <span class="bank-name">TouchPay</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View EastWest Bank payment instructions" aria-haspopup="dialog" aria-controls="bank-details-eastwest" data-bank-dialog="bank-details-eastwest">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/eastwest.png" alt="eastwest"></span>
+        <span class="bank-name">EastWest Bank</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View BPI payment instructions" aria-haspopup="dialog" aria-controls="bank-details-bpi" data-bank-dialog="bank-details-bpi">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/bpi.png" alt="BPI"></span>
+        <span class="bank-name">BPI</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View UnionBank payment instructions" aria-haspopup="dialog" aria-controls="bank-details-unionbank" data-bank-dialog="bank-details-unionbank">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/unionbank.png" alt="unionbank"></span>
+        <span class="bank-name">UnionBank</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View RCBC payment instructions" aria-haspopup="dialog" aria-controls="bank-details-rcbc" data-bank-dialog="bank-details-rcbc">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/RCBC Blue-01.png" alt="rcbc"></span>
+        <span class="bank-name">RCBC</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View BancNet payment instructions" aria-haspopup="dialog" aria-controls="bank-details-bancnet" data-bank-dialog="bank-details-bancnet">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/Bancnet.png" alt="bancnet"></span>
+        <span class="bank-name">BancNet</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View Any Visa, MasterCard, AMEX and JCB payment instructions" aria-haspopup="dialog" aria-controls="bank-details-cards" data-bank-dialog="bank-details-cards">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/visa-master.png" alt="Any Visa, MasterCard, AMEX and JCB"></span>
+        <span class="bank-name">Any Visa, MasterCard, AMEX and JCB</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View Asia United Bank payment instructions" aria-haspopup="dialog" aria-controls="bank-details-aub" data-bank-dialog="bank-details-aub">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/aub.png" alt="aub"></span>
+        <span class="bank-name">Asia United Bank</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View GCash payment instructions" aria-haspopup="dialog" aria-controls="bank-details-gcash" data-bank-dialog="bank-details-gcash">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/gcash.png" alt="gcash"></span>
+        <span class="bank-name">GCash</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View CLiQQ payment instructions" aria-haspopup="dialog" aria-controls="bank-details-cliqq" data-bank-dialog="bank-details-cliqq">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/cliqq.png" alt="cliqq"></span>
+        <span class="bank-name">CLiQQ</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View Lazada payment instructions" aria-haspopup="dialog" aria-controls="bank-details-lazada" data-bank-dialog="bank-details-lazada">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/lazada.jpg" alt="lazada"></span>
+        <span class="bank-name">Lazada</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View ShopeePay payment instructions" aria-haspopup="dialog" aria-controls="bank-details-shopeepay" data-bank-dialog="bank-details-shopeepay">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/shopeepay.png" alt="shopeepay"></span>
+        <span class="bank-name">ShopeePay</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View GrabPay payment instructions" aria-haspopup="dialog" aria-controls="bank-details-grabpay" data-bank-dialog="bank-details-grabpay">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/GrabPay.jpg" alt="grabpay"></span>
+        <span class="bank-name">GrabPay</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View Maya payment instructions" aria-haspopup="dialog" aria-controls="bank-details-maya" data-bank-dialog="bank-details-maya">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/maya.png" alt="maya"></span>
+        <span class="bank-name">Maya</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View Coins.ph payment instructions" aria-haspopup="dialog" aria-controls="bank-details-coinsph" data-bank-dialog="bank-details-coinsph">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/coinsph.jpg" alt="coinsph"></span>
+        <span class="bank-name">Coins.ph</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View JuanCash payment instructions" aria-haspopup="dialog" aria-controls="bank-details-juancash" data-bank-dialog="bank-details-juancash">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/juancash.webp" alt="juancash"></span>
+        <span class="bank-name">JuanCash</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View DiskarTech payment instructions" aria-haspopup="dialog" aria-controls="bank-details-diskartech" data-bank-dialog="bank-details-diskartech">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/DISKARTECH.png" alt="diskartech"></span>
+        <span class="bank-name">DiskarTech</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View Peppermint payment instructions" aria-haspopup="dialog" aria-controls="bank-details-peppermint" data-bank-dialog="bank-details-peppermint">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/peppermint.png" alt="perppermint"></span>
+        <span class="bank-name">Peppermint</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View JustPayTo payment instructions" aria-haspopup="dialog" aria-controls="bank-details-justpayto" data-bank-dialog="bank-details-justpayto">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/justpayto.png" alt="justpayto"></span>
+        <span class="bank-name">JustPayTo</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View WeChat Pay payment instructions" aria-haspopup="dialog" aria-controls="bank-details-wechatpay" data-bank-dialog="bank-details-wechatpay">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/wechat.png" alt="wechatpay"></span>
+        <span class="bank-name">WeChat Pay</span>
+      </button>
+      <button class="bank-card" type="button" aria-label="View Alipay payment instructions" aria-haspopup="dialog" aria-controls="bank-details-alipay" data-bank-dialog="bank-details-alipay">
+        <span class="bank-logo-ph"><img src="../cablelink_messy_design/assets/remittance/alipay.png" alt="alipay"></span>
+        <span class="bank-name">Alipay</span>
+      </button>
+        <div class="bank-details-modal" id="bank-details-bayad" role="dialog" aria-modal="true" aria-labelledby="bank-details-bayad-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-bayad-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img src="../cablelink_messy_design/assets/remittance/bayad.png" alt="Bayad Center">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="heading">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otcbayad" aria-expanded="true" aria-controls="otcbayad">
+                                Over-the-counter
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otcbayad" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Subscriber/s should bring their Service Invoice   or ask the teller for " BILLS PAYMENT FORM" then indicate the required details such as ( Account number, Account name, and amount to be paid.</li>
+                                        <li>Review all the details.</li>
+                                        <li>Subscriber/s can settle the balance through CASH or DATED CHEQUE.</li>
+                                        <li>Wait for the validation on your invoice or Bills payment form.</li>
+                                        <li>Check if validated details are all correct before leaving the counter.</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="heading">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#opbayad" aria-expanded="true" aria-controls="opbayad">
+                                Online payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="opbayad" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here's how to pay your Cablelink bill thru BDO: </strong><br /><br /> -->
+                                <ol>
+                                    <li>Go to Bayad Online: <a href="https://www.online.bayad.com" target="_blank" rel="noopener noreferrer">https://www.online.bayad.com</a></li>
+                                    <li>Log in to your Bayad Online account.</li>
+                                    <li>On the 'BILLS PAYMENT' section, click 'Cable/Internet' then "CABLELINK".</li>
+                                    <li>Fill out the required details and then review before payment. Tip: Enable the SAVE BILLER feature for your next payment.</li>
+                                    <li>Wait for your payment confirmation receipt and you're done!.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-bdo" role="dialog" aria-modal="true" aria-labelledby="bank-details-bdo-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-bdo-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img class="bank-details-modal__logo" src="../cablelink_messy_design/assets/remittance/bdo.png" alt="BDO">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otc" aria-expanded="true" aria-controls="otc">
+                                Over-the-counter
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otc" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Subscriber must fill “Bills Payment Form” and “Cablelink” as the Company name</li>
+                                        <li>Indicate also the account number and account name for correct posting</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#op" aria-expanded="true" aria-controls="op">
+                                Online payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="op" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <strong>Here's how to pay your Cablelink bill thru BDO: </strong><br /><br />
+                                <ol>
+                                    <li>Log in to your <strong>BDO Online Banking Account</strong> at <a href="https://online.bdo.com.ph" target="_blank" rel="noopener noreferrer">https://online.bdo.com.ph</a></li>
+                                    <li>Fill out the Enrollment Details and Submit. Once enrolled, go to Pay Bills and Reload > Bills Payment > Pay Bills</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#atmp" aria-expanded="true" aria-controls="atmp">
+                                ATM Payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="atmp" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Select the Bills Payment Button</li>
+                                        <li>Select the type of account that will be used to pay</li>
+                                        <li>Enter the amount to be paid</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-ecpay" role="dialog" aria-modal="true" aria-labelledby="bank-details-ecpay-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-ecpay-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img class="bank-details-modal__logo" src="../cablelink_messy_design/assets/remittance/ECPay.png" alt="ecpay">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otcecpay" aria-expanded="true" aria-controls="otcecpay">
+                                Over-the-counter
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otcecpay" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Subscriber/s should bring their Service Invoice   or ask the teller for " BILLS PAYMENT FORM" then indicate the required details such as Account number, Account name, and amount to be paid.</li>
+                                        <li>Review all the details.</li>
+                                        <li>Subscriber/s can settle the balance through CASH</li>
+                                        <li>Wait for the validation on your invoice or Bills payment form.</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#opecpay" aria-expanded="true" aria-controls="opecpay">
+                                Over kiosk machine
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="opecpay" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here's how to pay your Cablelink bill thru BDO: </strong><br /><br /> -->
+                                <ol>
+                                    <li>In any ecpay kiosk machine. Select “Bills Payment” and display All Billers</a></li>
+                                    <li>Click “Cable and Internet”</li>
+                                    <li>Enter the account number and amount to be paid</li>
+                                    <li>Hand over your kiosk payment slip and cash (no checks please) to the cashier</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-seven-eleven" role="dialog" aria-modal="true" aria-labelledby="bank-details-seven-eleven-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-seven-eleven-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img src="../cablelink_messy_design/assets/remittance/7-Eleven.png" alt="7-ELEVEN">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otc711" aria-expanded="true" aria-controls="otc711">
+                               Over kiosk machine:
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otc711" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Go to any 7-11 branch and look for the Cliqq touch-screen payment kiosk. Select “Bills Payment” and display All Billers</li>
+                                        <li>Click “Cable and Internet”</li>
+                                        <li>Click “Cablelink”</li>
+                                        <li>Enter the account number and amount to be paid</li>
+                                        <li>Hand over your kiosk payment slip and cash (no checks please) to the cashier</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-touchpay" role="dialog" aria-modal="true" aria-labelledby="bank-details-touchpay-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-touchpay-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img class="bank-details-modal__logo" src="../cablelink_messy_design/assets/remittance/TouchPay.png" alt="touchpay">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otctouchpay" aria-expanded="true" aria-controls="otctouchpay">
+                               Over kiosk machine:
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otctouchpay" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Look for Touchpay kiosk, at the screen, select “bills payment” and display All Billers</li>
+                                        <li>Click Cable and Internet</li>
+                                        <li>Click Cablelink</li>
+                                        <li>Enter the account number and amount to be paid</li>
+                                        <li>Disclaimer will appear on the screen, read and click “Continue if you agree”</li>
+                                        <li>Insert cash</li>
+                                        <li>Wait for the receipt for confirmation</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-eastwest" role="dialog" aria-modal="true" aria-labelledby="bank-details-eastwest-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-eastwest-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img class="bank-details-modal__logo" src="../cablelink_messy_design/assets/remittance/eastwest.png" alt="eastwest">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otceastwest" aria-expanded="true" aria-controls="otceastwest">
+                                Over-the-Counter:
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otceastwest" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Subscriber must fill “Bills Payment Form” and “Cablelink” as the Company name</li>
+                                        <li>Indicate also the account number and account name for correct posting</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#opeastwest" aria-expanded="true" aria-controls="opeastwest">
+                                Online payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="opeastwest" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here's how to pay your Cablelink bill thru BDO: </strong><br /><br /> -->
+                                <ol>
+                                    <li>Simply register your Eastwest Deposit Account in <a href="https://www.eastwestbanker.com" target="_blank" rel="noopener noreferrer">https://www.eastwestbanker.com</a></li>
+                                    <li>Log in and choose Cablelink from the enrolled list of Biller, enter the amount then “Confirm”</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#atmpeastwest" aria-expanded="true" aria-controls="atmpeastwest">
+                                ATM Payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="atmpeastwest" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!--<strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br />-->
+                                    <ol>
+                                        <li>Select the Bills Payment Button</li>
+                                        <li>Select the type of account that will be used to pay</li>
+                                        <li>Enter the amount to be paid</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-bpi" role="dialog" aria-modal="true" aria-labelledby="bank-details-bpi-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-bpi-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img class="bank-details-modal__logo" src="../cablelink_messy_design/assets/remittance/bpi.png" alt="BPI">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otcBPI" aria-expanded="true" aria-controls="otcBPI">
+                               Online payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otcBPI" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Must enroll first their BPI account in BPI Online Banking</li>
+                                        <li>Enroll the company / biller in BPI Online Banking for bills payment</li>
+                                        <li>Pay your bills online with BPI Online Banking</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-unionbank" role="dialog" aria-modal="true" aria-labelledby="bank-details-unionbank-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-unionbank-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img class="bank-details-modal__logo" src="../cablelink_messy_design/assets/remittance/unionbank.png" alt="unionbank">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otcunionbank" aria-expanded="true" aria-controls="otcunionbank">
+                               Online payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otcunionbank" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Open your Union Bank App. Tap Pay bills</li>
+                                        <li>Select biller ,Choose biller " CABLELINK"</li>
+                                        <li>Enter the required information. then tap next</li>
+                                        <li>Choose Bank Account ( DEBIT) .</li>
+                                        <li>Enter the amount to be paid then tap next.</li>
+                                        <li>Review all the details, then tap "Pay"</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-rcbc" role="dialog" aria-modal="true" aria-labelledby="bank-details-rcbc-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-rcbc-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img class="bank-details-modal__logo" src="../cablelink_messy_design/assets/remittance/rcbc.png" alt="rcbc">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otcRCBC" aria-expanded="true" aria-controls="otcRCBC">
+                                Over-the-Counter:
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otcRCBC" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Subscriber must fill “Bills Payment Form” and “Cablelink” as the Company name</li>
+                                        <li>Indicate also the account number and account name for correct posting</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#opRCBC" aria-expanded="true" aria-controls="opRCBC">
+                                Online payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="opRCBC" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here's how to pay your Cablelink bill thru BDO: </strong><br /><br /> -->
+                                <ol>
+                                    <li>Go to <a href="https://www.rcbconlinebanking.com" target="_blank" rel="noopener noreferrer">https://www.rcbconlinebanking.com</a> or use your RCBC Mobile App</li>
+                                    <li>Type your User ID & Password, click log-in and enter OTP</li>
+                                    <li>Go to “ Pay Bills “ Menu</li>
+                                    <li>Select List of Billers, Choose “ CABLELINK”</li>
+                                    <li>Input required information and enter the amount to be paid, then click “SUBMIT” button.</li>
+                                    <li>Then Proceed to Payment and Input OTP.</li>
+                                    <li>Wait for RCBC confirmation on payment via SMS/Email.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#atmpRCBC" aria-expanded="true" aria-controls="atmpRCBC">
+                                ATM Payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="atmpRCBC" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Select the Bills Payment Button</li>
+                                        <li>Select the type of account that will be used to pay</li>
+                                        <li>Enter the amount to be paid</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-bancnet" role="dialog" aria-modal="true" aria-labelledby="bank-details-bancnet-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-bancnet-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img class="bank-details-modal__logo" src="../cablelink_messy_design/assets/remittance/Bancnet.png" alt="bancnet">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otcbancnet" aria-expanded="true" aria-controls="otcbancnet">
+                               Online payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otcbancnet" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Log on to <a href="https://www.bancnetonline.com" target="_blank" rel="noopener noreferrer">https://www.bancnetonline.com</a></li>
+                                        <li>On the homepage, click on your bank</li>
+                                        <li>Read the agreement in using Bancnet Online and Click the “I Agree” button if you agree with the Terms and Conditions</li>
+                                        <li>Click on “Payment”</li>
+                                        <li>Fill out the required fields:</li>
+                                        <li>Enter your ATM PIN on the onscreen keypad</li>
+                                        <li>Click the Submit Button</li>
+                                        <li>Details of your transaction will prompt on screen, once verified that they are all correct, click “OK”</li>
+                                        <li>You may print the screen that shows your transaction details as your transaction receipt or click “Close” to conclude the transaction</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-cards" role="dialog" aria-modal="true" aria-labelledby="bank-details-cards-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-cards-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img class="bank-details-modal__logo" src="../cablelink_messy_design/assets/remittance/visa-master.png" alt="Any Visa, MasterCard, AMEX and JCB">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otccards" aria-expanded="true" aria-controls="otccards">
+                               Any Visa, MasterCard, AMEX and JCB
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otccards" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <strong>Two ways to settle:</strong><br /><br />
+                                    <ol>
+                                        <li>Over-the-Counter - Credit Card payment is accepted at selected Cable Link offices.
+                                            ( Parañaque, Las Piñas, Muntinlupa, Pateros and Imus)
+                                        </li>
+                                        <li>Auto Debit Arrangement - Subscribers may enroll at any Cablelink satellite offices. Subscriber must fill up an enrollment form at our office or enrollment forms may be forwarded to subscriber thru e-mail or fax or apply thru online  (Click here)</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-aub" role="dialog" aria-modal="true" aria-labelledby="bank-details-aub-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-aub-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img class="bank-details-modal__logo" src="../cablelink_messy_design/assets/remittance/aub.png" alt="aub">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otcaub" aria-expanded="true" aria-controls="otcaub">
+                                Over-the-Counter:
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otcaub" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Subscriber must fill “Bills Payment Form” and “Cablelink” as the Company name</li>
+                                        <li>Indicate also the account number and account name for correct posting</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#opaub" aria-expanded="true" aria-controls="opaub">
+                                Online payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="opaub" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here's how to pay your Cablelink bill thru BDO: </strong><br /><br /> -->
+                                <ol>
+                                    <li>Log on to <a href="https://www.aub.com.ph" target="_blank" rel="noopener noreferrer">https://www.aub.com.ph</a> enter your user name and and password</li>
+                                    <li>Under the transaction menu, click “Bills Payment”</li>
+                                    <li>Choose the AUB account from which the payment will come from</li>
+                                    <li>Under the biller institution/Merchant, choose “Cablelink and Holdings Corp"</li>
+                                    <li>Enter your account information and amount. Click “Pay” to confirm payment</li>
+                                </ol>
+                                <p>Note: You should receive a confirmation email from AUB if payment is successful </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-gcash" role="dialog" aria-modal="true" aria-labelledby="bank-details-gcash-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-gcash-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img class="bank-details-modal__logo" src="../cablelink_messy_design/assets/remittance/gcash.png" alt="gcash">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otcgcash" aria-expanded="true" aria-controls="otcgcash">
+                               Online payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otcgcash" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>From the Gcash dashboard. Tap “Pay bills “.</li>
+                                        <li>Choose the biller category of Cable/Internet</li>
+                                        <li>Choose “Cablelink” and fill out the amount to pay and the account details</li>
+                                        <li>Review your bills payment details before tapping “Confirm”</li>
+                                        <li>Wait for the text confirmation of your transaction</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-cliqq" role="dialog" aria-modal="true" aria-labelledby="bank-details-cliqq-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-cliqq-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img class="bank-details-modal__logo" src="../cablelink_messy_design/assets/remittance/cliqq.png" alt="cliqq">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otccliqq" aria-expanded="true" aria-controls="otccliqq">
+                               Online payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otccliqq" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Open the CliQQ app and log in to your account</li>
+                                        <li>Tap the “Pay Bills” icon</li>
+                                        <li>Choose the biller category of Cable T.V.</li>
+                                        <li>Choose “Cablelink” and enter the required payment details and tap Confirm</li>
+                                        <li>Visit the nearest 7-eleven store, show the barcode to the cashier and pay for your bill in cash</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-lazada" role="dialog" aria-modal="true" aria-labelledby="bank-details-lazada-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-lazada-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img class="bank-details-modal__logo" src="../cablelink_messy_design/assets/remittance/lazada.jpg" alt="lazada">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otclazada" aria-expanded="true" aria-controls="otclazada">
+                               Online payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otclazada" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Go to Top Up Pay, tap Bills payment, then tap more billers</li>
+                                        <li>Select Cable/Internet under select provider look for Cable Link under and add necessary details, and then tap “Pay Now”</li>
+                                        <li>Select the preferred payment method, and then tap “Place order”</li>
+                                        <li>Once payment is successful, you will receive your order details</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-shopeepay" role="dialog" aria-modal="true" aria-labelledby="bank-details-shopeepay-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-shopeepay-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img class="bank-details-modal__logo" src="../cablelink_messy_design/assets/remittance/shopeepay.png" alt="shopeepay">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otcshopeepay" aria-expanded="true" aria-controls="otcshopeepay">
+                               Online payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otcshopeepay" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Go to the Load, Bills & eServices, and then tap “TV Cable”</li>
+                                        <li>Select Cable Link under postpaid and add necessary details, and then tap “Continue”</li>
+                                        <li>Select the preferred payment method, and then tap “Confirm”</li>
+                                        <li>Tap “Pay now”. Once payment is successful, you will receive your order details</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-grabpay" role="dialog" aria-modal="true" aria-labelledby="bank-details-grabpay-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-grabpay-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img class="bank-details-modal__logo" src="../cablelink_messy_design/assets/remittance/GrabPay.jpg" alt="grabpay">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otcgrabpay" aria-expanded="true" aria-controls="otcgrabpay">
+                               Online payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otcgrabpay" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>On the main dashboard, tap the Bills icon to start the process</li>
+                                        <li>Browse the biller's list and select “Cablelink”</li>
+                                        <li>Enter the Customer Account Number and the Payment Amount to be paid</li>
+                                        <li>Review the transaction details and press the Confirmation button</li>
+                                        <li>Then, tap the pay button to process the payment</li>
+
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-maya" role="dialog" aria-modal="true" aria-labelledby="bank-details-maya-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-maya-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img class="bank-details-modal__logo" src="../cablelink_messy_design/assets/remittance/maya.png" alt="maya">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otcmaya" aria-expanded="true" aria-controls="otcmaya">
+                               Online payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otcmaya" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Select “Pay Bills” on the homepage of the Maya App</li>
+                                        <li>Choose the biller “Cablelink”</li>
+                                        <li>Input the required information</li>
+                                        <li>Enter the amount to be paid</li>
+                                        <li>Confirm the payment</li>
+                                        <li>Wait for Maya's confirmation on your payment via SMS</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-coinsph" role="dialog" aria-modal="true" aria-labelledby="bank-details-coinsph-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-coinsph-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img src="../cablelink_messy_design/assets/remittance/coinsph.jpg" alt="COINS.PH">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otccoinsph" aria-expanded="true" aria-controls="otccoinsph">
+                               Online payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otccoinsph" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Sign up for an account</li>
+                                        <li>Choose an outlet to cash in</li>
+                                        <li>Tap the Pay Bills icon on the App</li>
+                                        <li>Select the “Cablelink”, input the required information and the amount</li>
+                                        <li>Slide to pay</li>
+                                        <li>Wait for the Coins.Ph confirmation on payment via SMS</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-juancash" role="dialog" aria-modal="true" aria-labelledby="bank-details-juancash-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-juancash-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img class="bank-details-modal__logo" src="../cablelink_messy_design/assets/remittance/juancash.webp" alt="juancash">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otcjuancash" aria-expanded="true" aria-controls="otcjuancash">
+                               Online payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otcjuancash" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Log-in to JUANCASH App</li>
+                                        <li>Click “ Pay bills “, Then select “Cablelink”</li>
+                                        <li>Input required information</li>
+                                        <li>Confirm payment</li>
+                                        <li>Wait for JuanCash confirmation on payment via SMS</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-diskartech" role="dialog" aria-modal="true" aria-labelledby="bank-details-diskartech-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-diskartech-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img class="bank-details-modal__logo" src="../cablelink_messy_design/assets/remittance/DISKARTECH.png" alt="diskartech">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otcdiskartech" aria-expanded="true" aria-controls="otcdiskartech">
+                               Online payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otcdiskartech" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Open Diskartech App and enter your 4- Digits Passcode</li>
+                                        <li>Select “Pay Bills” on the homepage of Diskartech App</li>
+                                        <li>Click Internet in the Category then choose “Cablelink”</li>
+                                        <li>Input the required information</li>
+                                        <li>Confirm the payment</li>
+                                        <li>Wait for Diskartech confirmation on your payment via SM</li>
+
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-peppermint" role="dialog" aria-modal="true" aria-labelledby="bank-details-peppermint-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-peppermint-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img src="../cablelink_messy_design/assets/remittance/peppermint.png" alt="PEPPERMINT">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otcpeppermint" aria-expanded="true" aria-controls="otcpeppermint">
+                               Online payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otcpeppermint" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Log-in on Peppermint Apps</li>
+                                        <li>On the home page select “Pay Bills”</li>
+                                        <li>Choose “Cablelink”, Then input the required information</li>
+                                        <li>Click confirm payment</li>
+                                        <li>Wait for the Peppermint confirmation on payment via SMS</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-justpayto" role="dialog" aria-modal="true" aria-labelledby="bank-details-justpayto-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-justpayto-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img src="../cablelink_messy_design/assets/remittance/justpayto.png" alt="JUSTPAY.TO">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otcjustpayto" aria-expanded="true" aria-controls="otcjustpayto">
+                               Online payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otcjustpayto" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Visit the JUSTPAYTO Bayad Center Payment Page</li>
+                                        <li>Choose your type of bill</li>
+                                        <li>Choose “Cablelink”'</li>
+                                        <li>Fill up account details</li>
+                                        <li>Click “payment option”</li>
+                                        <li>Select “Online Banking”</li>
+                                        <li>Select where your bank is located</li>
+                                        <li>Select what type of Online Banking you will use</li>
+                                        <li>Choose what bank you will use</li>
+                                        <li>After verifying the inputs and check the “ Terms and Conditions” Click “Pay Now”</li>
+                                        <li>Enter your contact information then Click “OK”</li>
+                                        <li>Review transaction details then click “Confirm”</li>
+                                        <li>Check your email to complete the transaction and see payment details</li>
+                                        <li>Open your email to check transaction details and to see special instructions about how to deposit</li>
+                                        <li>You will receive email and SMS notification for a successful transaction</li>
+
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-wechatpay" role="dialog" aria-modal="true" aria-labelledby="bank-details-wechatpay-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-wechatpay-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img class="bank-details-modal__logo" src="../cablelink_messy_design/assets/remittance/wechat.png" alt="wechatpay">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otcwechatpay" aria-expanded="true" aria-controls="otcwechatpay">
+                               Online payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otcwechatpay" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Login to Wechat App</li>
+                                        <li>Click “Pay bills” then choose “Cablelink”</li>
+                                        <li>Input the required information</li>
+                                        <li>Confirm Payment</li>
+                                        <li>Wait for Wechat PAY confirmation on payment via SMS</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="bank-details-modal" id="bank-details-alipay" role="dialog" aria-modal="true" aria-labelledby="bank-details-alipay-title" hidden>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header gradient-bg  img-header"><h2 class="bank-details-modal__title" id="bank-details-alipay-title">Payment instructions</h2>
+                <button class="bank-details-modal__close" type="button" data-bank-modal-close aria-label="Close payment instructions">&times;</button>
+                <!-- <h4 class="modal-title" id="bankModalTitle">BDO</h4> -->
+                 <img class="bank-details-modal__logo" src="../cablelink_messy_design/assets/remittance/alipay.png" alt="alipay">
+            </div>
+
+            <div class="modal-body text-center">
+                <!-- <p id="bankModalText">Over-the-counter</p> -->
+                <div class="bank-card-box">
+                    <div class="bank-card-header">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h5 class="panel-title /*!collapsed*/ custom-carlo" data-toggle="collapse" data-parent="#accordion" href="#otcalipay" aria-expanded="true" aria-controls="otcalipay">
+                               Online payment
+                            </h5>
+                        </div>
+                    </div>
+                    <div id="otcalipay" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="bank-card-body">
+                            <div class="panel-body">
+                                <!-- <strong>Here’s how to pay your Cablelink bill thru Over-the-Counter:</strong><br /><br /> -->
+                                    <ol>
+                                        <li>Login to Alipay App</li>
+                                        <li>Click “Pay bills “ then choose “Cablelink“</li>
+                                        <li>Input the required information</li>
+                                        <li>Confirm Payment </li>
+                                        <li>Wait for Alipay confirmation on payment via SMS</li>
+                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button class="btn btn-primary btn-block">
+                    Continue
+                </button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+
   </div>
-
-  <form class="facility-search" id="facility-search" role="search">
-    <label for="payment-facility-search">Search payment facilities or methods</label>
-    <div class="facility-search__controls">
-      <input id="payment-facility-search" name="query" type="search" placeholder="Search by partner, facility, or method" autocomplete="off">
-      <button class="button button--primary" type="submit">Search</button>
-    </div>
-    <p class="facility-search__status" id="facility-search-status" role="status" aria-live="polite"></p>
-  </form>
-
-  <div class="banks-grid">
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/bdo.png" alt="BDO">
+    <!-- WALK-IN PAYMENT -->
+    <div class="walkin-overview">
+      <header class="section__header">
+        <span class="section__tag">Walk-In Payment</span>
+        <h2>Visit Our Payment Centers</h2>
+        <p>Prefer paying in person? Our offices are open on weekdays and Saturdays to assist you with billing and payments.</p>
+      </header>
+      <div class="walkin-overview__actions">
+        <a class="button button--primary" href="cablelink_offices.html">View Payment Centers</a>
       </div>
-      <div class="bank-name">BDO Unibank</div>
-      <div class="bank-type">Universal Bank</div>
-      <span class="bank-tag ott">Over-the-Counter</span>
     </div>
+</section>
+  
 
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/bpi.png" alt="BPI">
-      </div>
-      <div class="bank-name">BPI</div>
-      <div class="bank-type">Universal Bank</div>
-      <span class="bank-tag online">Online Banking</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/aub.png" alt="AUB">
-      </div>
-      <div class="bank-name">Asia United Bank</div>
-      <div class="bank-type">Commercial Bank</div>
-      <span class="bank-tag ott">Over-the-Counter</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/unionbank.png" alt="UnionBank">
-      </div>
-      <div class="bank-name">UnionBank</div>
-      <div class="bank-type">Commercial Bank</div>
-      <span class="bank-tag online">Online Banking</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/RCBC Blue-01.png" alt="RCBC">
-      </div>
-      <div class="bank-name">RCBC</div>
-      <div class="bank-type">Commercial Bank</div>
-      <span class="bank-tag online">Online Banking</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/Security Bank.png" alt="Security Bank">
-      </div>
-      <div class="bank-name">Security Bank</div>
-      <div class="bank-type">Commercial Bank</div>
-      <span class="bank-tag online">Online Banking</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/eastwest.png" alt="EastWest">
-      </div>
-      <div class="bank-name">EastWest Bank</div>
-      <div class="bank-type">Commercial Bank</div>
-      <span class="bank-tag ott">Over-the-Counter</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/Bankcom.png" alt="BankCom">
-      </div>
-      <div class="bank-name">Bank of Commerce</div>
-      <div class="bank-type">Commercial Bank</div>
-      <span class="bank-tag ott">Over-the-Counter</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/Bayad Center.png" alt="Bayad Center">
-      </div>
-      <div class="bank-name">Bayad Center</div>
-      <div class="bank-type">Payment Center</div>
-      <span class="bank-tag ott">Over-the-Counter</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/cliqq.png" alt="CLiQQ">
-      </div>
-      <div class="bank-name">7-Eleven (CLiQQ)</div>
-      <div class="bank-type">Convenience Store</div>
-      <span class="bank-tag cdm">Kiosk / CDM</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/ECPay.png" alt="ECPay">
-      </div>
-      <div class="bank-name">ECPay</div>
-      <div class="bank-type">Bills Payment Center</div>
-      <span class="bank-tag ott">Over-the-Counter</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/robinsons.png" alt="Robinsons">
-      </div>
-      <div class="bank-name">Robinsons</div>
-      <div class="bank-type">Bills Payment Center</div>
-      <span class="bank-tag ott">Over-the-Counter</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/SM.png" alt="SM">
-      </div>
-      <div class="bank-name">SM Bills Payment</div>
-      <div class="bank-type">Payment Center</div>
-      <span class="bank-tag ott">Over-the-Counter</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/TouchPay.png" alt="TouchPay">
-      </div>
-      <div class="bank-name">TouchPay</div>
-      <div class="bank-type">Self-Service Kiosk</div>
-      <span class="bank-tag cdm">Kiosk / CDM</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/7-Eleven.png" alt="7-Eleven">
-      </div>
-      <div class="bank-name">7-Eleven</div>
-      <div class="bank-type">Convenience Store Counter</div>
-      <span class="bank-tag ott">Over-the-Counter</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/alipay.png" alt="Alipay">
-      </div>
-      <div class="bank-name">Alipay</div>
-      <div class="bank-type">Digital Wallet</div>
-      <span class="bank-tag online">Online Payment</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/Bancnet.png" alt="BancNet">
-      </div>
-      <div class="bank-name">BancNet</div>
-      <div class="bank-type">Interbank Network</div>
-      <span class="bank-tag online">Online Banking</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/bayad.png" alt="Bayad">
-      </div>
-      <div class="bank-name">Bayad</div>
-      <div class="bank-type">Digital Bills Platform</div>
-      <span class="bank-tag online">Online Payment</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/coinsph.jpg" alt="Coins.ph">
-      </div>
-      <div class="bank-name">Coins.ph</div>
-      <div class="bank-type">Crypto / E-Wallet</div>
-      <span class="bank-tag online">Online Payment</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/DISKARTECH.png" alt="DiskarTech">
-      </div>
-      <div class="bank-name">DiskarTech</div>
-      <div class="bank-type">Digital Banking App</div>
-      <span class="bank-tag online">Online Banking</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/gcash.png" alt="GCash">
-      </div>
-      <div class="bank-name">GCash</div>
-      <div class="bank-type">E-Wallet</div>
-      <span class="bank-tag online">Online Payment</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/GrabPay.jpg" alt="GrabPay">
-      </div>
-      <div class="bank-name">GrabPay</div>
-      <div class="bank-type">Digital Wallet</div>
-      <span class="bank-tag online">Online Payment</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/jcb.png" alt="JCB">
-      </div>
-      <div class="bank-name">JCB</div>
-      <div class="bank-type">Credit Card Network</div>
-      <span class="bank-tag online">Card Payment</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/juancash.webp" alt="JuanCash">
-      </div>
-      <div class="bank-name">JuanCash</div>
-      <div class="bank-type">Digital Wallet</div>
-      <span class="bank-tag online">Online Payment</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/justpayto.png" alt="JustPayTo">
-      </div>
-      <div class="bank-name">JustPayTo</div>
-      <div class="bank-type">Payment Gateway</div>
-      <span class="bank-tag online">Online Payment</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/lazada.jpg" alt="Lazada Wallet">
-      </div>
-      <div class="bank-name">Lazada Wallet</div>
-      <div class="bank-type">Marketplace Wallet</div>
-      <span class="bank-tag online">Online Payment</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/lbc.png" alt="LBC">
-      </div>
-      <div class="bank-name">LBC</div>
-      <div class="bank-type">Remittance / Bills Payment</div>
-      <span class="bank-tag ott">Over-the-Counter</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/master-visa.jpg" alt="Mastercard and Visa">
-      </div>
-      <div class="bank-name">Mastercard / Visa</div>
-      <div class="bank-type">Card Payment Bundle</div>
-      <span class="bank-tag online">Card Payment</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/mastercard.png" alt="Mastercard">
-      </div>
-      <div class="bank-name">Mastercard</div>
-      <div class="bank-type">Credit Card Network</div>
-      <span class="bank-tag online">Card Payment</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/maya.png" alt="Maya">
-      </div>
-      <div class="bank-name">Maya</div>
-      <div class="bank-type">E-Wallet / Digital Bank</div>
-      <span class="bank-tag online">Online Payment</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/peppermint.svg" alt="Peppermint">
-      </div>
-      <div class="bank-name">Peppermint</div>
-      <div class="bank-type">Payment Platform</div>
-      <span class="bank-tag online">Online Payment</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/rcbc.png" alt="RCBC Pulz">
-      </div>
-      <div class="bank-name">RCBC Pulz</div>
-      <div class="bank-type">Digital Banking App</div>
-      <span class="bank-tag online">Online Banking</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/shopeepay.png" alt="ShopeePay">
-      </div>
-      <div class="bank-name">ShopeePay</div>
-      <div class="bank-type">Marketplace Wallet</div>
-      <span class="bank-tag online">Online Payment</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/ucpb.png" alt="UCPB">
-      </div>
-      <div class="bank-name">UCPB</div>
-      <div class="bank-type">Commercial Bank</div>
-      <span class="bank-tag ott">Over-the-Counter</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/visa-master.png" alt="Visa and Mastercard">
-      </div>
-      <div class="bank-name">Visa / Mastercard</div>
-      <div class="bank-type">Card Payment Bundle</div>
-      <span class="bank-tag online">Card Payment</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/visa.png" alt="Visa">
-      </div>
-      <div class="bank-name">Visa</div>
-      <div class="bank-type">Credit Card Network</div>
-      <span class="bank-tag online">Card Payment</span>
-    </div>
-
-    <div class="bank-card">
-      <div class="bank-logo-ph">
-        <img src="../cablelink_messy_design/assets/remittance/wechat.png" alt="WeChat Pay">
-      </div>
-      <div class="bank-name">WeChat Pay</div>
-      <div class="bank-type">Digital Wallet</div>
-      <span class="bank-tag online">Online Payment</span>
-    </div>
-
-  </div>
   </div>
 </section>
+
+
 
 <section class="auto-debit-section" id="auto-debit" aria-labelledby="auto-debit-title">
   <div class="container auto-debit-layout">
@@ -881,7 +1731,7 @@
     <h2>Need Help With Your Bill?</h2>
     <p>Our billing team is ready to assist you. Reach us by phone, email, or visit any of our offices.</p>
     <div class="cta-strip-btns">
-      <a href="cablelink_support.html#billing-support" class="button button--primary btn-solid">Contact Billing Support</a>
+      <a href="cablelink_billing_faq.html#faq-audience-panel__header" class="button button--primary btn-solid">Contact Billing Support</a>
       <a href="cablelink_plans.html#plans" class="button button--outline btn-ghost">View Plans & Pricing</a>
     </div>
   </div>
@@ -889,123 +1739,5 @@
 
 </main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
-<script>
-(function(){
-  // FAQ accordion
-  document.querySelectorAll('.faq-q').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var item = btn.parentElement;
-      var wasOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open') });
-      if(!wasOpen) item.classList.add('open');
-    });
-  });
-
-  var officeCards = Array.prototype.slice.call(document.querySelectorAll('.office-card[data-lat][data-lng]'));
-  var mapElement = document.getElementById('office-map');
-  var mapFallback = document.querySelector('.map-fallback');
-
-  if(mapElement && window.L && officeCards.length){
-    var markerIcon = L.divIcon({
-      className:'',
-      html:'<div class="office-map-marker"></div>',
-      iconSize:[18,18],
-      iconAnchor:[9,9],
-      popupAnchor:[0,-10]
-    });
-
-    var map = L.map(mapElement, {scrollWheelZoom:false});
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution:'&copy; OpenStreetMap contributors'
-    }).addTo(map);
-
-    var bounds = [];
-    var activeCard = null;
-    var cardMarkers = new Map();
-
-    function setActiveCard(card){
-      if(activeCard) activeCard.classList.remove('is-active');
-      activeCard = card;
-      if(activeCard) activeCard.classList.add('is-active');
-    }
-
-    function focusOffice(card, shouldOpenPopup){
-      var marker = cardMarkers.get(card);
-      if(!marker) return;
-      setActiveCard(card);
-      map.flyTo(marker.getLatLng(), 14, {duration:1.25});
-      if(shouldOpenPopup) marker.openPopup();
-    }
-
-    officeCards.forEach(function(card){
-      var lat = Number(card.dataset.lat);
-      var lng = Number(card.dataset.lng);
-      if(Number.isNaN(lat) || Number.isNaN(lng)) return;
-
-      var officeName = card.dataset.office || card.querySelector('.office-name').textContent.trim();
-      var address = card.querySelector('.office-addr').textContent.trim();
-      var marker = L.marker([lat, lng], {icon:markerIcon}).addTo(map);
-      marker.bindPopup('<strong>' + officeName + '</strong><span>' + address + '</span>');
-      marker.on('click', function(){
-        setActiveCard(card);
-      });
-
-      card.addEventListener('click', function(){
-        focusOffice(card, true);
-      });
-
-      cardMarkers.set(card, marker);
-      bounds.push([lat, lng]);
-    });
-
-    if(bounds.length){
-      map.fitBounds(bounds, {padding:[36, 36]});
-      setTimeout(function(){
-        map.invalidateSize();
-      }, 0);
-      focusOffice(officeCards[0], false);
-    }
-
-    if(mapFallback) mapFallback.style.display = 'none';
-  } else if(mapFallback) {
-    mapFallback.textContent = 'The map could not be loaded right now. Please check your internet connection and reload the page.';
-  }
-
-  (function(){
-    var banksGrid = document.querySelector('.banks-grid');
-    if(!banksGrid) return;
-
-    var bankCards = Array.prototype.slice.call(banksGrid.querySelectorAll('.bank-card'));
-    if(bankCards.length <= 10) return;
-
-    var extraCards = bankCards.slice(10);
-    extraCards.forEach(function(card){
-      card.classList.add('is-hidden-by-limit');
-    });
-
-    var toggleWrap = document.createElement('div');
-    toggleWrap.className = 'banks-toggle-wrap';
-
-    var toggleBtn = document.createElement('button');
-    toggleBtn.type = 'button';
-    toggleBtn.className = 'banks-see-more';
-    toggleBtn.textContent = 'See More';
-
-    toggleBtn.addEventListener('click', function(){
-      var expanded = toggleBtn.getAttribute('data-expanded') === 'true';
-      toggleBtn.setAttribute('data-expanded', expanded ? 'false' : 'true');
-
-      extraCards.forEach(function(card){
-        card.classList.toggle('is-hidden-by-limit', expanded);
-      });
-
-      toggleBtn.textContent = expanded ? 'See More' : 'Show Less';
-    });
-
-    toggleWrap.appendChild(toggleBtn);
-    banksGrid.insertAdjacentElement('afterend', toggleWrap);
-  })();
-})();
-</script>
 </body>
 </html>

@@ -1,0 +1,19 @@
+<div class="site-search-modal" id="site-search-modal" role="dialog" aria-modal="true" aria-labelledby="site-search-title" hidden>
+  <div class="site-search-modal__backdrop" data-search-close></div>
+  <div class="site-search-modal__dialog">
+    <button class="site-search-modal__close" type="button" aria-label="Close website search" data-search-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <span class="section__tag">Website search</span>
+    <h2 id="site-search-title">Search CableLink</h2>
+    <form class="site-search-form" role="search" data-site-search-form>
+      <label for="site-search-input">Enter a keyword</label>
+      <div class="site-search-form__controls">
+        <input id="site-search-input" name="query" type="search" autocomplete="off" placeholder="Search services, plans, support, and more">
+        <button class="button button--primary" type="submit">Search</button>
+      </div>
+    </form>
+    <p class="site-search-status" data-site-search-status role="status" aria-live="polite">Enter a keyword to search the current website pages.</p>
+    <div class="site-search-results" data-site-search-results></div>
+  </div>
+</div>
