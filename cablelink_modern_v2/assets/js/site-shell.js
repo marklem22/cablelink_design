@@ -8,7 +8,9 @@
     { page: 'services', href: 'cablelink_services.html', label: 'Services' },
     { page: 'promos', href: 'cablelink_promos.html', label: 'Promos' },
     { page: 'payment', href: 'cablelink_payment.html#payment-facilities', label: 'Payment Facilities' },
-    { page: 'support', href: 'cablelink_support.html', label: 'Support' }
+    { page: 'support', href: 'cablelink_billing_faq.html', label: 'Support' },
+    { page: 'advisories', href: 'cablelink_advisories.html', label: 'Advisories' },
+    { page: 'contact', href: 'cablelink_contact.html', label: 'Contact Us' }
   ];
   var config = window.CableLinkConfig || { externalLinks: {} };
   function removeLegacyShell() {
@@ -28,7 +30,7 @@
     var available = 0;
     scope.querySelectorAll('[data-config-link]').forEach(function (link) {
       var key = link.dataset.configLink;
-      var href = config.externalLinks && config.externalLinks[key];
+      var href = (config.externalLinks && config.externalLinks[key]) || link.getAttribute('href');
 
       if (!href) {
         link.hidden = true;
@@ -45,6 +47,23 @@
       group.hidden = available === 0;
       if (group.parentElement) {
         group.parentElement.classList.toggle('global-footer-inner--no-social', available === 0);
+      }
+    });
+  }
+  function configurePlaceholderLinks(scope) {
+    scope.querySelectorAll('[data-config-placeholder-link]').forEach(function (link) {
+      var key = link.dataset.configPlaceholderLink;
+      var href = config.externalLinks && config.externalLinks[key];
+
+      if (href) {
+        link.href = href;
+        link.removeAttribute('aria-disabled');
+        link.classList.remove('is-placeholder');
+      } else {
+        link.removeAttribute('href');
+        link.setAttribute('aria-disabled', 'true');
+        link.classList.add('is-placeholder');
+        link.title = 'Destination pending client confirmation';
       }
     });
   }
@@ -79,13 +98,6 @@
       nav.appendChild(listItem);
     });
 
-    if (!header.querySelector('.global-contact-cta')) {
-      var contact = document.createElement('a');
-      contact.className = 'btn global-contact-cta';
-      contact.href = 'cablelink_contact.html';
-      contact.textContent = 'Contact Us';
-      headerInner.insertBefore(contact, headerInner.querySelector('.global-cta'));
-    }
     if (!header.querySelector('.global-cta')) {
       var cta = document.createElement('a');
       cta.className = 'btn global-cta';
@@ -234,7 +246,7 @@
 
     if (!item) return;
     supportLink = item.querySelector('.global-nav__support-link');
-    menu = item.querySelector('.support-menu');
+    menu = item.querySelector('.mega-menu');
     if (!supportLink || !menu) return;
 
     function openMenu() {
@@ -251,6 +263,58 @@
     }
 
     supportLink.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        openMenu();
+        menu.querySelector('a').focus();
+      }
+    });
+    item.addEventListener('mouseenter', openMenu);
+    item.addEventListener('mouseleave', function () {
+      if (!item.contains(document.activeElement)) closeMenu(false);
+    });
+    item.addEventListener('focusin', function () {
+      if (suppressFocusOpen) {
+        suppressFocusOpen = false;
+        return;
+      }
+      openMenu();
+    });
+    item.addEventListener('focusout', function (event) {
+      if (!item.contains(event.relatedTarget)) closeMenu(false);
+    });
+    document.addEventListener('click', function (event) {
+      if (!item.contains(event.target)) closeMenu(false);
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && item.classList.contains('is-open')) closeMenu(true);
+    });
+  }
+  function setupNeedHelpMenu(header) {
+    var item = header.querySelector('.global-nav__item--need-help');
+    var trigger;
+    var menu;
+    var suppressFocusOpen = false;
+
+    if (!item) return;
+    trigger = item.querySelector('.global-nav__need-help-link');
+    menu = item.querySelector('.mega-menu');
+    if (!trigger || !menu) return;
+
+    function openMenu() {
+      item.classList.add('is-open');
+      trigger.setAttribute('aria-expanded', 'true');
+    }
+    function closeMenu(returnFocus) {
+      item.classList.remove('is-open');
+      trigger.setAttribute('aria-expanded', 'false');
+      if (returnFocus) {
+        suppressFocusOpen = true;
+        trigger.focus();
+      }
+    }
+
+    trigger.addEventListener('keydown', function (event) {
       if (event.key === 'ArrowDown') {
         event.preventDefault();
         openMenu();
@@ -320,9 +384,10 @@
   function loadShell() {
     removeLegacyShell();
     Promise.all([
-      fetch('partials/header.html', { cache: 'no-store' }).then(function (response) { return response.text(); }),
-      fetch('partials/footer.html', { cache: 'no-store' }).then(function (response) { return response.text(); }),
-      fetch('partials/privacy-modal.html', { cache: 'no-store' }).then(function (response) { return response.text(); })
+      fetch('partials/header.inc', { cache: 'no-store' }).then(function (response) { return response.text(); }),
+      fetch('partials/footer.inc', { cache: 'no-store' }).then(function (response) { return response.text(); }),
+      fetch('partials/privacy-modal.html', { cache: 'no-store' }).then(function (response) { return response.text(); }),
+      fetch('partials/search-modal.html', { cache: 'no-store' }).then(function (response) { return response.text(); })
     ]).then(function (parts) {
       var shell = document.createElement('div');
       shell.innerHTML = parts[0];
@@ -333,6 +398,7 @@
       document.body.prepend(header);
       document.body.insertAdjacentHTML('beforeend', parts[1]);
       document.body.insertAdjacentHTML('beforeend', parts[2]);
+      document.body.insertAdjacentHTML('beforeend', parts[3]);
       ensurePrimaryNavigation(header);
       mobile = ensureMobileNavigation(mobile);
       header.insertAdjacentElement('afterend', mobile);
@@ -340,6 +406,7 @@
       ensureCorporateMegaMenuGroup(header);
       ensureServicesMegaMenuHelp(header);
       configureExternalLinks(document);
+      configurePlaceholderLinks(document);
       document.querySelectorAll('[data-current-year]').forEach(function (year) {
         year.textContent = String(new Date().getFullYear());
       });
@@ -347,6 +414,7 @@
       setActiveLink(mobile);
       setupServicesMegaMenu(header);
       setupSupportMenu(header);
+      setupNeedHelpMenu(header);
       setupPrivacyModal();
       if (!button || !mobile) return;
 
@@ -400,8 +468,121 @@
       window.matchMedia('(min-width: 1051px)').addEventListener('change', function (event) {
         if (event.matches) setMobileMenu(false, false);
       });
+      setupSiteSearch(function () { setMobileMenu(false, false); });
     }).catch(function (error) {
       console.error('CableLink shell could not load. Use a local HTTP server.', error);
+    });
+  }
+  function setupSiteSearch(closeMobileMenu) {
+    var modal = document.getElementById('site-search-modal');
+    var form;
+    var input;
+    var status;
+    var results;
+    var previousFocus = null;
+    var entries = [
+      { title: 'Home', description: 'CableLink internet and Cable TV homepage.', href: 'cablelink_modern_v2.html', keywords: 'home welcome banners promos tvc' },
+      { title: 'Services', description: 'Residential Internet, Cable TV, bundled plans, and enterprise services.', href: 'cablelink_services.html', keywords: 'services residential commercial enterprise selection' },
+      { title: 'Internet Plans', description: 'Review CableLink residential internet plan options.', href: 'cablelink_internet_plans1.html', keywords: 'internet iblaze fiberlink residential' },
+      { title: 'Plans & Pricing', description: 'Compare available CableLink plan groups and pricing.', href: 'cablelink_plans.html', keywords: 'plans pricing basic 495 basic lite basic plus bundles' },
+      { title: 'Channel Line-up', description: 'Browse the current Cable TV channel line-up.', href: 'cablelink_channels.html', keywords: 'cable tv channels lineup' },
+      { title: 'Promos', description: 'Browse current CableLink promotional materials.', href: 'cablelink_promos.html', keywords: 'promos offers bundles' },
+      { title: 'Payment Facilities', description: 'Find payment methods, offices, and payment facilities.', href: 'cablelink_payment.html', keywords: 'payments banks auto debit billing offices' },
+      { title: 'Support', description: 'Support paths for non-subscribers and existing subscribers.', href: 'cablelink_billing_faq.html', keywords: 'support faq troubleshooting speed test billing' },
+      { title: 'Billing FAQs', description: 'Billing FAQ destination pending approved client content.', href: 'cablelink_billing_faq.html', keywords: 'billing faq payment questions' },
+      { title: 'Contact Us', description: 'CableLink contact and messaging options.', href: 'cablelink_contact.html', keywords: 'contact hotline email messenger viber instagram offices' },
+      { title: 'Advisories', description: 'Channel, service, alarm, and outage advisories.', href: 'cablelink_advisories.html', keywords: 'advisories channel service alarms outages' },
+      { title: 'Get Connected', description: 'Check serviceability and begin a CableLink application.', href: 'cablelink_apply.html', keywords: 'apply application availability coverage get connected' },
+      { title: 'About Us', description: 'CableLink company information.', href: 'cablelink_about.html', keywords: 'about company mission vision profile milestones' },
+      { title: 'Privacy Notice', description: 'CableLink privacy notice destination.', href: 'cablelink_privacy.html', keywords: 'privacy notice policy data' },
+      { title: 'Careers', description: 'CableLink careers destination pending approved content.', href: 'cablelink_careers.html', keywords: 'careers jobs employment' }
+    ];
+
+    if (!modal) return;
+    form = modal.querySelector('[data-site-search-form]');
+    input = document.getElementById('site-search-input');
+    status = modal.querySelector('[data-site-search-status]');
+    results = modal.querySelector('[data-site-search-results]');
+
+    function getFocusable() {
+      return Array.from(modal.querySelectorAll('a[href], button:not([disabled]), input:not([disabled])'));
+    }
+    function closeSearch() {
+      modal.hidden = true;
+      document.documentElement.classList.remove('is-site-search-open');
+      document.body.classList.remove('is-site-search-open');
+      if (previousFocus) previousFocus.focus();
+    }
+    function openSearch(trigger) {
+      if (typeof closeMobileMenu === 'function') closeMobileMenu();
+      previousFocus = trigger || document.activeElement;
+      modal.hidden = false;
+      document.documentElement.classList.add('is-site-search-open');
+      document.body.classList.add('is-site-search-open');
+      window.setTimeout(function () { input.focus(); }, 0);
+    }
+    function renderResults(query) {
+      var terms = query.toLowerCase().split(/\s+/).filter(Boolean);
+      var matches = entries.filter(function (entry) {
+        var haystack = [entry.title, entry.description, entry.keywords].join(' ').toLowerCase();
+        return terms.every(function (term) { return haystack.indexOf(term) !== -1; });
+      });
+
+      results.textContent = '';
+      if (!terms.length) {
+        status.textContent = 'Enter a keyword to search the current website pages.';
+        return;
+      }
+      if (!matches.length) {
+        status.textContent = 'No pages match “' + query + '”. Try a broader keyword.';
+        return;
+      }
+      status.textContent = matches.length + (matches.length === 1 ? ' result found.' : ' results found.');
+      matches.forEach(function (entry) {
+        var card = document.createElement('article');
+        var link = document.createElement('a');
+        var description = document.createElement('p');
+        card.className = 'site-search-result';
+        link.href = entry.href;
+        link.textContent = entry.title;
+        description.textContent = entry.description;
+        card.appendChild(link);
+        card.appendChild(description);
+        results.appendChild(card);
+      });
+    }
+
+    document.querySelectorAll('.global-search-button, .global-mobile-search-button').forEach(function (button) {
+      button.addEventListener('click', function () { openSearch(button); });
+    });
+    modal.querySelectorAll('[data-search-close]').forEach(function (button) {
+      button.addEventListener('click', closeSearch);
+    });
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      renderResults(input.value.trim());
+    });
+    input.addEventListener('input', function () {
+      renderResults(input.value.trim());
+    });
+    modal.addEventListener('keydown', function (event) {
+      var focusable;
+      var currentIndex;
+      var nextIndex;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeSearch();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      focusable = getFocusable();
+      if (!focusable.length) return;
+      currentIndex = focusable.indexOf(document.activeElement);
+      nextIndex = event.shiftKey ? currentIndex - 1 : currentIndex + 1;
+      if (nextIndex < 0) nextIndex = focusable.length - 1;
+      if (nextIndex >= focusable.length) nextIndex = 0;
+      event.preventDefault();
+      focusable[nextIndex].focus();
     });
   }
   function setupPrivacyModal() {

@@ -418,7 +418,7 @@
     .hero__content {
       animation: fadeUp .7s ease both;
       text-align: left;
-      max-width: 640px;
+      max-width: 70vw;
       margin: 0
     }
 
@@ -1432,75 +1432,6 @@
       z-index: 1
     }
 
-    /* ===== FOOTER ===== */
-    footer {
-      background: var(--dark);
-      padding-block: 2rem;
-      text-align: center
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      text-decoration: none
-    }
-
-    .footer-logo .logo-mark {
-      width: 32px;
-      height: 32px
-    }
-
-    .footer-logo .logo-mark img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block
-    }
-
-    .footer-logo span {
-      font-size: 1rem;
-      font-weight: 500;
-      color: #fff;
-      font-family: var(--font);
-      letter-spacing: -0.4px;
-      line-height: 1
-    }
-
-    .footer-logo em {
-      color: var(--orange);
-      font-style: normal
-    }
-
-    footer p {
-      font-size: .8rem;
-      color: rgba(255, 255, 255, .45)
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 1.5rem
-    }
-
-    .footer-links a {
-      font-size: .8rem;
-      color: rgba(255, 255, 255, .5);
-      text-decoration: none;
-      transition: color .2s
-    }
-
-    .footer-links a:hover {
-      color: #fff
-    }
-
     /* ===== RESPONSIVE ===== */
     @media(max-width:1024px) {
       .hero__inner {
@@ -1812,3 +1743,11 @@
       padding-top: 0;
     }
   
+
+/* Homepage service menu added for the confirmed client information architecture. */
+.home-services { background: linear-gradient(180deg, var(--off-white), var(--white)); }
+.home-services-menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: var(--grid-gap); }
+.home-service-link { display: flex; min-height: 5.5rem; align-items: center; justify-content: space-between; padding: 1.2rem 1.3rem; color: var(--dark); font-size: .92rem; font-weight: 800; line-height: 1.35; text-decoration: none; }
+.home-service-link::after { content: '\2192'; color: var(--orange); font-size: 1.2rem; }
+.home-service-link:hover,
+.home-service-link:focus-visible { color: var(--blue-primary); border-color: var(--blue-primary); transform: translateY(-2px); }

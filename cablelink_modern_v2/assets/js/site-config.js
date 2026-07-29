@@ -4,11 +4,14 @@
  */
 window.CableLinkConfig = Object.freeze({
   externalLinks: Object.freeze({
-    facebook: '',
+    facebook: 'https://www.facebook.com/CablelinkTV',
     messenger: '',
     viber: '',
-    x: ''
+    instagram: '',
+    x: '',
+    myLink: ''
   }),
+  paymentLinks: Object.freeze({}),
   integrations: Object.freeze({
     applicationEndpoint: '',
     autoDebitEndpoint: '',

@@ -1,121 +1,132 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cable Link - About Us</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="assets/css/site.css?v=20260725-2">
-    <script src="assets/js/site-config.js?v=20260725-1" defer></script>
-    <script src="assets/js/site-shell.js?v=20260725-2" defer></script>
-    <style>
-      body[data-page='about'] {
-        background:
-          radial-gradient(circle at top, rgba(49, 170, 254, .18), transparent 38%),
-          linear-gradient(180deg, #f5faff 0%, #ffffff 58%);
-      }
-
-      .about-hero {
-        min-height: clamp(24rem, 42vw, 34rem);
-      }
-
-      .about-hero .hero__inner,
-      .about-hero .hero__content {
-        text-align: center;
-      }
-
-      .about-hero .hero__content {
-        margin-inline: auto;
-      }
-
-      .about-status {
-        padding-bottom: var(--section-space-y);
-      }
-
-      .about-status__card {
-        max-width: 42rem;
-        margin: 0 auto;
-        padding: clamp(2rem, 4vw, 3rem);
-        text-align: center;
-      }
-
-      .about-status__icon {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 4.5rem;
-        height: 4.5rem;
-        margin-bottom: 1.25rem;
-        border-radius: 50%;
-        background: linear-gradient(135deg, rgba(0, 122, 254, .12), rgba(247, 130, 32, .14));
-        color: var(--blue-primary);
-      }
-
-      .about-status__icon svg {
-        width: 2rem;
-        height: 2rem;
-        fill: none;
-        stroke: currentColor;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        stroke-width: 1.8;
-      }
-
-      .about-status__title {
-        margin: 0;
-        color: var(--dark);
-        font-size: clamp(1.5rem, 2.8vw, 2.1rem);
-        font-weight: 900;
-        letter-spacing: -.03em;
-      }
-
-      .about-status__copy {
-        max-width: 34rem;
-        margin: 1rem auto 0;
-        color: var(--muted);
-        line-height: 1.75;
-      }
-    </style>
-  </head>
-
-  <body data-page="about">
-    <main id="main-content">
-      <section class="hero hero--page about-hero" aria-labelledby="about-title">
-        <div class="container hero__inner">
-          <div class="hero__content">
-            <nav class="breadcrumb" aria-label="Breadcrumb">
-              <a href="cablelink_modern_v2.html#home">Home</a>
-              <span class="bc-sep" aria-hidden="true">&rsaquo;</span>
-              <span class="bc-cur">About Us</span>
-            </nav>
-            <span class="section__tag hero__eyebrow">About CableLink</span>
-            <h1 class="hero__title" id="about-title">This page is soon to develop.</h1>
-            <p class="hero__description">
-              We&rsquo;ll add the full company story, mission, milestones, and brand details here next.
-            </p>
-          </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn about CableLink, its company history, mission, vision, and service roots in Metro Manila.">
+  <title>About Us &mdash; CableLink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260729-footer-3">
+  <link rel="stylesheet" href="assets/css/cablelink_about.css?v=20260729-6">
+  <script src="assets/js/site-config.js?v=20260728-4" defer></script>
+  <script src="assets/js/site-shell.js?v=20260729-footer-inc-1" defer></script>
+</head>
+<body data-page="about" class="page-about">
+  <main id="main-content">
+    <section class="hero hero--page about-hero" aria-labelledby="about-title">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="cablelink_modern_v2.html#home">Home</a>
+            <span class="bc-sep" aria-hidden="true">&rsaquo;</span>
+            <span class="bc-cur" aria-current="page">About Us</span>
+          </nav>
+          <span class="section__tag hero__eyebrow">About CableLink</span>
+          <h1 class="page-title hero__title" id="about-title">Connecting communities through better service.</h1>
+          <p class="hero__description">CableLink is the registered trademark of Cable Link and Holdings Corporation, a 100% Filipino-owned corporation that oversees Cable Television and Broadband Cable Internet operations in Metro Manila.</p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="about-status">
-        <div class="container">
-          <div class="card about-status__card">
-            <span class="about-status__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 6v6l4 2" />
-                <circle cx="12" cy="12" r="9" />
-              </svg>
+    <section class="section section--compact about-profile" aria-labelledby="profile-title">
+      <div class="container about-profile__layout">
+        <div class="about-profile__copy">
+          <span class="section__tag">Corporate Profile</span>
+          <h2 class="section-title" id="profile-title">A CableLink company built to serve.</h2>
+          <p>CableLink is the registered trademark of Cable Link and Holdings Corporation, a 100% Filipino-owned corporation that oversees the operation of Cable Television systems and Broadband Cable Internet in Metro Manila.</p>
+        </div>
+        <aside class="card about-profile__highlight" aria-label="CableLink is 100% Filipino-owned">
+          <span class="about-profile__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" focusable="false"><circle cx="24" cy="15" r="6"></circle><path d="M13 37v-2a11 11 0 0 1 22 0v2M10 20a5 5 0 0 0-4 5v2M38 20a5 5 0 0 1 4 5v2M12 18a4 4 0 1 0-4-4M36 18a4 4 0 1 1 4-4"></path></svg>
+          </span>
+          <div class="about-profile__highlight-copy">
+            <span class="about-profile__stat">100%</span>
+            <strong>Filipino-owned</strong>
+            <p>Serving communities with communications, information technology, and entertainment services.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section about-overview" aria-labelledby="overview-title">
+      <div class="container about-overview__layout">
+        <div class="about-overview__copy">
+          <span class="section__tag">Company Overview</span>
+          <h2 class="section-title" id="overview-title">Growing from Las Pi&ntilde;as across southern Metro Manila.</h2>
+          <p>CableLink is one of the fastest-growing Cable Television and Broadband Cable Internet service providers in the country. Its Cable Television operations in Metro Manila are handled by Cable Link &amp; Holdings Corporation (CLHC), the surviving corporation in the merger of eight Cable TV companies in the major cities and municipalities of southern Metro Manila.</p>
+          <p>From Las Pi&ntilde;as City, where operations started in 1995, CableLink expanded its network to Para&ntilde;aque City, Muntinlupa City, Bacoor, Taguig, Imus, and Quezon City.</p>
+        </div>
+        <dl class="card about-footprint" aria-label="CableLink service expansion">
+          <div><dt>1995</dt><dd>Las Pi&ntilde;as City</dd></div>
+          <div><dt>1996</dt><dd>Para&ntilde;aque City</dd></div>
+          <div><dt>1997</dt><dd>Muntinlupa City</dd></div>
+          <div><dt>1999&ndash;2009</dt><dd>Bacoor, Taguig, Imus, and Quezon City</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section about-history" aria-labelledby="history-title">
+      <div class="container">
+        <header class="section-header section-header--center">
+          <span class="section__tag">Milestones</span>
+          <h2 class="section-title" id="history-title">Company milestones</h2>
+          <p>Explore the key developments in CableLink&rsquo;s history.</p>
+        </header>
+        <figure class="about-milestone-visual">
+          <img src="assets/images/aboutus/milestone.png" width="4000" height="1707" loading="lazy" alt="CableLink company milestones infographic showing key developments from 1993 to 2022, including CableLink&rsquo;s formation, national franchise, digital CATV, enterprise services, and 25th anniversary.">
+          <figcaption>CableLink company milestones, from the start of CATV operations through its 25th anniversary. <a href="assets/images/aboutus/milestone.png" target="_blank" rel="noopener noreferrer">Open the full-size infographic</a>.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section--compact about-purpose" aria-labelledby="purpose-title">
+      <div class="container">
+        <header class="section-header section-header--center">
+          <span class="section__tag">Our Purpose</span>
+          <h2 class="section-title" id="purpose-title">Mission and Vision</h2>
+        </header>
+        <div class="about-purpose__grid">
+          <article class="card about-purpose__card">
+            <span class="about-purpose__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" focusable="false"><circle cx="24" cy="24" r="14"></circle><circle cx="24" cy="24" r="8"></circle><circle cx="24" cy="24" r="3"></circle><path d="m30 18 9-9M33 9h6v6"></path></svg>
             </span>
-            <h2 class="about-status__title">Soon to develop</h2>
-            <p class="about-status__copy">
-              This placeholder is live so the header navigation has a working destination. Content can be expanded here later without changing the shared navigation again.
-            </p>
-          </div>
+            <div class="about-purpose__copy">
+              <span class="about-purpose__label">Our Mission</span>
+              <h3>Quality services for the communities we serve.</h3>
+              <p>To be a leader in providing quality products and services in the fields of communications, information technology, and entertainment to the communities we serve.</p>
+            </div>
+          </article>
+          <article class="card about-purpose__card about-purpose__card--vision">
+            <span class="about-purpose__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" focusable="false"><path d="M5 24s7-11 19-11 19 11 19 11-7 11-19 11S5 24 5 24Z"></path><circle cx="24" cy="24" r="5"></circle></svg>
+            </span>
+            <div class="about-purpose__copy">
+              <span class="about-purpose__label">Our Vision</span>
+              <h3>Continuous service for urban and rural communities.</h3>
+              <p>It is our commitment to reach and continuously serve urban and rural communities by providing quality products and services that meet the needs of our valued customers at an affordable rate.</p>
+            </div>
+          </article>
         </div>
-      </section>
-    </main>
-  </body>
+      </div>
+    </section>
+
+    <section class="section about-office" aria-labelledby="office-title">
+      <div class="container">
+        <div class="about-office__panel">
+          <span class="about-office__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" focusable="false"><path d="M38 21c0 10-14 20-14 20S10 31 10 21a14 14 0 1 1 28 0Z"></path><circle cx="24" cy="21" r="5"></circle></svg>
+          </span>
+          <div class="about-office__copy">
+            <span class="section__tag">Head Office</span>
+            <h2 class="section-title" id="office-title">Visit CableLink in Para&ntilde;aque City.</h2>
+            <address>8210 Dr. A. Santos Ave., Para&ntilde;aque City</address>
+          </div>
+          <a class="btn btn--primary btn--lg" href="cablelink_offices.html">View Offices and Service Areas <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
 </html>
