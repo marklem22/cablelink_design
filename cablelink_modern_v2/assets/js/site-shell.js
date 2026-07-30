@@ -20,6 +20,7 @@
     if (legacyHeader) legacyHeader.remove();
     if (legacyMobile) legacyMobile.remove();
     if (legacyFooter) legacyFooter.remove();
+    document.querySelectorAll('#privacy-entry-modal').forEach(function (modal) { modal.remove(); });
   }
   function setActiveLink(scope) {
     scope.querySelectorAll('[data-page-link]').forEach(function (link) {
