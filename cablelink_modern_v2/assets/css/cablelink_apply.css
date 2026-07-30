@@ -618,3 +618,65 @@ body{font-family:var(--font);color:var(--dark);background:var(--off-white);overf
   .step-label{display:none}
   .steps-list::before{display:none}
 }
+/* ===== COVERAGE AREAS ===== */
+.coverage-section {
+  padding-block: var(--section-space-y);
+  background: var(--off-white) url("../../../assets/hero_bg/payment_coverage_bg.png") center / cover no-repeat;
+  background-attachment: fixed;
+}
+.coverage-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: start;
+}
+.coverage-head { max-width: none; margin: 0 0 var(--space-3); text-align: left; }
+.coverage-head h2 { margin: 0; color: var(--dark); font-size: clamp(1.75rem, 3vw, 2.4rem); letter-spacing: -.8px; line-height: 1.18; }
+.coverage-head p { max-width: 38rem; margin: var(--space-2) 0 0; color: var(--muted); line-height: 1.72; }
+.coverage-tabs { display: flex; gap: .6rem; margin-bottom: 1.1rem; border-bottom: 1px solid rgba(0, 70, 176, .1); }
+.coverage-tab { display: inline-flex; min-height: 44px; align-items: center; gap: .5rem; padding: 0 .2rem .7rem; border: 0; border-bottom: 2px solid transparent; color: var(--muted); background: transparent; font: 800 .82rem/1 var(--font); cursor: pointer; transition: color .2s, border-color .2s; }
+.coverage-tab:hover, .coverage-tab.is-active { color: var(--dark); border-color: var(--orange); }
+.coverage-tab.is-active[data-tab="fiberlink"] { border-color: var(--blue-primary); }
+.coverage-tab-sub { font-size: .78rem; font-weight: 600; }
+.coverage-tab-dot, .coverage-map-pill span { width: .62rem; height: .62rem; flex: 0 0 .62rem; border-radius: 50%; }
+.iblaze { background: var(--orange); }
+.fiberlink { background: var(--blue-primary); }
+.coverage-items { display: grid; gap: .65rem; margin-bottom: .65rem; }
+.coverage-items[hidden], .coverage-item[hidden] { display: none; }
+.coverage-item { display: flex; width: 100%; min-width: 0; align-items: center; gap: .75rem; padding: .75rem .9rem; border: 1px solid rgba(255, 255, 255, .78); border-radius: 12px; color: var(--dark); background: var(--off-white); box-shadow: 0 8px 22px rgba(0, 35, 110, .1); font: inherit; text-align: left; cursor: pointer; transition: transform .18s, border-color .2s, box-shadow .2s, background .2s; }
+.coverage-item:hover { transform: translateY(-1px); border-color: rgba(0, 70, 176, .16); box-shadow: 0 10px 24px rgba(0, 70, 176, .08); }
+.coverage-item.is-active { border-color: rgba(242, 100, 19, .35); background: var(--white); box-shadow: 0 14px 28px rgba(0, 70, 176, .12); }
+.coverage-item-pin { display: grid; width: 2.125rem; height: 2.125rem; flex: 0 0 2.125rem; place-items: center; border-radius: 50%; color: var(--white); font-size: .7rem; }
+.coverage-item-text { display: grid; min-width: 0; gap: .15rem; }
+.coverage-item-name { font-size: .86rem; font-weight: 800; }
+.coverage-item-meta { color: var(--muted); font-size: .74rem; line-height: 1.4; }
+.coverage-item-chevron { margin-left: auto; color: var(--muted); font-size: 1.35rem; line-height: 1; transition: transform .18s, color .2s; }
+.coverage-item:hover .coverage-item-chevron, .coverage-item.is-active .coverage-item-chevron { color: var(--orange); transform: translateX(2px); }
+.coverage-view-all { display: inline-flex; min-height: 44px; align-items: center; gap: .5rem; margin-top: 1rem; padding: 0; border: 0; color: var(--blue-primary); background: transparent; font: 800 .84rem/1 var(--font); cursor: pointer; }
+.coverage-map-shell { position: sticky; top: calc(var(--header-height) + var(--space-2)); min-height: 26.25rem; overflow: hidden; border: 1px solid rgba(0, 70, 176, .1); border-radius: 24px; background: #dbeafe; box-shadow: 0 24px 60px rgba(0, 35, 110, .12); }
+.coverage-map-toolbar { position: absolute; z-index: 2; top: 1.125rem; right: 1.125rem; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .6rem; pointer-events: none; }
+.coverage-map-pill { display: inline-flex; align-items: center; gap: .5rem; padding: .56rem .75rem; border-radius: var(--radius-pill); color: var(--blue-deep); background: rgba(255, 255, 255, .92); box-shadow: 0 10px 24px rgba(0, 35, 110, .08); font-size: .7rem; font-weight: 800; letter-spacing: .7px; text-transform: uppercase; }
+.coverage-map { position: absolute; inset: 0; z-index: 1; }
+.coverage-map-fallback { position: absolute; inset: 0; display: grid; place-items: center; padding: var(--space-4); color: var(--blue-deep); font-size: .85rem; font-weight: 700; text-align: center; }
+.coverage-label-wrap { border: 0; background: transparent; }
+.coverage-label { display: inline-flex; padding: .38rem .62rem; border: 1px solid rgba(0, 70, 176, .08); border-radius: var(--radius-pill); color: var(--dark); background: var(--white); box-shadow: 0 8px 22px rgba(0, 35, 110, .12); font: 800 .72rem/1.1 var(--font); white-space: nowrap; }
+.coverage-label.iblaze { color: var(--orange-dark); border-color: rgba(242, 100, 19, .25); background: var(--white); }
+.coverage-label.fiberlink { color: var(--blue-primary); border-color: rgba(0, 70, 176, .18); background: var(--white); }
+.coverage-map-shell .leaflet-popup-content-wrapper { border-radius: var(--radius-md); }
+.coverage-map-shell .leaflet-popup-content { margin: .75rem .875rem; font-family: var(--font); }
+.coverage-map-shell .leaflet-popup-content strong { display: block; margin-bottom: .25rem; color: var(--dark); font-size: .86rem; }
+.coverage-map-shell .leaflet-popup-content span { display: block; color: var(--muted); font-size: .76rem; line-height: 1.55; }
+
+@media (max-width: 768px) {
+  .coverage-layout { grid-template-columns: 1fr; }
+  .coverage-map-shell { position: relative; top: auto; order: -1; min-height: 25rem; }
+  .coverage-map-toolbar { flex-direction: column; align-items: flex-end; }
+}
+
+@media (max-width: 600px) {
+  .coverage-section { padding-block: var(--section-space-y-mobile); }
+  .coverage-tab-sub { display: none; }
+  .coverage-map-shell { min-height: 23rem; border-radius: var(--radius-lg); }
+  .coverage-map-toolbar { top: .75rem; right: .75rem; }
+  .coverage-map-pill { padding: .5rem .6rem; font-size: .63rem; }
+}
