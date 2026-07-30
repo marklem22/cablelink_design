@@ -83,7 +83,8 @@ body[data-page='tv-bundle-plans'] .hero--plans{
 .ph-glow1,
 .ph-glow2{display:none}
 .ph-cross{position:absolute;font-size:1.6rem;font-weight:300;color:rgba(242,100,19,.5);pointer-events:none;user-select:none}
-.ph-inner{position:relative;z-index:2;max-width:720px;margin:0 auto;animation:fadeUp .7s ease both}
+.ph-inner{position:relative;z-index:2;max-width:720px;margin:0 auto;text-align:center;animation:fadeUp .7s ease both}
+.hero--plans .breadcrumb{justify-content:center}
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 
 .page-tag{font-size:.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);margin-bottom:1rem;display:block}
@@ -340,24 +341,6 @@ body[data-page='tv-bundle-plans'] .plans-section{padding-top:6rem;background:var
 .btn-ghost{background:transparent;color:#fff;padding:14px 32px;border-radius:7px;font-family:var(--font);font-weight:700;font-size:.85rem;letter-spacing:.6px;text-transform:uppercase;text-decoration:none;border:2px solid rgba(255,255,255,.4);transition:background .2s,border-color .2s,transform .15s;display:inline-block}
 .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff;transform:translateY(-2px)}
 
-/* ===== FOOTER ===== */
-footer{background:var(--dark);padding-block:2rem}
-.footer-inner{
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:1rem;
-}
-.footer-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
-.footer-logo .logo-mark{width:32px;height:32px;border-radius:7px}
-.footer-logo span{font-size:1.1rem;font-weight:900;color:#fff;font-family:var(--font)}
-.footer-logo em{color:var(--orange);font-style:normal}
-footer p{font-size:.78rem;color:rgba(255,255,255,.38)}
-.footer-links{display:flex;gap:1.5rem}
-.footer-links a{
-  font-size:.78rem;color:rgba(255,255,255,.45);
-  text-decoration:none;transition:color .2s;
-  font-family:var(--font);
-}
-.footer-links a:hover{color:#fff}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
@@ -424,8 +407,6 @@ footer p{font-size:.78rem;color:rgba(255,255,255,.38)}
   .filter-bar .te-item + .te-item{border-left:0;border-top:1px solid rgba(0,122,254,.14);padding-left:1.15rem;padding-top:1.15rem}
   /* .ct-sub-img{width:150px;min-height:50px;padding:7px 10px 5px 12px}
   .ct-sub-img img{max-width:128px;height:28px} */
-  .footer-inner{flex-direction:column;text-align:center}
-  .footer-links{justify-content:center}
   .filter-label{display:block;font-size:.95rem}
   .f-sep{display:none}
   body[data-page='tv-bundle-plans'] .hero--plans{padding-bottom:calc(var(--hero-space-y) + 3rem)}
@@ -455,4 +436,18 @@ footer p{font-size:.78rem;color:rgba(255,255,255,.38)}
   .tech-explainer{gap:1rem}
   .te-item{padding:1.2rem}
   .pgh{flex-direction:column;gap:.75rem}
+}
+.plan-no-results {
+  margin: 0 0 2rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--off-white);
+  color: var(--muted);
+  text-align: center;
+  font-weight: 700;
+}
+
+.plan-no-results[hidden] {
+  display: none;
 }

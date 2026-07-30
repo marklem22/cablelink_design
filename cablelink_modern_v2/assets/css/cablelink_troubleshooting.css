@@ -1,0 +1,25 @@
+.troubleshooting-hero { --hero-space-y: clamp(3rem, 5vw, 4.75rem); color: var(--white); background: linear-gradient(120deg, #00499e 0%, #007afe 55%, #02caff 100%); }
+.troubleshooting-hero .hero__inner { align-items: center; text-align: center; }
+.troubleshooting-hero .hero__content { max-width: 48rem; margin-inline: auto; text-align: center; }
+.troubleshooting-hero .hero__title { color: var(--white); }
+.troubleshooting-hero .hero__description { max-width: 44rem; margin-inline: auto; color: rgba(255,255,255,.88); }
+.troubleshooting-hero .section__tag { color: var(--yellow); }
+.troubleshooting-section { background: var(--white); }
+.troubleshooting-section--internet { background: var(--off-white); }
+.troubleshooting-section__header { max-width: 46rem; margin-bottom: var(--stack-lg); }
+.troubleshooting-section__header h2 { margin: .35rem 0 .65rem; color: var(--dark); font-size: clamp(1.75rem, 3vw, 2.6rem); letter-spacing: -.035em; }
+.troubleshooting-section__header p { margin: 0; color: var(--muted); line-height: 1.65; }
+.troubleshooting-guides { display: grid; gap: var(--grid-gap); }
+.troubleshooting-guide-card { margin: 0; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow-sm); }
+.troubleshooting-guide-card a { display: block; background: var(--blue-primary); }
+.troubleshooting-guide-card a:focus-visible { outline: 3px solid var(--orange); outline-offset: -3px; }
+.troubleshooting-guide-card img { display: block; width: 100%; height: auto; transition: transform .25s ease; }
+.troubleshooting-guide-card a:hover img { transform: scale(1.01); }
+.troubleshooting-guide-card figcaption { padding: .9rem 1rem; color: var(--muted); font-size: .78rem; line-height: 1.5; }
+.troubleshooting-download { display: flex; justify-content: center; margin-top: var(--stack-lg); }
+.troubleshooting-download .btn { gap: .5rem; }
+@media (max-width: 600px) {
+  .troubleshooting-hero .hero__inner, .troubleshooting-hero .hero__content { align-items: flex-start; text-align: left; }
+  .troubleshooting-hero .hero__content { margin-inline: 0; }
+  .troubleshooting-hero .hero__description { margin-inline: 0; }
+}
