@@ -720,23 +720,6 @@ body{
 /* ═══════════════════════════════════════════════
    FOOTER
 ═══════════════════════════════════════════════ */
-footer{background:var(--dark);padding-block:2rem}
-.footer-inner{
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:1rem;
-}
-.footer-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
-.footer-logo .logo-mark{width:32px;height:32px;border-radius:7px}
-.footer-logo span{font-size:1.1rem;font-weight:900;color:#fff;font-family:var(--font-display)}
-.footer-logo em{color:var(--orange);font-style:normal}
-footer p{font-size:.78rem;color:rgba(255,255,255,.38)}
-.footer-links{display:flex;gap:1.5rem}
-.footer-links a{
-  font-size:.78rem;color:rgba(255,255,255,.45);
-  text-decoration:none;transition:color .2s;
-  font-family:var(--font-display);
-}
-.footer-links a:hover{color:#fff}
 
 /* ═══════════════════════════════════════════════
    ANIMATIONS & UTILITIES
@@ -790,16 +773,14 @@ footer p{font-size:.78rem;color:rgba(255,255,255,.38)}
   .promo-search{display:none}
 }
 @media(max-width:700px){
-  .promo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .promo-card .card-image{aspect-ratio:16/10;height:auto;border-radius:var(--r-lg) var(--r-lg) 0 0}
+  .promo-grid{grid-template-columns:repeat(1,minmax(0,1fr))}
+  .promo-card .card-image{aspect-ratio:16/16;height:auto;border-radius:var(--r-lg) var(--r-lg) 0 0}
   .promo-card .card-body{border-radius:0 0 var(--r-lg) var(--r-lg)}
   .promo-card.featured{grid-column:span 1;}
   .promo-card.featured .card-body{border-radius:0}
   .stats-inner{grid-template-columns:repeat(2,1fr)}
   .cta-features{gap:1.2rem}
   .filter-bar-inner{justify-content:flex-start}
-  .footer-inner{flex-direction:column;text-align:center}
-  .footer-links{justify-content:center;flex-wrap:wrap}
 }
 @media(max-width:480px){
   .hero__title{font-size:2rem;letter-spacing:-1px}

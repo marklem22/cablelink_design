@@ -418,7 +418,7 @@
     .hero__content {
       animation: fadeUp .7s ease both;
       text-align: left;
-      max-width: 70vw;
+      max-width: 50vw;
       margin: 0
     }
 
@@ -1538,14 +1538,6 @@
         padding-block: 4.5rem
       }
 
-      .footer-inner {
-        flex-direction: column;
-        text-align: center
-      }
-
-      .footer-links {
-        justify-content: center
-      }
 
       .banner-carousel {
         padding-block: 1.5rem 1.75rem;

@@ -626,7 +626,11 @@ body[data-page='channels'] .hero__actions {
   justify-content: center;
 }
 
+
+body[data-page='channels'] .hero--channels .breadcrumb { justify-content: center; }
 @media (max-width: 600px) {
+
+
   body[data-page='channels'] .hero__inner {
     align-items: center;
     text-align: center !important;

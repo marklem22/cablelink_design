@@ -514,6 +514,8 @@ body[data-page='payment'] .banks-section{
 .how-step p{font-size:.8rem;color:var(--muted);line-height:1.65}
 
 /* ===== PAYMENT REMINDERS ===== */
+.reminders-faq-action{margin-top:var(--space-4); justify-content:center;display:flex}
+
 .reminders-section{padding-block:5.5rem;background:#fff}
 .reminders-layout{
   display:grid;
@@ -573,10 +575,11 @@ body[data-page='payment'] .banks-section{
 .reminder-body ul li{font-size:.7rem;color:var(--muted);line-height:1.5;list-style:disc}
 .reminder-body strong{color:var(--dark);font-weight:700}
 .reminder-note{
-  margin-top:1.5rem;
+  margin-top:var(--space-4);
   display:flex;align-items:center;gap:.6rem;
   font-size:.78rem;color:var(--muted);
   padding:0 .3rem;
+  justify-content: center;
 }
 .reminder-note svg{width:15px;height:15px;fill:none;stroke:var(--orange);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
 @media(max-width:1024px){
@@ -656,18 +659,6 @@ body[data-page='payment'] .banks-section{
 }
 .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff;transform:translateY(-2px)}
 
-/* ===== FOOTER ===== */
-footer{background:var(--dark);padding-block:2rem;text-align:center}
-.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-.footer-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
-.footer-logo .logo-mark{width:32px;height:32px}
-.footer-logo .logo-mark img{width:100%;height:100%;object-fit:contain;display:block}
-.footer-logo span{font-size:1rem;font-weight:800;color:#fff;font-family:var(--font);letter-spacing:-0.4px;line-height:1}
-.footer-logo em{color:var(--orange);font-style:normal}
-footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
-.footer-links{display:flex;gap:1.5rem}
-.footer-links a{font-size:.8rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
-.footer-links a:hover{color:#fff}
 
 .facility-search {
   max-width: 48rem;
@@ -834,8 +825,6 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.45)}
   .stat-divider{display:none}
   .banks-grid{grid-template-columns:repeat(2,1fr)}
   .steps-row{grid-template-columns:1fr 1fr}
-  .footer-inner{flex-direction:column;text-align:center}
-  .footer-links{justify-content:center}
   .coverage-map-toolbar{flex-direction:column;align-items:flex-end}
 }
 @media(max-width:480px){

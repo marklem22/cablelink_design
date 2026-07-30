@@ -853,4 +853,22 @@
 
     }
 
+/* Page-specific exception: Internet Plans uses a centered hero at every viewport. */
+body[data-page='internet-plans'] .hero--internet .hero__inner {
+  align-items: center;
+  text-align: center;
+}
+
+body[data-page='internet-plans'] .hero--internet .hero__content {
+  margin-inline: auto;
+  text-align: center;
+}
+
+body[data-page='internet-plans'] .hero--internet .breadcrumb { justify-content: center; }
+
+@media (max-width: 600px) {
+  body[data-page='internet-plans'] .hero--internet .hero__inner { text-align: center !important; }
+  body[data-page='internet-plans'] .hero--internet .hero__content { margin-inline: auto !important; text-align: center !important; }
+  body[data-page='internet-plans'] .hero--internet .breadcrumb { justify-content: center !important; }
+}
   
