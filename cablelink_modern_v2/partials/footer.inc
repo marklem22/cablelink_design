@@ -9,17 +9,20 @@
         </a>
         <p>Internet and Cable TV services for supported CableLink areas.</p>
         <nav class="global-footer__socials" aria-label="Follow CableLink">
-          <a class="global-footer__social" data-config-link="facebook" target="_blank" rel="noopener noreferrer" aria-label="CableLink on Facebook" hidden>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          <a class="global-footer__social" href="https://www.facebook.com/CablelinkTV" target="_blank" rel="noopener noreferrer" aria-label="CableLink on Facebook">
+            <img src="assets/icons/facebook_2024.png" alt="" width="18" height="18">
           </a>
-          <a class="global-footer__social" data-config-link="messenger" target="_blank" rel="noopener noreferrer" aria-label="CableLink on Messenger" hidden>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5 5.8 16A8 8 0 1 1 20 11.1c0 4.4-3.6 8-8 8-1.3 0-2.6-.3-3.7-.9L4 19.5Z"/><path d="m8.2 12.8 2.7-2.9 2.1 2.1 2.8-2.9-2.7 4-2.2-2.1-2.8 1.8Z"/></svg>
+          <a class="global-footer__social" href="https://www.instagram.com/cablelinktv" target="_blank" rel="noopener noreferrer" aria-label="CableLink on Instagram">
+            <img src="assets/icons/instagram_2024.png" alt="" width="18" height="18">
           </a>
-          <a class="global-footer__social" data-config-link="viber" target="_blank" rel="noopener noreferrer" aria-label="CableLink on Viber" hidden>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h14v11H9l-4 4v-15Z"/><path d="M8.5 8.5c1.4 3 3 4.6 6 6"/></svg>
+          <a class="global-footer__social" href="https://www.tiktok.com/@cablelinkofficial" target="_blank" rel="noopener noreferrer" aria-label="CableLink on TikTok (@cablelinkofficial)">
+            <img src="assets/icons/tiktok_2024.png" alt="" width="18" height="18">
           </a>
-          <a class="global-footer__social" data-config-link="x" target="_blank" rel="noopener noreferrer" aria-label="CableLink on X" hidden>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4 19 20M19 4 5 20"/></svg>
+          <a class="global-footer__social" href="https://www.youtube.com/@CableLinkOfficial" target="_blank" rel="noopener noreferrer" aria-label="CableLink on YouTube (CableLinkOfficial)">
+            <img src="assets/icons/youtube_2024.png" alt="" width="18" height="18">
+          </a>
+          <a class="global-footer__social" href="https://twitter.com/cablelinktv" target="_blank" rel="noopener noreferrer" aria-label="CableLink on X (@cablelinktv)">
+            <img src="assets/icons/twitter_2024.png" alt="" width="18" height="18">
           </a>
         </nav>
       </section>
