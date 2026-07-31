@@ -767,15 +767,27 @@ body[data-page='payment'] .banks-section{
 
 .auto-debit-privacy {
   color: var(--muted);
-  font-size: .8rem;
-  line-height: 1.6;
+  font-size: .85rem;
+  line-height: 1.65;
+  padding-left: calc(1.15rem + .75rem); /* checkbox width + gap — aligns with consent text */
+}
+
+.auto-debit-form .button[type="submit"] {
+  margin-top: var(--stack-md); /* 1.5rem breathing room above the button */
+  margin-left: calc(1.15rem + .75rem); /* aligns left edge with consent + privacy text */
 }
 
 .application-status {
-  min-height: 1.5rem;
-  margin: .8rem 0 0;
+  margin: .75rem 0 0;
+  padding-left: calc(1.15rem + .75rem); /* aligns with consent + privacy text */
+  font-size: .85rem;
   font-weight: 700;
   line-height: 1.55;
+}
+
+/* hide entirely when empty so it takes up zero space */
+.application-status:empty {
+  display: none;
 }
 
 .application-status.is-error {

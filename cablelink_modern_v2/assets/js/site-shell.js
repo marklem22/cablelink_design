@@ -1,4 +1,4 @@
-/* Standalone prototype shell. In CI3, replace loadShell() with header/footer views. */
+﻿/* Standalone prototype shell. In CI3, replace loadShell() with header/footer views. */
 (function () {
   'use strict';
   var page = document.body.dataset.navPage || document.body.dataset.page || '';
@@ -482,21 +482,88 @@
     var results;
     var previousFocus = null;
     var entries = [
-      { title: 'Home', description: 'CableLink internet and Cable TV homepage.', href: 'cablelink_modern_v2.html', keywords: 'home welcome banners promos tvc' },
-      { title: 'Services', description: 'Residential Internet, Cable TV, bundled plans, and enterprise services.', href: 'cablelink_services.html', keywords: 'services residential commercial enterprise selection' },
-      { title: 'Internet Plans', description: 'Review CableLink residential internet plan options.', href: 'cablelink_internet_plans1.html', keywords: 'internet iblaze fiberlink residential' },
-      { title: 'Plans & Pricing', description: 'Compare available CableLink plan groups and pricing.', href: 'cablelink_plans.html', keywords: 'plans pricing basic 495 basic lite basic plus bundles' },
-      { title: 'Channel Line-up', description: 'Browse the current Cable TV channel line-up.', href: 'cablelink_channels.html', keywords: 'cable tv channels lineup' },
-      { title: 'Promos', description: 'Browse current CableLink promotional materials.', href: 'cablelink_promos.html', keywords: 'promos offers bundles' },
-      { title: 'Payment Facilities', description: 'Find payment methods, offices, and payment facilities.', href: 'cablelink_payment.html', keywords: 'payments banks auto debit billing offices' },
-      { title: 'Support', description: 'Support paths for non-subscribers and existing subscribers.', href: 'cablelink_billing_faq.html', keywords: 'support faq troubleshooting speed test billing' },
-      { title: 'Billing FAQs', description: 'Billing FAQ destination pending approved client content.', href: 'cablelink_billing_faq.html', keywords: 'billing faq payment questions' },
-      { title: 'Contact Us', description: 'CableLink contact and messaging options.', href: 'cablelink_contact.html', keywords: 'contact hotline email messenger viber instagram offices' },
-      { title: 'Advisories', description: 'Channel, service, alarm, and outage advisories.', href: 'cablelink_advisories.html', keywords: 'advisories channel service alarms outages' },
-      { title: 'Get Connected', description: 'Check serviceability and begin a CableLink application.', href: 'cablelink_apply.html', keywords: 'apply application availability coverage get connected' },
-      { title: 'About Us', description: 'CableLink company information.', href: 'cablelink_about.html', keywords: 'about company mission vision profile milestones' },
-      { title: 'Privacy Notice', description: 'CableLink privacy notice destination.', href: 'cablelink_privacy.html', keywords: 'privacy notice policy data' },
-      { title: 'Careers', description: 'CableLink careers destination pending approved content.', href: 'cablelink_careers.html', keywords: 'careers jobs employment' }
+
+      /* ── PAGES ─────────────────────────────────────────────────────── */
+      { category: 'Page', title: 'Home', description: 'CableLink internet and Cable TV homepage.', href: 'cablelink_modern_v2.html', keywords: 'home welcome overview' },
+      { category: 'Page', title: 'Services', description: 'Residential internet, Cable TV, bundled plans, and enterprise services.', href: 'cablelink_services.html', keywords: 'services residential commercial enterprise selection' },
+      { category: 'Page', title: 'Internet Plans', description: 'Review CableLink residential internet plan options.', href: 'cablelink_internet_plans1.html', keywords: 'internet iblaze fiberlink residential plans' },
+      { category: 'Page', title: 'Plans & Pricing', description: 'Compare all CableLink plan groups and pricing.', href: 'cablelink_plans.html', keywords: 'plans pricing bundles supercharged turbocharged' },
+      { category: 'Page', title: 'Channel Line-up', description: 'Browse the current Cable TV channel line-up.', href: 'cablelink_channels.html', keywords: 'cable tv channels lineup basic lite plus' },
+      { category: 'Page', title: 'Promos', description: 'Browse current CableLink promotional offers.', href: 'cablelink_promos.html', keywords: 'promos offers deals promotions' },
+      { category: 'Page', title: 'Payment Facilities', description: 'Find payment methods, partners, offices, and auto-debit enrollment.', href: 'cablelink_payment.html', keywords: 'payments banks auto debit billing offices partners' },
+      { category: 'Page', title: 'Support & FAQs', description: 'Billing, account, and technical support for subscribers and new customers.', href: 'cablelink_billing_faq.html', keywords: 'support faq help troubleshooting billing account' },
+      { category: 'Page', title: 'Contact Us', description: 'CableLink contact and messaging options.', href: 'cablelink_contact.html', keywords: 'contact hotline email messenger viber instagram offices' },
+      { category: 'Page', title: 'Advisories', description: 'Channel, service, alarm, and outage advisories.', href: 'cablelink_advisories.html', keywords: 'advisories channel service alarms outages maintenance' },
+      { category: 'Page', title: 'Get Connected', description: 'Check serviceability and begin a CableLink subscription application.', href: 'cablelink_apply.html', keywords: 'apply application availability coverage get connected sign up' },
+      { category: 'Page', title: 'About Us', description: 'CableLink company information, mission, and milestones.', href: 'cablelink_about.html', keywords: 'about company mission vision profile milestones history' },
+      { category: 'Page', title: 'Privacy Notice', description: 'CableLink data privacy notice and policy.', href: 'cablelink_privacy.html', keywords: 'privacy notice policy data personal information' },
+      { category: 'Page', title: 'Careers', description: 'Career and employment opportunities at CableLink.', href: 'cablelink_careers.html', keywords: 'careers jobs employment hiring' },
+
+      /* ── SERVICES ───────────────────────────────────────────────────── */
+      { category: 'Service', title: 'Residential Internet', description: 'iBlaZe cable internet and FiberLink fiber-to-the-home plan options for residential subscribers.', href: 'cablelink_internet_plans1.html', keywords: 'residential internet iblaze fiberlink docsis fiber ftth home' },
+      { category: 'Service', title: 'Cable TV', description: 'Basic 495, Basic Lite, and Basic Plus cable television packages with local and international channels.', href: 'cablelink_channels.html', keywords: 'cable tv basic 495 basic lite basic plus channels television' },
+      { category: 'Service', title: 'Bundled Plans', description: 'Supercharged and Turbocharged internet-and-cable TV combination packages.', href: 'cablelink_plans.html#bundle-groups', keywords: 'bundle bundled plans supercharged turbocharged internet cable combo' },
+      { category: 'Service', title: 'Enterprise Services', description: 'Business and enterprise service enquiries — contact CableLink to discuss requirements and availability.', href: 'cablelink_contact.html', keywords: 'enterprise business commercial corporate service enquiry' },
+
+      /* ── PLANS ──────────────────────────────────────────────────────── */
+      { category: 'Plan', title: 'Supercharged iBlaZe@Home — from ₱588/mo', description: 'DOCSIS cable internet bundled with Basic Plus (126 channels). Speeds from 20 to 120 Mbps.', href: 'cablelink_internet_plans1.html', keywords: 'supercharged iblaze docsis 20mbps 30mbps 35mbps 50mbps 88mbps 120mbps 588 888 999 1088 1388 1699 basic plus 126 channels' },
+      { category: 'Plan', title: 'Turbocharged iBlaZe@Home — from ₱599/mo', description: 'Budget DOCSIS cable internet bundled with Basic Lite (53 channels). Great for streamers.', href: 'cablelink_internet_plans1.html', keywords: 'turbocharged iblaze docsis budget 599 basic lite 53 channels streaming' },
+      { category: 'Plan', title: 'Supercharged FiberLink@Home — from ₱888/mo', description: 'Dedicated fiber (FTTH) bundled with Basic Plus (126 channels). Speeds from 50 to 300 Mbps.', href: 'cablelink_internet_plans1.html', keywords: 'supercharged fiberlink fiber ftth 50mbps 75mbps 88mbps 188mbps 300mbps 888 999 1088 1388 1699 basic plus 126 channels' },
+      { category: 'Plan', title: 'Turbocharged FiberLink@Home — from ₱599/mo', description: 'Gigabit-ready fiber at a budget price, bundled with Basic Lite (53 channels). Up to 300 Mbps.', href: 'cablelink_internet_plans1.html', keywords: 'turbocharged fiberlink fiber ftth gigabit budget 599 999 1299 50mbps 200mbps 300mbps basic lite 53 channels' },
+      { category: 'Plan', title: 'Basic Lite Cable TV Package', description: '53 channels. Entry-level cable TV subscription available as a standalone or bundle add-on.', href: 'cablelink_channels.html', keywords: 'basic lite cable tv 53 channels standalone package subscription' },
+      { category: 'Plan', title: 'Basic 495 Cable TV Package', description: 'Mid-range cable TV package. Available as standalone subscription.', href: 'cablelink_channels.html', keywords: 'basic 495 cable tv package subscription channels standalone' },
+      { category: 'Plan', title: 'Basic Plus Cable TV Package', description: '126 channels. Full cable TV subscription with local, news, sports, kids, and international channels.', href: 'cablelink_channels.html', keywords: 'basic plus cable tv 126 channels news sports kids international full subscription' },
+
+      /* ── PROMOS ─────────────────────────────────────────────────────── */
+      { category: 'Promo', title: 'Basic Lite, Basic 495, Basic Plus Package Promo', description: 'Cable TV package promotional offer covering Basic Lite, Basic 495, and Basic Plus subscriptions.', href: 'cablelink_promos.html', keywords: 'promo cable tv basic lite 495 plus package offer limited' },
+      { category: 'Promo', title: "Turbocharged iBlaZe@Home Valentine's Day", description: 'Upgrade your home internet and get a FREE Basic Lite cable TV subscription when you sign up.', href: 'cablelink_promos.html', keywords: 'promo turbocharged iblaze valentines free basic lite internet bundle offer' },
+      { category: 'Promo', title: 'Turbocharge FiberLink@Home Valentines', description: 'Fast fiber internet for going LIVE plus FREE Basic Lite cable TV on your Valentine upgrade.', href: 'cablelink_promos.html', keywords: 'promo turbocharged fiberlink fiber valentines free basic lite internet bundle offer' },
+      { category: 'Promo', title: "Supercharged iBlaZe@Home Valentine's Day", description: 'No lag, just love — supercharged DOCSIS internet bundled with free cable TV this Valentine season.', href: 'cablelink_promos.html', keywords: 'promo supercharged iblaze valentines free cable tv internet bundle offer' },
+      { category: 'Promo', title: 'Supercharge FiberLink@Home Valentines Day', description: 'Up to 1 Gbps fiber speed plus FREE Basic Plus cable TV — ideal for movie nights and video calls.', href: 'cablelink_promos.html', keywords: 'promo supercharged fiberlink fiber valentines 1gbps free basic plus internet bundle offer' },
+
+      /* ── FAQ — SUBSCRIBER: SALES ────────────────────────────────────── */
+      { category: 'FAQ', title: 'Can I upgrade my cable or internet plan?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html', keywords: 'upgrade plan cable internet subscriber sales' },
+      { category: 'FAQ', title: 'Can I downgrade my plan?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html', keywords: 'downgrade plan subscriber sales' },
+      { category: 'FAQ', title: 'How do I know which plan is best for me?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html', keywords: 'best plan choose subscriber sales recommendation' },
+      { category: 'FAQ', title: 'Can I add premium channels or add-on services?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html', keywords: 'premium channels add-on services subscriber sales' },
+      { category: 'FAQ', title: 'How long does it take to activate add-on services?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html', keywords: 'activate add-on activation time subscriber sales' },
+      { category: 'FAQ', title: 'Am I eligible for subscriber promotions?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html', keywords: 'eligible subscriber promotions promo deals sales' },
+      { category: 'FAQ', title: 'How do I request a plan change or add-on service?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html', keywords: 'request plan change add-on subscriber sales' },
+      { category: 'FAQ', title: 'Are there fees for changing plans?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html', keywords: 'fees changing plans subscriber sales' },
+      { category: 'FAQ', title: 'Can I switch to a bundled cable and internet plan?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html', keywords: 'switch bundle cable internet plan subscriber sales' },
+      { category: 'FAQ', title: 'Will my contract reset if I change my plan?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html', keywords: 'contract reset plan change subscriber sales' },
+
+      /* ── FAQ — SUBSCRIBER: BILLING ──────────────────────────────────── */
+      { category: 'FAQ', title: 'When is my monthly bill due?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'monthly bill due date billing subscriber' },
+      { category: 'FAQ', title: 'How can I get a copy of my billing statement?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'billing statement copy invoice subscriber' },
+      { category: 'FAQ', title: 'What is a prorated charge?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'prorated charge billing subscriber' },
+      { category: 'FAQ', title: 'What payment methods are accepted?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'payment methods accepted billing subscriber' },
+      { category: 'FAQ', title: 'How long does it take for my payment to be posted?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'payment posted billing posting time subscriber' },
+      { category: 'FAQ', title: 'What should I do if my payment is not yet posted?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'payment not posted billing subscriber' },
+      { category: 'FAQ', title: 'What happens if I miss my due date?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'miss due date late payment billing subscriber' },
+      { category: 'FAQ', title: 'How can I avoid service interruption?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'avoid service interruption disconnection billing subscriber' },
+      { category: 'FAQ', title: 'Can I dispute a billing charge?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'dispute billing charge subscriber' },
+      { category: 'FAQ', title: 'Will I receive a refund if there is a billing error?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'refund billing error subscriber' },
+      { category: 'FAQ', title: 'Can I change my billing cycle or due date?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'change billing cycle due date subscriber' },
+      { category: 'FAQ', title: 'What information should I prepare when contacting billing support?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'billing support information prepare contact subscriber' },
+
+      /* ── FAQ — SUBSCRIBER: SERVICE ──────────────────────────────────── */
+      { category: 'FAQ', title: 'What should I do if my internet connection is slow?', description: 'Subscriber — Service related concerns.', href: 'cablelink_billing_faq.html', keywords: 'slow internet connection troubleshoot service subscriber' },
+      { category: 'FAQ', title: 'What should I do if I have no internet or cable connection?', description: 'Subscriber — Service related concerns.', href: 'cablelink_billing_faq.html', keywords: 'no internet no cable connection outage service subscriber' },
+
+      /* ── FAQ — NON-SUBSCRIBER: AVAILABILITY ─────────────────────────── */
+      { category: 'FAQ', title: 'Is your cable and internet service available in my area?', description: 'Non-Subscriber — Service availability.', href: 'cablelink_billing_faq.html', keywords: 'service available area coverage non-subscriber availability' },
+      { category: 'FAQ', title: 'Do you offer services for both residential and business customers?', description: 'Non-Subscriber — Service availability.', href: 'cablelink_billing_faq.html', keywords: 'residential business customers service availability non-subscriber' },
+
+      /* ── FAQ — NON-SUBSCRIBER: PLANS ────────────────────────────────── */
+      { category: 'FAQ', title: 'What cable and internet plans do you offer?', description: 'Non-Subscriber — Plans & Packages.', href: 'cablelink_billing_faq.html', keywords: 'plans internet cable offer packages non-subscriber' },
+      { category: 'FAQ', title: 'Can I subscribe to internet only or cable only?', description: 'Non-Subscriber — Plans & Packages.', href: 'cablelink_billing_faq.html', keywords: 'internet only cable only standalone subscribe non-subscriber plans' },
+      { category: 'FAQ', title: 'Do you offer bundled packages?', description: 'Non-Subscriber — Plans & Packages.', href: 'cablelink_billing_faq.html', keywords: 'bundled packages bundle cable internet non-subscriber plans' },
+      { category: 'FAQ', title: 'Are there promotional offers for new subscribers?', description: 'Non-Subscriber — Plans & Packages.', href: 'cablelink_billing_faq.html', keywords: 'promo promotional offers new subscribers non-subscriber plans' },
+
+      /* ── FAQ — NON-SUBSCRIBER: APPLICATION ──────────────────────────── */
+      { category: 'FAQ', title: 'How do I apply for a new subscription?', description: 'Non-Subscriber — Application & Installation.', href: 'cablelink_billing_faq.html', keywords: 'apply new subscription application install non-subscriber' },
+      { category: 'FAQ', title: 'How long does installation take?', description: 'Non-Subscriber — Application & Installation.', href: 'cablelink_billing_faq.html', keywords: 'installation time duration non-subscriber application' }
     ];
 
     if (!modal) return;
@@ -535,19 +602,28 @@
         return;
       }
       if (!matches.length) {
-        status.textContent = 'No pages match “' + query + '”. Try a broader keyword.';
+        status.textContent = 'No results match “' + query + '”. Try a broader keyword.';
         return;
       }
       status.textContent = matches.length + (matches.length === 1 ? ' result found.' : ' results found.');
       matches.forEach(function (entry) {
         var card = document.createElement('article');
+        var header = document.createElement('div');
+        var badge = document.createElement('span');
         var link = document.createElement('a');
         var description = document.createElement('p');
+
         card.className = 'site-search-result';
+        header.className = 'site-search-result__header';
+        badge.className = 'site-search-result__badge site-search-result__badge--' + (entry.category || 'page').toLowerCase();
+        badge.textContent = entry.category || 'Page';
         link.href = entry.href;
         link.textContent = entry.title;
         description.textContent = entry.description;
-        card.appendChild(link);
+
+        header.appendChild(badge);
+        header.appendChild(link);
+        card.appendChild(header);
         card.appendChild(description);
         results.appendChild(card);
       });

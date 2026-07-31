@@ -48,7 +48,7 @@
   --shadow-md: 0 8px 32px rgba(0, 122, 254, .16);
   --shadow-lg: 0 24px 64px rgba(13, 27, 62, .16);
   --container: 1440px;
-  --gutter: clamp(1rem, 5vw, 1rem);
+  --gutter: clamp(1rem, 5vw, 2rem);
   --header-height: 68px;
   --hero-space-y: 4rem;
   --section-space-y: 5.5rem;
@@ -111,7 +111,7 @@ html::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:hover { backg
 body[data-page] .hero[class*="hero--"] { background-position: center var(--header-height); }
 .background-fixed { background-position: center var(--header-height); }
 .hero__inner { position: relative; display: flex; width: 100%; flex-direction: column; align-items: flex-start; text-align: left; }
-.hero__content { position: relative;  margin-inline: 0; text-align: left; }
+.hero__content { position: relative;  margin-inline: 0; text-align: left; max-width:60%; }
 .hero__eyebrow { display: block; }
 .hero__title { max-width: 100%; margin: 0; font-size: clamp(2.25rem, 4.2vw, 4rem); font-weight: 900; letter-spacing: -.04em; line-height: 1.08; }
 .hero__description { max-width: 100%; margin: 1rem 0 0; color: var(--muted); font-size: clamp(.95rem, 1vw, 1.05rem); line-height: 1.7; }
@@ -158,7 +158,7 @@ body[data-page] .hero[class*="hero--"] { background-position: center var(--heade
 /* Common content-section rhythm. Hero sections keep their page-specific vertical composition. */
 :is(.promo-section, .tvc-section, .coverage-section, .online-section, .walkin-section, .banks-section, .how-section, .reminders-section, .faq-section, .plans-section, .payment-section, .pricing) { padding-block: var(--section-space-y); }
 /* Promo labels belong to their section and must not create a second top gap. */
-.promo-section > .section-label { margin-top: 0; }
+.promo-section > .section-label { margin-top: 0;margin-bottom: 5.5rem; }
 
 /* Shared shell matches the original Payment Facilities header. */
 .global-header { position: fixed; z-index: 1000; inset: 0 0 auto; height: var(--header-height); background: linear-gradient(100deg, #007afe 0%, #006fe8 52%, #0058c7 100%); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.2); }
@@ -376,7 +376,7 @@ html.is-mobile-menu-open, body.is-mobile-menu-open { overflow: hidden; }
 .privacy-modal[hidden] { display: none; }
 .privacy-modal { position: fixed; z-index: 1300; inset: 0; display: grid; place-items: center; overflow-y: auto; padding: 1rem var(--gutter); }
 .privacy-modal__backdrop { position: absolute; inset: 0; background: rgba(13,27,62,.72); backdrop-filter: blur(4px); }
-.privacy-modal__dialog { position: relative; width: min(100%, 30rem); max-height: calc(100svh - 2rem); overflow-y: auto; overscroll-behavior: contain; padding: clamp(1rem, 2.5vw, 1.4rem); border: 1px solid rgba(207,232,255,.8); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow-lg, 0 24px 64px rgba(13,27,62,.16)); }
+.privacy-modal__dialog { position: relative; width: min(100%, 30rem); max-height: none; overflow-y: visible; overscroll-behavior: contain; padding: clamp(1rem, 2.5vw, 1.4rem); border: 1px solid rgba(207,232,255,.8); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow-lg, 0 24px 64px rgba(13,27,62,.16)); }
 .privacy-modal__heading { display: flex; align-items: center; gap: .75rem; padding-right: 2.5rem; }
 .privacy-modal__shield { display: inline-grid; flex: 0 0 auto; place-items: center; width: clamp(3.25rem, 7vw, 3.75rem); aspect-ratio: 1; border-radius: 50%; color: var(--blue-primary); background: var(--blue-pale); }
 .privacy-modal__shield svg { width: 60%; height: 60%; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2.3; }
@@ -395,6 +395,7 @@ html.is-mobile-menu-open, body.is-mobile-menu-open { overflow: hidden; }
 .privacy-modal__choice-icon svg { width: 70%; height: 70%; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2.2; }
 .privacy-modal__choice-icon--document { color: var(--blue-primary); background: var(--blue-pale); }
 .privacy-modal__choice-icon--facebook { border-radius: 50%; color: var(--white); background: var(--blue-primary); font-size: 1.55rem; font-weight: 900; font-family: Arial, sans-serif; line-height: 1; }
+.privacy-modal__choice strong { display: block; grid-column: 2; grid-row: 1; }
 .privacy-modal__choice small { display: block; grid-column: 2; grid-row: 2; color: var(--muted); font-size: .63rem; font-weight: 500; line-height: 1.35; }
 .privacy-modal__choice-arrow { display: inline-grid; grid-column: 3; grid-row: 1 / 3; place-items: center; color: var(--dark); font-size: 1.35rem; font-weight: 500; line-height: 1; }
 .privacy-modal__choice:hover,
@@ -474,8 +475,16 @@ body.is-privacy-modal-open { overflow: hidden; }
 .site-search-status { margin: var(--space-3) 0 0; color: var(--muted); line-height: 1.6; }
 .site-search-results { display: grid; gap: .75rem; margin-top: var(--space-3); }
 .site-search-result { padding: 1rem; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--off-white); }
+.site-search-result__header { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
 .site-search-result a { color: var(--blue-primary); font-size: 1rem; font-weight: 800; text-decoration: none; }
+.site-search-result a:hover { text-decoration: underline; }
 .site-search-result p { margin: .35rem 0 0; color: var(--muted); font-size: .84rem; line-height: 1.55; }
+.site-search-result__badge { display: inline-flex; align-items: center; flex-shrink: 0; padding: .2rem .55rem; border-radius: var(--radius-pill); font-size: .65rem; font-weight: 800; letter-spacing: .6px; text-transform: uppercase; }
+.site-search-result__badge--page    { background: rgba(0,122,254,.1);  color: var(--blue-primary); }
+.site-search-result__badge--service { background: rgba(2,202,255,.12); color: #0992b8; }
+.site-search-result__badge--plan    { background: rgba(247,130,32,.12); color: var(--orange-dark); }
+.site-search-result__badge--promo   { background: rgba(254,187,54,.18); color: #9a6800; }
+.site-search-result__badge--faq     { background: rgba(22,163,74,.1);  color: #13803b; }
 html.is-site-search-open,
 body.is-site-search-open { overflow: hidden; }
 
@@ -568,8 +577,8 @@ body.is-agreement-modal-open { overflow: hidden; }
 .application-agreement-link:focus-visible { color: var(--orange-dark); }
 /* Privacy entry modal: preserve its controls in short browser windows and at high zoom. */
 @media (max-height: 42rem) {
-  .privacy-modal { place-items: start center; padding-block: .5rem; }
-  .privacy-modal__dialog { max-height: calc(100svh - 1rem); padding: .75rem 1rem; }
+  .privacy-modal { place-items: start center; padding-block: .5rem; overflow-y: auto; }
+  .privacy-modal__dialog { max-height: none; overflow-y: visible; padding: .75rem 1rem; }
   .privacy-modal__heading { gap: .6rem; }
   .privacy-modal__shield { width: 2.8rem; }
   .privacy-modal__heading .section__tag { margin-bottom: .2rem; font-size: .62rem; }
