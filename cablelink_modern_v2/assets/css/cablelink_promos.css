@@ -411,7 +411,7 @@ body{
 .promo-card.featured{
   grid-column:span 1;
 }
-.promo-card.featured .card-image{aspect-ratio:16 / 10;height:auto;min-height:0;border-radius:var(--r-lg) var(--r-lg) 0 0}
+.promo-card.featured .card-image{aspect-ratio:16 / 16;height:auto;min-height:0;border-radius:var(--r-lg) var(--r-lg) 0 0}
 .promo-card.featured .card-body{border-radius:0 0 var(--r-lg) var(--r-lg);display:flex;flex-direction:column;justify-content:center}
 
 /* ─── Base Card — vertical layout ─── */
@@ -427,7 +427,7 @@ body{
 }
 .promo-card .card-image{
   width:100%;
-  aspect-ratio:16 / 10;
+  aspect-ratio:16 / 16;
   height:auto;
   position:relative;overflow:hidden;
   flex-shrink:0;
@@ -709,7 +709,7 @@ body{
 .cta-features{
   display:flex;align-items:center;justify-content:center;
   gap:2rem;flex-wrap:wrap;margin-top:2.8rem;
-  padding-top:2.2rem;border-top:1px solid var(--border);
+  padding-top:2.2rem;
 }
 .cta-feat-item{
   display:flex;align-items:center;gap:.6rem;
