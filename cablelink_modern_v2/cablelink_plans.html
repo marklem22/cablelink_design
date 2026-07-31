@@ -385,6 +385,7 @@ function cableCard(plan){
 
 /* ── Render ── */
 var activeFilter = 'all';
+var activeLine = 'all'; /* iblaze | fiberlink | all */
 var searchQuery = '';
 var sortOrder = 'price-asc';
 
@@ -412,6 +413,14 @@ function applyFilter(){
     cable:        document.getElementById('group-cable')
   };
 
+  /* line-based subgroup visibility: iblaze = docsis subgroups, fiberlink = ftth subgroups */
+  var lineMap = {
+    'sc-docsis': 'iblaze',
+    'tc-docsis': 'iblaze',
+    'sc-ftth':   'fiberlink',
+    'tc-ftth':   'fiberlink'
+  };
+
   document.querySelectorAll('.plan-card').forEach(function(card){
     card.classList.toggle('search-hidden', searchQuery && card.textContent.toLowerCase().indexOf(searchQuery) === -1);
   });
@@ -420,7 +429,8 @@ function applyFilter(){
     var hasMatch = Array.prototype.some.call(subgroup.querySelectorAll('.plan-card'), function(card){
       return !card.classList.contains('search-hidden');
     });
-    subgroup.classList.toggle('hidden', !hasMatch);
+    var lineMatch = activeLine === 'all' || lineMap[subgroup.id] === activeLine || !lineMap[subgroup.id];
+    subgroup.classList.toggle('hidden', !hasMatch || !lineMatch);
   });
 
   Object.keys(groups).forEach(function(k){
@@ -438,7 +448,42 @@ function applyFilter(){
 
 /* ── Init ── */
 document.addEventListener('DOMContentLoaded', function(){
+  // Pre-apply filter from URL param (?filter=supercharged|turbocharged|cable|all &line=iblaze|fiberlink)
+  (function applyURLParams() {
+    var params = new URLSearchParams(window.location.search);
+    var f = (params.get('filter') || '').toLowerCase();
+    var l = (params.get('line') || '').toLowerCase();
+    var validFilters = ['all', 'supercharged', 'turbocharged', 'cable'];
+    var validLines   = ['iblaze', 'fiberlink'];
+
+    if (f && validFilters.indexOf(f) !== -1) {
+      var tabs = document.querySelectorAll('.ftab');
+      tabs.forEach(function(t) {
+        var match = t.dataset.filter === f;
+        t.classList.toggle('active', match);
+        if (match) activeFilter = f;
+      });
+    }
+    if (l && validLines.indexOf(l) !== -1) {
+      activeLine = l;
+    }
+  })();
+
   render();
+  applyFilter(); // apply URL-seeded filter on first paint
+
+  // Scroll to first visible plan group if arriving from a search link (#bundle-groups)
+  if (window.location.hash === '#bundle-groups') {
+    window.setTimeout(function () {
+      var firstGroup = document.querySelector('.plan-group:not(.hidden)');
+      var target = firstGroup || document.getElementById('bundle-groups');
+      if (target) {
+        var headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 68;
+        var top = target.getBoundingClientRect().top + window.scrollY - (headerHeight + 32);
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    }, 80);
+  }
 
   /* Filter tabs */
   var tabs = document.querySelectorAll('.ftab');

@@ -1,4 +1,4 @@
-﻿/* Standalone prototype shell. In CI3, replace loadShell() with header/footer views. */
+/* Standalone prototype shell. In CI3, replace loadShell() with header/footer views. */
 (function () {
   'use strict';
   var page = document.body.dataset.navPage || document.body.dataset.page || '';
@@ -487,7 +487,7 @@
       { category: 'Page', title: 'Home', description: 'CableLink internet and Cable TV homepage.', href: 'cablelink_modern_v2.html', keywords: 'home welcome overview' },
       { category: 'Page', title: 'Services', description: 'Residential internet, Cable TV, bundled plans, and enterprise services.', href: 'cablelink_services.html', keywords: 'services residential commercial enterprise selection' },
       { category: 'Page', title: 'Internet Plans', description: 'Review CableLink residential internet plan options.', href: 'cablelink_internet_plans1.html', keywords: 'internet iblaze fiberlink residential plans' },
-      { category: 'Page', title: 'Plans & Pricing', description: 'Compare all CableLink plan groups and pricing.', href: 'cablelink_plans.html', keywords: 'plans pricing bundles supercharged turbocharged' },
+      { category: 'Page', title: 'Plans & Pricing', description: 'Compare all CableLink plan groups and pricing.', href: 'cablelink_plans.html#bundle-groups', keywords: 'plans pricing bundles supercharged turbocharged' },
       { category: 'Page', title: 'Channel Line-up', description: 'Browse the current Cable TV channel line-up.', href: 'cablelink_channels.html', keywords: 'cable tv channels lineup basic lite plus' },
       { category: 'Page', title: 'Promos', description: 'Browse current CableLink promotional offers.', href: 'cablelink_promos.html', keywords: 'promos offers deals promotions' },
       { category: 'Page', title: 'Payment Facilities', description: 'Find payment methods, partners, offices, and auto-debit enrollment.', href: 'cablelink_payment.html', keywords: 'payments banks auto debit billing offices partners' },
@@ -500,19 +500,29 @@
       { category: 'Page', title: 'Careers', description: 'Career and employment opportunities at CableLink.', href: 'cablelink_careers.html', keywords: 'careers jobs employment hiring' },
 
       /* ── SERVICES ───────────────────────────────────────────────────── */
-      { category: 'Service', title: 'Residential Internet', description: 'iBlaZe cable internet and FiberLink fiber-to-the-home plan options for residential subscribers.', href: 'cablelink_internet_plans1.html', keywords: 'residential internet iblaze fiberlink docsis fiber ftth home' },
-      { category: 'Service', title: 'Cable TV', description: 'Basic 495, Basic Lite, and Basic Plus cable television packages with local and international channels.', href: 'cablelink_channels.html', keywords: 'cable tv basic 495 basic lite basic plus channels television' },
-      { category: 'Service', title: 'Bundled Plans', description: 'Supercharged and Turbocharged internet-and-cable TV combination packages.', href: 'cablelink_plans.html#bundle-groups', keywords: 'bundle bundled plans supercharged turbocharged internet cable combo' },
+      { category: 'Service', title: 'Residential Internet — iBlaZe (DOCSIS)', description: 'Cable internet shared through existing cable TV infrastructure. Available in Supercharged and Turbocharged tiers.', href: 'cablelink_plans.html?line=iblaze#bundle-groups', keywords: 'iblaze docsis residential internet cable shared supercharged turbocharged' },
+      { category: 'Service', title: 'Residential Internet — FiberLink (FTTH)', description: 'Dedicated fiber-optic cable direct to your home. Available in Supercharged and Turbocharged tiers.', href: 'cablelink_plans.html?line=fiberlink#bundle-groups', keywords: 'fiberlink ftth fiber to the home residential internet dedicated supercharged turbocharged' },
+      { category: 'Service', title: 'Cable TV — Basic 495, Basic Lite, Basic Plus', description: 'Cable TV packages for Digitally Activated areas: Basic 495 (65 ch), Basic Lite (53 ch), Basic Plus (126 ch).', href: 'cablelink_plans.html?filter=cable#bundle-groups', keywords: 'cable tv basic 495 65 channels basic lite 53 basic plus 126 digitally activated' },
+      { category: 'Service', title: 'Bundled Plans — Supercharged & Turbocharged', description: 'Supercharged bundles Internet + Basic Plus. Turbocharged bundles Internet + Basic Lite.', href: 'cablelink_plans.html#bundle-groups', keywords: 'bundle bundled plans supercharged turbocharged internet cable combo basic plus basic lite' },
       { category: 'Service', title: 'Enterprise Services', description: 'Business and enterprise service enquiries — contact CableLink to discuss requirements and availability.', href: 'cablelink_contact.html', keywords: 'enterprise business commercial corporate service enquiry' },
 
       /* ── PLANS ──────────────────────────────────────────────────────── */
-      { category: 'Plan', title: 'Supercharged iBlaZe@Home — from ₱588/mo', description: 'DOCSIS cable internet bundled with Basic Plus (126 channels). Speeds from 20 to 120 Mbps.', href: 'cablelink_internet_plans1.html', keywords: 'supercharged iblaze docsis 20mbps 30mbps 35mbps 50mbps 88mbps 120mbps 588 888 999 1088 1388 1699 basic plus 126 channels' },
-      { category: 'Plan', title: 'Turbocharged iBlaZe@Home — from ₱599/mo', description: 'Budget DOCSIS cable internet bundled with Basic Lite (53 channels). Great for streamers.', href: 'cablelink_internet_plans1.html', keywords: 'turbocharged iblaze docsis budget 599 basic lite 53 channels streaming' },
-      { category: 'Plan', title: 'Supercharged FiberLink@Home — from ₱888/mo', description: 'Dedicated fiber (FTTH) bundled with Basic Plus (126 channels). Speeds from 50 to 300 Mbps.', href: 'cablelink_internet_plans1.html', keywords: 'supercharged fiberlink fiber ftth 50mbps 75mbps 88mbps 188mbps 300mbps 888 999 1088 1388 1699 basic plus 126 channels' },
-      { category: 'Plan', title: 'Turbocharged FiberLink@Home — from ₱599/mo', description: 'Gigabit-ready fiber at a budget price, bundled with Basic Lite (53 channels). Up to 300 Mbps.', href: 'cablelink_internet_plans1.html', keywords: 'turbocharged fiberlink fiber ftth gigabit budget 599 999 1299 50mbps 200mbps 300mbps basic lite 53 channels' },
-      { category: 'Plan', title: 'Basic Lite Cable TV Package', description: '53 channels. Entry-level cable TV subscription available as a standalone or bundle add-on.', href: 'cablelink_channels.html', keywords: 'basic lite cable tv 53 channels standalone package subscription' },
-      { category: 'Plan', title: 'Basic 495 Cable TV Package', description: 'Mid-range cable TV package. Available as standalone subscription.', href: 'cablelink_channels.html', keywords: 'basic 495 cable tv package subscription channels standalone' },
-      { category: 'Plan', title: 'Basic Plus Cable TV Package', description: '126 channels. Full cable TV subscription with local, news, sports, kids, and international channels.', href: 'cablelink_channels.html', keywords: 'basic plus cable tv 126 channels news sports kids international full subscription' },
+      /* Supercharged = Internet + Basic Plus (126 ch) */
+      { category: 'Plan', title: 'Supercharged iBlaZe@Home — from ₱588/mo', description: 'DOCSIS cable internet + Basic Plus (126 channels). Tiers: 20, 30, 35, 50, 88, 120 Mbps.', href: 'cablelink_plans.html?filter=supercharged&line=iblaze#bundle-groups', keywords: 'supercharged iblaze docsis 20mbps 30mbps 35mbps 50mbps 88mbps 120mbps 588 888 999 1088 1388 1699 basic plus 126 channels' },
+      { category: 'Plan', title: 'Supercharged FiberLink@Home — from ₱888/mo', description: 'FTTH fiber + Basic Plus (126 channels). Tiers: 50, 75, 88, 188, 300 Mbps.', href: 'cablelink_plans.html?filter=supercharged&line=fiberlink#bundle-groups', keywords: 'supercharged fiberlink fiber ftth 50mbps 75mbps 88mbps 188mbps 300mbps 888 999 1088 1388 1699 basic plus 126 channels' },
+      /* Turbocharged = Internet + Basic Lite (53 ch) */
+      { category: 'Plan', title: 'Turbocharged iBlaZe@Home — from ₱599/mo', description: 'DOCSIS cable internet + Basic Lite (53 channels). Tiers: 30, 50, 100 Mbps.', href: 'cablelink_plans.html?filter=turbocharged&line=iblaze#bundle-groups', keywords: 'turbocharged iblaze docsis 30mbps 50mbps 100mbps 599 999 1499 basic lite 53 channels budget' },
+      { category: 'Plan', title: 'Turbocharged FiberLink@Home — from ₱599/mo', description: 'FTTH fiber + Basic Lite (53 channels). Tiers: 50, 200, 300 Mbps.', href: 'cablelink_plans.html?filter=turbocharged&line=fiberlink#bundle-groups', keywords: 'turbocharged fiberlink fiber ftth 50mbps 200mbps 300mbps 599 999 1299 basic lite 53 channels gigabit budget' },
+      /* Tier-only combos */
+      { category: 'Plan', title: 'All Supercharged Plans — iBlaZe & FiberLink', description: 'Internet + Basic Plus (126 ch). iBlaZe DOCSIS from ₱588 and FiberLink FTTH from ₱888.', href: 'cablelink_plans.html?filter=supercharged#bundle-groups', keywords: 'supercharged all plans iblaze fiberlink docsis fiber ftth basic plus 126 bundle' },
+      { category: 'Plan', title: 'All Turbocharged Plans — iBlaZe & FiberLink', description: 'Internet + Basic Lite (53 ch). iBlaZe DOCSIS from ₱599 and FiberLink FTTH from ₱599.', href: 'cablelink_plans.html?filter=turbocharged#bundle-groups', keywords: 'turbocharged all plans iblaze fiberlink docsis fiber ftth basic lite 53 bundle budget' },
+      /* Line-only combos */
+      { category: 'Plan', title: 'All iBlaZe Plans — Supercharged & Turbocharged', description: 'DOCSIS cable internet plans. Supercharged (Basic Plus) from ₱588, Turbocharged (Basic Lite) from ₱599.', href: 'cablelink_plans.html?line=iblaze#bundle-groups', keywords: 'iblaze docsis all plans supercharged turbocharged cable internet 20 30 35 50 88 100 120 mbps' },
+      { category: 'Plan', title: 'All FiberLink Plans — Supercharged & Turbocharged', description: 'FTTH fiber-to-the-home plans. Supercharged (Basic Plus) from ₱888, Turbocharged (Basic Lite) from ₱599.', href: 'cablelink_plans.html?line=fiberlink#bundle-groups', keywords: 'fiberlink fiber ftth all plans supercharged turbocharged 50 75 88 188 200 300 mbps' },
+      /* Cable TV */
+      { category: 'Plan', title: 'Basic Lite — 53 Live Channels', description: 'Entry-level cable TV for Digitally Activated areas. 53 live channels. Available standalone or as Turbocharged bundle.', href: 'cablelink_plans.html?filter=cable#bundle-groups', keywords: 'basic lite cable tv 53 channels standalone subscription digitally activated turbocharged' },
+      { category: 'Plan', title: 'Basic 495 — 65 Live Channels', description: 'Cable TV for Digitally Activated areas. 65 live channels.', href: 'cablelink_plans.html?filter=cable#bundle-groups', keywords: 'basic 495 cable tv 65 channels standalone subscription digitally activated' },
+      { category: 'Plan', title: 'Basic Plus — 126 Live Channels', description: 'Full cable TV for Digitally Activated areas. 126 live channels. Available standalone or as Supercharged bundle.', href: 'cablelink_plans.html?filter=cable#bundle-groups', keywords: 'basic plus cable tv 126 channels standalone subscription digitally activated supercharged' },
 
       /* ── PROMOS ─────────────────────────────────────────────────────── */
       { category: 'Promo', title: 'Basic Lite, Basic 495, Basic Plus Package Promo', description: 'Cable TV package promotional offer covering Basic Lite, Basic 495, and Basic Plus subscriptions.', href: 'cablelink_promos.html', keywords: 'promo cable tv basic lite 495 plus package offer limited' },
@@ -589,45 +599,67 @@
       document.body.classList.add('is-site-search-open');
       window.setTimeout(function () { input.focus(); }, 0);
     }
-    function renderResults(query) {
-      var terms = query.toLowerCase().split(/\s+/).filter(Boolean);
-      var matches = entries.filter(function (entry) {
-        var haystack = [entry.title, entry.description, entry.keywords].join(' ').toLowerCase();
-        return terms.every(function (term) { return haystack.indexOf(term) !== -1; });
-      });
-
-      results.textContent = '';
-      if (!terms.length) {
-        status.textContent = 'Enter a keyword to search the current website pages.';
-        return;
-      }
-      if (!matches.length) {
-        status.textContent = 'No results match “' + query + '”. Try a broader keyword.';
-        return;
-      }
-      status.textContent = matches.length + (matches.length === 1 ? ' result found.' : ' results found.');
-      matches.forEach(function (entry) {
-        var card = document.createElement('article');
-        var header = document.createElement('div');
-        var badge = document.createElement('span');
-        var link = document.createElement('a');
-        var description = document.createElement('p');
-
-        card.className = 'site-search-result';
-        header.className = 'site-search-result__header';
-        badge.className = 'site-search-result__badge site-search-result__badge--' + (entry.category || 'page').toLowerCase();
-        badge.textContent = entry.category || 'Page';
-        link.href = entry.href;
-        link.textContent = entry.title;
-        description.textContent = entry.description;
-
-        header.appendChild(badge);
-        header.appendChild(link);
-        card.appendChild(header);
-        card.appendChild(description);
-        results.appendChild(card);
-      });
-    }
+    function renderResults(query) {
+      var terms = query.toLowerCase().split(/\s+/).filter(Boolean);
+
+      // Score each entry: title matches score highest, description next, keywords last
+      var scored = entries.reduce(function (acc, entry) {
+        var titleLower = entry.title.toLowerCase();
+        var descLower  = entry.description.toLowerCase();
+        var kwLower    = entry.keywords.toLowerCase();
+        var haystack   = [titleLower, descLower, kwLower].join(' ');
+
+        var allMatch = terms.every(function (term) { return haystack.indexOf(term) !== -1; });
+        if (!allMatch) return acc;
+
+        // +4 per term in title, +2 in description, +1 in keywords, +3 verbatim full query in title
+        var score = 0;
+        terms.forEach(function (term) {
+          if (titleLower.indexOf(term) !== -1) score += 4;
+          if (descLower.indexOf(term)  !== -1) score += 2;
+          if (kwLower.indexOf(term)    !== -1) score += 1;
+        });
+        if (titleLower.indexOf(query.toLowerCase()) !== -1) score += 3;
+
+        acc.push({ entry: entry, score: score });
+        return acc;
+      }, []);
+
+      scored.sort(function (a, b) { return b.score - a.score; });
+
+      results.textContent = '';
+      if (!terms.length) {
+        status.textContent = 'Enter a keyword to search the current website pages.';
+        return;
+      }
+      if (!scored.length) {
+        status.textContent = 'No results match "' + query + '". Try a broader keyword.';
+        return;
+      }
+      status.textContent = scored.length + (scored.length === 1 ? ' result found.' : ' results found.');
+      scored.forEach(function (item) {
+        var entry = item.entry;
+        var card = document.createElement('article');
+        var header = document.createElement('div');
+        var badge = document.createElement('span');
+        var link = document.createElement('a');
+        var description = document.createElement('p');
+
+        card.className = 'site-search-result';
+        header.className = 'site-search-result__header';
+        badge.className = 'site-search-result__badge site-search-result__badge--' + (entry.category || 'page').toLowerCase();
+        badge.textContent = entry.category || 'Page';
+        link.href = entry.href;
+        link.textContent = entry.title;
+        description.textContent = entry.description;
+
+        header.appendChild(badge);
+        header.appendChild(link);
+        card.appendChild(header);
+        card.appendChild(description);
+        results.appendChild(card);
+      });
+    }
 
     document.querySelectorAll('.global-search-button, .global-mobile-search-button').forEach(function (button) {
       button.addEventListener('click', function () { openSearch(button); });

@@ -421,6 +421,8 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 0;
+      width: 70%;
+      margin-inline: auto;
     }
 
     .channel-card {
@@ -456,6 +458,16 @@
 
     .channel-card.is-hidden-by-limit {
       display: none;
+    }
+
+    .channel-disclaimer {
+      text-align: center;
+      font-size: .75rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: var(--stack-sm);
+      margin-bottom: var(--stack-xl);
+      font-style: italic;
     }
 
     .category-see-more {
@@ -602,6 +614,8 @@
       .channel-grid {
         grid-template-columns: 1fr;
         gap: 0;
+        width: 70%;
+        margin-inline: auto;
       }
 
       .category-label {

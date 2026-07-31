@@ -14,7 +14,7 @@
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(--white)}
-#plans,#payment-facilities{scroll-margin-top:88px}
+/* scroll-margin-top handled globally in site.css via [id] rule */
 
 /* ===== NAV ===== */
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}

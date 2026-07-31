@@ -48,3 +48,26 @@
   .faq-accordion__trigger { padding: .9rem 1rem; font-size: .84rem; }
   .faq-accordion__answer { padding: .9rem 1rem 1rem; font-size: .84rem; }
 }
+.faq-help-cta { position: relative; overflow: hidden; padding-block: clamp(3rem, 5vw, 4.5rem); color: var(--white); background-color: #0058c7; background-image: linear-gradient(90deg, rgba(0, 58, 169, .82), rgba(0, 100, 218, .62)), url('../cta_bg/faq_cta_bg.png'); background-position: center; background-size: cover; }
+.faq-help-cta::after { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0, 69, 190, .15), transparent 55%); content: ''; pointer-events: none; }
+.faq-help-cta__inner { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: clamp(2rem, 5vw, 4.5rem); }
+.faq-help-cta__content { display: grid; gap: var(--stack-md); max-width: 40rem; }
+.faq-help-cta__content .eyebrow { color: var(--yellow); }
+.faq-help-cta__content h2, .faq-help-cta__content p { margin: 0; color: var(--white); }
+.faq-help-cta__content h2 { font-size: clamp(2rem, 3.4vw, 3.25rem); }
+.faq-help-cta__content p { max-width: 34rem; font-size: clamp(.95rem, 1.2vw, 1.1rem); line-height: 1.6; }
+.faq-help-cta__actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); }
+.faq-help-cta__card { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; min-height: 6.65rem; align-items: center; gap: var(--stack-sm); padding: var(--space-3); border: 1px solid rgba(255, 255, 255, .44); border-radius: var(--radius-md); color: var(--white); background: rgba(0, 72, 184, .18); text-decoration: none; transition: border-color .2s ease, background-color .2s ease, transform .2s ease; }
+.faq-help-cta__card:hover { border-color: var(--white); background: rgba(255, 255, 255, .14); transform: translateY(-2px); }
+.faq-help-cta__icon { display: grid; width: 3.2rem; height: 3.2rem; place-items: center; border-radius: 50%; color: var(--blue-primary); background: var(--white); }
+.faq-help-cta__icon svg { width: 1.45rem; height: 1.45rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.faq-help-cta__card-copy { display: grid; min-width: 0; gap: .35rem; }
+.faq-help-cta__card-copy strong { font-size: .9rem; line-height: 1.2; }
+.faq-help-cta__card-copy small { font-size: .72rem; line-height: 1.45; }
+.faq-help-cta__arrow { font-size: 1.3rem; font-weight: 700; transition: transform .2s ease; }
+.faq-help-cta__card:hover .faq-help-cta__arrow { transform: translateX(.2rem); }
+.faq-help-cta__card--light { color: var(--dark); border-color: var(--white); background: var(--white); }
+.faq-help-cta__card--light .faq-help-cta__icon { color: var(--white); background: var(--blue-primary); }
+.faq-help-cta__card--light:hover { border-color: var(--white); color: var(--dark); background: var(--off-white); }
+@media (max-width: 768px) { .faq-help-cta__inner { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .faq-help-cta { padding-block: var(--section-space-y-compact); } .faq-help-cta__content { gap: var(--stack-sm); } .faq-help-cta__actions { grid-template-columns: 1fr; } .faq-help-cta__card { min-height: 5.25rem; } }
