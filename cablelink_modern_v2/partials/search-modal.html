@@ -10,7 +10,9 @@
       <label for="site-search-input">Enter a keyword</label>
       <div class="site-search-form__controls">
         <input id="site-search-input" name="query" type="search" autocomplete="off" placeholder="Search services, plans, support, and more">
-        <button class="button button--primary" type="submit">Search</button>
+        <button class="button button--primary site-search-form__submit" type="submit" aria-label="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
       </div>
     </form>
     <p class="site-search-status" data-site-search-status role="status" aria-live="polite">Enter a keyword to search the current website pages.</p>

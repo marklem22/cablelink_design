@@ -163,15 +163,16 @@
     <li><a data-page-link="contact" href="cablelink_contact.html">Contact Us</a></li>
   </ul>
   </nav>
-  <button class="global-search-button" type="button" aria-controls="site-search-modal" aria-haspopup="dialog">
-    <span aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg></span>
-    <span class="global-search-button__label">Search</span>
-  </button>
-  <a href="cablelink_apply.html" class="btn global-cta">Get Connected</a>
-  <a class="btn global-my-link" data-config-placeholder-link="myLink" aria-disabled="true">
-    <span class="global-my-link__profile" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 21a7 7 0 0 1 14 0"></path></svg></span>
-    <span>MY LINK</span>
-  </a>  <button class="global-menu-button" type="button" aria-controls="mobile-navigation" aria-label="Open menu" aria-expanded="false">
+  <div class="global-header__cta-group">
+    <button class="global-search-button" type="button" aria-label="Search" aria-controls="site-search-modal" aria-haspopup="dialog">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+    </button>
+    <a href="cablelink_apply.html" class="btn global-cta">Get Connected</a>
+    <a class="btn global-my-link" data-config-placeholder-link="myLink" aria-disabled="true">
+      <span class="global-my-link__profile" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 21a7 7 0 0 1 14 0"></path></svg></span>
+      <span>MY LINK</span>
+    </a>
+  </div>  <button class="global-menu-button" type="button" aria-controls="mobile-navigation" aria-label="Open menu" aria-expanded="false">
     <span class="global-menu-button__icon" aria-hidden="true">
       <span></span>
       <span></span>
