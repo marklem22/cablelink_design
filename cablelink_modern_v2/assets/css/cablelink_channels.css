@@ -323,7 +323,7 @@
 
     .tier-categories {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 2.25rem 2.5rem;
       align-items: start;
     }
@@ -338,7 +338,7 @@
 
     @media (max-width: 950px) {
       .tier-categories {
-        grid-template-columns: 1fr;
+        grid-template-columns: 2fr;
         gap: 0;
       }
     }
@@ -612,14 +612,15 @@
       }
 
       .channel-grid {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: 2fr;
         gap: 0;
-        width: 70%;
+        width: 100%;
         margin-inline: auto;
       }
 
       .category-label {
-        width: 70%;
+        width: 100%;
         font-size: .7rem;
       }
     }
