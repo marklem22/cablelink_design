@@ -139,6 +139,15 @@
       let curTech = 'iblaze';
       let curTier = 'super';
 
+      // Pre-apply filters from URL params (?tech=iblaze|fiber &tier=super|turbo)
+      (function applyURLParams() {
+        var params = new URLSearchParams(window.location.search);
+        var t = (params.get('tech') || '').toLowerCase();
+        var r = (params.get('tier') || '').toLowerCase();
+        if (t === 'fiber') curTech = 'fiber';
+        if (r === 'turbo') curTier = 'turbo';
+      })();
+
       window.setTech = function (tech) {
         curTech = tech;
         document.getElementById('btn-iblaze').classList.toggle('active', tech === 'iblaze');
@@ -242,6 +251,17 @@
           </div>
         `;
       }
+
+      // Sync button states to match URL-seeded curTech / curTier before first render
+      document.getElementById('btn-iblaze').classList.toggle('active', curTech === 'iblaze');
+      document.getElementById('btn-fiber').classList.toggle('active', curTech === 'fiber');
+      document.getElementById('btn-iblaze').setAttribute('aria-pressed', String(curTech === 'iblaze'));
+      document.getElementById('btn-fiber').setAttribute('aria-pressed', String(curTech === 'fiber'));
+      document.getElementById('btn-super').classList.toggle('active', curTier === 'super');
+      document.getElementById('btn-turbo').classList.toggle('active', curTier === 'turbo');
+      document.getElementById('btn-turbo').classList.toggle('active-turbo', curTier === 'turbo');
+      document.getElementById('btn-super').setAttribute('aria-pressed', String(curTier === 'super'));
+      document.getElementById('btn-turbo').setAttribute('aria-pressed', String(curTier === 'turbo'));
 
       render();
     })();

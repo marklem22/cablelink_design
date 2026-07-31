@@ -71,6 +71,8 @@ html::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:hover { backg
 @supports (-moz-appearance: none) { html { scrollbar-width: thin; scrollbar-color: var(--orange) var(--off-white); } }
 .container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
 .section { padding-block: var(--section-space-y); }
+/* Offset all anchor targets by the fixed header height so they are never obscured. */
+[id] { scroll-margin-top: calc(var(--header-height) + 2rem); }
 .section--compact { padding-block: var(--section-space-y-compact); }
 .section--flush-top { padding-top: 0; }
 .section--spacious { padding-block: var(--section-space-y-spacious); }
@@ -158,7 +160,7 @@ body[data-page] .hero[class*="hero--"] { background-position: center var(--heade
 /* Common content-section rhythm. Hero sections keep their page-specific vertical composition. */
 :is(.promo-section, .tvc-section, .coverage-section, .online-section, .walkin-section, .banks-section, .how-section, .reminders-section, .faq-section, .plans-section, .payment-section, .pricing) { padding-block: var(--section-space-y); }
 /* Promo labels belong to their section and must not create a second top gap. */
-.promo-section > .section-label { margin-top: 0;margin-bottom: 5.5rem; }
+.promo-section > .section-label { margin-top: 0;margin-bottom: 5rem; }
 
 /* Shared shell matches the original Payment Facilities header. */
 .global-header { position: fixed; z-index: 1000; inset: 0 0 auto; height: var(--header-height); background: linear-gradient(100deg, #007afe 0%, #006fe8 52%, #0058c7 100%); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.2); }
@@ -311,9 +313,10 @@ html.is-mobile-menu-open, body.is-mobile-menu-open { overflow: hidden; }
 .global-footer__logo img { width: 34px; height: 34px; object-fit: contain; }
 .global-footer__brand p { max-width: 31ch; margin: 0; color: var(--muted); line-height: 1.7; }
 .global-footer__socials { display: flex; flex-wrap: wrap; gap: var(--stack-sm); }
-.global-footer__social { display: grid; width: 2.25rem; height: 2.25rem; place-items: center; border: 1px solid rgba(0, 122, 254, .2); border-radius: var(--radius-sm); color: var(--blue-primary); background: rgba(0, 122, 254, .07); transition: background-color .2s, color .2s, transform .2s; }
-.global-footer__social:hover { color: var(--white); background: var(--blue-primary); transform: translateY(-2px); }
-.global-footer__social svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.global-footer__social { display: grid; width: 2.25rem; height: 2.25rem; place-items: center; border: 1px solid rgba(247, 130, 32, .35); border-radius: var(--radius-sm); background: rgba(247, 130, 32, .12); transition: background-color .2s, transform .2s; }
+.global-footer__social:hover { background: var(--orange); transform: translateY(-2px); }
+.global-footer__social img { width: 1.1rem; height: 1.1rem; object-fit: contain; display: block; }
+.global-footer__social svg { width: 1rem; height: 1rem; fill: none; stroke: var(--white); stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
 .global-footer__column { display: grid; align-content: start; gap: var(--stack-sm); }
 .global-footer__column > strong { margin-bottom: var(--space-1); color: var(--blue-primary); font-size: .7rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
 .global-footer__column > a { color: var(--muted); font-size: .88rem; text-decoration: none; transition: color .2s, transform .2s; }
@@ -366,6 +369,10 @@ html.is-mobile-menu-open, body.is-mobile-menu-open { overflow: hidden; }
 .field input,
 .field select,
 .field textarea { width: 100%; min-height: 44px; padding: .78rem .9rem; border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--dark); background: var(--white); font: inherit; }
+/* Normalise <select> across all browsers — Safari/macOS ignores styling without this */
+.field__control[id*="subject"],
+.field select { appearance: none; -webkit-appearance: none; padding-right: 2.4rem; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right .75rem center; background-size: 1rem; cursor: pointer; }
+.field select:focus { outline: 3px solid var(--yellow); outline-offset: 2px; }
 .field textarea { min-height: 8rem; resize: vertical; }
 .field__help { margin: 0; color: var(--muted); font-size: .75rem; line-height: 1.5; }
 .field__error { margin: 0; color: #b42318; font-size: .76rem; font-weight: 700; }
