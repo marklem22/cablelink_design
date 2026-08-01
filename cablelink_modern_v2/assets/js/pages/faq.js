@@ -4,6 +4,10 @@
   var audienceTabs = Array.prototype.slice.call(document.querySelectorAll('[data-faq-audience]'));
   var audiencePanels = Array.prototype.slice.call(document.querySelectorAll('.faq-audience-panel'));
 
+  document.querySelectorAll('.faq-accordion__answer').forEach(function (answer) {
+    answer.innerHTML = answer.innerHTML.replace(/\(\(02\) 8988-5465\)/g, '(02) 8988-5465');
+  });
+
   function activateAudience(key) {
     audienceTabs.forEach(function (tab) {
       var active = tab.dataset.faqAudience === key;

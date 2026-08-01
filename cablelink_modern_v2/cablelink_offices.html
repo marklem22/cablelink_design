@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,14 +8,17 @@
   <title>Payment Centers — CableLink</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/site.css?v=20260729-footer-3">
   <link rel="stylesheet" href="assets/css/cablelink_offices.css?v=20260728-1">
   <script src="assets/js/site-config.js?v=20260725-1" defer></script>
   <script src="assets/js/site-shell.js?v=20260729-footer-inc-1" defer></script>
   <script src="assets/js/pages/offices.js?v=20260728-1" defer></script>
 </head>
+
 <body data-page="offices" class="page-offices">
   <main id="main-content">
     <section class="hero hero--compact support-hero">
@@ -22,280 +26,352 @@
         <div class="hero__content">
           <span class="section__tag">Walk-In Payment</span>
           <h1 class="hero__title">Visit Our Payment Centers</h1>
-          <p class="hero__description">Prefer paying in person? Our offices are open on weekdays and Saturdays to assist you with billing and payments.</p>
+          <p class="hero__description">Prefer paying in person? Our offices are open on weekdays and Saturdays to assist
+            you with billing and payments.</p>
         </div>
       </div>
     </section>
 
     <section class="offices-section background-fixed" id="offices">
       <div class="container">
-<div class="walkin-grid">
+        <div class="walkin-grid">
 
-    <div class="office-list custom-locations">
+          <div class="office-list custom-locations">
 
-      <div class="office-card">
-        <div class="office-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Main Office — Bauang</div>
-          <div class="office-addr"><span class="line-break">National Highway, Bauang, La Union</span><span class="line-break">Near Bauang Municipal Hall</span></div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Mon–Fri 8:00 AM – 5:00 PM
-          </div>
-        </div>
-      </div>
 
-      <div class="office-card">
-        <div class="office-icon orange-bg">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Branch — San Fernando</div>
-          <div class="office-addr"><span class="line-break">Quezon Ave., San Fernando City, La Union</span><span class="line-break">2nd Floor, CableLink Building</span></div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Mon–Sat 8:00 AM – 5:00 PM
-          </div>
-        </div>
-      </div>
+            <div class="office-card" data-office="Las Pi&ntilde;as"
+              data-address="151 Diego Cera Ave, Las Pi&ntilde;as, Metro Manila" data-work-days="Mon &ndash; Fri"
+              data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.480381749145401" data-lng="120.9811410085882"
+              role="button" tabindex="0" aria-controls="selected-office-details" aria-pressed="false">
+              <div class="office-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+              </div>
+              <div>
+                <div class="office-name">Las Pi&ntilde;as</div>
+                <div class="office-addr">Cable Link walk-in payment center serving the Las Pinas area.</div>
+                <div class="office-hours">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  Walk-In Payment Available
+                </div>
+              </div>
+            </div>
 
-      <div class="office-card">
-        <div class="office-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Sub-Office — Agoo</div>
-          <div class="office-addr"><span class="line-break">Rizal St., Agoo, La Union</span><span class="line-break">Ground Floor, Plaza Commercial Center</span></div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Mon–Fri 8:00 AM – 4:30 PM
-          </div>
-        </div>
-      </div>
+            <div class="office-card" id="office-paranaque" data-office="Para&ntilde;aque"
+              data-address="8210 Dr Arcadio Santos Ave, Para&ntilde;aque, 1700 Metro Manila" data-phone="0289885465"
+              data-work-days="Mon &ndash; Fri" data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.473252598769863"
+              data-lng="121.00363723112575" role="button" tabindex="0" aria-controls="selected-office-details"
+              aria-pressed="false">
+              <div class="office-icon orange-bg">
+                <svg viewBox="0 0 24 24">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div>
+                <div class="office-name">Para&ntilde;aque</div>
+                <div class="office-addr">Cable Link walk-in payment center serving the Paranaque area.</div>
+                <div class="office-hours">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  Walk-In Payment Available
+                </div>
+              </div>
+            </div>
 
-      <div class="office-card">
-        <div class="office-icon orange-bg">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Drop Box — SM San Fernando</div>
-          <div class="office-addr"><span class="line-break">SM City San Fernando, La Union</span><span class="line-break">Near Main Entrance, Customer Service Area</span></div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Daily 10:00 AM – 8:00 PM
-          </div>
-        </div>
-      </div>
+            <div class="office-card" data-office="Muntinlupa"
+              data-address="Unit 2 CVA Building, National Road, Muntinlupa City, Metro Manila, 1772"
+              data-work-days="Mon &ndash; Fri" data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.395334079355175"
+              data-lng="121.04526049649293" role="button" tabindex="0" aria-controls="selected-office-details"
+              aria-pressed="false">
+              <div class="office-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+              </div>
+              <div>
+                <div class="office-name">Muntinlupa</div>
+                <div class="office-addr">Cable Link walk-in payment center serving the Muntinlupa area.</div>
+                <div class="office-hours">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  Walk-In Payment Available
+                </div>
+              </div>
+            </div>
 
-      <div class="office-card" data-office="Las Pi&ntilde;as" data-address="151 Diego Cera Ave, Las Pi&ntilde;as, Metro Manila" data-work-days="Mon &ndash; Fri" data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.480381749145401" data-lng="120.9811410085882" role="button" tabindex="0" aria-controls="selected-office-details" aria-pressed="false">
-        <div class="office-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Las Pi&ntilde;as</div>
-          <div class="office-addr">Cable Link walk-in payment center serving the Las Pinas area.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
-          </div>
-        </div>
-      </div>
+            <div class="office-card" data-office="Bacoor / Imus"
+              data-address="T. De Castro, Aguinaldo Hwy, Palico 1, Imus, 4103 Cavite" data-phone="0464715541"
+              data-work-days="Mon &ndash; Fri" data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.432482610072915"
+              data-lng="120.94651608465576" role="button" tabindex="0" aria-controls="selected-office-details"
+              aria-pressed="false">
+              <div class="office-icon orange-bg">
+                <svg viewBox="0 0 24 24">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div>
+                <div class="office-name">Bacoor / Imus</div>
+                <div class="office-addr">Cable Link walk-in payment center serving Bacoor and Imus.</div>
+                <div class="office-hours">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  Walk-In Payment Available
+                </div>
+              </div>
+            </div>
 
-      <div class="office-card" id="office-paranaque" data-office="Para&ntilde;aque" data-address="8210 Dr Arcadio Santos Ave, Para&ntilde;aque, 1700 Metro Manila" data-phone="0289885465" data-work-days="Mon &ndash; Fri" data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.473252598769863" data-lng="121.00363723112575" role="button" tabindex="0" aria-controls="selected-office-details" aria-pressed="false">
-        <div class="office-icon orange-bg">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Para&ntilde;aque</div>
-          <div class="office-addr">Cable Link walk-in payment center serving the Paranaque area.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
-          </div>
-        </div>
-      </div>
+            <div class="office-card" data-office="Taguig / Pateros"
+              data-address="42 M. Almeda Street, Pateros, 1621 Kalakhang Maynila" data-work-days="Mon &ndash; Fri"
+              data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.54126567003397" data-lng="121.06694008465577"
+              role="button" tabindex="0" aria-controls="selected-office-details" aria-pressed="false">
+              <div class="office-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+              </div>
+              <div>
+                <div class="office-name">Taguig / Pateros</div>
+                <div class="office-addr">Cable Link walk-in payment center serving Taguig and Pateros.</div>
+                <div class="office-hours">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  Walk-In Payment Available
+                </div>
+              </div>
+            </div>
 
-      <div class="office-card" data-office="Muntinlupa" data-address="Unit 2 CVA Building, National Road, Muntinlupa City, Metro Manila, 1772" data-work-days="Mon &ndash; Fri" data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.395334079355175" data-lng="121.04526049649293" role="button" tabindex="0" aria-controls="selected-office-details" aria-pressed="false">
-        <div class="office-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Muntinlupa</div>
-          <div class="office-addr">Cable Link walk-in payment center serving the Muntinlupa area.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
-          </div>
-        </div>
-      </div>
+            <div class="office-card" data-office="Pasay"
+              data-address="Sri Building, F.B. Harrison St, Pasay City, 1702 Metro Manila" data-phone="0289885465"
+              data-work-days="Mon &ndash; Fri" data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.545432891859454"
+              data-lng="120.99429891534423" role="button" tabindex="0" aria-controls="selected-office-details"
+              aria-pressed="false">
+              <div class="office-icon orange-bg">
+                <svg viewBox="0 0 24 24">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div>
+                <div class="office-name">Pasay</div>
+                <div class="office-addr">Cable Link walk-in payment center serving the Pasay area.</div>
+                <div class="office-hours">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  Walk-In Payment Available
+                </div>
+              </div>
+            </div>
 
-      <div class="office-card" data-office="Bacoor / Imus" data-address="T. De Castro, Aguinaldo Hwy, Palico 1, Imus, 4103 Cavite" data-phone="0464715541" data-work-days="Mon &ndash; Fri" data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.432482610072915" data-lng="120.94651608465576" role="button" tabindex="0" aria-controls="selected-office-details" aria-pressed="false">
-        <div class="office-icon orange-bg">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Bacoor / Imus</div>
-          <div class="office-addr">Cable Link walk-in payment center serving Bacoor and Imus.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
-          </div>
-        </div>
-      </div>
+            <div class="office-card" data-office="Quezon City"
+              data-address="117 West Ave, Project 7, Quezon City, 1105 Metro Manila" data-phone="0289885401"
+              data-work-days="Mon &ndash; Fri" data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.652048201300053"
+              data-lng="121.02912932851166" role="button" tabindex="0" aria-controls="selected-office-details"
+              aria-pressed="false">
+              <div class="office-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+              </div>
+              <div>
+                <div class="office-name">Quezon City</div>
+                <div class="office-addr">Cable Link walk-in payment center serving the Quezon City area.</div>
+                <div class="office-hours">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  Walk-In Payment Available
+                </div>
+              </div>
+            </div>
 
-      <div class="office-card" data-office="Taguig / Pateros" data-address="42 M. Almeda Street, Pateros, 1621 Kalakhang Maynila" data-work-days="Mon &ndash; Fri" data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.54126567003397" data-lng="121.06694008465577" role="button" tabindex="0" aria-controls="selected-office-details" aria-pressed="false">
-        <div class="office-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Taguig / Pateros</div>
-          <div class="office-addr">Cable Link walk-in payment center serving Taguig and Pateros.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
-          </div>
-        </div>
-      </div>
+            <div class="office-card" data-office="Bi&ntilde;an"
+              data-address="83MH+WP3, Manila S Rd, Bi&ntilde;an, Laguna" data-work-days="Mon &ndash; Fri"
+              data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.335028772466464" data-lng="121.07932441534425"
+              role="button" tabindex="0" aria-controls="selected-office-details" aria-pressed="false">
+              <div class="office-icon orange-bg">
+                <svg viewBox="0 0 24 24">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div>
+                <div class="office-name">Bi&ntilde;an</div>
+                <div class="office-addr">Cable Link walk-in payment center serving the Binan area.</div>
+                <div class="office-hours">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  Walk-In Payment Available
+                </div>
+              </div>
+            </div>
 
-      <div class="office-card" data-office="Pasay" data-address="Sri Building, F.B. Harrison St, Pasay City, 1702 Metro Manila" data-phone="0289885465" data-work-days="Mon &ndash; Fri" data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.545432891859454" data-lng="120.99429891534423" role="button" tabindex="0" aria-controls="selected-office-details" aria-pressed="false">
-        <div class="office-icon orange-bg">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Pasay</div>
-          <div class="office-addr">Cable Link walk-in payment center serving the Pasay area.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
-          </div>
-        </div>
-      </div>
+            <div class="office-card" data-office="San Pedro"
+              data-address="Naty's Tourist Lodge, National Hiway, San Pedro Laguna, 4023 Laguna"
+              data-work-days="Mon &ndash; Fri" data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.36663369654569"
+              data-lng="121.05093517116391" role="button" tabindex="0" aria-controls="selected-office-details"
+              aria-pressed="false">
+              <div class="office-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+              </div>
+              <div>
+                <div class="office-name">San Pedro</div>
+                <div class="office-addr">Cable Link walk-in payment center serving the San Pedro area.</div>
+                <div class="office-hours">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  Walk-In Payment Available
+                </div>
+              </div>
+            </div>
 
-      <div class="office-card" data-office="Quezon City" data-address="117 West Ave, Project 7, Quezon City, 1105 Metro Manila" data-phone="0289885401" data-work-days="Mon &ndash; Fri" data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.652048201300053" data-lng="121.02912932851166" role="button" tabindex="0" aria-controls="selected-office-details" aria-pressed="false">
-        <div class="office-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Quezon City</div>
-          <div class="office-addr">Cable Link walk-in payment center serving the Quezon City area.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
-          </div>
-        </div>
-      </div>
+            <div class="office-card" data-office="Antipolo"
+              data-address="Door 1, CNB Building, Sumulong Extention, Antipolo, 1870 Rizal" data-phone="0288256789"
+              data-work-days="Mon &ndash; Fri" data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.583514123317864"
+              data-lng="121.16975508465578" role="button" tabindex="0" aria-controls="selected-office-details"
+              aria-pressed="false">
+              <div class="office-icon orange-bg">
+                <svg viewBox="0 0 24 24">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div>
+                <div class="office-name">Antipolo</div>
+                <div class="office-addr">Cable Link walk-in payment center serving the Antipolo area.</div>
+                <div class="office-hours">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  Walk-In Payment Available
+                </div>
+              </div>
+            </div>
 
-      <div class="office-card" data-office="Bi&ntilde;an" data-address="83MH+WP3, Manila S Rd, Bi&ntilde;an, Laguna" data-work-days="Mon &ndash; Fri" data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.335028772466464" data-lng="121.07932441534425" role="button" tabindex="0" aria-controls="selected-office-details" aria-pressed="false">
-        <div class="office-icon orange-bg">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Bi&ntilde;an</div>
-          <div class="office-addr">Cable Link walk-in payment center serving the Binan area.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
-          </div>
-        </div>
-      </div>
+            <div class="office-card" data-office="Bulacan" data-address="RXC5+WGM, Santa Maria, Bulacan"
+              data-work-days="Mon &ndash; Fri" data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.822538818475078"
+              data-lng="120.95882276160106" role="button" tabindex="0" aria-controls="selected-office-details"
+              aria-pressed="false">
+              <div class="office-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+              </div>
+              <div>
+                <div class="office-name">Bulacan</div>
+                <div class="office-addr">Cable Link walk-in payment center serving the Bulacan area.</div>
+                <div class="office-hours">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  Walk-In Payment Available
+                </div>
+              </div>
+            </div>
 
-      <div class="office-card" data-office="San Pedro" data-address="Naty's Tourist Lodge, National Hiway, San Pedro Laguna, 4023 Laguna" data-work-days="Mon &ndash; Fri" data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.36663369654569" data-lng="121.05093517116391" role="button" tabindex="0" aria-controls="selected-office-details" aria-pressed="false">
-        <div class="office-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div>
-          <div class="office-name">San Pedro</div>
-          <div class="office-addr">Cable Link walk-in payment center serving the San Pedro area.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
           </div>
-        </div>
-      </div>
 
-      <div class="office-card" data-office="Antipolo" data-address="Door 1, CNB Building, Sumulong Extention, Antipolo, 1870 Rizal" data-phone="0288256789" data-work-days="Mon &ndash; Fri" data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.583514123317864" data-lng="121.16975508465578" role="button" tabindex="0" aria-controls="selected-office-details" aria-pressed="false">
-        <div class="office-icon orange-bg">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Antipolo</div>
-          <div class="office-addr">Cable Link walk-in payment center serving the Antipolo area.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
-          </div>
-        </div>
-      </div>
+          <div class="map-panel" aria-label="Office locator map">
+            <div class="map-panel__canvas">
+              <div class="map-status">
+                <div class="map-badge">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  11 Listed Locations
+                </div>
+                <div class="map-help">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 20h9" />
+                    <path d="M12 4h9" />
+                    <path d="M4 9h16" />
+                    <path d="M4 15h16" />
+                  </svg>
+                  Select a branch or map pin
+                </div>
+              </div>
+              <div id="office-map" class="map-canvas" role="application" aria-label="Cable Link office locations map">
+              </div>
+              <div class="map-fallback">Loading office map...</div>
+            </div>
 
-      <div class="office-card" data-office="Bulacan" data-address="RXC5+WGM, Santa Maria, Bulacan" data-work-days="Mon &ndash; Fri" data-work-hours="8:00 AM &ndash; 5:00 PM" data-lat="14.822538818475078" data-lng="120.95882276160106" role="button" tabindex="0" aria-controls="selected-office-details" aria-pressed="false">
-        <div class="office-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div>
-          <div class="office-name">Bulacan</div>
-          <div class="office-addr">Cable Link walk-in payment center serving the Bulacan area.</div>
-          <div class="office-hours">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-In Payment Available
+            <section class="office-details" id="selected-office-details" aria-live="polite" aria-atomic="true">
+              <div class="office-details__header">
+                <span class="office-details__eyebrow">Selected payment center</span>
+                <h3 id="selected-office-name">Las Pi&ntilde;as</h3>
+              </div>
+              <dl class="office-details__fields">
+                <div class="office-details__field office-details__field--address">
+                  <dt>
+                    <svg aria-hidden="true" viewBox="0 0 24 24">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    Address
+                  </dt>
+                  <dd id="selected-office-address">151 Diego Cera Ave, Las Pi&ntilde;as, Metro Manila</dd>
+                </div>
+                <div class="office-details__field" id="selected-office-phone-row" hidden>
+                  <dt>
+                    <svg aria-hidden="true" viewBox="0 0 24 24">
+                      <path
+                        d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2C10.3 21 3 13.7 3 6a2 2 0 0 1 2-2Z" />
+                    </svg>
+                    Phone
+                  </dt>
+                  <dd><a id="selected-office-phone" href="tel:"></a></dd>
+                </div>
+                <div class="office-details__field">
+                  <dt>
+                    <svg aria-hidden="true" viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M12 7v5l3 2" />
+                    </svg>
+                    Office hours
+                  </dt>
+                  <dd id="selected-office-hours">Mon &ndash; Fri, 8:00 AM &ndash; 5:00 PM</dd>
+                </div>
+              </dl>
+            </section>
           </div>
-        </div>
-      </div>
 
-    </div>
-
-    <div class="map-panel" aria-label="Office locator map">
-      <div class="map-panel__canvas">
-        <div class="map-status">
-          <div class="map-badge">
-            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            11 Listed Locations
-          </div>
-          <div class="map-help">
-            <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M12 4h9"/><path d="M4 9h16"/><path d="M4 15h16"/></svg>
-            Select a branch or map pin
-          </div>
         </div>
-        <div id="office-map" class="map-canvas" role="application" aria-label="Cable Link office locations map"></div>
-        <div class="map-fallback">Loading office map...</div>
-      </div>
-
-      <section class="office-details" id="selected-office-details" aria-live="polite" aria-atomic="true">
-        <div class="office-details__header">
-          <span class="office-details__eyebrow">Selected payment center</span>
-          <h3 id="selected-office-name">Las Pi&ntilde;as</h3>
-        </div>
-        <dl class="office-details__fields">
-          <div class="office-details__field office-details__field--address">
-            <dt>
-              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Address
-            </dt>
-            <dd id="selected-office-address">151 Diego Cera Ave, Las Pi&ntilde;as, Metro Manila</dd>
-          </div>
-          <div class="office-details__field" id="selected-office-phone-row" hidden>
-            <dt>
-              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2C10.3 21 3 13.7 3 6a2 2 0 0 1 2-2Z"/></svg>
-              Phone
-            </dt>
-            <dd><a id="selected-office-phone" href="tel:"></a></dd>
-          </div>
-          <div class="office-details__field">
-            <dt>
-              <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-              Office hours
-            </dt>
-            <dd id="selected-office-hours">Mon &ndash; Fri, 8:00 AM &ndash; 5:00 PM</dd>
-          </div>
-        </dl>
-      </section>
-    </div>
-
-  </div>
       </div>
     </section>
   </main>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
 </body>
+
 </html>
