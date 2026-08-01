@@ -250,6 +250,24 @@ body{font-family:var(--font);color:var(--dark);background:var(--off-white);overf
 .svc-select-card h3{font-size:1rem;font-weight:800;color:var(--dark);margin-bottom:.4rem}
 .svc-select-card p{font-size:.8rem;color:var(--muted);line-height:1.55}
 
+/* Step one follows the compact two-option application pattern. */
+.step-card--service{padding:clamp(1.75rem,3vw,2.5rem)}
+.step-card--service .step-card-head{margin-bottom:var(--stack-lg)}
+.step-card--service .service-cards{gap:var(--grid-gap)}
+.step-card--service .svc-select-card{min-height:11.25rem;padding:1.35rem 1.15rem 1.2rem;border-color:#dce8f7;border-radius:var(--radius-md)}
+.step-card--service .svc-select-card:hover{transform:none}
+.step-card--service .svc-check{width:20px;height:20px;margin-bottom:1rem}
+.step-card--service .svc-select-icon{width:2.75rem;height:2.75rem;margin-bottom:.8rem;border-radius:10px}
+.step-card--service .svc-select-icon svg{width:1.4rem;height:1.4rem}
+.step-card--service .svc-select-card h3{margin-bottom:.3rem;font-size:.95rem}
+.step-card--service .svc-select-card p{max-width:42ch;font-size:.78rem;line-height:1.5}
+.step-card--service .step-nav{display:flex;flex-direction:column;align-items:flex-end;gap:var(--stack-sm);margin-top:var(--stack-lg);padding-top:var(--stack-lg)}
+.service-step-legal{order:2;max-width:100%;margin:0;color:var(--muted);font-size:.72rem;line-height:1.55;text-align:right}
+.service-step-legal a{color:var(--blue-primary);font-weight:800}
+.step-card--service .btn-next{min-width:8.5rem;min-height:48px;justify-self:end}
+.step-nav--legal{position:relative;min-height:5.5rem;padding-bottom:2.4rem}
+.step-nav--legal .service-step-legal{position:absolute;right:0;bottom:0;max-width:100%;text-align:right}
+
 /* ===== PLAN SELECTION ===== */
 .plan-group{margin-bottom:2rem}
 .plan-group-label{
@@ -619,6 +637,11 @@ body{font-family:var(--font);color:var(--dark);background:var(--off-white);overf
   .form-row-3,.form-row-2{grid-template-columns:1fr}
   .tv-plan-cards{grid-template-columns:1fr}
   .step-card{padding:1.6rem 1.3rem}
+  .step-card--service .step-nav{align-items:stretch}
+  .service-step-legal{text-align:center}
+  .step-card--service .btn-next{width:100%;justify-self:stretch}
+  .step-nav--legal{min-height:0;flex-wrap:wrap;padding-bottom:0}
+  .step-nav--legal .service-step-legal{position:static;order:3;width:100%;margin-top:var(--stack-sm);text-align:center}
   .speed-cards{grid-template-columns:1fr 1fr}
   .toggle-group{flex-direction:column;width:100%}
   .toggle-btn{text-align:center}
