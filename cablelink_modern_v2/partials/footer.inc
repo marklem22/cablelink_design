@@ -18,7 +18,7 @@
           <a class="global-footer__social" href="https://www.tiktok.com/@cablelinkofficial" target="_blank" rel="noopener noreferrer" aria-label="CableLink on TikTok (@cablelinkofficial)">
             <img src="assets/icons/tiktok_2024.png" alt="" width="18" height="18">
           </a>
-          <a class="global-footer__social" href="https://www.youtube.com/@CableLinkOfficial" target="_blank" rel="noopener noreferrer" aria-label="CableLink on YouTube (CableLinkOfficial)">
+          <a class="global-footer__social" href="https://www.youtube.com/c/CablelinkOfficial" target="_blank" rel="noopener noreferrer" aria-label="CableLink on YouTube (CableLinkOfficial)">
             <img src="assets/icons/youtube_2024.png" alt="" width="18" height="18">
           </a>
           <a class="global-footer__social" href="https://twitter.com/cablelinktv" target="_blank" rel="noopener noreferrer" aria-label="CableLink on X (@cablelinktv)">
@@ -47,7 +47,7 @@
         <strong id="footer-contact-title">Get in Touch</strong>
         <div class="global-footer__contact-item">
           <span class="global-footer__contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11l-.94.94a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7a2 2 0 0 1 1.75 1.98Z"/></svg></span>
-          <span><small>Phone</small><a href="tel:+63289885465">8-988-5465</a></span>
+          <span><small>Phone</small><a href="tel:+63289885465">(02) 8988-5465</a></span>
         </div>
         <div class="global-footer__contact-item">
           <span class="global-footer__contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
