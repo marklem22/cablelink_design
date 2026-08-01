@@ -110,9 +110,9 @@
               <p>Find answers, manage your account, and get the support you need&mdash;fast and easy.</p>
             </div>
             <img class="support-mega__art" src="assets/images/support_megamenu.png" width="1024" height="1024" alt="" aria-hidden="true">
-            <a class="support-mega__hotline" href="tel:89885465">
+            <a class="support-mega__hotline" href="tel:+63289885465">
               <span class="support-mega__hotline-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-              <span><strong>Need immediate help?</strong><small>Call our Customer Hotline</small><b>8-988-5465</b></span>
+              <span><strong>Need immediate help?</strong><small>Call our Customer Hotline</small><b>(02) 8988-5465</b></span>
             </a>
           </aside>
 

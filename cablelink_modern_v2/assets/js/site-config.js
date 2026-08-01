@@ -5,10 +5,10 @@
 window.CableLinkConfig = Object.freeze({
   externalLinks: Object.freeze({
     facebook: 'https://www.facebook.com/CablelinkTV',
-    messenger: '',
-    viber: '',
-    instagram: '',
-    x: '',
+    messenger: 'https://m.me/CablelinkTV',
+    viber: 'viber://chat?service=32146',
+    instagram: 'https://www.instagram.com/cablelinktv/',
+    x: 'https://twitter.com/cablelinktv',
     myLink: ''
   }),
   paymentLinks: Object.freeze({}),
