@@ -4,7 +4,7 @@
     <div class="global-footer__content">
       <section class="global-footer__brand" aria-label="CableLink">
         <a href="cablelink_modern_v2.html#home" class="global-footer__logo">
-          <img src="../cablelink_messy_design/assets/icons/cablelink_logo.png" alt="" width="34" height="34">
+          <img src="assets/icons/cablelink_logo.png" alt="" width="34" height="34">
           <span>CABLELINK</span>
         </a>
         <p>Internet and Cable TV services for supported CableLink areas.</p>

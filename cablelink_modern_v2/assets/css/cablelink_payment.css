@@ -78,7 +78,7 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 
 /* ===== PAGE HERO ===== */
 .hero--payment{
-  background:#0c225f url("../../../assets/hero_bg/payment_bg.png") center/cover no-repeat;
+  background:#0c225f url("../hero_bg/payment_bg.png") center/cover no-repeat;
   position:relative;overflow:hidden;
 }
 .hero--payment::before{
@@ -171,7 +171,7 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 /* ===== COVERAGE SECTION ===== */
 .coverage-section{
   padding-block:5.5rem;
-  background: var(--off-white) url("../../../assets/hero_bg/payment_coverage_bg.png") center/cover no-repeat;
+  background: var(--off-white) url("../hero_bg/payment_coverage_bg.png") center/cover no-repeat;
   background-attachment: fixed;
 }
 .coverage-layout{
@@ -430,7 +430,7 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 /* ===== PARTNER BANKS ===== */
 .banks-section{padding-block:5rem;background:var(--off-white)}
 body[data-page='payment'] .banks-section{
-  background:#fff url("../../../assets/hero_bg/payment_office_bg.png") center/cover no-repeat;
+  background:#fff url("../hero_bg/payment_office_bg.png") center/cover no-repeat;
   background-attachment:fixed;
 }
 .banks-grid{
@@ -629,7 +629,7 @@ body[data-page='payment'] .banks-section{
 
 /* ===== CTA STRIP ===== */
 .cta-strip{
-  background: url("../../../assets/hero_bg/ready-to-get-connected_bg.png") center/cover no-repeat;
+  background: url("../hero_bg/ready-to-get-connected_bg.png") center/cover no-repeat;
   padding-block:4rem;text-align:center;position:relative;overflow:hidden;
 }
 .cta-strip::before{

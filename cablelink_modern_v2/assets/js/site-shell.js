@@ -532,48 +532,48 @@
       { category: 'Promo', title: 'Supercharge FiberLink@Home Valentines Day', description: 'Up to 1 Gbps fiber speed plus FREE Basic Plus cable TV — ideal for movie nights and video calls.', href: 'cablelink_promos.html', keywords: 'promo supercharged fiberlink fiber valentines 1gbps free basic plus internet bundle offer' },
 
       /* ── FAQ — SUBSCRIBER: SALES ────────────────────────────────────── */
-      { category: 'FAQ', title: 'Can I upgrade my cable or internet plan?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html', keywords: 'upgrade plan cable internet subscriber sales' },
-      { category: 'FAQ', title: 'Can I downgrade my plan?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html', keywords: 'downgrade plan subscriber sales' },
-      { category: 'FAQ', title: 'How do I know which plan is best for me?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html', keywords: 'best plan choose subscriber sales recommendation' },
-      { category: 'FAQ', title: 'Can I add premium channels or add-on services?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html', keywords: 'premium channels add-on services subscriber sales' },
-      { category: 'FAQ', title: 'How long does it take to activate add-on services?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html', keywords: 'activate add-on activation time subscriber sales' },
-      { category: 'FAQ', title: 'Am I eligible for subscriber promotions?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html', keywords: 'eligible subscriber promotions promo deals sales' },
-      { category: 'FAQ', title: 'How do I request a plan change or add-on service?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html', keywords: 'request plan change add-on subscriber sales' },
-      { category: 'FAQ', title: 'Are there fees for changing plans?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html', keywords: 'fees changing plans subscriber sales' },
-      { category: 'FAQ', title: 'Can I switch to a bundled cable and internet plan?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html', keywords: 'switch bundle cable internet plan subscriber sales' },
-      { category: 'FAQ', title: 'Will my contract reset if I change my plan?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html', keywords: 'contract reset plan change subscriber sales' },
+      { category: 'FAQ', title: 'Can I upgrade my cable or internet plan?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html#subs-sales-related-concerns-question-0', keywords: 'upgrade plan cable internet subscriber sales' },
+      { category: 'FAQ', title: 'Can I downgrade my plan?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html#subs-sales-related-concerns-question-1', keywords: 'downgrade plan subscriber sales' },
+      { category: 'FAQ', title: 'How do I know which plan is best for me?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html#subs-sales-related-concerns-question-2', keywords: 'best plan choose subscriber sales recommendation' },
+      { category: 'FAQ', title: 'Can I add premium channels or add-on services?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html#subs-sales-related-concerns-question-3', keywords: 'premium channels add-on services subscriber sales' },
+      { category: 'FAQ', title: 'How long does it take to activate add-on services?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html#subs-sales-related-concerns-question-4', keywords: 'activate add-on activation time subscriber sales' },
+      { category: 'FAQ', title: 'Am I eligible for subscriber promotions?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html#subs-sales-related-concerns-question-5', keywords: 'eligible subscriber promotions promo deals sales' },
+      { category: 'FAQ', title: 'How do I request a plan change or add-on service?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html#subs-sales-related-concerns-question-7', keywords: 'request plan change add-on subscriber sales' },
+      { category: 'FAQ', title: 'Are there fees for changing plans?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html#subs-sales-related-concerns-question-8', keywords: 'fees changing plans subscriber sales' },
+      { category: 'FAQ', title: 'Can I switch to a bundled cable and internet plan?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html#subs-sales-related-concerns-question-10', keywords: 'switch bundle cable internet plan subscriber sales' },
+      { category: 'FAQ', title: 'Will my contract reset if I change my plan?', description: 'Subscriber — Sales related concerns.', href: 'cablelink_billing_faq.html#subs-sales-related-concerns-question-11', keywords: 'contract reset plan change subscriber sales' },
 
       /* ── FAQ — SUBSCRIBER: BILLING ──────────────────────────────────── */
-      { category: 'FAQ', title: 'When is my monthly bill due?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'monthly bill due date billing subscriber' },
-      { category: 'FAQ', title: 'How can I get a copy of my billing statement?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'billing statement copy invoice subscriber' },
-      { category: 'FAQ', title: 'What is a prorated charge?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'prorated charge billing subscriber' },
-      { category: 'FAQ', title: 'What payment methods are accepted?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'payment methods accepted billing subscriber' },
-      { category: 'FAQ', title: 'How long does it take for my payment to be posted?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'payment posted billing posting time subscriber' },
-      { category: 'FAQ', title: 'What should I do if my payment is not yet posted?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'payment not posted billing subscriber' },
-      { category: 'FAQ', title: 'What happens if I miss my due date?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'miss due date late payment billing subscriber' },
-      { category: 'FAQ', title: 'How can I avoid service interruption?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'avoid service interruption disconnection billing subscriber' },
-      { category: 'FAQ', title: 'Can I dispute a billing charge?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'dispute billing charge subscriber' },
-      { category: 'FAQ', title: 'Will I receive a refund if there is a billing error?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'refund billing error subscriber' },
-      { category: 'FAQ', title: 'Can I change my billing cycle or due date?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'change billing cycle due date subscriber' },
-      { category: 'FAQ', title: 'What information should I prepare when contacting billing support?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html', keywords: 'billing support information prepare contact subscriber' },
+      { category: 'FAQ', title: 'When is my monthly bill due?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html#subs-billing-related-concerns-question-0', keywords: 'monthly bill due date billing subscriber' },
+      { category: 'FAQ', title: 'How can I get a copy of my billing statement?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html#subs-billing-related-concerns-question-1', keywords: 'billing statement copy invoice subscriber' },
+      { category: 'FAQ', title: 'What is a prorated charge?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html#subs-billing-related-concerns-question-2', keywords: 'prorated charge billing subscriber' },
+      { category: 'FAQ', title: 'What payment methods are accepted?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html#subs-billing-related-concerns-question-3', keywords: 'payment methods accepted billing subscriber' },
+      { category: 'FAQ', title: 'How long does it take for my payment to be posted?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html#subs-billing-related-concerns-question-4', keywords: 'payment posted billing posting time subscriber' },
+      { category: 'FAQ', title: 'What should I do if my payment is not yet posted?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html#subs-billing-related-concerns-question-5', keywords: 'payment not posted billing subscriber' },
+      { category: 'FAQ', title: 'What happens if I miss my due date?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html#subs-billing-related-concerns-question-6', keywords: 'miss due date late payment billing subscriber' },
+      { category: 'FAQ', title: 'How can I avoid service interruption?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html#subs-billing-related-concerns-question-7', keywords: 'avoid service interruption disconnection billing subscriber' },
+      { category: 'FAQ', title: 'Can I dispute a billing charge?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html#subs-billing-related-concerns-question-8', keywords: 'dispute billing charge subscriber' },
+      { category: 'FAQ', title: 'Will I receive a refund if there is a billing error?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html#subs-billing-related-concerns-question-9', keywords: 'refund billing error subscriber' },
+      { category: 'FAQ', title: 'Can I change my billing cycle or due date?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html#subs-billing-related-concerns-question-10', keywords: 'change billing cycle due date subscriber' },
+      { category: 'FAQ', title: 'What information should I prepare when contacting billing support?', description: 'Subscriber — Billing related concerns.', href: 'cablelink_billing_faq.html#subs-billing-related-concerns-question-12', keywords: 'billing support information prepare contact subscriber' },
 
       /* ── FAQ — SUBSCRIBER: SERVICE ──────────────────────────────────── */
-      { category: 'FAQ', title: 'What should I do if my internet connection is slow?', description: 'Subscriber — Service related concerns.', href: 'cablelink_billing_faq.html', keywords: 'slow internet connection troubleshoot service subscriber' },
-      { category: 'FAQ', title: 'What should I do if I have no internet or cable connection?', description: 'Subscriber — Service related concerns.', href: 'cablelink_billing_faq.html', keywords: 'no internet no cable connection outage service subscriber' },
+      { category: 'FAQ', title: 'What should I do if my internet connection is slow?', description: 'Subscriber — Service related concerns.', href: 'cablelink_billing_faq.html#subs-service-related-concerns-question-0', keywords: 'slow internet connection troubleshoot service subscriber' },
+      { category: 'FAQ', title: 'What should I do if I have no internet or cable connection?', description: 'Subscriber — Service related concerns.', href: 'cablelink_billing_faq.html#subs-service-related-concerns-question-1', keywords: 'no internet no cable connection outage service subscriber' },
 
       /* ── FAQ — NON-SUBSCRIBER: AVAILABILITY ─────────────────────────── */
-      { category: 'FAQ', title: 'Is your cable and internet service available in my area?', description: 'Non-Subscriber — Service availability.', href: 'cablelink_billing_faq.html', keywords: 'service available area coverage non-subscriber availability' },
-      { category: 'FAQ', title: 'Do you offer services for both residential and business customers?', description: 'Non-Subscriber — Service availability.', href: 'cablelink_billing_faq.html', keywords: 'residential business customers service availability non-subscriber' },
+      { category: 'FAQ', title: 'Is your cable and internet service available in my area?', description: 'Non-Subscriber — Service availability.', href: 'cablelink_billing_faq.html#non_subs-service-availability-question-0', keywords: 'service available area coverage non-subscriber availability' },
+      { category: 'FAQ', title: 'Do you offer services for both residential and business customers?', description: 'Non-Subscriber — Service availability.', href: 'cablelink_billing_faq.html#non_subs-service-availability-question-1', keywords: 'residential business customers service availability non-subscriber' },
 
       /* ── FAQ — NON-SUBSCRIBER: PLANS ────────────────────────────────── */
-      { category: 'FAQ', title: 'What cable and internet plans do you offer?', description: 'Non-Subscriber — Plans & Packages.', href: 'cablelink_billing_faq.html', keywords: 'plans internet cable offer packages non-subscriber' },
-      { category: 'FAQ', title: 'Can I subscribe to internet only or cable only?', description: 'Non-Subscriber — Plans & Packages.', href: 'cablelink_billing_faq.html', keywords: 'internet only cable only standalone subscribe non-subscriber plans' },
-      { category: 'FAQ', title: 'Do you offer bundled packages?', description: 'Non-Subscriber — Plans & Packages.', href: 'cablelink_billing_faq.html', keywords: 'bundled packages bundle cable internet non-subscriber plans' },
-      { category: 'FAQ', title: 'Are there promotional offers for new subscribers?', description: 'Non-Subscriber — Plans & Packages.', href: 'cablelink_billing_faq.html', keywords: 'promo promotional offers new subscribers non-subscriber plans' },
+      { category: 'FAQ', title: 'What cable and internet plans do you offer?', description: 'Non-Subscriber — Plans & Packages.', href: 'cablelink_billing_faq.html#non_subs-plans-packages-question-0', keywords: 'plans internet cable offer packages non-subscriber' },
+      { category: 'FAQ', title: 'Can I subscribe to internet only or cable only?', description: 'Non-Subscriber — Plans & Packages.', href: 'cablelink_billing_faq.html#non_subs-plans-packages-question-1', keywords: 'internet only cable only standalone subscribe non-subscriber plans' },
+      { category: 'FAQ', title: 'Do you offer bundled packages?', description: 'Non-Subscriber — Plans & Packages.', href: 'cablelink_billing_faq.html#non_subs-plans-packages-question-2', keywords: 'bundled packages bundle cable internet non-subscriber plans' },
+      { category: 'FAQ', title: 'Are there promotional offers for new subscribers?', description: 'Non-Subscriber — Plans & Packages.', href: 'cablelink_billing_faq.html#non_subs-plans-packages-question-3', keywords: 'promo promotional offers new subscribers non-subscriber plans' },
 
       /* ── FAQ — NON-SUBSCRIBER: APPLICATION ──────────────────────────── */
-      { category: 'FAQ', title: 'How do I apply for a new subscription?', description: 'Non-Subscriber — Application & Installation.', href: 'cablelink_billing_faq.html', keywords: 'apply new subscription application install non-subscriber' },
-      { category: 'FAQ', title: 'How long does installation take?', description: 'Non-Subscriber — Application & Installation.', href: 'cablelink_billing_faq.html', keywords: 'installation time duration non-subscriber application' }
+      { category: 'FAQ', title: 'How do I apply for a new subscription?', description: 'Non-Subscriber — Application & Installation.', href: 'cablelink_billing_faq.html#non_subs-application-installation-question-0', keywords: 'apply new subscription application install non-subscriber' },
+      { category: 'FAQ', title: 'How long does installation take?', description: 'Non-Subscriber — Application & Installation.', href: 'cablelink_billing_faq.html#non_subs-application-installation-question-1', keywords: 'installation time duration non-subscriber application' }
     ];
 
     if (!modal) return;
@@ -650,7 +650,11 @@
         badge.className = 'site-search-result__badge site-search-result__badge--' + (entry.category || 'page').toLowerCase();
         badge.textContent = entry.category || 'Page';
         link.href = entry.href;
-        link.textContent = entry.title;
+        link.textContent = entry.title;
+
+        if (entry.category === 'FAQ') {
+          link.addEventListener('click', closeSearch);
+        }
         description.textContent = entry.description;
 
         header.appendChild(badge);

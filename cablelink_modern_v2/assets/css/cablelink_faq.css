@@ -1,4 +1,5 @@
 /* FAQ page composition */
+.faq-hero { background-color: #0058c7; background-image: linear-gradient(90deg, rgba(0, 58, 169, .76), rgba(0, 100, 218, .3)), url('../hero_bg/faq_bg.png'); background-repeat: no-repeat; background-size: cover; }
 .faq-directory { background: var(--off-white); }
 .faq-directory .section__header { max-width: 44rem; }
 .faq-audience-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); max-width: 58rem; margin: 0 auto var(--space-5); padding: var(--space-2); border: 1px solid var(--border); border-radius: var(--radius-xl); background: var(--white); box-shadow: var(--shadow-sm); }
