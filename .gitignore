@@ -2,3 +2,6 @@
 *.rar
 *.zip
 *.7z
+api/facebook.config.php
+api/cache/*
+!api/cache/.gitkeep

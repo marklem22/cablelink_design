@@ -48,3 +48,61 @@
   .advisory-gallery { grid-template-columns: 1fr; }
   .advisory-dialog__content { padding: var(--space-4); }
 }
+/* Dynamic Facebook advisory feed. */
+.advisory-source-status {
+  min-height: 1.5rem;
+  margin: calc(var(--stack-sm) * -1) 0 var(--stack-lg);
+  color: var(--muted);
+  font-size: .85rem;
+  font-weight: 600;
+  text-align: center;
+}
+.advisory-source-status.is-warning { color: var(--orange-dark); }
+.advisory-loading {
+  display: flex;
+  min-height: 16rem;
+  grid-column: 1 / -1;
+  align-items: center;
+  justify-content: center;
+  gap: var(--stack-sm);
+  color: var(--muted);
+  font-weight: 600;
+}
+.advisory-loading__spinner {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 3px solid var(--border);
+  border-top-color: var(--blue-primary);
+  border-radius: 50%;
+  animation: advisory-spin .8s linear infinite;
+}
+.advisory-card__meta {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--stack-xs);
+}
+.advisory-card__type {
+  color: var(--orange-dark);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.advisory-card__date {
+  color: var(--muted);
+  font-size: .75rem;
+  font-weight: 600;
+}
+.advisory-dialog__date {
+  color: var(--muted);
+  font-size: .85rem;
+  font-weight: 600;
+}
+.advisory-dialog__facebook-link { justify-self: start; }
+@keyframes advisory-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .advisory-loading__spinner { animation: none; }
+}
