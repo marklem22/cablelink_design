@@ -267,16 +267,16 @@
          1. BANNER CAROUSEL — full-width image slider above hero
          ============================================================ */
       var bannerSlides = [
-        '../cablelink_messy_design/assets/carousel/2023_fiberlink_pc.jpg',
-        '../cablelink_messy_design/assets/carousel/2023_bts_pc.jpg',
-        '../cablelink_messy_design/assets/carousel/2023_channel_revamp_pc.jpg',
-        '../cablelink_messy_design/assets/carousel/2023_Fiberlink@Home_Web.jpg',
-        '../cablelink_messy_design/assets/carousel/2023_iblaze_pc.jpg',
-        '../cablelink_messy_design/assets/carousel/2023_refer_a_friend_pc.jpg',
-        '../cablelink_messy_design/assets/carousel/2023_sb_pc.jpg',
-        '../cablelink_messy_design/assets/carousel/2023_TV_Raffle_WBD_Web%20Banner-01.jpg',
-        '../cablelink_messy_design/assets/carousel/FEB_TBIR_cinemaworld.jpg',
-        '../cablelink_messy_design/assets/carousel/fwc_desktop.jpg'
+        'assets/carousel/2023_fiberlink_pc.jpg',
+        'assets/carousel/2023_bts_pc.jpg',
+        'assets/carousel/2023_channel_revamp_pc.jpg',
+        'assets/carousel/2023_Fiberlink@Home_Web.jpg',
+        'assets/carousel/2023_iblaze_pc.jpg',
+        'assets/carousel/2023_refer_a_friend_pc.jpg',
+        'assets/carousel/2023_sb_pc.jpg',
+        'assets/carousel/2023_TV_Raffle_WBD_Web%20Banner-01.jpg',
+        'assets/carousel/FEB_TBIR_cinemaworld.jpg',
+        'assets/carousel/fwc_desktop.jpg'
       ];
       var bCur = 0, bN = bannerSlides.length, bTimer;
       var bTrack = document.getElementById('bannerTrack');
@@ -303,12 +303,28 @@
       document.getElementById('bannerPrev').addEventListener('click', function () { bGo(bCur - 1); bReset() });
       document.getElementById('bannerNext').addEventListener('click', function () { bGo(bCur + 1); bReset() });
       bDotEls.forEach(function (d) { d.addEventListener('click', function () { bGo(+d.dataset.i); bReset() }) });
-      var bSx;
-      bTrack.parentElement.addEventListener('touchstart', function (e) { bSx = e.touches[0].clientX }, { passive: true });
-      bTrack.parentElement.addEventListener('touchend', function (e) {
-        var dx = e.changedTouches[0].clientX - bSx;
-        if (Math.abs(dx) > 40) { bGo(dx < 0 ? bCur + 1 : bCur - 1); bReset() }
-      }, { passive: true });
+      function addSwipeNavigation(element, onPrevious, onNext) {
+        var startX = 0;
+        var startY = 0;
+        var minimumSwipeDistance = 40;
+
+        element.addEventListener('pointerdown', function (event) {
+          if (!event.isPrimary) return;
+          startX = event.clientX;
+          startY = event.clientY;
+        });
+        element.addEventListener('pointerup', function (event) {
+          if (!event.isPrimary) return;
+          var deltaX = event.clientX - startX;
+          var deltaY = event.clientY - startY;
+
+          if (Math.abs(deltaX) < minimumSwipeDistance || Math.abs(deltaX) <= Math.abs(deltaY)) return;
+          if (deltaX < 0) onNext();
+          else onPrevious();
+        });
+      }
+
+      addSwipeNavigation(bTrack.parentElement, function () { bGo(bCur - 1); bReset() }, function () { bGo(bCur + 1); bReset() });
       var bWrap = document.getElementById('bannerCarousel');
       bWrap.addEventListener('mouseenter', function () { clearInterval(bTimer) });
       bWrap.addEventListener('mouseleave', function () { bReset() });
@@ -319,11 +335,11 @@
          2. FAN CAROUSEL — 3D fan in promo section
          ============================================================ */
       var fanImages = [
-        '../assets/promos/promo_1.jpg',
-        '../assets/promos/promo_2.jpg',
-        '../assets/promos/promo_3.jpg',
-        '../assets/promos/promo_4.jpg',
-        '../assets/promos/promo_5.jpg'
+        'assets/promos/promo_1.jpg',
+        'assets/promos/promo_2.jpg',
+        'assets/promos/promo_3.jpg',
+        'assets/promos/promo_4.jpg',
+        'assets/promos/promo_5.jpg'
       ];
       var cur = 0, n = fanImages.length, timer;
       var stage = document.getElementById('fanStage');
@@ -365,12 +381,7 @@
       document.getElementById('fanPrev').addEventListener('click', function () { go(cur - 1); reset() });
       document.getElementById('fanNext').addEventListener('click', function () { go(cur + 1); reset() });
       dots.forEach(function (d) { d.addEventListener('click', function () { go(+d.dataset.i); reset() }) });
-      var sx;
-      stage.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX }, { passive: true });
-      stage.addEventListener('touchend', function (e) {
-        var dx = e.changedTouches[0].clientX - sx;
-        if (Math.abs(dx) > 40) { go(dx < 0 ? cur + 1 : cur - 1); reset() }
-      }, { passive: true });
+      addSwipeNavigation(stage, function () { go(cur - 1); reset() }, function () { go(cur + 1); reset() });
       render();
       reset();
 

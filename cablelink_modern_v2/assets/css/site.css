@@ -205,7 +205,7 @@ body[data-page] .hero[class*="hero--"] { background-position: center var(--heade
 .mega-menu__link-placeholder small { color: var(--blue-primary); font-size: .6rem; font-weight: 700; letter-spacing: .02em; text-transform: uppercase; }
 .mega-menu__group--corporate .mega-menu__title { display: inline-block; color: var(--blue-primary); }
 .mega-menu__group--corporate .mega-menu__links { display: grid; }
-.mega-menu__help { display: flex; position: relative; flex-direction: column; justify-content: space-between; min-width: 0; min-height: 12.75rem; overflow: hidden; margin-left: clamp(.75rem, 1.5vw, 1.65rem); padding: 1.25rem; border: 1px solid #b9dcff; border-radius: var(--radius-md); background: #eaf4ff url('../../../assets/hero_bg/megamenu_needhelpchoosing_bg.png') center / cover no-repeat; }
+.mega-menu__help { display: flex; position: relative; flex-direction: column; justify-content: space-between; min-width: 0; min-height: 12.75rem; overflow: hidden; margin-left: clamp(.75rem, 1.5vw, 1.65rem); padding: 1.25rem; border: 1px solid #b9dcff; border-radius: var(--radius-md); background: #eaf4ff url('../hero_bg/megamenu_needhelpchoosing_bg.png') center / cover no-repeat; }
 .mega-menu__help-title { margin: 0; color: var(--blue-primary); font-size: .76rem; font-weight: 800; }
 .mega-menu__help-copy { max-width: 18ch; margin: .55rem 0 .9rem; color: var(--muted); font-size: .67rem; line-height: 1.45; }
 .mega-menu__help-actions { display: flex; flex-wrap: wrap; gap: .65rem; }
@@ -694,7 +694,7 @@ body.is-agreement-modal-open { overflow: hidden; }
 #services-mega-menu .mega-menu__group--corporate .mega-menu__links a::after { content: '\2192'; color: var(--orange); font-size: 1.2rem; }
 #services-mega-menu .mega-menu__help { align-self: start; margin-left: clamp(1rem, 2vw, 1.7rem); padding: 1.7rem; border-color: #c8dcff; border-radius: 20px; background: #eff5ff; box-shadow: 0 10px 20px rgba(17, 87, 194, .1); }
 #services-mega-menu .mega-menu__help > div { position: relative; z-index: 1; }
-#services-mega-menu .mega-menu__help::after { content: ''; position: absolute; inset: 0; background: url('../../../assets/hero_bg/megamenu_needhelpchoosing_bg.png') center / cover no-repeat; pointer-events: none; }
+#services-mega-menu .mega-menu__help::after { content: ''; position: absolute; inset: 0; background: url('../hero_bg/megamenu_needhelpchoosing_bg.png') center / cover no-repeat; pointer-events: none; }
 #services-mega-menu .mega-menu__help-title { font-size: clamp(1.2rem, 1.5vw, 1.5rem); }
 #services-mega-menu .mega-menu__help-copy { max-width: 18ch; font-size: .8rem; line-height: 1.55; }
 #services-mega-menu .mega-menu__help-actions { margin-top: 1.55rem; }

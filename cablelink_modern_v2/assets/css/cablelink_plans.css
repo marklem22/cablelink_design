@@ -69,7 +69,7 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 
 /* ===== PAGE HERO ===== */
 body[data-page='tv-bundle-plans'] .hero--plans{
-  background:url("../../../assets/hero_bg/plans_bg.png") center/cover no-repeat;
+  background:url("../hero_bg/plans_bg.png") center/cover no-repeat;
   padding-bottom:calc(var(--hero-space-y) + 4rem);
   text-align:center;position:relative;overflow:hidden;
 }
@@ -325,7 +325,7 @@ body[data-page='tv-bundle-plans'] .plans-section{padding-top:6rem;background:var
 
 /* ===== CTA STRIP ===== */
 .cta-strip{
-  background:linear-gradient(130deg,rgba(0,35,110,.88) 0%,rgba(0,70,176,.82) 100%), url("../../../assets/hero_bg/ready-to-get-connected_bg.png") center/cover no-repeat;
+  background:linear-gradient(130deg,rgba(0,35,110,.88) 0%,rgba(0,70,176,.82) 100%), url("../hero_bg/ready-to-get-connected_bg.png") center/cover no-repeat;
   padding-block:4rem;text-align:center;position:relative;overflow:hidden;
 }
 .cta-strip::before{

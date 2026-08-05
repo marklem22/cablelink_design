@@ -2,7 +2,7 @@
   <div class="container global-header-inner">
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <a class="global-logo" href="cablelink_modern_v2.html#home">
-    <img src="../cablelink_messy_design/assets/icons/cablelink_logo.png" alt="" width="34" height="34">
+    <img src="assets/icons/cablelink_logo.png" alt="" width="34" height="34">
     <span>CABLELINK</span>
   </a>
   <nav class="global-primary-nav" aria-label="Primary navigation">

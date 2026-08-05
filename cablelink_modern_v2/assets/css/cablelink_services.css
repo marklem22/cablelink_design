@@ -119,6 +119,28 @@
   border-radius: var(--radius-lg);
   background: var(--white);
   box-shadow: var(--shadow-sm);
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.service-card {
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.service-card:is(:hover, :focus-visible) {
+  border-color: rgba(0, 122, 254, .45);
+  box-shadow: 0 14px 30px rgba(0, 122, 254, .24);
+}
+
+.service-card--tv:is(:hover, :focus-visible) {
+  border-color: rgba(247, 130, 32, .5);
+  box-shadow: 0 14px 30px rgba(247, 130, 32, .25);
+}
+
+.service-card--bundle:is(:hover, :focus-visible) {
+  border-color: rgba(0, 185, 232, .5);
+  box-shadow: 0 14px 30px rgba(0, 185, 232, .25);
 }
 
 .service-card::before {

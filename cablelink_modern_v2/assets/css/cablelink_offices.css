@@ -1,6 +1,6 @@
 .offices-section{
   padding-block:var(--section-space-y);
-  background:#fff url("../../../assets/hero_bg/payment_office_bg.png") center/cover no-repeat;
+  background:#fff url("../hero_bg/payment_office_bg.png") center/cover no-repeat;
   background-attachment:fixed;
 }
 .walkin-grid{

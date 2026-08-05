@@ -84,7 +84,7 @@ body{font-family:var(--font);color:var(--dark);background:var(--off-white);overf
 /* ===== HERO ===== */
 .hero--apply{
   margin-top:0;
-  background:#0c225f url("../../../assets/hero_bg/payment_form_bg.png") center/cover no-repeat;
+  background:#0c225f url("../hero_bg/payment_form_bg.png") center/cover no-repeat;
   position:relative;overflow:hidden;
   text-align:center;
 }
@@ -656,7 +656,7 @@ body{font-family:var(--font);color:var(--dark);background:var(--off-white);overf
 /* ===== COVERAGE AREAS ===== */
 .coverage-section {
   padding-block: var(--section-space-y);
-  background: var(--off-white) url("../../../assets/hero_bg/payment_coverage_bg.png") center / cover no-repeat;
+  background: var(--off-white) url("../hero_bg/payment_coverage_bg.png") center / cover no-repeat;
   background-attachment: fixed;
 }
 .coverage-layout {

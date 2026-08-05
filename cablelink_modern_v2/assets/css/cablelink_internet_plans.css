@@ -239,7 +239,7 @@
 
     body[data-page='internet-plans'] main {
       position: relative;
-      background: url("../../../assets/hero_bg/internet_bg.png") center top / 100% auto no-repeat;
+      background: url("../hero_bg/internet_bg.png") center top / 100% auto no-repeat;
     }
 
     body[data-page='internet-plans'] .hero.hero--internet,
@@ -399,28 +399,28 @@
     }
 
     .plan-img-panel.theme-iblaze-super {
-      background: linear-gradient(155deg, rgba(0, 14, 46, 0.55) 0%, rgba(0, 35, 110, 0.45) 55%, rgba(0, 70, 176, 0.35) 100%), url("../../../assets/plans_bg/bg1.png");
+      background: linear-gradient(155deg, rgba(0, 14, 46, 0.55) 0%, rgba(0, 35, 110, 0.45) 55%, rgba(0, 70, 176, 0.35) 100%), url("../plans_bg/bg1.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
     }
 
     .plan-img-panel.theme-iblaze-turbo {
-      background: linear-gradient(155deg, rgba(26, 6, 0, 0.55) 0%, rgba(107, 32, 0, 0.45) 55%, rgba(242, 100, 19, 0.35) 100%), url("../../../assets/plans_bg/bg2.png");
+      background: linear-gradient(155deg, rgba(26, 6, 0, 0.55) 0%, rgba(107, 32, 0, 0.45) 55%, rgba(242, 100, 19, 0.35) 100%), url("../plans_bg/bg2.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
     }
 
     .plan-img-panel.theme-fiber-super {
-      background: linear-gradient(155deg, rgba(0, 14, 46, 0.55) 0%, rgba(0, 53, 128, 0.45) 55%, rgba(0, 102, 204, 0.35) 100%), url("../../../assets/plans_bg/bg4.png");
+      background: linear-gradient(155deg, rgba(0, 14, 46, 0.55) 0%, rgba(0, 53, 128, 0.45) 55%, rgba(0, 102, 204, 0.35) 100%), url("../plans_bg/bg4.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
     }
 
     .plan-img-panel.theme-fiber-turbo {
-      background: url("../../../assets/plans_bg/bg3.png");
+      background: url("../plans_bg/bg3.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -546,7 +546,7 @@
       gap: 1.5rem;
       background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(245, 249, 255, 0.1)),
-        url("../../../assets/hero_bg/internet_details_bg.png") center/cover no-repeat;
+        url("../hero_bg/internet_details_bg.png") center/cover no-repeat;
     }
 
     .plan-details-panel::before {

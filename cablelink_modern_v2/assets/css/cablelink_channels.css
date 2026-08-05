@@ -215,7 +215,7 @@
       text-align: center;
       background:
         /* linear-gradient(180deg, rgba(0, 22, 72, 0.82) 0%, rgba(0, 47, 140, 0.6) 48%, rgba(0, 22, 72, 0.9) 100%), */
-        url("../../../assets/hero_bg/cable_channel_bg.png") center/cover no-repeat;
+        url("../hero_bg/cable_channel_bg.png") center/cover no-repeat;
       overflow: hidden;
     }
 
