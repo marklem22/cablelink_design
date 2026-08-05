@@ -639,6 +639,12 @@ body[data-page='payment'] .banks-section{
 }
 .cta-strip h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;color:#fff;letter-spacing:-.5px;margin-bottom:.75rem;position:relative;z-index:1}
 .cta-strip p{font-size:.95rem;color:rgba(255,255,255,.75);margin-bottom:2rem;position:relative;z-index:1}
+.cta-strip__billing-contact{display:flex;justify-content:center;position:relative;z-index:1}
+.cta-strip__billing-card{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.45rem 1.1rem;max-width:100%;padding:.85rem 1.1rem;border:1px solid rgba(255,255,255,.3);border-radius:var(--radius-md);color:rgba(255,255,255,.88);background:rgba(1,32,104,.42);box-shadow:0 .75rem 2rem rgba(0,18,72,.22);font-size:.78rem;line-height:1.5;backdrop-filter:blur(8px)}
+.cta-strip__billing-card strong{color:var(--white);font-weight:800}
+.cta-strip__billing-card a{color:var(--white);font-weight:600;text-decoration:none}
+.cta-strip__billing-card a:hover{text-decoration:underline}
+.cta-strip__billing-card b{color:rgba(255,255,255,.7);font-weight:700}
 .cta-strip-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
 .btn-solid{
   background:var(--orange);color:#fff;
