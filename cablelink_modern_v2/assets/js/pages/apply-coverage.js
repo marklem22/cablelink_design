@@ -14,11 +14,30 @@
     { provider: 'iblaze', name: 'Manila', lat: 14.5995, lng: 120.9842, radius: 5600, notes: 'Includes SMDC, DMCI, and Cityland.' },
     { provider: 'iblaze', name: 'Bacoor, Cavite', lat: 14.4624, lng: 120.9645, radius: 6200, notes: 'Metro south expansion zone.' },
     { provider: 'iblaze', name: 'Mandaluyong', lat: 14.5794, lng: 121.0359, radius: 3600, notes: 'Includes Cityland sites.' },
-    { provider: 'fiberlink', name: 'Paranaque', lat: 14.4793, lng: 121.0198, radius: 4600, notes: 'Fiber corridor in the south metro.' },
-    { provider: 'fiberlink', name: 'Las Pinas', lat: 14.4445, lng: 120.9939, radius: 4300, notes: 'Residential and mixed-use coverage zone.' },
-    { provider: 'fiberlink', name: 'Imus, Cavite', lat: 14.4297, lng: 120.9367, radius: 5600, notes: 'Cavite expansion coverage.' },
-    { provider: 'fiberlink', name: 'Sta. Maria, Bulacan', lat: 14.8187, lng: 120.9569, radius: 9000, notes: 'Northern coverage cluster.' },
-    { provider: 'fiberlink', name: 'Quezon City', lat: 14.6760, lng: 121.0437, radius: 6800, notes: 'Includes SMDC, Cityland, and DMCI.' }
+    { provider: 'fiberlink', name: 'Las Pinas', lat: 14.4445, lng: 120.9939, radius: 4300, notes: 'Metro Manila.' },
+    { provider: 'fiberlink', name: 'Paranaque', lat: 14.4793, lng: 121.0198, radius: 4600, notes: 'Metro Manila.' },
+    { provider: 'fiberlink', name: 'Muntinlupa', lat: 14.4081, lng: 121.0415, radius: 5200, notes: 'Metro Manila.' },
+    { provider: 'fiberlink', name: 'Pateros', lat: 14.5440, lng: 121.0690, radius: 2300, notes: 'Metro Manila.' },
+    { provider: 'fiberlink', name: 'Taguig', lat: 14.5176, lng: 121.0509, radius: 5800, notes: 'Metro Manila.' },
+    { provider: 'fiberlink', name: 'Manila', lat: 14.5995, lng: 120.9842, radius: 5600, notes: 'Metro Manila.' },
+    { provider: 'fiberlink', name: 'Quezon City', lat: 14.6760, lng: 121.0437, radius: 6800, notes: 'Metro Manila.' },
+    { provider: 'fiberlink', name: 'Valenzuela', lat: 14.7000, lng: 120.9833, radius: 5600, notes: 'Metro Manila.' },
+    { provider: 'fiberlink', name: 'Mandaluyong', lat: 14.5794, lng: 121.0359, radius: 3600, notes: 'Metro Manila.' },
+    { provider: 'fiberlink', name: 'South Caloocan', lat: 14.6513, lng: 120.9703, radius: 4200, notes: 'Metro Manila.' },
+    { provider: 'fiberlink', name: 'North Caloocan', lat: 14.7560, lng: 121.0440, radius: 6500, notes: 'Metro Manila.' },
+    { provider: 'fiberlink', name: 'San Juan', lat: 14.6019, lng: 121.0355, radius: 2600, notes: 'Metro Manila.' },
+    { provider: 'fiberlink', name: 'Marikina', lat: 14.6507, lng: 121.1029, radius: 4400, notes: 'Metro Manila.' },
+    { provider: 'fiberlink', name: 'Bacoor, Cavite', lat: 14.4624, lng: 120.9645, radius: 6200, notes: 'Cavite.' },
+    { provider: 'fiberlink', name: 'Imus, Cavite', lat: 14.4297, lng: 120.9367, radius: 5600, notes: 'Cavite.' },
+    { provider: 'fiberlink', name: 'Kawit, Cavite', lat: 14.4441, lng: 120.9016, radius: 4400, notes: 'Cavite.' },
+    { provider: 'fiberlink', name: 'San Pedro, Laguna', lat: 14.3583, lng: 121.0583, radius: 5000, notes: 'Laguna.' },
+    { provider: 'fiberlink', name: 'Binan, Laguna', lat: 14.3386, lng: 121.0827, radius: 5200, notes: 'Laguna.' },
+    { provider: 'fiberlink', name: 'Sta. Rosa, Laguna', lat: 14.3122, lng: 121.1114, radius: 5800, notes: 'Laguna.' },
+    { provider: 'fiberlink', name: 'Antipolo, Rizal', lat: 14.6255, lng: 121.1245, radius: 7000, notes: 'Rizal.' },
+    { provider: 'fiberlink', name: 'San Mateo, Rizal', lat: 14.6969, lng: 121.1230, radius: 5000, notes: 'Rizal.' },
+    { provider: 'fiberlink', name: 'Rodriguez, Rizal', lat: 14.7276, lng: 121.1418, radius: 6500, notes: 'Rizal.' },
+    { provider: 'fiberlink', name: 'Sta. Maria, Bulacan', lat: 14.8187, lng: 120.9569, radius: 9000, notes: 'Bulacan.' },
+    { provider: 'fiberlink', name: 'Pandi, Bulacan', lat: 14.8650, lng: 120.9570, radius: 6000, notes: 'Bulacan.' }
   ];
   var map;
   var layerSets = new Map();
@@ -44,14 +63,18 @@
 
   function syncMap() {
     if (!map) return;
-    layerSets.forEach(function (set, key) {
+    layerSets.forEach(function (set) {
       var visible = visibleFor(set.area);
+      var showLabel = Boolean(activeItem) && visible;
       if (visible) {
         if (!map.hasLayer(set.circle)) set.circle.addTo(map);
+      } else if (map.hasLayer(set.circle)) {
+        map.removeLayer(set.circle);
+      }
+      if (showLabel) {
         if (!map.hasLayer(set.label)) set.label.addTo(map);
-      } else {
-        if (map.hasLayer(set.circle)) map.removeLayer(set.circle);
-        if (map.hasLayer(set.label)) map.removeLayer(set.label);
+      } else if (map.hasLayer(set.label)) {
+        map.removeLayer(set.label);
       }
     });
   }
