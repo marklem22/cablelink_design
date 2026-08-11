@@ -210,7 +210,7 @@ body[data-page='tv-bundle-plans'] .plans-section{padding-top:6rem;background:var
   padding:5px 12px;border-radius:0 14px 0 12px;
 }
 .card-badge.pop{background:var(--orange);color:#fff}
-.card-badge.val{background:var(--blue-light);color:#fff}
+.card-badge.val{background:var(--orange);color:#fff}
 
 /* Card Top */
 .card-top{padding:1.4rem 1.3rem 1.1rem;position:relative;overflow:hidden}
@@ -222,6 +222,7 @@ body[data-page='tv-bundle-plans'] .plans-section{padding-top:6rem;background:var
 .ct-super{background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue-primary) 100%)}
 .ct-turbo{background:linear-gradient(135deg,#3d1500 0%,var(--orange-dark) 100%)}
 .ct-cable{background:linear-gradient(135deg,#1a0e00 0%,var(--orange) 100%)}
+.plan-card.is-iblaze :is(.ct-super,.ct-turbo){background:linear-gradient(135deg,#1a0e00 0%,var(--orange) 100%)}
 
 .ct-tech{
   display:inline-flex;align-items:center;gap:4px;
@@ -235,6 +236,7 @@ body[data-page='tv-bundle-plans'] .plans-section{padding-top:6rem;background:var
 .num-big{font-size:2.65rem;font-weight:900;color:#fff;letter-spacing:-3px;line-height:1}
 .num-unit{font-size:.76rem;font-weight:700;color:rgba(255,255,255,.68);letter-spacing:.5px;align-self:flex-end;padding-bottom:5px}
 .ct-sub{font-size:.66rem;color:rgba(255,255,255,.52);font-weight:600;position:relative;z-index:1;letter-spacing:.2px}
+.ct-plan-name{position:relative;z-index:1;margin-bottom:.35rem;color:var(--white);font-size:clamp(1.7rem,2.5vw,2.35rem);font-weight:900;letter-spacing:-.045em;line-height:1}
 .ct-sub-img{
   position:absolute;
   right:0;
@@ -325,7 +327,7 @@ body[data-page='tv-bundle-plans'] .plans-section{padding-top:6rem;background:var
 
 /* ===== CTA STRIP ===== */
 .cta-strip{
-  background:linear-gradient(130deg,rgba(0,35,110,.88) 0%,rgba(0,70,176,.82) 100%), url("../hero_bg/ready-to-get-connected_bg.png") center/cover no-repeat;
+  background:url("../hero_bg/ready-to-get-connected_bg.png") center/cover no-repeat;
   padding-block:4rem;text-align:center;position:relative;overflow:hidden;
 }
 .cta-strip::before{

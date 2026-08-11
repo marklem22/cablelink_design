@@ -184,8 +184,9 @@
   .contact-reach__grid, .contact-form__fields { grid-template-columns: 1fr; }
   .contact-reach-card { min-height: 0; }
   .contact-form__field--wide { grid-column: auto; }
-  .contact-audience-card { grid-template-columns: 1fr; }
+  .contact-audience-card { grid-template-columns: 1fr; align-content: start; gap: var(--stack-md); }
   .contact-audience-card__content, .contact-audience-card__icon { grid-column: auto; grid-row: auto; }
+  .contact-audience-card__icon { align-self: start; }
   .contact-office-note { grid-template-columns: auto minmax(0, 1fr); }
   .contact-office-note .btn { grid-column: 1 / -1; width: 100%; }
 }

@@ -186,7 +186,7 @@
           <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
         </div>
         <div class="pgh-text">
-          <h3>Cable TV Only <span class="pgh-pill orange-pill">Digital Cable TV</span></h3>
+          <h3>Cable TV Only <span class="pgh-pill orange-pill">Basic 495, Basic Lite &amp; Basic Plus</span></h3>
           <p>Standalone digital cable TV plans for Digitally Activated service areas. No internet subscription required.</p>
         </div>
       </div>
@@ -330,8 +330,9 @@ function bundleCard(item, meta){
   var ck = meta.cardType === 'turbo' ? SVG.ckO : SVG.ckB;
   var ctaCls = (isPopular ? 'cta-orange-glow' : (meta.cardType === 'turbo' ? 'cta-orange' : 'cta-blue'));
   var familyLabel = meta.cardType === 'turbo' ? 'Turbocharged' : 'Supercharged';
+  var technologyClass = meta.techSVG === 'wifi' ? ' is-iblaze' : '';
 
-  return '<div class="plan-card '+meta.cardType+cardExtra+'">'
+  return '<div class="plan-card '+meta.cardType+technologyClass+cardExtra+'">'
     + (hasBadge ? '<div class="card-badge '+item.bClass+'">'+item.badge+'</div>' : '')
     + '<div class="card-top '+meta.topClass+'">'
     +   '<div class="ct-tech">'+SVG[meta.techSVG]+' '+familyLabel+'</div>'
@@ -362,8 +363,8 @@ function cableCard(plan){
     + (highlight ? '<div class="card-badge pop">Most Channels</div>' : '')
     + '<div class="card-top ct-cable">'
     +   '<div class="ct-tech">'+SVG.tv+'Cable TV</div>'
-    +   '<div class="ct-num"><span class="num-big">'+plan.channels+'</span><span class="num-unit">CH</span></div>'
-    +   '<div class="ct-sub">'+plan.name+'</div>'
+    +   '<div class="ct-plan-name">'+plan.name+'</div>'
+    +   '<div class="ct-sub">'+plan.channels+' Channels</div>'
     + '</div>'
     + '<div class="card-body">'
     +   '<div class="card-price">'
