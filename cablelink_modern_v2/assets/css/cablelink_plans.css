@@ -200,8 +200,8 @@ body[data-page='tv-bundle-plans'] .plans-section{padding-top:6rem;background:var
 .plan-card:hover{transform:translateY(-7px);box-shadow:0 22px 50px rgba(0,70,176,.14);border-color:rgba(0,70,176,.28)}
 .plan-card.is-popular{border-color:var(--orange);box-shadow:0 6px 30px rgba(242,100,19,.2)}
 .plan-card.is-popular:hover{box-shadow:0 22px 52px rgba(242,100,19,.28);border-color:var(--orange-dark)}
-.plan-card.is-value{border-color:var(--blue-light);box-shadow:0 4px 20px rgba(51,122,183,.15)}
-.plan-card.is-value:hover{box-shadow:0 22px 50px rgba(51,122,183,.25)}
+.plan-card.is-value{border-color:var(--orange);box-shadow:0 4px 20px rgba(242,100,19,.15)}
+.plan-card.is-value:hover{box-shadow:0 22px 50px rgba(242,100,19,.25);border-color:var(--orange-dark)}
 
 /* Floating badges */
 .card-badge{

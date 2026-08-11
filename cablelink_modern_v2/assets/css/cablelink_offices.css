@@ -1,3 +1,6 @@
+.page-offices .support-hero{
+  background:linear-gradient(90deg,rgba(0,88,199,.2)),url("../hero_bg/offices_bg.png") center/cover no-repeat;
+}
 .offices-section{
   padding-block:var(--section-space-y);
   background:#fff url("../hero_bg/payment_office_bg.png") center/cover no-repeat;
@@ -10,7 +13,7 @@
   align-items:start;
 }
 .office-list{display:flex;flex-direction:column;gap:var(--space-2)}
-.office-list.custom-locations .office-card:nth-child(-n+4){display:none}
+
 .office-card{
   display:flex;
   align-items:center;
@@ -46,12 +49,12 @@
   gap:.4rem;
   padding:3px 9px;
   border-radius:5px;
-  color:var(--green);
-  background:var(--green-light);
+  color:var(--blue-primary);
+  background:var(--blue-pale);
   font-size:.72rem;
   font-weight:600;
 }
-.office-hours svg{width:11px;height:11px;fill:none;stroke:var(--green);stroke-linecap:round;stroke-linejoin:round;stroke-width:2}
+.office-hours svg{width:11px;height:11px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2}
 .map-panel{
   position:sticky;
   top:calc(var(--header-height) + var(--space-2));

@@ -1,4 +1,4 @@
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+*,*::before,*::after{box-sizing:border-box;padding:0}
 :root{
   --blue-deep:#007AFE;
   --blue-primary:#007AFE;
@@ -532,7 +532,6 @@ body[data-page='payment'] .banks-section{
   margin:0;
   overflow:hidden;
   border-radius:1.5rem;
-  background:#edf6ff;
 }
 .reminders-visual img{
   display:block;
