@@ -1,5 +1,5 @@
 @font-face { font-family: 'SF Grandezza'; src: url('../fonts/SF Grandezza Medium V2.ttf') format('truetype'), url('../fonts/SF Grandezza Medium V2.woff2') format('woff2'), url('../fonts/SF Grandezza Medium V2.woff') format('woff'); font-style: normal; font-weight: 500 900; font-display: swap; }
-/* CableLink shared design system - maps to CI3 public/assets/css/site.css */
+/* Cablelink shared design system - maps to CI3 public/assets/css/site.css */
 :root {
   --blue-deep: #007afe;
   --blue-primary: #007afe;

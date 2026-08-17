@@ -394,7 +394,7 @@
       shell.innerHTML = parts[0];
       var header = shell.querySelector('.global-header');
       var mobile = shell.querySelector('.global-mobile-menu');
-      if (!header) throw new Error('CableLink header partial is missing .global-header.');
+      if (!header) throw new Error('Cablelink header partial is missing .global-header.');
       if (mobile) document.body.prepend(mobile);
       document.body.prepend(header);
       document.body.insertAdjacentHTML('beforeend', parts[1]);
@@ -471,7 +471,7 @@
       });
       setupSiteSearch(function () { setMobileMenu(false, false); });
     }).catch(function (error) {
-      console.error('CableLink shell could not load. Use a local HTTP server.', error);
+      console.error('Cablelink shell could not load. Use a local HTTP server.', error);
     });
   }
   function setupSiteSearch(closeMobileMenu) {
@@ -484,27 +484,27 @@
     var entries = [
 
       /* ── PAGES ─────────────────────────────────────────────────────── */
-      { category: 'Page', title: 'Home', description: 'CableLink internet and Cable TV homepage.', href: 'cablelink_modern_v2.html', keywords: 'home welcome overview' },
+      { category: 'Page', title: 'Home', description: 'Cablelink internet and Cable TV homepage.', href: 'cablelink_modern_v2.html', keywords: 'home welcome overview' },
       { category: 'Page', title: 'Services', description: 'Residential internet, Cable TV, bundled plans, and enterprise services.', href: 'cablelink_services.html', keywords: 'services residential commercial enterprise selection' },
-      { category: 'Page', title: 'Internet Plans', description: 'Review CableLink residential internet plan options.', href: 'cablelink_internet_plans1.html', keywords: 'internet iblaze fiberlink residential plans' },
-      { category: 'Page', title: 'Plans & Pricing', description: 'Compare all CableLink plan groups and pricing.', href: 'cablelink_plans.html#bundle-groups', keywords: 'plans pricing bundles supercharged turbocharged' },
+      { category: 'Page', title: 'Internet Plans', description: 'Review Cablelink residential internet plan options.', href: 'cablelink_internet_plans1.html', keywords: 'internet iblaze fiberlink residential plans' },
+      { category: 'Page', title: 'Plans & Pricing', description: 'Compare all Cablelink plan groups and pricing.', href: 'cablelink_plans.html#bundle-groups', keywords: 'plans pricing bundles supercharged turbocharged' },
       { category: 'Page', title: 'Channel Line-up', description: 'Browse the current Cable TV channel line-up.', href: 'cablelink_channels.html', keywords: 'cable tv channels lineup basic lite plus' },
-      { category: 'Page', title: 'Promos', description: 'Browse current CableLink promotional offers.', href: 'cablelink_promos.html', keywords: 'promos offers deals promotions' },
+      { category: 'Page', title: 'Promos', description: 'Browse current Cablelink promotional offers.', href: 'cablelink_promos.html', keywords: 'promos offers deals promotions' },
       { category: 'Page', title: 'Payment Facilities', description: 'Find payment methods, partners, offices, and auto-debit enrollment.', href: 'cablelink_payment.html', keywords: 'payments banks auto debit billing offices partners' },
       { category: 'Page', title: 'Support & FAQs', description: 'Billing, account, and technical support for subscribers and new customers.', href: 'cablelink_billing_faq.html', keywords: 'support faq help troubleshooting billing account' },
-      { category: 'Page', title: 'Contact Us', description: 'CableLink contact and messaging options.', href: 'cablelink_contact.html', keywords: 'contact hotline email messenger viber instagram offices' },
+      { category: 'Page', title: 'Contact Us', description: 'Cablelink contact and messaging options.', href: 'cablelink_contact.html', keywords: 'contact hotline email messenger viber instagram offices' },
       { category: 'Page', title: 'Advisories', description: 'Channel, service, alarm, and outage advisories.', href: 'cablelink_advisories.html', keywords: 'advisories channel service alarms outages maintenance' },
-      { category: 'Page', title: 'Get Connected', description: 'Check serviceability and begin a CableLink subscription application.', href: 'cablelink_apply.html', keywords: 'apply application availability coverage get connected sign up' },
-      { category: 'Page', title: 'About Us', description: 'CableLink company information, mission, and milestones.', href: 'cablelink_about.html', keywords: 'about company mission vision profile milestones history' },
-      { category: 'Page', title: 'Privacy Notice', description: 'CableLink data privacy notice and policy.', href: 'cablelink_privacy.html', keywords: 'privacy notice policy data personal information' },
-      { category: 'Page', title: 'Careers', description: 'Career and employment opportunities at CableLink.', href: 'cablelink_careers.html', keywords: 'careers jobs employment hiring' },
+      { category: 'Page', title: 'Get Connected', description: 'Check serviceability and begin a Cablelink subscription application.', href: 'cablelink_apply.html', keywords: 'apply application availability coverage get connected sign up' },
+      { category: 'Page', title: 'About Us', description: 'Cablelink company information, mission, and milestones.', href: 'cablelink_about.html', keywords: 'about company mission vision profile milestones history' },
+      { category: 'Page', title: 'Privacy Notice', description: 'Cablelink data privacy notice and policy.', href: 'cablelink_privacy.html', keywords: 'privacy notice policy data personal information' },
+      { category: 'Page', title: 'Careers', description: 'Career and employment opportunities at Cablelink.', href: 'cablelink_careers.html', keywords: 'careers jobs employment hiring' },
 
       /* ── SERVICES ───────────────────────────────────────────────────── */
       { category: 'Service', title: 'Residential Internet — iBlaZe (DOCSIS)', description: 'Cable internet shared through existing cable TV infrastructure. Available in Supercharged and Turbocharged tiers.', href: 'cablelink_plans.html?line=iblaze#bundle-groups', keywords: 'iblaze docsis residential internet cable shared supercharged turbocharged' },
       { category: 'Service', title: 'Residential Internet — FiberLink (FTTH)', description: 'Dedicated fiber-optic cable direct to your home. Available in Supercharged and Turbocharged tiers.', href: 'cablelink_plans.html?line=fiberlink#bundle-groups', keywords: 'fiberlink ftth fiber to the home residential internet dedicated supercharged turbocharged' },
       { category: 'Service', title: 'Cable TV — Basic 495, Basic Lite, Basic Plus', description: 'Cable TV packages for Digitally Activated areas: Basic 495 (65 ch), Basic Lite (53 ch), Basic Plus (126 ch).', href: 'cablelink_plans.html?filter=cable#bundle-groups', keywords: 'cable tv basic 495 65 channels basic lite 53 basic plus 126 digitally activated' },
       { category: 'Service', title: 'Bundled Plans — Supercharged & Turbocharged', description: 'Supercharged bundles Internet + Basic Plus. Turbocharged bundles Internet + Basic Lite.', href: 'cablelink_plans.html#bundle-groups', keywords: 'bundle bundled plans supercharged turbocharged internet cable combo basic plus basic lite' },
-      { category: 'Service', title: 'Enterprise Services', description: 'Business and enterprise service enquiries — contact CableLink to discuss requirements and availability.', href: 'cablelink_contact.html', keywords: 'enterprise business commercial corporate service enquiry' },
+      { category: 'Service', title: 'Enterprise Services', description: 'Business and enterprise service enquiries — contact Cablelink to discuss requirements and availability.', href: 'cablelink_contact.html', keywords: 'enterprise business commercial corporate service enquiry' },
 
       /* ── PLANS ──────────────────────────────────────────────────────── */
       /* Supercharged = Internet + Basic Plus (126 ch) */
@@ -703,7 +703,7 @@
     var continueButton;
     var closeButtons;
     var previousFocus = null;
-    var storageKey = 'cablelink-privacy-notice-seen-v1';
+    var storageKey = 'cablelink-privacy-notice-seen-v2';
 
     if (!modal) return;
     continueButton = modal.querySelector('[data-privacy-continue]');
