@@ -1771,7 +1771,7 @@
 .home-services { background: linear-gradient(180deg, var(--off-white), var(--white)); }
 .home-services-menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: var(--grid-gap); }
 .home-service-link { display: flex; min-height: 5.5rem; align-items: center; justify-content: space-between; padding: 1.2rem 1.3rem; color: var(--dark); font-size: .92rem; font-weight: 800; line-height: 1.35; text-decoration: none; }
-.home-service-link::after { content: '\2192'; color: var(--orange); font-size: 1.2rem; }
+.home-service-link::after { content: ''; width: .9rem; height: .9rem; flex: 0 0 .9rem; color: var(--orange); background: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E") center / contain no-repeat; }
 .home-service-link:hover,
 .home-service-link:focus-visible { color: var(--blue-primary); border-color: var(--blue-primary); transform: translateY(-2px); }
 /* Keep the home TVC section compact: video and its selectors share one row. */
