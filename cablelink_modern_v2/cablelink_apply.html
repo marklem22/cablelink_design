@@ -1,955 +1,1317 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apply for a New Connection — Cablelink</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply for a New Connection — Cablelink</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/site.css?v=20260729-footer-3">
-  <link rel="stylesheet" href="assets/css/cablelink_apply.css?v=20260818-1">
+  <link rel="stylesheet" href="assets/css/cablelink_apply.css?v=20260819-2">
   <script src="assets/js/site-config.js?v=20260728-4" defer></script>
-  <script src="assets/js/site-shell.js?v=20260729-footer-inc-1" defer></script>
+  <script src="assets/js/site-shell.js?v=20260819-2" defer></script>
   <script src="assets/js/pages/apply-agreements.js?v=20260818-1" defer></script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous" defer></script>
-  <script src="assets/js/pages/apply-coverage.js?v=20260729-1" defer></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous" defer></script>
+  <script src="assets/js/pages/apply-coverage.js?v=20260819-2" defer></script>
 </head>
+
 <body data-page="apply">
 
-<!-- HERO -->
-<main id="main-content">
-<section class="hero hero--apply hero--compact" aria-labelledby="apply-title">
-  <div class="hero__glow hero__glow--apply"></div>
-  <div class="container hero__inner">
-    <div class="hero__content">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="cablelink_modern_v2.html#home">Home</a>
-        <span class="bc-sep" aria-hidden="true">&rsaquo;</span>
-        <span class="bc-cur" aria-current="page">Apply for Service</span>
-      </nav>
-      <span class="section__tag hero__eyebrow">New Connection</span>
-      <h1 class="hero__title" id="apply-title">Apply for a New Connection<span class="dot">.</span></h1>
-      <p class="hero__description">Get connected with Cablelink Internet and Cable TV services in just a few simple steps.</p>
-    </div>
-  </div>
-</section>
-
-<!-- COVERAGE AREAS -->
-<section class="coverage-section background-fixed" id="coverage-areas" aria-labelledby="coverage-title">
-  <div class="container coverage-layout">
-    <div class="coverage-panel">
-      <header class="section__header coverage-head">
-        <span class="section__tag">Service Availability</span>
-        <h2 id="coverage-title">Coverage Areas for I-Blaze &amp; Fiberlink</h2>
-        <p>Explore the available service areas and find coverage in your location before choosing a plan.</p>
-      </header>
-      <div class="coverage-tabs" role="tablist" aria-label="Coverage provider">
-        <button class="coverage-tab is-active" type="button" role="tab" aria-selected="true" data-tab="iblaze"><span class="coverage-tab-dot iblaze"></span>I-Blaze <span class="coverage-tab-sub">(Cable Internet)</span></button>
-        <button class="coverage-tab" type="button" role="tab" aria-selected="false" data-tab="fiberlink"><span class="coverage-tab-dot fiberlink"></span>Fiberlink <span class="coverage-tab-sub">(Fiber Internet)</span></button>
-      </div>
-      <div class="coverage-items" data-panel="iblaze">
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Las Pinas" data-zoom="12.9"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Las Pinas</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Paranaque" data-zoom="12.9"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Paranaque</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Muntinlupa" data-zoom="12.8"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Muntinlupa</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Pasay" data-zoom="13.2"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Pasay</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Taguig" data-zoom="12.8"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Taguig</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Manila" data-zoom="12.6"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Manila</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Valenzuela" data-zoom="12.5"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Valenzuela</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Mandaluyong" data-zoom="13.3"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Mandaluyong</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Makati" data-zoom="13.1"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Makati</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Pasig" data-zoom="12.8"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Pasig</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Bacoor, Cavite" data-zoom="12.3"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Bacoor</span><span class="coverage-item-meta">Cavite</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Imus, Cavite" data-zoom="12.2"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Imus</span><span class="coverage-item-meta">Cavite</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="San Pedro, Laguna" data-zoom="12.6"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">San Pedro</span><span class="coverage-item-meta">Laguna</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Binan, Laguna" data-zoom="12.7"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Binan</span><span class="coverage-item-meta">Laguna</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Sta. Rosa, Laguna" data-zoom="12.4"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Sta. Rosa</span><span class="coverage-item-meta">Laguna</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Antipolo, Rizal" data-zoom="12.2"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Antipolo</span><span class="coverage-item-meta">Rizal</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="San Mateo, Rizal" data-zoom="12.3"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">San Mateo</span><span class="coverage-item-meta">Rizal</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Rodriguez, Rizal" data-zoom="12.2"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Rodriguez</span><span class="coverage-item-meta">Rizal</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="iblaze" data-area="Cainta, Rizal" data-zoom="12.7"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Cainta</span><span class="coverage-item-meta">Rizal</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-      </div>
-      <div class="coverage-items" data-panel="fiberlink" hidden>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Las Pinas" data-zoom="12.9"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Las Pinas</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Paranaque" data-zoom="12.9"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Paranaque</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Muntinlupa" data-zoom="12.8"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Muntinlupa</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Pateros" data-zoom="13.2"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Pateros</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Taguig" data-zoom="12.8"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Taguig</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Manila" data-zoom="12.6"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Manila</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Quezon City" data-zoom="12.2"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Quezon City</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Valenzuela" data-zoom="12.5"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Valenzuela</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Mandaluyong" data-zoom="13.3"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Mandaluyong</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="South Caloocan" data-zoom="12.8"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">South Caloocan</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="North Caloocan" data-zoom="12.2"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">North Caloocan</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="San Juan" data-zoom="13.2"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">San Juan</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Marikina" data-zoom="12.8"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Marikina</span><span class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Bacoor, Cavite" data-zoom="12.3"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Bacoor</span><span class="coverage-item-meta">Cavite</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Imus, Cavite" data-zoom="12.2"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Imus</span><span class="coverage-item-meta">Cavite</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Kawit, Cavite" data-zoom="12.5"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Kawit</span><span class="coverage-item-meta">Cavite</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="San Pedro, Laguna" data-zoom="12.6"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">San Pedro</span><span class="coverage-item-meta">Laguna</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Binan, Laguna" data-zoom="12.7"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Binan</span><span class="coverage-item-meta">Laguna</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Sta. Rosa, Laguna" data-zoom="12.4"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Sta. Rosa</span><span class="coverage-item-meta">Laguna</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Antipolo, Rizal" data-zoom="12.2"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Antipolo</span><span class="coverage-item-meta">Rizal</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="San Mateo, Rizal" data-zoom="12.3"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">San Mateo</span><span class="coverage-item-meta">Rizal</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Rodriguez, Rizal" data-zoom="12.2"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Rodriguez</span><span class="coverage-item-meta">Rizal</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Sta. Maria, Bulacan" data-zoom="11.6"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Sta. Maria</span><span class="coverage-item-meta">Bulacan</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-        <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Pandi, Bulacan" data-zoom="12.1"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span class="coverage-item-name">Pandi</span><span class="coverage-item-meta">Bulacan</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
-      </div>
-      <button class="coverage-view-all" type="button">View All Coverage Areas <span class="action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></button>
-    </div>
-    <div class="coverage-map-shell" aria-label="Coverage area map">
-      <div class="coverage-map-toolbar" aria-hidden="true"><div class="coverage-map-pill"><span class="iblaze"></span>I-Blaze Coverage</div><div class="coverage-map-pill"><span class="fiberlink"></span>Fiberlink Coverage</div></div>
-      <div id="coverage-map" class="coverage-map" role="application" aria-label="Cablelink proposed coverage area map"></div>
-      <div class="coverage-map-fallback">Loading coverage map...</div>
-    </div>
-  </div>
-</section>
-
-<!-- APPLICATION FORM -->
-<section class="apply-section" id="application-journey">
-<div class="container apply-layout">
-
-  <!-- STEP INDICATOR -->
-  <div class="steps-strip">
-    <ul class="steps-list" id="stepsList">
-      <li class="step-item active" id="si1">
-        <div class="step-num"><span class="n">1</span></div>
-        <div class="step-label">Service</div>
-      </li>
-      <div class="step-connector" id="sc1"></div>
-      <li class="step-item" id="si2">
-        <div class="step-num"><span class="n">2</span></div>
-        <div class="step-label">Plan</div>
-      </li>
-      <div class="step-connector" id="sc2"></div>
-      <li class="step-item" id="si3">
-        <div class="step-num"><span class="n">3</span></div>
-        <div class="step-label">Personal Info</div>
-      </li>
-      <div class="step-connector" id="sc3"></div>
-      <li class="step-item" id="si4">
-        <div class="step-num"><span class="n">4</span></div>
-        <div class="step-label">Address</div>
-      </li>
-      <div class="step-connector" id="sc4"></div>
-      <li class="step-item" id="si5">
-        <div class="step-num"><span class="n">5</span></div>
-        <div class="step-label">Review</div>
-      </li>
-    </ul>
-  </div>
-
-  <!-- FORM AREA -->
-  <div class="form-area" id="formArea">
-
-    <!-- STEP 1: Service Selection -->
-    <div class="step-block active-step" id="step1">
-      <div class="step-card step-card--service">
-        <div class="step-card-head">
-          <div class="step-num-badge"><div class="badge-dot"></div> Step 1 of 5</div>
-          <h2>Choose Your Service</h2>
-          <p>Select the type of connection you'd like to apply for.</p>
+  <!-- HERO -->
+  <main id="main-content">
+    <section class="hero hero--apply hero--compact" aria-labelledby="apply-title">
+      <div class="hero__glow hero__glow--apply"></div>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="cablelink_modern_v2.html#home">Home</a>
+            <span class="bc-sep" aria-hidden="true">&rsaquo;</span>
+            <span class="bc-cur" aria-current="page">Apply for Service</span>
+          </nav>
+          <span class="section__tag hero__eyebrow">New Connection</span>
+          <h1 class="hero__title" id="apply-title">Apply for a New Connection<span class="dot">.</span></h1>
+          <p class="hero__description">Get connected with Cablelink Internet and Cable TV services in just a few simple
+            steps.</p>
         </div>
-        <div class="service-cards">
-          <div class="svc-select-card" id="svcTV" onclick="selectService('tv')">
-            <div class="svc-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div class="svc-select-icon">
-              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
-            </div>
-            <h3>Cable TV</h3>
-            <p>53–126 live channels across Basic, Basic Lite, and Basic Plus packages.</p>
+      </div>
+    </section>
+
+    <!-- COVERAGE AREAS -->
+    <section class="coverage-section background-fixed" id="coverage-areas" aria-labelledby="coverage-title">
+      <div class="container coverage-layout">
+        <div class="coverage-panel">
+          <header class="section__header coverage-head">
+            <span class="section__tag">Service Availability</span>
+            <h2 id="coverage-title">Coverage Areas for I-Blaze &amp; FiberLink</h2>
+            <p>Explore the available service areas and find coverage in your location before choosing a plan.</p>
+          </header>
+          <div class="coverage-tabs" role="tablist" aria-label="Coverage provider">
+            <button class="coverage-tab is-active" type="button" role="tab" aria-selected="true" data-tab="iblaze"><span
+                class="coverage-tab-dot iblaze"></span>I-Blaze <span class="coverage-tab-sub">(Cable
+                Internet)</span></button>
+            <button class="coverage-tab" type="button" role="tab" aria-selected="false" data-tab="fiberlink"><span
+                class="coverage-tab-dot fiberlink"></span>FiberLink <span class="coverage-tab-sub">(Fiber
+                Internet)</span></button>
           </div>
-          <div class="svc-select-card" id="svcBundle" onclick="selectService('bundle')">
-            <div class="svc-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div class="svc-select-icon">
-              <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
-            </div>
-            <h3>Internet Bundle</h3>
-            <p>High-speed internet plus included Cable TV — Supercharged or Turbocharged.</p>
+          <div class="coverage-items" data-panel="iblaze">
+            <button class="coverage-item" type="button" data-provider="iblaze" data-area="Las Pinas"
+              data-zoom="12.9"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Las Pinas</span><span
+                  class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="iblaze" data-area="Paranaque"
+              data-zoom="12.9"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Paranaque</span><span
+                  class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="iblaze" data-area="Muntinlupa"
+              data-zoom="12.8"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Muntinlupa</span><span
+                  class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="iblaze" data-area="Pasay" data-zoom="13.2"><span
+                class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span
+                  class="coverage-item-name">Pasay</span><span class="coverage-item-meta">Metro
+                  Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="iblaze" data-area="Taguig" data-zoom="12.8"><span
+                class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span
+                  class="coverage-item-name">Taguig</span><span class="coverage-item-meta">Metro
+                  Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="iblaze" data-area="Manila" data-zoom="12.6"><span
+                class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span
+                  class="coverage-item-name">Manila</span><span class="coverage-item-meta">Metro
+                  Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="iblaze" data-area="Valenzuela"
+              data-zoom="12.5"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Valenzuela</span><span
+                  class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="iblaze" data-area="Mandaluyong"
+              data-zoom="13.3"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Mandaluyong</span><span
+                  class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="iblaze" data-area="Makati" data-zoom="13.1"><span
+                class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span
+                  class="coverage-item-name">Makati</span><span class="coverage-item-meta">Metro
+                  Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="iblaze" data-area="Pasig" data-zoom="12.8"><span
+                class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span class="coverage-item-text"><span
+                  class="coverage-item-name">Pasig</span><span class="coverage-item-meta">Metro
+                  Manila</span></span><span class="coverage-item-chevron" aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="iblaze" data-area="Bacoor, Cavite"
+              data-zoom="12.3"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Bacoor</span><span
+                  class="coverage-item-meta">Cavite</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="iblaze" data-area="Imus, Cavite"
+              data-zoom="12.2"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Imus</span><span
+                  class="coverage-item-meta">Cavite</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="iblaze" data-area="San Pedro, Laguna"
+              data-zoom="12.6"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">San Pedro</span><span
+                  class="coverage-item-meta">Laguna</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="iblaze" data-area="Binan, Laguna"
+              data-zoom="12.7"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Binan</span><span
+                  class="coverage-item-meta">Laguna</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="iblaze" data-area="Sta. Rosa, Laguna"
+              data-zoom="12.4"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Sta. Rosa</span><span
+                  class="coverage-item-meta">Laguna</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="iblaze" data-area="Antipolo, Rizal"
+              data-zoom="12.2"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Antipolo</span><span
+                  class="coverage-item-meta">Rizal</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="iblaze" data-area="San Mateo, Rizal"
+              data-zoom="12.3"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">San Mateo</span><span
+                  class="coverage-item-meta">Rizal</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="iblaze" data-area="Rodriguez, Rizal"
+              data-zoom="12.2"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Rodriguez</span><span
+                  class="coverage-item-meta">Rizal</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="iblaze" data-area="Cainta, Rizal"
+              data-zoom="12.7"><span class="coverage-item-pin iblaze" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Cainta</span><span
+                  class="coverage-item-meta">Rizal</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
           </div>
+          <div class="coverage-items" data-panel="fiberlink" hidden>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Las Pinas"
+              data-zoom="12.9"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Las Pinas</span><span
+                  class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Paranaque"
+              data-zoom="12.9"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Paranaque</span><span
+                  class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Muntinlupa"
+              data-zoom="12.8"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Muntinlupa</span><span
+                  class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Pateros"
+              data-zoom="13.2"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Pateros</span><span
+                  class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Taguig"
+              data-zoom="12.8"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Taguig</span><span
+                  class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Manila"
+              data-zoom="12.6"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Manila</span><span
+                  class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Quezon City"
+              data-zoom="12.2"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Quezon City</span><span
+                  class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Valenzuela"
+              data-zoom="12.5"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Valenzuela</span><span
+                  class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Mandaluyong"
+              data-zoom="13.3"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Mandaluyong</span><span
+                  class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="South Caloocan"
+              data-zoom="12.8"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">South Caloocan</span><span
+                  class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="North Caloocan"
+              data-zoom="12.2"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">North Caloocan</span><span
+                  class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="San Juan"
+              data-zoom="13.2"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">San Juan</span><span
+                  class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Marikina"
+              data-zoom="12.8"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Marikina</span><span
+                  class="coverage-item-meta">Metro Manila</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Bacoor, Cavite"
+              data-zoom="12.3"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Bacoor</span><span
+                  class="coverage-item-meta">Cavite</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Imus, Cavite"
+              data-zoom="12.2"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Imus</span><span
+                  class="coverage-item-meta">Cavite</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Kawit, Cavite"
+              data-zoom="12.5"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Kawit</span><span
+                  class="coverage-item-meta">Cavite</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="San Pedro, Laguna"
+              data-zoom="12.6"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">San Pedro</span><span
+                  class="coverage-item-meta">Laguna</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Binan, Laguna"
+              data-zoom="12.7"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Binan</span><span
+                  class="coverage-item-meta">Laguna</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Sta. Rosa, Laguna"
+              data-zoom="12.4"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Sta. Rosa</span><span
+                  class="coverage-item-meta">Laguna</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Antipolo, Rizal"
+              data-zoom="12.2"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Antipolo</span><span
+                  class="coverage-item-meta">Rizal</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="San Mateo, Rizal"
+              data-zoom="12.3"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">San Mateo</span><span
+                  class="coverage-item-meta">Rizal</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Rodriguez, Rizal"
+              data-zoom="12.2"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Rodriguez</span><span
+                  class="coverage-item-meta">Rizal</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Sta. Maria, Bulacan"
+              data-zoom="11.6"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Sta. Maria</span><span
+                  class="coverage-item-meta">Bulacan</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+            <button class="coverage-item" type="button" data-provider="fiberlink" data-area="Pandi, Bulacan"
+              data-zoom="12.1"><span class="coverage-item-pin fiberlink" aria-hidden="true">&#9679;</span><span
+                class="coverage-item-text"><span class="coverage-item-name">Pandi</span><span
+                  class="coverage-item-meta">Bulacan</span></span><span class="coverage-item-chevron"
+                aria-hidden="true">&rsaquo;</span></button>
+          </div>
+          <button class="coverage-view-all" type="button">View All Coverage Areas <span class="action-arrow"
+              aria-hidden="true"><svg viewBox="0 0 24 24">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg></span></button>
         </div>
-        <div class="step-nav">
-          <p class="service-step-legal">By continuing, you acknowledge Cablelink&rsquo;s <a href="cablelink_terms.html" target="_blank" rel="noopener noreferrer">Terms of Service</a> and <a href="cablelink_privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</p>
-          <button class="button button--primary btn-next" id="nextBtn1" onclick="goStep(2)" disabled>
-            Continue <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
+        <div class="coverage-map-shell" aria-label="Coverage area map">
+          <div class="coverage-map-toolbar" aria-hidden="true">
+            <div class="coverage-map-pill"><span class="iblaze"></span>I-Blaze Coverage</div>
+            <div class="coverage-map-pill"><span class="fiberlink"></span>FiberLink Coverage</div>
+          </div>
+          <div id="coverage-map" class="coverage-map" role="application"
+            aria-label="Cablelink proposed coverage area map"></div>
+          <div class="coverage-map-fallback">Loading coverage map...</div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- STEP 2: Plan Selection -->
-    <div class="step-block" id="step2">
-      <div class="step-card">
-        <div class="step-card-head">
-          <div class="step-num-badge"><div class="badge-dot"></div> Step 2 of 5</div>
-          <h2>Choose Your Plan</h2>
-          <p id="step2Desc">Select the plan that suits your needs.</p>
+    <!-- APPLICATION FORM -->
+    <section class="apply-section" id="application-journey">
+      <div class="container apply-layout">
+
+        <!-- STEP INDICATOR -->
+        <div class="steps-strip">
+          <ul class="steps-list" id="stepsList">
+            <li class="step-item active" id="si1">
+              <div class="step-num"><span class="n">1</span></div>
+              <div class="step-label">Service</div>
+            </li>
+            <div class="step-connector" id="sc1"></div>
+            <li class="step-item" id="si2">
+              <div class="step-num"><span class="n">2</span></div>
+              <div class="step-label">Plan</div>
+            </li>
+            <div class="step-connector" id="sc2"></div>
+            <li class="step-item" id="si3">
+              <div class="step-num"><span class="n">3</span></div>
+              <div class="step-label">Personal Info</div>
+            </li>
+            <div class="step-connector" id="sc3"></div>
+            <li class="step-item" id="si4">
+              <div class="step-num"><span class="n">4</span></div>
+              <div class="step-label">Address</div>
+            </li>
+            <div class="step-connector" id="sc4"></div>
+            <li class="step-item" id="si5">
+              <div class="step-num"><span class="n">5</span></div>
+              <div class="step-label">Review</div>
+            </li>
+          </ul>
         </div>
 
-        <!-- TV Plans -->
-        <div id="tvPlanSection">
-          <div class="plan-info-banner">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            <p>Cable TV plans are available in Digitally Activated service areas. Contact us to verify coverage in your area.</p>
-          </div>
-          <div class="tv-plan-cards">
-            <div class="tv-plan-card" onclick="selectTVPlan('basic495','Basic 495','₱495/month',this)">
-              <div class="tv-plan-price-box">
-                <div class="tv-plan-price">₱495<span>/month</span></div>
+        <!-- FORM AREA -->
+        <div class="form-area" id="formArea">
+
+          <!-- STEP 1: Service Selection -->
+          <div class="step-block active-step" id="step1">
+            <div class="step-card step-card--service">
+              <div class="step-card-head">
+                <div class="step-num-badge">
+                  <div class="badge-dot"></div> Step 1 of 5
+                </div>
+                <h2>Choose Your Service</h2>
+                <p>Select the type of connection you'd like to apply for.</p>
               </div>
-              <div class="tv-plan-name">Basic 495</div>
-              <div class="tv-plan-channels">
-                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
-                65 Live Channels
+              <div class="service-cards">
+                <div class="svc-select-card" id="svcTV" onclick="selectService('tv')">
+                  <div class="svc-check"><svg viewBox="0 0 24 24">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></div>
+                  <div class="svc-select-icon">
+                    <svg viewBox="0 0 24 24">
+                      <rect x="2" y="7" width="20" height="15" rx="2" />
+                      <polyline points="17 2 12 7 7 2" />
+                    </svg>
+                  </div>
+                  <h3>Cable TV</h3>
+                  <p>53–126 live channels across Basic, Basic Lite, and Basic Plus packages.</p>
+                </div>
+                <div class="svc-select-card" id="svcBundle" onclick="selectService('bundle')">
+                  <div class="svc-check"><svg viewBox="0 0 24 24">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></div>
+                  <div class="svc-select-icon">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01" />
+                    </svg>
+                  </div>
+                  <h3>Internet Bundle</h3>
+                  <p>High-speed internet plus included Cable TV — Supercharged or Turbocharged.</p>
+                </div>
               </div>
-              <div class="tv-plan-area">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                Digitally Activated Areas
-              </div>
-            </div>
-            <div class="tv-plan-card" onclick="selectTVPlan('basiclite','Basic Lite','—',this)">
-              <div class="tv-plan-price-box">
-                <div class="tv-plan-price">Basic<span> Lite</span></div>
-              </div>
-              <div class="tv-plan-name">Basic Lite</div>
-              <div class="tv-plan-channels">
-                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
-                53 Live Channels
-              </div>
-              <div class="tv-plan-area">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                Digitally Activated Areas
-              </div>
-            </div>
-            <div class="tv-plan-card" onclick="selectTVPlan('basicplus','Basic Plus','—',this)">
-              <div class="tv-plan-price-box">
-                <div class="tv-plan-price">Basic<span> Plus</span></div>
-              </div>
-              <div class="tv-plan-name">Basic Plus</div>
-              <div class="tv-plan-channels">
-                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
-                126 Live Channels
-              </div>
-              <div class="tv-plan-area">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                Digitally Activated Areas
+              <div class="step-nav">
+                <p class="service-step-legal">By continuing, you acknowledge Cablelink&rsquo;s <a
+                    href="cablelink_terms.html" target="_blank" rel="noopener noreferrer">Terms of Service</a> and <a
+                    href="cablelink_privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</p>
+                <button class="button button--primary btn-next" id="nextBtn1" onclick="goStep(2)" disabled>
+                  Continue <svg viewBox="0 0 24 24">
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                </button>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Internet Bundle Plans -->
-        <div id="bundlePlanSection" class="hidden">
-          <!-- Family Toggle -->
-          <div class="plan-group">
-            <span class="plan-group-label">Bundle Type</span>
-            <div class="toggle-group family-toggle">
-              <button class="toggle-btn active" id="fam-supercharged" onclick="selectFamily('supercharged')">Supercharged</button>
-              <button class="toggle-btn" id="fam-turbocharged" onclick="selectFamily('turbocharged')">Turbocharged</button>
+          <!-- STEP 2: Plan Selection -->
+          <div class="step-block" id="step2">
+            <div class="step-card">
+              <div class="step-card-head">
+                <div class="step-num-badge">
+                  <div class="badge-dot"></div> Step 2 of 5
+                </div>
+                <h2>Choose Your Plan</h2>
+                <p id="step2Desc">Select the plan that suits your needs.</p>
+              </div>
+
+              <!-- TV Plans -->
+              <div id="tvPlanSection">
+                <div class="plan-info-banner">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                  </svg>
+                  <p>Cable TV plans are available in Digitally Activated service areas. Contact us to verify coverage in
+                    your area.</p>
+                </div>
+                <div class="tv-plan-cards">
+                  <div class="tv-plan-card" onclick="selectTVPlan('basic495','Basic 495','₱495/month',this)">
+                    <div class="tv-plan-price-box">
+                      <div class="tv-plan-price">₱495<span>/month</span></div>
+                    </div>
+                    <div class="tv-plan-name">Basic 495</div>
+                    <div class="tv-plan-channels">
+                      <svg viewBox="0 0 24 24">
+                        <rect x="2" y="7" width="20" height="15" rx="2" />
+                        <polyline points="17 2 12 7 7 2" />
+                      </svg>
+                      65 Live Channels
+                    </div>
+                    <div class="tv-plan-area">
+                      <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="2" y1="12" x2="22" y2="12" />
+                        <path
+                          d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                      </svg>
+                      Digitally Activated Areas
+                    </div>
+                  </div>
+                  <div class="tv-plan-card" onclick="selectTVPlan('basiclite','Basic Lite','—',this)">
+                    <div class="tv-plan-price-box">
+                      <div class="tv-plan-price">Basic<span> Lite</span></div>
+                    </div>
+                    <div class="tv-plan-name">Basic Lite</div>
+                    <div class="tv-plan-channels">
+                      <svg viewBox="0 0 24 24">
+                        <rect x="2" y="7" width="20" height="15" rx="2" />
+                        <polyline points="17 2 12 7 7 2" />
+                      </svg>
+                      53 Live Channels
+                    </div>
+                    <div class="tv-plan-area">
+                      <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="2" y1="12" x2="22" y2="12" />
+                        <path
+                          d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                      </svg>
+                      Digitally Activated Areas
+                    </div>
+                  </div>
+                  <div class="tv-plan-card" onclick="selectTVPlan('basicplus','Basic Plus','—',this)">
+                    <div class="tv-plan-price-box">
+                      <div class="tv-plan-price">Basic<span> Plus</span></div>
+                    </div>
+                    <div class="tv-plan-name">Basic Plus</div>
+                    <div class="tv-plan-channels">
+                      <svg viewBox="0 0 24 24">
+                        <rect x="2" y="7" width="20" height="15" rx="2" />
+                        <polyline points="17 2 12 7 7 2" />
+                      </svg>
+                      126 Live Channels
+                    </div>
+                    <div class="tv-plan-area">
+                      <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="2" y1="12" x2="22" y2="12" />
+                        <path
+                          d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                      </svg>
+                      Digitally Activated Areas
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Internet Bundle Plans -->
+              <div id="bundlePlanSection" class="hidden">
+                <!-- Family Toggle -->
+                <div class="plan-group">
+                  <span class="plan-group-label">Bundle Type</span>
+                  <div class="toggle-group family-toggle">
+                    <button class="toggle-btn active" id="fam-supercharged"
+                      onclick="selectFamily('supercharged')">Supercharged</button>
+                    <button class="toggle-btn" id="fam-turbocharged"
+                      onclick="selectFamily('turbocharged')">Turbocharged</button>
+                  </div>
+                  <p id="familyDesc" style="margin-top:.6rem;font-size:.8rem;color:var(--muted)">Includes Basic Plus TV
+                    — 126 channels.</p>
+                </div>
+                <!-- Tech Toggle -->
+                <div class="plan-group">
+                  <span class="plan-group-label">Technology</span>
+                  <div class="toggle-group tech-toggle">
+                    <button class="toggle-btn active" id="tech-iblaze" onclick="selectTech('iblaze')">I-Blaze
+                      (DOCSIS)</button>
+                    <button class="toggle-btn" id="tech-fiberlink" onclick="selectTech('fiberlink')">FiberLink
+                      (FTTH)</button>
+                  </div>
+                </div>
+                <!-- Speed Cards -->
+                <div class="plan-group">
+                  <span class="plan-group-label">Choose Speed</span>
+                  <div class="speed-cards" id="speedCards"></div>
+                </div>
+              </div>
+
+              <div class="step-nav step-nav--legal">
+                <button class="button button--secondary btn-prev" onclick="goStep(1)">
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="15 18 9 12 15 6" />
+                  </svg> Back
+                </button>
+                <button class="button button--primary btn-next" id="nextBtn2" onclick="goStep(3)" disabled>
+                  Continue <svg viewBox="0 0 24 24">
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                </button>
+                <p class="service-step-legal">By continuing, you acknowledge Cablelink&rsquo;s <a
+                    href="cablelink_terms.html" target="_blank" rel="noopener noreferrer">Terms of Service</a> and <a
+                    href="cablelink_privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</p>
+              </div>
             </div>
-            <p id="familyDesc" style="margin-top:.6rem;font-size:.8rem;color:var(--muted)">Includes Basic Plus TV — 126 channels.</p>
           </div>
-          <!-- Tech Toggle -->
-          <div class="plan-group">
-            <span class="plan-group-label">Technology</span>
-            <div class="toggle-group tech-toggle">
-              <button class="toggle-btn active" id="tech-iblaze" onclick="selectTech('iblaze')">I-Blaze (DOCSIS)</button>
-              <button class="toggle-btn" id="tech-fiberlink" onclick="selectTech('fiberlink')">Fiberlink (FTTH)</button>
+
+          <!-- STEP 3: Personal Information -->
+          <div class="step-block" id="step3">
+            <div class="step-card">
+              <div class="step-card-head">
+                <div class="step-num-badge">
+                  <div class="badge-dot"></div> Step 3 of 5
+                </div>
+                <h2>Personal Information</h2>
+                <p>Tell us a bit about yourself so we can process your application.</p>
+              </div>
+              <div class="form-grid form-row-3" id="nameGrid">
+                <div class="field">
+                  <label for="fname">First Name <span style="color:#e53e3e">*</span></label>
+                  <input type="text" id="fname" name="first_name" placeholder="e.g. Juan" autocomplete="given-name">
+                </div>
+                <div class="field">
+                  <label for="mname">Middle Name</label>
+                  <input type="text" id="mname" name="middle_name" placeholder="Optional"
+                    autocomplete="additional-name">
+                </div>
+                <div class="field">
+                  <label for="lname">Last Name <span style="color:#e53e3e">*</span></label>
+                  <input type="text" id="lname" name="last_name" placeholder="e.g. Dela Cruz"
+                    autocomplete="family-name">
+                </div>
+              </div>
+              <div class="form-grid form-row-2" style="margin-top:1.1rem">
+                <div class="field">
+                  <label for="mobile">Mobile Number <span style="color:#e53e3e">*</span></label>
+                  <input type="tel" id="mobile" name="mobile" placeholder="09XX XXX XXXX" autocomplete="tel"
+                    maxlength="11">
+                </div>
+                <div class="field">
+                  <label for="email">Email Address <span style="color:#e53e3e">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email">
+                </div>
+              </div>
+              <div class="step-nav step-nav--legal">
+                <button class="button button--secondary btn-prev" onclick="goStep(2)">
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="15 18 9 12 15 6" />
+                  </svg> Back
+                </button>
+                <button class="button button--primary btn-next" onclick="validateStep3()">
+                  Continue <svg viewBox="0 0 24 24">
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                </button>
+                <p class="service-step-legal">By continuing, you acknowledge Cablelink&rsquo;s <a
+                    href="cablelink_terms.html" target="_blank" rel="noopener noreferrer">Terms of Service</a> and <a
+                    href="cablelink_privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</p>
+              </div>
             </div>
           </div>
-          <!-- Speed Cards -->
-          <div class="plan-group">
-            <span class="plan-group-label">Choose Speed</span>
-            <div class="speed-cards" id="speedCards"></div>
+
+          <!-- STEP 4: Installation Address -->
+          <div class="step-block" id="step4">
+            <div class="step-card">
+              <div class="step-card-head">
+                <div class="step-num-badge">
+                  <div class="badge-dot"></div> Step 4 of 5
+                </div>
+                <h2>Installation Address</h2>
+                <p>Where would you like your Cablelink service installed?</p>
+              </div>
+              <div class="form-grid form-row-2">
+                <div class="field">
+                  <label for="province">Province <span style="color:#e53e3e">*</span></label>
+                  <input type="text" id="province" name="province" placeholder="e.g. La Union"
+                    autocomplete="address-level1">
+                </div>
+                <div class="field">
+                  <label for="city">City / Municipality <span style="color:#e53e3e">*</span></label>
+                  <input type="text" id="city" name="city" placeholder="e.g. San Fernando"
+                    autocomplete="address-level2">
+                </div>
+                <div class="field">
+                  <label for="barangay">Barangay <span style="color:#e53e3e">*</span></label>
+                  <input type="text" id="barangay" name="barangay" placeholder="e.g. Brgy. Pagudpud"
+                    autocomplete="address-level3">
+                </div>
+                <div class="field">
+                  <label for="housenum">House Number <span style="color:#e53e3e">*</span></label>
+                  <input type="text" id="housenum" name="house_number" placeholder="e.g. 123"
+                    autocomplete="address-line2">
+                </div>
+                <div class="field">
+                  <label for="street">Street Name <span style="color:#e53e3e">*</span></label>
+                  <input type="text" id="street" name="street" placeholder="e.g. Quezon Ave."
+                    autocomplete="street-address">
+                </div>
+                <div class="field">
+                  <label for="village">Village / Subdivision</label>
+                  <input type="text" id="village" name="village" placeholder="e.g. Greenview Subd."
+                    autocomplete="address-line1">
+                </div>
+              </div>
+
+              <!-- Property Type -->
+              <div style="margin-top:1.5rem">
+                <span class="seg-label">Property Type <span style="color:#e53e3e">*</span></span>
+                <div class="seg-ctrl">
+                  <button class="seg-opt active" id="prop-owner" onclick="selectProp('owner')">Owner</button>
+                  <button class="seg-opt" id="prop-tenant" onclick="selectProp('tenant')">Tenant</button>
+                </div>
+              </div>
+
+              <div class="step-nav step-nav--legal">
+                <button class="button button--secondary btn-prev" onclick="goStep(3)">
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="15 18 9 12 15 6" />
+                  </svg> Back
+                </button>
+                <button class="button button--primary btn-next" onclick="validateStep4()">
+                  Continue <svg viewBox="0 0 24 24">
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                </button>
+                <p class="service-step-legal">By continuing, you acknowledge Cablelink&rsquo;s <a
+                    href="cablelink_terms.html" target="_blank" rel="noopener noreferrer">Terms of Service</a> and <a
+                    href="cablelink_privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 5: Review & Submit -->
+          <div class="step-block" id="step5">
+            <div class="step-card">
+              <div class="step-card-head">
+                <div class="step-num-badge">
+                  <div class="badge-dot"></div> Step 5 of 5
+                </div>
+                <h2>Review Your Application</h2>
+                <p>Please verify all information before submitting your application.</p>
+              </div>
+
+              <!-- Service & Plan -->
+              <div class="review-section">
+                <span class="review-section-title">Service & Plan</span>
+                <div class="review-grid">
+                  <div class="review-row">
+                    <div class="review-key">Service Type</div>
+                    <div class="review-val highlight" id="rv-service">—</div>
+                  </div>
+                  <div class="review-row">
+                    <div class="review-key">Plan</div>
+                    <div class="review-val" id="rv-plan">—</div>
+                  </div>
+                  <div class="review-row">
+                    <div class="review-key">Monthly Fee</div>
+                    <div class="review-val highlight" id="rv-fee">—</div>
+                  </div>
+                  <div class="review-row">
+                    <div class="review-key">TV Package</div>
+                    <div class="review-val" id="rv-tv">—</div>
+                  </div>
+                </div>
+                <button class="review-edit" onclick="goStep(2)">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                  </svg>
+                  Edit Plan
+                </button>
+              </div>
+
+              <!-- Contact Info -->
+              <div class="review-section">
+                <span class="review-section-title">Contact Information</span>
+                <div class="review-grid">
+                  <div class="review-row">
+                    <div class="review-key">Full Name</div>
+                    <div class="review-val" id="rv-name">—</div>
+                  </div>
+                  <div class="review-row">
+                    <div class="review-key">Mobile</div>
+                    <div class="review-val" id="rv-mobile">—</div>
+                  </div>
+                  <div class="review-row">
+                    <div class="review-key">Email</div>
+                    <div class="review-val" id="rv-email">—</div>
+                  </div>
+                </div>
+                <button class="review-edit" onclick="goStep(3)">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                  </svg>
+                  Edit Info
+                </button>
+              </div>
+
+              <!-- Address -->
+              <div class="review-section">
+                <span class="review-section-title">Installation Address</span>
+                <div class="review-grid">
+                  <div class="review-row">
+                    <div class="review-key">Address</div>
+                    <div class="review-val" id="rv-address">—</div>
+                  </div>
+                  <div class="review-row">
+                    <div class="review-key">Property Type</div>
+                    <div class="review-val" id="rv-prop">—</div>
+                  </div>
+                </div>
+                <button class="review-edit" onclick="goStep(4)">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                  </svg>
+                  Edit Address
+                </button>
+              </div>
+
+              <div class="review-section application-attachments">
+                <span class="review-section-title">Supporting Documents</span>
+                <p class="application-note">Valid ID and Proof of Billing are required for the reviewed frontend flow.
+                  Approved file types and maximum sizes still require client confirmation. Files remain in your browser
+                  because online submission is not connected.</p>
+                <div class="form-grid form-row-2">
+                  <div class="field">
+                    <label for="valid-id">Valid ID <span aria-hidden="true">*</span></label>
+                    <input type="file" id="valid-id" name="valid_id" required>
+                  </div>
+                  <div class="field">
+                    <label for="proof-billing">Proof of Billing <span aria-hidden="true">*</span></label>
+                    <input type="file" id="proof-billing" name="proof_billing" required>
+                  </div>
+                </div>
+                <div class="application-consent-list">
+                  <label class="application-consent" for="terms-consent">
+                    <input type="checkbox" id="terms-consent" name="terms_consent" required>
+                    <span>I have opened and accepted the <button class="application-agreement-link" type="button"
+                        data-agreement-open="terms">Terms of Service</button>. Final legal content is pending client
+                      approval.</span>
+                  </label>
+                  <label class="application-consent" for="privacy-consent">
+                    <input type="checkbox" id="privacy-consent" name="privacy_consent" required>
+                    <span>I have opened and accepted the <button class="application-agreement-link" type="button"
+                        data-agreement-open="privacy">Privacy Policy</button>. Final legal content is pending client
+                      approval.</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Submission boundary -->
+              <div class="submit-cta">
+                <p>Review is available in this prototype. Transmission requires a client-approved endpoint, payload
+                  contract, validation rules, and secure document handling.</p>
+                <button class="button button--primary btn-apply" id="application-submit" type="button" disabled>
+                  Submit Application
+                  <span class="action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg></span>
+                </button>
+                <p class="application-status" id="application-submit-status" role="status" aria-live="polite"></p>
+              </div>
+
+              <div class="step-nav" style="border-top:none;margin-top:1rem;justify-content:flex-start">
+                <button class="button button--secondary btn-prev" onclick="goStep(4)">
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="15 18 9 12 15 6" />
+                  </svg> Back
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /form-area -->
+
+        <!-- SIDEBAR -->
+        <aside class="summary-sidebar">
+          <div class="summary-card">
+            <h3>Application Summary</h3>
+            <div class="summary-item">
+              <div class="summary-item-label">Service</div>
+              <div class="summary-item-val" id="sum-service"><span class="empty">Not selected</span></div>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-item">
+              <div class="summary-item-label">Plan</div>
+              <div class="summary-item-val" id="sum-plan"><span class="empty">Not selected</span></div>
+            </div>
+            <div class="summary-item">
+              <div class="summary-item-label">Speed</div>
+              <div class="summary-item-val" id="sum-speed"><span class="empty">—</span></div>
+            </div>
+            <div class="summary-item">
+              <div class="summary-item-label">TV Package</div>
+              <div class="summary-item-val" id="sum-tv"><span class="empty">—</span></div>
+            </div>
+            <div class="summary-price-box" id="sumPriceBox">
+              <div class="summary-price-label">Monthly Fee</div>
+              <div class="summary-price-val" id="sum-price">—</div>
+              <div class="summary-price-period" id="sum-period">per month</div>
+            </div>
+          </div>
+        </aside>
+        <aside class="help-card" aria-labelledby="help-card-title">
+          <div class="help-card__heading">
+            <div>
+              <h4 id="help-card-title">Need help choosing?</h4>
+              <p>We&rsquo;re here to help you find the best Cablelink service for you.</p>
+            </div>
+            <span class="help-card__headset" aria-hidden="true"><svg viewBox="0 0 48 48">
+                <path d="M8 25a16 16 0 0 1 32 0" />
+                <path d="M8 25v11M40 25v11M8 36h5v-9H8M35 36h5v-9h-5M35 36c0 4-3 6-7 6h-3" />
+                <circle cx="25" cy="42" r="1" />
+              </svg></span>
+          </div>
+          <div class="help-card__actions">
+            <a href="cablelink_services.html" class="help-link help-link--services"><span class="help-link__icon"
+                aria-hidden="true"><svg viewBox="0 0 24 24">
+                  <rect x="4" y="4" width="6" height="6" rx="1" />
+                  <rect x="14" y="4" width="6" height="6" rx="1" />
+                  <rect x="4" y="14" width="6" height="6" rx="1" />
+                  <rect x="14" y="14" width="6" height="6" rx="1" />
+                </svg></span><span class="help-link__content"><strong>Explore Services</strong><small>View and compare
+                  Internet, Cable TV, and bundle plans.</small></span><span class="help-link__arrow action-arrow"
+                aria-hidden="true"><span class="action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg></span></span></a>
+            <a href="cablelink_billing_faq.html#non_subs-faqs" class="help-link help-link--faq"><span
+                class="help-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="8" />
+                  <path d="M9.5 9a2.6 2.6 0 1 1 4.3 2l-1.3 1.1V14M12 17h.01" />
+                </svg></span><span class="help-link__content"><strong>Sales FAQs</strong><small>Get answers to common
+                  sales-related questions.</small></span><span class="help-link__arrow action-arrow"
+                aria-hidden="true"><span class="action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg></span></span></a>
+            <a data-config-link="viber" class="help-link help-link--chat" target="_blank" rel="noopener noreferrer"
+              hidden><span class="help-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24">
+                  <path d="M5 4h14v12H9l-4 4z" />
+                  <path d="M9 8.5c.7 2.2 2.2 3.7 4.5 4.5l1.4-1.3 1.7 1.2c-.4.7-1.1 1.1-1.9.9-3.5-.8-5.8-3.1-6.6-6.6-.2-.8.2-1.5.9-1.9l1.2 1.7z" />
+                </svg></span><span class="help-link__content"><strong>Chat With Us</strong><small>Chat with our team via
+                  Viber Business.</small></span><span class="help-link__arrow action-arrow" aria-hidden="true"><span
+                  class="action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg></span></span></a>
+            <a href="cablelink_contact.html" class="help-link help-link--contact"><span class="help-link__icon"
+                aria-hidden="true"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M6.4 3.8 9.5 7l-1.8 3.1c1.3 2.7 3.5 4.9 6.2 6.2l3.1-1.8 3.2 3.1-1.7 2.7c-.5.8-1.4 1.1-2.3.9C9.1 19.5 4.5 14.9 2.8 7.8c-.2-.9.1-1.8.9-2.3l2.7-1.7Z" />
+                </svg></span><span class="help-link__content"><strong>Contact Us</strong><small>Call or message our
+                  customer service team.</small></span><span class="help-link__arrow action-arrow"
+                aria-hidden="true"><span class="action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg></span></span></a>
+          </div>
+        </aside>
+        <!-- Application sidebar closes above; the help panel is a separate layout row. -->
+
+      </div><!-- /apply-layout -->
+    </section>
+
+    <div class="agreement-modal" id="terms-agreement-modal" role="dialog" aria-modal="true"
+      aria-labelledby="terms-agreement-title" hidden>
+      <div class="agreement-modal__backdrop" data-agreement-close></div>
+      <div class="agreement-modal__dialog">
+        <button class="agreement-modal__close" type="button" aria-label="Close Terms of Service"
+          data-agreement-close>&times;</button>
+        <header class="agreement-modal__header">
+          <h2 id="terms-agreement-title">Terms of Service</h2>
+          <p>The final client-approved Terms of Service has not yet been supplied.</p>
+        </header>
+        <div class="agreement-modal__body">
+          <div class="status-panel" role="note">
+            <h3>Legal content pending approval</h3>
+            <p>No Terms of Service language has been invented. Open the prepared Terms route to review its current
+              status.</p>
+            <a class="button button--secondary" href="cablelink_terms.html" target="_blank"
+              rel="noopener noreferrer">Open Terms Route</a>
           </div>
         </div>
-
-        <div class="step-nav step-nav--legal">
-          <button class="button button--secondary btn-prev" onclick="goStep(1)">
-            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Back
-          </button>
-          <button class="button button--primary btn-next" id="nextBtn2" onclick="goStep(3)" disabled>
-            Continue <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
-          <p class="service-step-legal">By continuing, you acknowledge Cablelink&rsquo;s <a href="cablelink_terms.html" target="_blank" rel="noopener noreferrer">Terms of Service</a> and <a href="cablelink_privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</p>
+        <div class="agreement-modal__actions">
+          <button class="button button--secondary" type="button" data-agreement-close>Cancel</button>
+          <button class="button button--primary" type="button" data-agreement-accept="terms">Accept Terms</button>
         </div>
       </div>
     </div>
 
-    <!-- STEP 3: Personal Information -->
-    <div class="step-block" id="step3">
-      <div class="step-card">
-        <div class="step-card-head">
-          <div class="step-num-badge"><div class="badge-dot"></div> Step 3 of 5</div>
-          <h2>Personal Information</h2>
-          <p>Tell us a bit about yourself so we can process your application.</p>
-        </div>
-        <div class="form-grid form-row-3" id="nameGrid">
-          <div class="field">
-            <label for="fname">First Name <span style="color:#e53e3e">*</span></label>
-            <input type="text" id="fname" name="first_name" placeholder="e.g. Juan" autocomplete="given-name">
-          </div>
-          <div class="field">
-            <label for="mname">Middle Name</label>
-            <input type="text" id="mname" name="middle_name" placeholder="Optional" autocomplete="additional-name">
-          </div>
-          <div class="field">
-            <label for="lname">Last Name <span style="color:#e53e3e">*</span></label>
-            <input type="text" id="lname" name="last_name" placeholder="e.g. Dela Cruz" autocomplete="family-name">
+    <div class="agreement-modal" id="privacy-agreement-modal" role="dialog" aria-modal="true"
+      aria-labelledby="privacy-agreement-title" hidden>
+      <div class="agreement-modal__backdrop" data-agreement-close></div>
+      <div class="agreement-modal__dialog">
+        <button class="agreement-modal__close" type="button" aria-label="Close Privacy Policy"
+          data-agreement-close>&times;</button>
+        <header class="agreement-modal__header">
+          <h2 id="privacy-agreement-title">Privacy Policy</h2>
+          <p>The final client-approved Privacy Policy has not yet been supplied.</p>
+        </header>
+        <div class="agreement-modal__body">
+          <div class="status-panel" role="note">
+            <h3>Legal content pending approval</h3>
+            <p>No privacy language has been invented. Open the prepared Privacy Notice route to review its current
+              status.</p>
+            <a class="button button--secondary" href="cablelink_privacy.html" target="_blank"
+              rel="noopener noreferrer">Open Privacy Route</a>
           </div>
         </div>
-        <div class="form-grid form-row-2" style="margin-top:1.1rem">
-          <div class="field">
-            <label for="mobile">Mobile Number <span style="color:#e53e3e">*</span></label>
-            <input type="tel" id="mobile" name="mobile" placeholder="09XX XXX XXXX" autocomplete="tel" maxlength="11">
-          </div>
-          <div class="field">
-            <label for="email">Email Address <span style="color:#e53e3e">*</span></label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email">
-          </div>
-        </div>
-        <div class="step-nav step-nav--legal">
-          <button class="button button--secondary btn-prev" onclick="goStep(2)">
-            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Back
-          </button>
-          <button class="button button--primary btn-next" onclick="validateStep3()">
-            Continue <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
-          <p class="service-step-legal">By continuing, you acknowledge Cablelink&rsquo;s <a href="cablelink_terms.html" target="_blank" rel="noopener noreferrer">Terms of Service</a> and <a href="cablelink_privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</p>
+        <div class="agreement-modal__actions">
+          <button class="button button--secondary" type="button" data-agreement-close>Cancel</button>
+          <button class="button button--primary" type="button" data-agreement-accept="privacy">Accept Privacy
+            Policy</button>
         </div>
       </div>
     </div>
+  </main>
 
-    <!-- STEP 4: Installation Address -->
-    <div class="step-block" id="step4">
-      <div class="step-card">
-        <div class="step-card-head">
-          <div class="step-num-badge"><div class="badge-dot"></div> Step 4 of 5</div>
-          <h2>Installation Address</h2>
-          <p>Where would you like your Cablelink service installed?</p>
-        </div>
-        <div class="form-grid form-row-2">
-          <div class="field">
-            <label for="province">Province <span style="color:#e53e3e">*</span></label>
-            <input type="text" id="province" name="province" placeholder="e.g. La Union" autocomplete="address-level1">
-          </div>
-          <div class="field">
-            <label for="city">City / Municipality <span style="color:#e53e3e">*</span></label>
-            <input type="text" id="city" name="city" placeholder="e.g. San Fernando" autocomplete="address-level2">
-          </div>
-          <div class="field">
-            <label for="barangay">Barangay <span style="color:#e53e3e">*</span></label>
-            <input type="text" id="barangay" name="barangay" placeholder="e.g. Brgy. Pagudpud" autocomplete="address-level3">
-          </div>
-          <div class="field">
-            <label for="housenum">House Number <span style="color:#e53e3e">*</span></label>
-            <input type="text" id="housenum" name="house_number" placeholder="e.g. 123" autocomplete="address-line2">
-          </div>
-          <div class="field">
-            <label for="street">Street Name <span style="color:#e53e3e">*</span></label>
-            <input type="text" id="street" name="street" placeholder="e.g. Quezon Ave." autocomplete="street-address">
-          </div>
-          <div class="field">
-            <label for="village">Village / Subdivision</label>
-            <input type="text" id="village" name="village" placeholder="e.g. Greenview Subd." autocomplete="address-line1">
-          </div>
-        </div>
-
-        <!-- Property Type -->
-        <div style="margin-top:1.5rem">
-          <span class="seg-label">Property Type <span style="color:#e53e3e">*</span></span>
-          <div class="seg-ctrl">
-            <button class="seg-opt active" id="prop-owner" onclick="selectProp('owner')">Owner</button>
-            <button class="seg-opt" id="prop-tenant" onclick="selectProp('tenant')">Tenant</button>
-          </div>
-        </div>
-
-        <div class="step-nav step-nav--legal">
-          <button class="button button--secondary btn-prev" onclick="goStep(3)">
-            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Back
-          </button>
-          <button class="button button--primary btn-next" onclick="validateStep4()">
-            Continue <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
-          <p class="service-step-legal">By continuing, you acknowledge Cablelink&rsquo;s <a href="cablelink_terms.html" target="_blank" rel="noopener noreferrer">Terms of Service</a> and <a href="cablelink_privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- STEP 5: Review & Submit -->
-    <div class="step-block" id="step5">
-      <div class="step-card">
-        <div class="step-card-head">
-          <div class="step-num-badge"><div class="badge-dot"></div> Step 5 of 5</div>
-          <h2>Review Your Application</h2>
-          <p>Please verify all information before submitting your application.</p>
-        </div>
-
-        <!-- Service & Plan -->
-        <div class="review-section">
-          <span class="review-section-title">Service & Plan</span>
-          <div class="review-grid">
-            <div class="review-row">
-              <div class="review-key">Service Type</div>
-              <div class="review-val highlight" id="rv-service">—</div>
-            </div>
-            <div class="review-row">
-              <div class="review-key">Plan</div>
-              <div class="review-val" id="rv-plan">—</div>
-            </div>
-            <div class="review-row">
-              <div class="review-key">Monthly Fee</div>
-              <div class="review-val highlight" id="rv-fee">—</div>
-            </div>
-            <div class="review-row">
-              <div class="review-key">TV Package</div>
-              <div class="review-val" id="rv-tv">—</div>
-            </div>
-          </div>
-          <button class="review-edit" onclick="goStep(2)">
-            <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-            Edit Plan
-          </button>
-        </div>
-
-        <!-- Contact Info -->
-        <div class="review-section">
-          <span class="review-section-title">Contact Information</span>
-          <div class="review-grid">
-            <div class="review-row">
-              <div class="review-key">Full Name</div>
-              <div class="review-val" id="rv-name">—</div>
-            </div>
-            <div class="review-row">
-              <div class="review-key">Mobile</div>
-              <div class="review-val" id="rv-mobile">—</div>
-            </div>
-            <div class="review-row">
-              <div class="review-key">Email</div>
-              <div class="review-val" id="rv-email">—</div>
-            </div>
-          </div>
-          <button class="review-edit" onclick="goStep(3)">
-            <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-            Edit Info
-          </button>
-        </div>
-
-        <!-- Address -->
-        <div class="review-section">
-          <span class="review-section-title">Installation Address</span>
-          <div class="review-grid">
-            <div class="review-row">
-              <div class="review-key">Address</div>
-              <div class="review-val" id="rv-address">—</div>
-            </div>
-            <div class="review-row">
-              <div class="review-key">Property Type</div>
-              <div class="review-val" id="rv-prop">—</div>
-            </div>
-          </div>
-          <button class="review-edit" onclick="goStep(4)">
-            <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-            Edit Address
-          </button>
-        </div>
-
-        <div class="review-section application-attachments">
-          <span class="review-section-title">Supporting Documents</span>
-          <p class="application-note">Valid ID and Proof of Billing are required for the reviewed frontend flow. Approved file types and maximum sizes still require client confirmation. Files remain in your browser because online submission is not connected.</p>
-          <div class="form-grid form-row-2">
-            <div class="field">
-              <label for="valid-id">Valid ID <span aria-hidden="true">*</span></label>
-              <input type="file" id="valid-id" name="valid_id" required>
-            </div>
-            <div class="field">
-              <label for="proof-billing">Proof of Billing <span aria-hidden="true">*</span></label>
-              <input type="file" id="proof-billing" name="proof_billing" required>
-            </div>
-          </div>
-          <div class="application-consent-list">
-            <label class="application-consent" for="terms-consent">
-              <input type="checkbox" id="terms-consent" name="terms_consent" required>
-              <span>I have opened and accepted the <button class="application-agreement-link" type="button" data-agreement-open="terms">Terms of Service</button>. Final legal content is pending client approval.</span>
-            </label>
-            <label class="application-consent" for="privacy-consent">
-              <input type="checkbox" id="privacy-consent" name="privacy_consent" required>
-              <span>I have opened and accepted the <button class="application-agreement-link" type="button" data-agreement-open="privacy">Privacy Policy</button>. Final legal content is pending client approval.</span>
-            </label>
-          </div>
-        </div>
-
-        <!-- Submission boundary -->
-        <div class="submit-cta">
-          <p>Review is available in this prototype. Transmission requires a client-approved endpoint, payload contract, validation rules, and secure document handling.</p>
-          <button class="button button--primary btn-apply" id="application-submit" type="button" disabled>
-            Submit Application
-            <span class="action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-          </button>
-          <p class="application-status" id="application-submit-status" role="status" aria-live="polite"></p>
-        </div>
-
-        <div class="step-nav" style="border-top:none;margin-top:1rem;justify-content:flex-start">
-          <button class="button button--secondary btn-prev" onclick="goStep(4)">
-            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Back
-          </button>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /form-area -->
-
-  <!-- SIDEBAR -->
-  <aside class="summary-sidebar">
-    <div class="summary-card">
-      <h3>Application Summary</h3>
-      <div class="summary-item">
-        <div class="summary-item-label">Service</div>
-        <div class="summary-item-val" id="sum-service"><span class="empty">Not selected</span></div>
-      </div>
-      <div class="summary-divider"></div>
-      <div class="summary-item">
-        <div class="summary-item-label">Plan</div>
-        <div class="summary-item-val" id="sum-plan"><span class="empty">Not selected</span></div>
-      </div>
-      <div class="summary-item">
-        <div class="summary-item-label">Speed</div>
-        <div class="summary-item-val" id="sum-speed"><span class="empty">—</span></div>
-      </div>
-      <div class="summary-item">
-        <div class="summary-item-label">TV Package</div>
-        <div class="summary-item-val" id="sum-tv"><span class="empty">—</span></div>
-      </div>
-      <div class="summary-price-box" id="sumPriceBox">
-        <div class="summary-price-label">Monthly Fee</div>
-        <div class="summary-price-val" id="sum-price">—</div>
-        <div class="summary-price-period" id="sum-period">per month</div>
-      </div>
-    </div>
-  </aside>
-  <aside class="help-card" aria-labelledby="help-card-title">
-      <div class="help-card__heading">
-        <div><h4 id="help-card-title">Need help choosing?</h4><p>We&rsquo;re here to help you find the best Cablelink service for you.</p></div>
-        <span class="help-card__headset" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 25a16 16 0 0 1 32 0"/><path d="M8 25v11M40 25v11M8 36h5v-9H8M35 36h5v-9h-5M35 36c0 4-3 6-7 6h-3"/><circle cx="25" cy="42" r="1"/></svg></span>
-      </div>
-      <div class="help-card__actions">
-        <a href="cablelink_services.html" class="help-link help-link--services"><span class="help-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg></span><span class="help-link__content"><strong>Explore Services</strong><small>View and compare Internet, Cable TV, and bundle plans.</small></span><span class="help-link__arrow action-arrow" aria-hidden="true"><span class="action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></span></a>
-        <a href="cablelink_billing_faq.html#non_subs-faqs" class="help-link help-link--faq"><span class="help-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M9.5 9a2.6 2.6 0 1 1 4.3 2l-1.3 1.1V14M12 17h.01"/></svg></span><span class="help-link__content"><strong>Sales FAQs</strong><small>Get answers to common sales-related questions.</small></span><span class="help-link__arrow action-arrow" aria-hidden="true"><span class="action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></span></a>
-        <a data-config-link="viber" class="help-link help-link--chat" target="_blank" rel="noopener noreferrer" hidden><span class="help-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h14v12H9l-4 4z"/><path d="M9 8.5c.7 2.2 2.2 3.7 4.5 4.5l1.4-1.3 1.7 1.2c-.4.7-1.1 1.1-1.9.9-3.5-.8-5.8-3.1-6.6-6.6-.2-.8.2-1.5.9-1.9l1.2 1.7z"/></svg></span><span class="help-link__content"><strong>Chat With Us</strong><small>Chat with our team via Viber Business.</small></span><span class="help-link__arrow action-arrow" aria-hidden="true"><span class="action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></span></a>
-        <a href="cablelink_contact.html" class="help-link help-link--contact"><span class="help-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.4 3.8 9.5 7l-1.8 3.1c1.3 2.7 3.5 4.9 6.2 6.2l3.1-1.8 3.2 3.1-1.7 2.7c-.5.8-1.4 1.1-2.3.9C9.1 19.5 4.5 14.9 2.8 7.8c-.2-.9.1-1.8.9-2.3l2.7-1.7Z"/></svg></span><span class="help-link__content"><strong>Contact Us</strong><small>Call or message our customer service team.</small></span><span class="help-link__arrow action-arrow" aria-hidden="true"><span class="action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></span></a>
-      </div>
-    </aside>
-  <!-- Application sidebar closes above; the help panel is a separate layout row. -->
-
-</div><!-- /apply-layout -->
-</section>
-
-<div class="agreement-modal" id="terms-agreement-modal" role="dialog" aria-modal="true" aria-labelledby="terms-agreement-title" hidden>
-  <div class="agreement-modal__backdrop" data-agreement-close></div>
-  <div class="agreement-modal__dialog">
-    <button class="agreement-modal__close" type="button" aria-label="Close Terms of Service" data-agreement-close>&times;</button>
-    <header class="agreement-modal__header">
-      <h2 id="terms-agreement-title">Terms of Service</h2>
-      <p>The final client-approved Terms of Service has not yet been supplied.</p>
-    </header>
-    <div class="agreement-modal__body">
-      <div class="status-panel" role="note">
-        <h3>Legal content pending approval</h3>
-        <p>No Terms of Service language has been invented. Open the prepared Terms route to review its current status.</p>
-        <a class="button button--secondary" href="cablelink_terms.html" target="_blank" rel="noopener noreferrer">Open Terms Route</a>
-      </div>
-    </div>
-    <div class="agreement-modal__actions">
-      <button class="button button--secondary" type="button" data-agreement-close>Cancel</button>
-      <button class="button button--primary" type="button" data-agreement-accept="terms">Accept Terms</button>
-    </div>
-  </div>
-</div>
-
-<div class="agreement-modal" id="privacy-agreement-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-agreement-title" hidden>
-  <div class="agreement-modal__backdrop" data-agreement-close></div>
-  <div class="agreement-modal__dialog">
-    <button class="agreement-modal__close" type="button" aria-label="Close Privacy Policy" data-agreement-close>&times;</button>
-    <header class="agreement-modal__header">
-      <h2 id="privacy-agreement-title">Privacy Policy</h2>
-      <p>The final client-approved Privacy Policy has not yet been supplied.</p>
-    </header>
-    <div class="agreement-modal__body">
-      <div class="status-panel" role="note">
-        <h3>Legal content pending approval</h3>
-        <p>No privacy language has been invented. Open the prepared Privacy Notice route to review its current status.</p>
-        <a class="button button--secondary" href="cablelink_privacy.html" target="_blank" rel="noopener noreferrer">Open Privacy Route</a>
-      </div>
-    </div>
-    <div class="agreement-modal__actions">
-      <button class="button button--secondary" type="button" data-agreement-close>Cancel</button>
-      <button class="button button--primary" type="button" data-agreement-accept="privacy">Accept Privacy Policy</button>
-    </div>
-  </div>
-</div>
-</main>
-
-<script>
-(function(){
-  // ===== STATE =====
-  var state = {
-    service: null,           // 'tv' | 'bundle'
-    tvPlan: null,            // object
-    bundleFamily: 'supercharged',
-    bundleTech: 'iblaze',
-    bundleSpeed: null,       // object
-    propType: 'owner',
-    currentStep: 1
-  };
-
-  // Plan data
-  var plans = {
-    supercharged: {
-      iblaze: [
-        {speed:'20 Mbps', price:'₱588', tech:'I-Blaze DOCSIS', tv:'Basic Plus'},
-        {speed:'30 Mbps', price:'₱888', tech:'I-Blaze DOCSIS', tv:'Basic Plus'},
-        {speed:'35 Mbps', price:'₱999', tech:'I-Blaze DOCSIS', tv:'Basic Plus'},
-        {speed:'50 Mbps', price:'₱1,088', tech:'I-Blaze DOCSIS', tv:'Basic Plus'},
-        {speed:'88 Mbps', price:'₱1,388', tech:'I-Blaze DOCSIS', tv:'Basic Plus'},
-        {speed:'120 Mbps', price:'₱1,699', tech:'I-Blaze DOCSIS', tv:'Basic Plus'}
-      ],
-      fiberlink: [
-        {speed:'50 Mbps', price:'₱888', tech:'Fiberlink FTTH', tv:'Basic Plus'},
-        {speed:'75 Mbps', price:'₱999', tech:'Fiberlink FTTH', tv:'Basic Plus'},
-        {speed:'88 Mbps', price:'₱1,088', tech:'Fiberlink FTTH', tv:'Basic Plus'},
-        {speed:'188 Mbps', price:'₱1,388', tech:'Fiberlink FTTH', tv:'Basic Plus'},
-        {speed:'300 Mbps', price:'₱1,699', tech:'Fiberlink FTTH', tv:'Basic Plus'}
-      ]
-    },
-    turbocharged: {
-      iblaze: [
-        {speed:'30 Mbps', price:'₱599', tech:'I-Blaze DOCSIS', tv:'Basic Lite'},
-        {speed:'50 Mbps', price:'₱999', tech:'I-Blaze DOCSIS', tv:'Basic Lite'},
-        {speed:'100 Mbps', price:'₱1,499', tech:'I-Blaze DOCSIS', tv:'Basic Lite'}
-      ],
-      fiberlink: [
-        {speed:'50 Mbps', price:'₱599', tech:'Fiberlink FTTH', tv:'Basic Lite'},
-        {speed:'200 Mbps', price:'₱999', tech:'Fiberlink FTTH', tv:'Basic Lite'},
-        {speed:'300 Mbps', price:'₱1,299', tech:'Fiberlink FTTH', tv:'Basic Lite'}
-      ]
-    }
-  };
-
-  // ===== STEP NAV =====
-  window.goStep = function(n){
-    document.querySelectorAll('.step-block').forEach(function(b){b.classList.remove('active-step')});
-    var el = document.getElementById('step'+n);
-    if(el) el.classList.add('active-step');
-    state.currentStep = n;
-    updateStepIndicator();
-    if(n===5) populateReview();
-    window.scrollTo({top:document.querySelector('.apply-layout').offsetTop - 80, behavior:'smooth'});
-  };
-
-  function updateStepIndicator(){
-    var n = state.currentStep;
-    for(var i=1;i<=5;i++){
-      var si = document.getElementById('si'+i);
-      si.classList.remove('active','done');
-      if(i < n) si.classList.add('done');
-      else if(i === n) si.classList.add('active');
-    }
-    for(var j=1;j<=4;j++){
-      var sc = document.getElementById('sc'+j);
-      sc.classList.toggle('done', j < n);
-    }
-  }
-
-  // ===== SERVICE SELECTION =====
-  window.selectService = function(type){
-    state.service = type;
-    document.getElementById('svcTV').classList.toggle('selected', type==='tv');
-    document.getElementById('svcBundle').classList.toggle('selected', type==='bundle');
-    document.getElementById('nextBtn1').disabled = false;
-    // Show/hide plan sections on step 2
-    document.getElementById('tvPlanSection').classList.toggle('hidden', type!=='tv');
-    document.getElementById('bundlePlanSection').classList.toggle('hidden', type!=='bundle');
-    // Reset plan
-    state.tvPlan = null; state.bundleSpeed = null;
-    document.getElementById('nextBtn2').disabled = true;
-    // Update summary
-    document.getElementById('sum-service').innerHTML = type==='tv' ? 'Cable TV' : 'Internet Bundle';
-    document.getElementById('sum-plan').innerHTML = '<span class="empty">Not selected</span>';
-    document.getElementById('sum-speed').innerHTML = '<span class="empty">—</span>';
-    document.getElementById('sum-tv').innerHTML = '<span class="empty">—</span>';
-    document.getElementById('sum-price').textContent = '—';
-    if(type==='bundle') renderSpeedCards();
-  };
-
-  // ===== TV PLAN =====
-  window.selectTVPlan = function(id, name, price, sourceCard){
-    state.tvPlan = {id:id, name:name, price:price};
-    document.querySelectorAll('.tv-plan-card').forEach(function(c){c.classList.remove('selected')});
-    if(sourceCard) sourceCard.classList.add('selected');
-    document.getElementById('nextBtn2').disabled = false;
-    document.getElementById('sum-plan').textContent = name;
-    document.getElementById('sum-tv').textContent = name;
-    document.getElementById('sum-speed').innerHTML = '<span class="empty">—</span>';
-    document.getElementById('sum-price').textContent = price;
-  };
-
-  // ===== BUNDLE: FAMILY =====
-  window.selectFamily = function(fam){
-    state.bundleFamily = fam;
-    state.bundleSpeed = null;
-    document.getElementById('nextBtn2').disabled = true;
-    document.getElementById('fam-supercharged').classList.toggle('active', fam==='supercharged');
-    document.getElementById('fam-turbocharged').classList.toggle('active', fam==='turbocharged');
-    document.getElementById('familyDesc').textContent = fam==='supercharged' ?
-      'Includes Basic Plus TV — 126 channels.' : 'Includes Basic Lite TV — 53 channels.';
-    renderSpeedCards();
-    document.getElementById('sum-plan').innerHTML = '<span class="empty">Not selected</span>';
-    document.getElementById('sum-price').textContent = '—';
-  };
-
-  // ===== BUNDLE: TECH =====
-  window.selectTech = function(tech){
-    state.bundleTech = tech;
-    state.bundleSpeed = null;
-    document.getElementById('nextBtn2').disabled = true;
-    document.getElementById('tech-iblaze').classList.toggle('active', tech==='iblaze');
-    document.getElementById('tech-fiberlink').classList.toggle('active', tech==='fiberlink');
-    renderSpeedCards();
-    document.getElementById('sum-plan').innerHTML = '<span class="empty">Not selected</span>';
-    document.getElementById('sum-price').textContent = '—';
-  };
-
-  // ===== RENDER SPEED CARDS =====
-  function renderSpeedCards(){
-    var data = plans[state.bundleFamily][state.bundleTech];
-    var html = data.map(function(p, i){
-      var speedNum = p.speed.replace(' Mbps','');
-      return '<div class="speed-card" onclick="selectSpeed('+i+')" id="sc'+i+'">' +
-        '<div class="speed-card-top">' +
-          '<div class="speed-badge">'+p.tech+'</div>' +
-          '<div class="speed-select-dot"></div>' +
-        '</div>' +
-        '<div class="speed-val">'+speedNum+'</div>' +
-        '<div class="speed-unit">Mbps</div>' +
-        '<div class="speed-tv">'+p.tv+' Included</div>' +
-        '<div class="speed-price">'+p.price+'<span>/mo</span></div>' +
-      '</div>';
-    }).join('');
-    document.getElementById('speedCards').innerHTML = html;
-  }
-
-  // ===== SELECT SPEED =====
-  window.selectSpeed = function(i){
-    var data = plans[state.bundleFamily][state.bundleTech];
-    state.bundleSpeed = data[i];
-    document.querySelectorAll('#speedCards .speed-card').forEach(function(c,j){
-      c.classList.toggle('selected', j===i);
-    });
-    document.getElementById('nextBtn2').disabled = false;
-    var p = state.bundleSpeed;
-    var famLabel = state.bundleFamily==='supercharged' ? 'Supercharged' : 'Turbocharged';
-    var techLabel = state.bundleTech==='iblaze' ? 'I-Blaze' : 'Fiberlink';
-    document.getElementById('sum-plan').textContent = famLabel+' '+techLabel;
-    document.getElementById('sum-speed').textContent = p.speed;
-    document.getElementById('sum-tv').textContent = p.tv;
-    document.getElementById('sum-price').textContent = p.price;
-  };
-
-  // ===== PROPERTY TYPE =====
-  window.selectProp = function(type){
-    state.propType = type;
-    document.getElementById('prop-owner').classList.toggle('active', type==='owner');
-    document.getElementById('prop-tenant').classList.toggle('active', type==='tenant');
-  };
-
-  // ===== VALIDATE STEP 3 =====
-  window.validateStep3 = function(){
-    var ok = true;
-    ['fname','lname','mobile','email'].forEach(function(id){
-      var el = document.getElementById(id);
-      el.classList.remove('error');
-      if(!el.value.trim()){el.classList.add('error');ok=false;}
-    });
-    var emailEl = document.getElementById('email');
-    if(emailEl.value && !/^[^@]+@[^@]+\.[^@]+$/.test(emailEl.value)){
-      emailEl.classList.add('error');ok=false;
-    }
-    if(ok) goStep(4);
-    else { var first = document.querySelector('#step3 .error'); if(first) first.scrollIntoView({behavior:'smooth',block:'center'});}
-  };
-
-  // ===== VALIDATE STEP 4 =====
-  window.validateStep4 = function(){
-    var ok = true;
-    ['province','city','barangay','housenum','street'].forEach(function(id){
-      var el = document.getElementById(id);
-      el.classList.remove('error');
-      if(!el.value.trim()){el.classList.add('error');ok=false;}
-    });
-    if(ok) goStep(5);
-    else { var first = document.querySelector('#step4 .error'); if(first) first.scrollIntoView({behavior:'smooth',block:'center'});}
-  };
-
-  // ===== POPULATE REVIEW =====
-  function populateReview(){
-    // Service & Plan
-    if(state.service==='tv'){
-      var tp = state.tvPlan;
-      document.getElementById('rv-service').textContent = 'Cable TV';
-      document.getElementById('rv-plan').textContent = tp ? tp.name : '—';
-      document.getElementById('rv-fee').textContent = tp ? tp.price : '—';
-      document.getElementById('rv-tv').textContent = tp ? tp.name : '—';
-    } else {
-      var sp = state.bundleSpeed;
-      var fam = state.bundleFamily==='supercharged' ? 'Supercharged' : 'Turbocharged';
-      var tech = state.bundleTech==='iblaze' ? 'I-Blaze' : 'Fiberlink';
-      document.getElementById('rv-service').textContent = 'Internet Bundle';
-      document.getElementById('rv-plan').textContent = sp ? fam+' '+tech+' — '+sp.speed : '—';
-      document.getElementById('rv-fee').textContent = sp ? sp.price+'/month' : '—';
-      document.getElementById('rv-tv').textContent = sp ? sp.tv : '—';
-    }
-    // Personal
-    var fn=document.getElementById('fname').value.trim();
-    var mn=document.getElementById('mname').value.trim();
-    var ln=document.getElementById('lname').value.trim();
-    document.getElementById('rv-name').textContent = [fn,mn,ln].filter(Boolean).join(' ');
-    document.getElementById('rv-mobile').textContent = document.getElementById('mobile').value.trim();
-    document.getElementById('rv-email').textContent = document.getElementById('email').value.trim();
-    // Address
-    var hn=document.getElementById('housenum').value.trim();
-    var st=document.getElementById('street').value.trim();
-    var vl=document.getElementById('village').value.trim();
-    var br=document.getElementById('barangay').value.trim();
-    var ct=document.getElementById('city').value.trim();
-    var pv=document.getElementById('province').value.trim();
-    var addr = [hn+' '+st, vl, br, ct, pv].filter(Boolean).join(', ');
-    document.getElementById('rv-address').textContent = addr;
-    document.getElementById('rv-prop').textContent = state.propType==='owner' ? 'Property Owner' : 'Tenant';
-  }
-
-  // ===== SUBMIT =====
-  window.submitApplication = function(){
-    var config = window.CablelinkConfig || { integrations: {} };
-    var validId = document.getElementById('valid-id');
-    var proof = document.getElementById('proof-billing');
-    var terms = document.getElementById('terms-consent');
-    var privacy = document.getElementById('privacy-consent');
-    var status = document.getElementById('application-submit-status');
-    var firstInvalid = !validId.files.length ? validId : !proof.files.length ? proof : !terms.checked ? terms : !privacy.checked ? privacy : null;
-
-    if(firstInvalid){
-      status.textContent = 'Add the required Valid ID and Proof of Billing, then accept both the Terms of Service and Privacy Policy before submission can be reviewed.';
-      status.className = 'application-status is-error';
-      firstInvalid.focus();
-      return;
-    }
-
-    status.textContent = config.integrations.applicationEndpoint
-      ? 'Not submitted. An endpoint is configured, but the approved payload contract and secure server-side document workflow are not implemented.'
-      : 'Not submitted. Cablelink must provide and approve the application endpoint, payload contract, and secure document workflow.';
-    status.className = 'application-status is-warning';
-  };
-
-  // ===== INIT =====
-  renderSpeedCards();
-
-
-  // ===== PRE-FILL FROM URL PARAMS =====
-  (function prefillFromURL(){
-    var params = new URLSearchParams(window.location.search);
-    var service = params.get('service');   // 'bundle' | 'tv'
-    if(!service) return;
-
-    // Step 1: select service
-    selectService(service);
-
-    if(service === 'bundle'){
-      var family = params.get('family') || 'supercharged'; // 'super' | 'turbo'
-      var tech   = params.get('tech')   || 'iblaze';       // 'iblaze' | 'fiberlink'
-      var speed  = params.get('speed');
-      var price  = params.get('price');
-      var tv     = params.get('tv');
-
-      // Normalise family: plans page uses 'super'/'turbo' card types
-      if(family === 'super') family = 'supercharged';
-      if(family === 'turbo') family = 'turbocharged';
-      if(tech === 'fiber') tech = 'fiberlink';
-
-      selectFamily(family);
-      selectTech(tech === 'fiberlink' ? 'fiberlink' : 'iblaze');
-
-      // Wait a tick for speed cards to render then select the matching card
-      setTimeout(function(){
-        if(speed){
-          var cards = document.querySelectorAll('#speedCards .speed-card');
-          cards.forEach(function(card){
-            var cardSpeed = card.querySelector('.speed-val');
-            if(cardSpeed && cardSpeed.textContent.trim() === speed + ''){
-              card.click();
-            }
-          });
-        }
-        // If everything is filled, jump to step 2 (plan already chosen)
-        if(speed && price){
-          document.getElementById('nextBtn2').disabled = false;
-          goStep(2);
-        } else {
-          goStep(2);
-        }
-      }, 80);
-
-    } else if(service === 'tv'){
-      var tvplan = params.get('tvplan'); // slug like 'basic-495'
-      var tvname = params.get('tvname'); // display name
-      var price  = params.get('price');
-
-      // Map slug to the selectTVPlan call params
-      var slugMap = {
-        'basic-495': ['basic495', 'Basic 495', price ? '₱'+price+'/month' : '—'],
-        'basic-lite': ['basiclite', 'Basic Lite', '—'],
-        'basic-plus': ['basicplus', 'Basic Plus', '—']
+  <script>
+    (function () {
+      // ===== STATE =====
+      var state = {
+        service: null,           // 'tv' | 'bundle'
+        tvPlan: null,            // object
+        bundleFamily: 'supercharged',
+        bundleTech: 'iblaze',
+        bundleSpeed: null,       // object
+        propType: 'owner',
+        currentStep: 1
       };
-      var mapped = slugMap[tvplan];
-      if(mapped) selectTVPlan(mapped[0], mapped[1], mapped[2]);
-      goStep(2);
-    }
-  })();
 
-})();
-</script>
+      // Plan data
+      var plans = {
+        supercharged: {
+          iblaze: [
+            { speed: '20 Mbps', price: '₱588', tech: 'I-Blaze DOCSIS', tv: 'Basic Plus' },
+            { speed: '30 Mbps', price: '₱888', tech: 'I-Blaze DOCSIS', tv: 'Basic Plus' },
+            { speed: '35 Mbps', price: '₱999', tech: 'I-Blaze DOCSIS', tv: 'Basic Plus' },
+            { speed: '50 Mbps', price: '₱1,088', tech: 'I-Blaze DOCSIS', tv: 'Basic Plus' },
+            { speed: '88 Mbps', price: '₱1,388', tech: 'I-Blaze DOCSIS', tv: 'Basic Plus' },
+            { speed: '120 Mbps', price: '₱1,699', tech: 'I-Blaze DOCSIS', tv: 'Basic Plus' }
+          ],
+          fiberlink: [
+            { speed: '50 Mbps', price: '₱888', tech: 'FiberLink FTTH', tv: 'Basic Plus' },
+            { speed: '75 Mbps', price: '₱999', tech: 'FiberLink FTTH', tv: 'Basic Plus' },
+            { speed: '88 Mbps', price: '₱1,088', tech: 'FiberLink FTTH', tv: 'Basic Plus' },
+            { speed: '188 Mbps', price: '₱1,388', tech: 'FiberLink FTTH', tv: 'Basic Plus' },
+            { speed: '300 Mbps', price: '₱1,699', tech: 'FiberLink FTTH', tv: 'Basic Plus' }
+          ]
+        },
+        turbocharged: {
+          iblaze: [
+            { speed: '30 Mbps', price: '₱599', tech: 'I-Blaze DOCSIS', tv: 'Basic Lite' },
+            { speed: '50 Mbps', price: '₱999', tech: 'I-Blaze DOCSIS', tv: 'Basic Lite' },
+            { speed: '100 Mbps', price: '₱1,499', tech: 'I-Blaze DOCSIS', tv: 'Basic Lite' }
+          ],
+          fiberlink: [
+            { speed: '50 Mbps', price: '₱599', tech: 'FiberLink FTTH', tv: 'Basic Lite' },
+            { speed: '200 Mbps', price: '₱999', tech: 'FiberLink FTTH', tv: 'Basic Lite' },
+            { speed: '300 Mbps', price: '₱1,299', tech: 'FiberLink FTTH', tv: 'Basic Lite' }
+          ]
+        }
+      };
 
-<!-- Privacy Notice Modal -->
-<div class="privacy-modal" id="privacy-entry-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-entry-title" aria-describedby="privacy-entry-description" hidden>
-  <div class="privacy-modal__backdrop" data-privacy-close></div>
-  <div class="privacy-modal__dialog" role="document">
-    <button class="privacy-modal__close" type="button" aria-label="Close privacy notice" data-privacy-close><span aria-hidden="true">&times;</span></button>
-    <div class="privacy-modal__heading">
-      <span class="privacy-modal__shield" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 5.5 38 11v10.1c0 9.4-5.8 17.7-14 21.4-8.2-3.7-14-12-14-21.4V11l14-5.5Z" /><rect x="18.5" y="21.5" width="11" height="9" rx="1.5" /><path d="M20.5 21.5v-3a3.5 3.5 0 0 1 7 0v3M24 25v2" /></svg></span>
-      <div>
-        <span class="section__tag">Privacy Notice</span>
-        <h2 id="privacy-entry-title"><span>Your Privacy Matters</span><span>to Cablelink</span></h2>
+      // ===== STEP NAV =====
+      window.goStep = function (n) {
+        document.querySelectorAll('.step-block').forEach(function (b) { b.classList.remove('active-step') });
+        var el = document.getElementById('step' + n);
+        if (el) el.classList.add('active-step');
+        state.currentStep = n;
+        updateStepIndicator();
+        if (n === 5) populateReview();
+        window.scrollTo({ top: document.querySelector('.apply-layout').offsetTop - 80, behavior: 'smooth' });
+      };
+
+      function updateStepIndicator() {
+        var n = state.currentStep;
+        for (var i = 1; i <= 5; i++) {
+          var si = document.getElementById('si' + i);
+          si.classList.remove('active', 'done');
+          if (i < n) si.classList.add('done');
+          else if (i === n) si.classList.add('active');
+        }
+        for (var j = 1; j <= 4; j++) {
+          var sc = document.getElementById('sc' + j);
+          sc.classList.toggle('done', j < n);
+        }
+      }
+
+      // ===== SERVICE SELECTION =====
+      window.selectService = function (type) {
+        state.service = type;
+        document.getElementById('svcTV').classList.toggle('selected', type === 'tv');
+        document.getElementById('svcBundle').classList.toggle('selected', type === 'bundle');
+        document.getElementById('nextBtn1').disabled = false;
+        // Show/hide plan sections on step 2
+        document.getElementById('tvPlanSection').classList.toggle('hidden', type !== 'tv');
+        document.getElementById('bundlePlanSection').classList.toggle('hidden', type !== 'bundle');
+        // Reset plan
+        state.tvPlan = null; state.bundleSpeed = null;
+        document.getElementById('nextBtn2').disabled = true;
+        // Update summary
+        document.getElementById('sum-service').innerHTML = type === 'tv' ? 'Cable TV' : 'Internet Bundle';
+        document.getElementById('sum-plan').innerHTML = '<span class="empty">Not selected</span>';
+        document.getElementById('sum-speed').innerHTML = '<span class="empty">—</span>';
+        document.getElementById('sum-tv').innerHTML = '<span class="empty">—</span>';
+        document.getElementById('sum-price').textContent = '—';
+        if (type === 'bundle') renderSpeedCards();
+      };
+
+      // ===== TV PLAN =====
+      window.selectTVPlan = function (id, name, price, sourceCard) {
+        state.tvPlan = { id: id, name: name, price: price };
+        document.querySelectorAll('.tv-plan-card').forEach(function (c) { c.classList.remove('selected') });
+        if (sourceCard) sourceCard.classList.add('selected');
+        document.getElementById('nextBtn2').disabled = false;
+        document.getElementById('sum-plan').textContent = name;
+        document.getElementById('sum-tv').textContent = name;
+        document.getElementById('sum-speed').innerHTML = '<span class="empty">—</span>';
+        document.getElementById('sum-price').textContent = price;
+      };
+
+      // ===== BUNDLE: FAMILY =====
+      window.selectFamily = function (fam) {
+        state.bundleFamily = fam;
+        state.bundleSpeed = null;
+        document.getElementById('nextBtn2').disabled = true;
+        document.getElementById('fam-supercharged').classList.toggle('active', fam === 'supercharged');
+        document.getElementById('fam-turbocharged').classList.toggle('active', fam === 'turbocharged');
+        document.getElementById('familyDesc').textContent = fam === 'supercharged' ?
+          'Includes Basic Plus TV — 126 channels.' : 'Includes Basic Lite TV — 53 channels.';
+        renderSpeedCards();
+        document.getElementById('sum-plan').innerHTML = '<span class="empty">Not selected</span>';
+        document.getElementById('sum-price').textContent = '—';
+      };
+
+      // ===== BUNDLE: TECH =====
+      window.selectTech = function (tech) {
+        state.bundleTech = tech;
+        state.bundleSpeed = null;
+        document.getElementById('nextBtn2').disabled = true;
+        document.getElementById('tech-iblaze').classList.toggle('active', tech === 'iblaze');
+        document.getElementById('tech-fiberlink').classList.toggle('active', tech === 'fiberlink');
+        renderSpeedCards();
+        document.getElementById('sum-plan').innerHTML = '<span class="empty">Not selected</span>';
+        document.getElementById('sum-price').textContent = '—';
+      };
+
+      // ===== RENDER SPEED CARDS =====
+      function renderSpeedCards() {
+        var data = plans[state.bundleFamily][state.bundleTech];
+        var html = data.map(function (p, i) {
+          var speedNum = p.speed.replace(' Mbps', '');
+          return '<div class="speed-card" onclick="selectSpeed(' + i + ')" id="sc' + i + '">' +
+            '<div class="speed-card-top">' +
+            '<div class="speed-badge">' + p.tech + '</div>' +
+            '<div class="speed-select-dot"></div>' +
+            '</div>' +
+            '<div class="speed-val">' + speedNum + '</div>' +
+            '<div class="speed-unit">Mbps</div>' +
+            '<div class="speed-tv">' + p.tv + ' Included</div>' +
+            '<div class="speed-price">' + p.price + '<span>/mo</span></div>' +
+            '</div>';
+        }).join('');
+        document.getElementById('speedCards').innerHTML = html;
+      }
+
+      // ===== SELECT SPEED =====
+      window.selectSpeed = function (i) {
+        var data = plans[state.bundleFamily][state.bundleTech];
+        state.bundleSpeed = data[i];
+        document.querySelectorAll('#speedCards .speed-card').forEach(function (c, j) {
+          c.classList.toggle('selected', j === i);
+        });
+        document.getElementById('nextBtn2').disabled = false;
+        var p = state.bundleSpeed;
+        var famLabel = state.bundleFamily === 'supercharged' ? 'Supercharged' : 'Turbocharged';
+        var techLabel = state.bundleTech === 'iblaze' ? 'I-Blaze' : 'FiberLink';
+        document.getElementById('sum-plan').textContent = famLabel + ' ' + techLabel;
+        document.getElementById('sum-speed').textContent = p.speed;
+        document.getElementById('sum-tv').textContent = p.tv;
+        document.getElementById('sum-price').textContent = p.price;
+      };
+
+      // ===== PROPERTY TYPE =====
+      window.selectProp = function (type) {
+        state.propType = type;
+        document.getElementById('prop-owner').classList.toggle('active', type === 'owner');
+        document.getElementById('prop-tenant').classList.toggle('active', type === 'tenant');
+      };
+
+      // ===== VALIDATE STEP 3 =====
+      window.validateStep3 = function () {
+        var ok = true;
+        ['fname', 'lname', 'mobile', 'email'].forEach(function (id) {
+          var el = document.getElementById(id);
+          el.classList.remove('error');
+          if (!el.value.trim()) { el.classList.add('error'); ok = false; }
+        });
+        var emailEl = document.getElementById('email');
+        if (emailEl.value && !/^[^@]+@[^@]+\.[^@]+$/.test(emailEl.value)) {
+          emailEl.classList.add('error'); ok = false;
+        }
+        if (ok) goStep(4);
+        else { var first = document.querySelector('#step3 .error'); if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+      };
+
+      // ===== VALIDATE STEP 4 =====
+      window.validateStep4 = function () {
+        var ok = true;
+        ['province', 'city', 'barangay', 'housenum', 'street'].forEach(function (id) {
+          var el = document.getElementById(id);
+          el.classList.remove('error');
+          if (!el.value.trim()) { el.classList.add('error'); ok = false; }
+        });
+        if (ok) goStep(5);
+        else { var first = document.querySelector('#step4 .error'); if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+      };
+
+      // ===== POPULATE REVIEW =====
+      function populateReview() {
+        // Service & Plan
+        if (state.service === 'tv') {
+          var tp = state.tvPlan;
+          document.getElementById('rv-service').textContent = 'Cable TV';
+          document.getElementById('rv-plan').textContent = tp ? tp.name : '—';
+          document.getElementById('rv-fee').textContent = tp ? tp.price : '—';
+          document.getElementById('rv-tv').textContent = tp ? tp.name : '—';
+        } else {
+          var sp = state.bundleSpeed;
+          var fam = state.bundleFamily === 'supercharged' ? 'Supercharged' : 'Turbocharged';
+          var tech = state.bundleTech === 'iblaze' ? 'I-Blaze' : 'FiberLink';
+          document.getElementById('rv-service').textContent = 'Internet Bundle';
+          document.getElementById('rv-plan').textContent = sp ? fam + ' ' + tech + ' — ' + sp.speed : '—';
+          document.getElementById('rv-fee').textContent = sp ? sp.price + '/month' : '—';
+          document.getElementById('rv-tv').textContent = sp ? sp.tv : '—';
+        }
+        // Personal
+        var fn = document.getElementById('fname').value.trim();
+        var mn = document.getElementById('mname').value.trim();
+        var ln = document.getElementById('lname').value.trim();
+        document.getElementById('rv-name').textContent = [fn, mn, ln].filter(Boolean).join(' ');
+        document.getElementById('rv-mobile').textContent = document.getElementById('mobile').value.trim();
+        document.getElementById('rv-email').textContent = document.getElementById('email').value.trim();
+        // Address
+        var hn = document.getElementById('housenum').value.trim();
+        var st = document.getElementById('street').value.trim();
+        var vl = document.getElementById('village').value.trim();
+        var br = document.getElementById('barangay').value.trim();
+        var ct = document.getElementById('city').value.trim();
+        var pv = document.getElementById('province').value.trim();
+        var addr = [hn + ' ' + st, vl, br, ct, pv].filter(Boolean).join(', ');
+        document.getElementById('rv-address').textContent = addr;
+        document.getElementById('rv-prop').textContent = state.propType === 'owner' ? 'Property Owner' : 'Tenant';
+      }
+
+      // ===== SUBMIT =====
+      window.submitApplication = function () {
+        var config = window.CablelinkConfig || { integrations: {} };
+        var validId = document.getElementById('valid-id');
+        var proof = document.getElementById('proof-billing');
+        var terms = document.getElementById('terms-consent');
+        var privacy = document.getElementById('privacy-consent');
+        var status = document.getElementById('application-submit-status');
+        var firstInvalid = !validId.files.length ? validId : !proof.files.length ? proof : !terms.checked ? terms : !privacy.checked ? privacy : null;
+
+        if (firstInvalid) {
+          status.textContent = 'Add the required Valid ID and Proof of Billing, then accept both the Terms of Service and Privacy Policy before submission can be reviewed.';
+          status.className = 'application-status is-error';
+          firstInvalid.focus();
+          return;
+        }
+
+        status.textContent = config.integrations.applicationEndpoint
+          ? 'Not submitted. An endpoint is configured, but the approved payload contract and secure server-side document workflow are not implemented.'
+          : 'Not submitted. Cablelink must provide and approve the application endpoint, payload contract, and secure document workflow.';
+        status.className = 'application-status is-warning';
+      };
+
+      // ===== INIT =====
+      renderSpeedCards();
+
+
+      // ===== PRE-FILL FROM URL PARAMS =====
+      (function prefillFromURL() {
+        var params = new URLSearchParams(window.location.search);
+        var service = params.get('service');   // 'bundle' | 'tv'
+        if (!service) return;
+
+        // Step 1: select service
+        selectService(service);
+
+        if (service === 'bundle') {
+          var family = params.get('family') || 'supercharged'; // 'super' | 'turbo'
+          var tech = params.get('tech') || 'iblaze';       // 'iblaze' | 'fiberlink'
+          var speed = params.get('speed');
+          var price = params.get('price');
+          var tv = params.get('tv');
+
+          // Normalise family: plans page uses 'super'/'turbo' card types
+          if (family === 'super') family = 'supercharged';
+          if (family === 'turbo') family = 'turbocharged';
+          if (tech === 'fiber') tech = 'fiberlink';
+
+          selectFamily(family);
+          selectTech(tech === 'fiberlink' ? 'fiberlink' : 'iblaze');
+
+          // Wait a tick for speed cards to render then select the matching card
+          setTimeout(function () {
+            if (speed) {
+              var cards = document.querySelectorAll('#speedCards .speed-card');
+              cards.forEach(function (card) {
+                var cardSpeed = card.querySelector('.speed-val');
+                if (cardSpeed && cardSpeed.textContent.trim() === speed + '') {
+                  card.click();
+                }
+              });
+            }
+            // If everything is filled, jump to step 2 (plan already chosen)
+            if (speed && price) {
+              document.getElementById('nextBtn2').disabled = false;
+              goStep(2);
+            } else {
+              goStep(2);
+            }
+          }, 80);
+
+        } else if (service === 'tv') {
+          var tvplan = params.get('tvplan'); // slug like 'basic-495'
+          var tvname = params.get('tvname'); // display name
+          var price = params.get('price');
+
+          // Map slug to the selectTVPlan call params
+          var slugMap = {
+            'basic-495': ['basic495', 'Basic 495', price ? '₱' + price + '/month' : '—'],
+            'basic-lite': ['basiclite', 'Basic Lite', '—'],
+            'basic-plus': ['basicplus', 'Basic Plus', '—']
+          };
+          var mapped = slugMap[tvplan];
+          if (mapped) selectTVPlan(mapped[0], mapped[1], mapped[2]);
+          goStep(2);
+        }
+      })();
+
+    })();
+  </script>
+
+  <!-- Privacy Notice Modal -->
+  <div class="privacy-modal" id="privacy-entry-modal" role="dialog" aria-modal="true"
+    aria-labelledby="privacy-entry-title" aria-describedby="privacy-entry-description" hidden>
+    <div class="privacy-modal__backdrop" data-privacy-close></div>
+    <div class="privacy-modal__dialog" role="document">
+      <button class="privacy-modal__close" type="button" aria-label="Close privacy notice" data-privacy-close><span
+          aria-hidden="true">&times;</span></button>
+      <div class="privacy-modal__heading">
+        <span class="privacy-modal__shield" aria-hidden="true"><svg viewBox="0 0 48 48">
+            <path d="M24 5.5 38 11v10.1c0 9.4-5.8 17.7-14 21.4-8.2-3.7-14-12-14-21.4V11l14-5.5Z" />
+            <rect x="18.5" y="21.5" width="11" height="9" rx="1.5" />
+            <path d="M20.5 21.5v-3a3.5 3.5 0 0 1 7 0v3M24 25v2" />
+          </svg></span>
+        <div>
+          <span class="section__tag">Privacy Notice</span>
+          <h2 id="privacy-entry-title"><span>Your Privacy Matters</span><span>to Cablelink</span></h2>
+        </div>
+      </div>
+      <div class="privacy-modal__copy" id="privacy-entry-description">
+        <p>We are committed to protecting your personal information and being transparent about how we collect, use, and
+          safeguard your data.</p>
+        <p>By continuing to browse this website, you acknowledge Cablelink&rsquo;s Privacy Notice.</p>
+      </div>
+      <div class="privacy-modal__choices" aria-label="Privacy notice options">
+        <a class="privacy-modal__choice" href="cablelink_privacy.html">
+          <span class="privacy-modal__choice-icon privacy-modal__choice-icon--document" aria-hidden="true"><svg
+              viewBox="0 0 48 48">
+              <path d="M14 5.5h15l7 7v29H14z" />
+              <path d="M29 5.5v8h7M19 22h12M19 28h12M19 34h8" />
+            </svg></span>
+          View Privacy Notice
+          <small>Learn how we protect your information.</small>
+          <span class="privacy-modal__choice-arrow" aria-hidden="true">&rsaquo;</span>
+        </a>
+        <a class="privacy-modal__choice" data-config-link="facebook" href="https://www.facebook.com/CablelinkTV"
+          target="_blank" rel="noopener noreferrer">
+          <span class="privacy-modal__choice-icon privacy-modal__choice-icon--facebook" aria-hidden="true">f</span>
+          Like Us on Facebook
+          <small>Stay updated and connect with us.</small>
+          <span class="privacy-modal__choice-arrow" aria-hidden="true">&rsaquo;</span>
+        </a>
+        <button class="privacy-modal__continue button button--primary" type="button" data-privacy-continue>Continue to
+          Website <span class="action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></span></button>
       </div>
     </div>
-    <div class="privacy-modal__copy" id="privacy-entry-description">
-      <p>We are committed to protecting your personal information and being transparent about how we collect, use, and safeguard your data.</p>
-      <p>By continuing to browse this website, you acknowledge Cablelink&rsquo;s Privacy Notice.</p>
-    </div>
-    <div class="privacy-modal__choices" aria-label="Privacy notice options">
-      <a class="privacy-modal__choice" href="cablelink_privacy.html">
-        <span class="privacy-modal__choice-icon privacy-modal__choice-icon--document" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M14 5.5h15l7 7v29H14z" /><path d="M29 5.5v8h7M19 22h12M19 28h12M19 34h8" /></svg></span>
-        View Privacy Notice
-        <small>Learn how we protect your information.</small>
-        <span class="privacy-modal__choice-arrow" aria-hidden="true">&rsaquo;</span>
-      </a>
-      <a class="privacy-modal__choice" data-config-link="facebook" href="https://www.facebook.com/CablelinkTV" target="_blank" rel="noopener noreferrer">
-        <span class="privacy-modal__choice-icon privacy-modal__choice-icon--facebook" aria-hidden="true">f</span>
-        Like Us on Facebook
-        <small>Stay updated and connect with us.</small>
-        <span class="privacy-modal__choice-arrow" aria-hidden="true">&rsaquo;</span>
-      </a>
-      <button class="privacy-modal__continue button button--primary" type="button" data-privacy-continue>Continue to Website <span class="action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></button>
-    </div>
   </div>
-</div>
 
 </body>
+
 </html>

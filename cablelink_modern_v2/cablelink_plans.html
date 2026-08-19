@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="assets/css/site.css?v=20260729-footer-3">
   <link rel="stylesheet" href="assets/css/cablelink_plans.css?v=20260818-2">
   <script src="assets/js/site-config.js?v=20260728-4" defer></script>
-  <script src="assets/js/site-shell.js?v=20260729-footer-inc-1" defer></script>
+  <script src="assets/js/site-shell.js?v=20260819-2" defer></script>
   <script src="assets/js/pages/plans.js" defer></script>
 </head>
 
@@ -111,7 +111,7 @@
               </svg>
             </div>
             <div class="te-text">
-              <h4>Fiberlink@Home — FTTH Fiber</h4>
+              <h4>FiberLink@Home — FTTH Fiber</h4>
               <p>Pure fiber-optic line straight to your home. Lower latency and higher speeds — up to 300 Mbps for
                 demanding households.</p>
             </div>
@@ -156,10 +156,10 @@
             <div class="plan-grid" id="sc-docsis-grid"></div>
           </div>
 
-          <!-- Fiberlink FTTH -->
+          <!-- FiberLink FTTH -->
           <div class="plan-subgroup" id="sc-ftth">
             <div class="sub-lbl">
-              <span class="sub-badge ftth">Fiberlink@Home · FTTH Fiber</span>
+              <span class="sub-badge ftth">FiberLink@Home · FTTH Fiber</span>
               <div class="sub-line"></div>
             </div>
             <div class="plan-grid" id="sc-ftth-grid"></div>
@@ -192,10 +192,10 @@
             <div class="plan-grid" id="tc-docsis-grid"></div>
           </div>
 
-          <!-- Fiberlink FTTH -->
+          <!-- FiberLink FTTH -->
           <div class="plan-subgroup" id="tc-ftth">
             <div class="sub-lbl">
-              <span class="sub-badge ftth">Fiberlink@Home · FTTH Fiber</span>
+              <span class="sub-badge ftth">FiberLink@Home · FTTH Fiber</span>
               <div class="sub-line"></div>
             </div>
             <div class="plan-grid" id="tc-ftth-grid"></div>
@@ -312,7 +312,8 @@
           topClass: 'ct-super', cardType: 'super',
           techLabel: 'DOCSIS Cable', techSVG: 'wifi',
           subLabel: 'I-Blaze@Home', channels: 126, tv: 'Basic Plus',
-          subIcon: 'assets/icons/I-Blaze.png',
+          searchTerms: 'I-Blaze iBlaze iblaze DOCSIS cable internet',
+          subIcon: 'assets/icons/Iblaze.png',
           items: [
             { spd: 20, price: 588 },
             { spd: 30, price: 888 },
@@ -325,7 +326,8 @@
         sc_ftth: {
           topClass: 'ct-super', cardType: 'super',
           techLabel: 'FTTH Fiber', techSVG: 'bolt',
-          subLabel: 'Fiberlink@Home', channels: 126, tv: 'Basic Plus',
+          subLabel: 'FiberLink@Home', channels: 126, tv: 'Basic Plus',
+          searchTerms: 'FiberLink Fiberlink fiberlink FTTH fiber internet',
           subIcon: 'assets/icons/Fiberlink_Home.png',
           items: [
             { spd: 50, price: 888, badge: 'Most Popular', bClass: 'pop' },
@@ -339,7 +341,8 @@
           topClass: 'ct-turbo', cardType: 'turbo',
           techLabel: 'DOCSIS Cable', techSVG: 'wifi',
           subLabel: 'I-Blaze@Home', channels: 53, tv: 'Basic Lite',
-          subIcon: 'assets/icons/I-Blaze.png',
+          searchTerms: 'I-Blaze iBlaze iblaze DOCSIS cable internet',
+          subIcon: 'assets/icons/Iblaze.png',
           items: [
             { spd: 30, price: 599 },
             { spd: 50, price: 999 },
@@ -349,7 +352,8 @@
         tc_ftth: {
           topClass: 'ct-turbo', cardType: 'turbo',
           techLabel: 'FTTH Fiber', techSVG: 'bolt',
-          subLabel: 'Fiberlink@Home', channels: 53, tv: 'Basic Lite',
+          subLabel: 'FiberLink@Home', channels: 53, tv: 'Basic Lite',
+          searchTerms: 'FiberLink Fiberlink fiberlink FTTH fiber internet',
           subIcon: 'assets/icons/Fiberlink_Home.png',
           items: [
             { spd: 50, price: 599, badge: 'Best Value', bClass: 'val' },
@@ -389,7 +393,7 @@
         var familyLabel = meta.cardType === 'turbo' ? 'Turbocharged' : 'Supercharged';
         var technologyClass = meta.techSVG === 'wifi' ? ' is-iblaze' : ' is-fiberlink';
 
-        return '<div class="plan-card ' + meta.cardType + technologyClass + cardExtra + '">'
+        return '<div class="plan-card ' + meta.cardType + technologyClass + cardExtra + '" data-search="' + meta.searchTerms + '">'
           + (hasBadge ? '<div class="card-badge ' + item.bClass + '">' + item.badge + '</div>' : '')
           + '<div class="card-top ' + meta.topClass + '">'
           + '<div class="ct-tech">' + SVG[meta.techSVG] + ' ' + familyLabel + '</div>'
@@ -480,7 +484,9 @@
         };
 
         document.querySelectorAll('.plan-card').forEach(function (card) {
-          card.classList.toggle('search-hidden', searchQuery && card.textContent.toLowerCase().indexOf(searchQuery) === -1);
+          var searchableText = (card.textContent + ' ' + (card.dataset.search || '')).toLowerCase().replace(/[^a-z0-9]+/g, '');
+          var normalizedQuery = searchQuery.replace(/[^a-z0-9]+/g, '');
+          card.classList.toggle('search-hidden', normalizedQuery && searchableText.indexOf(normalizedQuery) === -1);
         });
 
         document.querySelectorAll('.plan-subgroup').forEach(function (subgroup) {

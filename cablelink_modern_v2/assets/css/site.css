@@ -185,7 +185,7 @@ body[data-page] .hero[class*="hero--"] { background-position: center var(--heade
 .global-nav__item--services, .global-nav__item--support { position: relative; }
 :is(.global-nav__item--services, .global-nav__item--support):hover::after, :is(.global-nav__item--services, .global-nav__item--support).is-open::after { content: ''; position: absolute; z-index: 1; top: 100%; left: -.75rem; width: calc(100% + 1.5rem); height: 1.75rem; }
 .mega-menu { position: fixed; z-index: 990; top: var(--header-height); right: 0; left: 0; visibility: hidden; opacity: 0; pointer-events: none; transform: translateY(-.45rem); padding: .55rem var(--gutter) 0; background: transparent; transition: visibility 0s linear .2s, opacity .2s ease, transform .2s ease; }
-:is(.global-nav__item--services, .global-nav__item--support):hover .mega-menu, :is(.global-nav__item--services, .global-nav__item--support):focus-within .mega-menu, :is(.global-nav__item--services, .global-nav__item--support).is-open .mega-menu { visibility: visible; opacity: 1; pointer-events: auto; transform: translateY(0); transition-delay: 0s; }
+:is(.global-nav__item--services, .global-nav__item--support):focus-within .mega-menu, :is(.global-nav__item--services, .global-nav__item--support).is-open .mega-menu { visibility: visible; opacity: 1; pointer-events: auto; transform: translateY(0); transition-delay: 0s; }
 .mega-menu__inner { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(14rem, .88fr); width: min(100%, var(--container)); max-width: var(--container); margin-inline: auto; padding: clamp(1.35rem, 2.2vw, 2rem); border: 1px solid rgba(19, 103, 198, .12); border-radius: var(--radius-md); background: var(--white); box-shadow: 0 18px 34px rgba(13, 27, 62, .13); }
 .mega-menu__group { min-width: 0; padding: .1rem clamp(.8rem, 1.5vw, 1.65rem) .35rem; border-left: 1px solid #e1eef9; }
 .mega-menu__group:first-child { padding-left: 0; border-left: 0; }
@@ -730,3 +730,27 @@ body.is-agreement-modal-open { overflow: hidden; }
 /* Header search control size. */
 .global-header__actions .global-search-button { min-height: 56px; }
 .global-header__actions .global-search-button svg { width: 1.5rem; height: 1.5rem; }
+
+/* Shared email options: avoids depending on a visitor's installed mail application. */
+.site-email-options-dialog { width: min(calc(100% - 1rem), 35rem); max-height: calc(100svh - 2rem); padding: 0; overflow-y: auto; border: 0; border-radius: var(--radius-lg); color: var(--dark); background: var(--white); box-shadow: var(--shadow-lg); }
+.site-email-options-dialog::backdrop { background: rgba(13, 27, 62, .76); backdrop-filter: blur(4px); }
+.site-email-options-dialog__content { display: grid; gap: var(--stack-sm); padding: clamp(1.5rem, 4vw, 2.25rem); }
+.site-email-options-dialog__content > * { margin: 0; }
+.site-email-options-dialog__helper { color: var(--muted); line-height: 1.6; }
+.site-email-options-dialog__close { position: absolute; top: var(--space-3); right: var(--space-3); display: grid; width: 2.5rem; aspect-ratio: 1; place-items: center; padding: 0; border: 0; border-radius: 50%; color: var(--dark); background: var(--blue-pale); font-size: 1.75rem; line-height: 1; cursor: pointer; }
+.site-email-options-dialog__close:hover, .site-email-options-dialog__close:focus-visible { color: var(--white); background: var(--orange); }
+.site-email-options-dialog__address { display: grid; gap: var(--space-1); padding: var(--space-3); border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--off-white); }
+.site-email-options-dialog__address span { color: var(--muted); font-size: .78rem; font-weight: 700; }
+.site-email-options-dialog__address strong { color: var(--blue-primary); font-size: .94rem; font-weight: 800; letter-spacing: -.01em; overflow-wrap: anywhere; }
+.site-email-options-dialog__actions { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: var(--space-2); }
+.site-email-options-dialog__actions .btn { width: 100%; }
+.site-email-options-dialog__status { min-height: 1.5em; color: var(--blue-primary); font-size: .85rem; font-weight: 700; }
+.site-email-options-dialog__copy-field { position: fixed; opacity: 0; pointer-events: none; }
+.site-email-options-dialog__address { grid-template-columns: 3.4rem minmax(0, 1fr); column-gap: var(--space-3); align-items: center; background: var(--blue-pale); }
+.site-email-options-dialog__address::before { grid-row: 1 / 3; width: 3.4rem; aspect-ratio: 1; border-radius: .8rem; background: #dcecff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23075cff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='14' rx='2'/%3E%3Cpath d='m3 7 9 6 9-6'/%3E%3C/svg%3E") center / 1.65rem no-repeat; content: ''; }
+.email-options__copy, .email-options__gmail { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; }
+.email-options__copy::before, .email-options__gmail::before { width: 1.25rem; height: 1.25rem; background: currentColor; content: ''; }
+.email-options__copy::before { -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1Zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 16H8V7h11v14Z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1Zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 16H8V7h11v14Z'/%3E%3C/svg%3E") center / contain no-repeat; }
+.email-options__gmail::before { background: var(--blue-primary); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M2 20V4h3.7L12 9.9 18.3 4H22v16h-3V8.6L12 15.1 5 8.6V20H2Z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M2 20V4h3.7L12 9.9 18.3 4H22v16h-3V8.6L12 15.1 5 8.6V20H2Z'/%3E%3C/svg%3E") center / contain no-repeat; }
+@media (max-width: 600px) { .site-email-options-dialog__actions { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .site-email-options-dialog__actions .btn { flex: 1 1 12rem; } }

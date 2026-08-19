@@ -178,13 +178,15 @@
     var item = header.querySelector('.global-nav__item--services');
     var servicesLink;
     var menu;
+    var menuInner;
     var closeTimer;
     var suppressFocusOpen = false;
 
     if (!item) return;
     servicesLink = item.querySelector('.global-nav__services-link');
     menu = item.querySelector('.mega-menu');
-    if (!servicesLink || !menu) return;
+    menuInner = menu && menu.querySelector('.mega-menu__inner');
+    if (!servicesLink || !menu || !menuInner) return;
 
     function openMenu() {
       window.clearTimeout(closeTimer);
@@ -202,6 +204,14 @@
         if (!item.matches(':hover') && !item.contains(document.activeElement)) closeMenu();
       }, 300);
     }
+    function schedulePointerClose() {
+      window.clearTimeout(closeTimer);
+      closeTimer = window.setTimeout(function () {
+        if (servicesLink.matches(':hover') || menuInner.matches(':hover')) return;
+        if (item.contains(document.activeElement) && document.activeElement.blur) document.activeElement.blur();
+        closeMenu();
+      }, 180);
+    }
 
     servicesLink.addEventListener('keydown', function (event) {
       if (event.key === 'ArrowDown') {
@@ -211,9 +221,11 @@
       }
     });
     item.addEventListener('mouseenter', openMenu);
-    item.addEventListener('mouseleave', scheduleClose);
+    item.addEventListener('mouseleave', schedulePointerClose);
     menu.addEventListener('mouseenter', openMenu);
-    menu.addEventListener('mouseleave', scheduleClose);
+    menu.addEventListener('mouseleave', schedulePointerClose);
+    menuInner.addEventListener('mouseenter', openMenu);
+    menuInner.addEventListener('mouseleave', schedulePointerClose);
     item.addEventListener('focusin', function () {
       if (suppressFocusOpen) {
         suppressFocusOpen = false;
@@ -242,24 +254,37 @@
     var item = header.querySelector('.global-nav__item--support');
     var supportLink;
     var menu;
+    var menuInner;
+    var closeTimer;
     var suppressFocusOpen = false;
 
     if (!item) return;
     supportLink = item.querySelector('.global-nav__support-link');
     menu = item.querySelector('.mega-menu');
-    if (!supportLink || !menu) return;
+    menuInner = menu && menu.querySelector('.support-mega__inner');
+    if (!supportLink || !menu || !menuInner) return;
 
     function openMenu() {
+      window.clearTimeout(closeTimer);
       item.classList.add('is-open');
       supportLink.setAttribute('aria-expanded', 'true');
     }
     function closeMenu(returnFocus) {
+      window.clearTimeout(closeTimer);
       item.classList.remove('is-open');
       supportLink.setAttribute('aria-expanded', 'false');
       if (returnFocus) {
         suppressFocusOpen = true;
         supportLink.focus();
       }
+    }
+    function schedulePointerClose() {
+      window.clearTimeout(closeTimer);
+      closeTimer = window.setTimeout(function () {
+        if (supportLink.matches(':hover') || menuInner.matches(':hover')) return;
+        if (item.contains(document.activeElement) && document.activeElement.blur) document.activeElement.blur();
+        closeMenu(false);
+      }, 180);
     }
 
     supportLink.addEventListener('keydown', function (event) {
@@ -270,9 +295,11 @@
       }
     });
     item.addEventListener('mouseenter', openMenu);
-    item.addEventListener('mouseleave', function () {
-      if (!item.contains(document.activeElement)) closeMenu(false);
-    });
+    item.addEventListener('mouseleave', schedulePointerClose);
+    menu.addEventListener('mouseenter', openMenu);
+    menu.addEventListener('mouseleave', schedulePointerClose);
+    menuInner.addEventListener('mouseenter', openMenu);
+    menuInner.addEventListener('mouseleave', schedulePointerClose);
     item.addEventListener('focusin', function () {
       if (suppressFocusOpen) {
         suppressFocusOpen = false;
@@ -415,6 +442,7 @@
       setupServicesMegaMenu(header);
       setupSupportMenu(header);
       setupNeedHelpMenu(header);
+      setupEmailOptions();
       setupPrivacyModal();
       if (!button || !mobile) return;
 
@@ -499,8 +527,8 @@
       { category: 'Page', title: 'Careers', description: 'Career and employment opportunities at Cablelink.', href: 'cablelink_careers.html', keywords: 'careers jobs employment hiring' },
 
       /* Ã¢â€â‚¬Ã¢â€â‚¬ SERVICES Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
-      { category: 'Service', title: 'Residential Internet \u2014 iBlaze (DOCSIS)', description: 'Cable internet shared through existing cable TV infrastructure. Available in Supercharged and Turbocharged tiers.', href: 'cablelink_plans.html?line=iblaze#bundle-groups', keywords: 'iblaze docsis residential internet cable shared supercharged turbocharged' },
-      { category: 'Service', title: 'Residential Internet \u2014 Fiberlink (FTTH)', description: 'Dedicated fiber-optic cable direct to your home. Available in Supercharged and Turbocharged tiers.', href: 'cablelink_plans.html?line=fiberlink#bundle-groups', keywords: 'fiberlink ftth fiber to the home residential internet dedicated supercharged turbocharged' },
+      { category: 'Service', title: 'Residential Internet \u2014 I-Blaze (DOCSIS)', description: 'Cable internet shared through existing cable TV infrastructure. Available in Supercharged and Turbocharged tiers.', href: 'cablelink_plans.html?line=iblaze#bundle-groups', keywords: 'iblaze docsis residential internet cable shared supercharged turbocharged' },
+      { category: 'Service', title: 'Residential Internet \u2014 FiberLink (FTTH)', description: 'Dedicated fiber-optic cable direct to your home. Available in Supercharged and Turbocharged tiers.', href: 'cablelink_plans.html?line=fiberlink#bundle-groups', keywords: 'fiberlink ftth fiber to the home residential internet dedicated supercharged turbocharged' },
       { category: 'Service', title: 'Cable TV \u2014 Basic 495, Basic Lite, Basic Plus', description: 'Cable TV packages for Digitally Activated areas: Basic 495 (65 ch), Basic Lite (53 ch), Basic Plus (126 ch).', href: 'cablelink_plans.html?filter=cable#bundle-groups', keywords: 'cable tv basic 495 65 channels basic lite 53 basic plus 126 digitally activated' },
       { category: 'Service', title: 'Bundled Plans \u2014 Supercharged & Turbocharged', description: 'Supercharged bundles Internet + Basic Plus. Turbocharged bundles Internet + Basic Lite.', href: 'cablelink_plans.html#bundle-groups', keywords: 'bundle bundled plans supercharged turbocharged internet cable combo basic plus basic lite' },
       { category: 'Service', title: 'Enterprise Services', description: 'Business and enterprise service enquiries \u2014 contact Cablelink to discuss requirements and availability.', href: 'cablelink_contact.html', keywords: 'enterprise business commercial corporate service enquiry' },
@@ -508,16 +536,16 @@
       /* Ã¢â€â‚¬Ã¢â€â‚¬ PLANS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
       /* Supercharged = Internet + Basic Plus (126 ch) */
       { category: 'Plan', title: 'Supercharged I-Blaze@Home \u2014 from \u20B1588/mo', description: 'DOCSIS cable internet + Basic Plus (126 channels). Tiers: 20, 30, 35, 50, 88, 120 Mbps.', href: 'cablelink_plans.html?filter=supercharged&line=iblaze#bundle-groups', keywords: 'supercharged iblaze docsis 20mbps 30mbps 35mbps 50mbps 88mbps 120mbps 588 888 999 1088 1388 1699 basic plus 126 channels' },
-      { category: 'Plan', title: 'Supercharged Fiberlink@Home \u2014 from \u20B1888/mo', description: 'FTTH fiber + Basic Plus (126 channels). Tiers: 50, 75, 88, 188, 300 Mbps.', href: 'cablelink_plans.html?filter=supercharged&line=fiberlink#bundle-groups', keywords: 'supercharged fiberlink fiber ftth 50mbps 75mbps 88mbps 188mbps 300mbps 888 999 1088 1388 1699 basic plus 126 channels' },
+      { category: 'Plan', title: 'Supercharged FiberLink@Home \u2014 from \u20B1888/mo', description: 'FTTH fiber + Basic Plus (126 channels). Tiers: 50, 75, 88, 188, 300 Mbps.', href: 'cablelink_plans.html?filter=supercharged&line=fiberlink#bundle-groups', keywords: 'supercharged fiberlink fiber ftth 50mbps 75mbps 88mbps 188mbps 300mbps 888 999 1088 1388 1699 basic plus 126 channels' },
       /* Turbocharged = Internet + Basic Lite (53 ch) */
       { category: 'Plan', title: 'Turbocharged I-Blaze@Home \u2014 from \u20B1599/mo', description: 'DOCSIS cable internet + Basic Lite (53 channels). Tiers: 30, 50, 100 Mbps.', href: 'cablelink_plans.html?filter=turbocharged&line=iblaze#bundle-groups', keywords: 'turbocharged iblaze docsis 30mbps 50mbps 100mbps 599 999 1499 basic lite 53 channels budget' },
-      { category: 'Plan', title: 'Turbocharged Fiberlink@Home \u2014 from \u20B1599/mo', description: 'FTTH fiber + Basic Lite (53 channels). Tiers: 50, 200, 300 Mbps.', href: 'cablelink_plans.html?filter=turbocharged&line=fiberlink#bundle-groups', keywords: 'turbocharged fiberlink fiber ftth 50mbps 200mbps 300mbps 599 999 1299 basic lite 53 channels gigabit budget' },
+      { category: 'Plan', title: 'Turbocharged FiberLink@Home \u2014 from \u20B1599/mo', description: 'FTTH fiber + Basic Lite (53 channels). Tiers: 50, 200, 300 Mbps.', href: 'cablelink_plans.html?filter=turbocharged&line=fiberlink#bundle-groups', keywords: 'turbocharged fiberlink fiber ftth 50mbps 200mbps 300mbps 599 999 1299 basic lite 53 channels gigabit budget' },
       /* Tier-only combos */
-      { category: 'Plan', title: 'All Supercharged Plans \u2014 iBlaze & Fiberlink', description: 'Internet + Basic Plus (126 ch). iBlaze DOCSIS from \u20B1588 and Fiberlink FTTH from \u20B1888.', href: 'cablelink_plans.html?filter=supercharged#bundle-groups', keywords: 'supercharged all plans iblaze fiberlink docsis fiber ftth basic plus 126 bundle' },
-      { category: 'Plan', title: 'All Turbocharged Plans \u2014 iBlaze & Fiberlink', description: 'Internet + Basic Lite (53 ch). iBlaze DOCSIS from \u20B1599 and Fiberlink FTTH from \u20B1599.', href: 'cablelink_plans.html?filter=turbocharged#bundle-groups', keywords: 'turbocharged all plans iblaze fiberlink docsis fiber ftth basic lite 53 bundle budget' },
+      { category: 'Plan', title: 'All Supercharged Plans \u2014 I-Blaze & FiberLink', description: 'Internet + Basic Plus (126 ch). I-Blaze DOCSIS from \u20B1588 and FiberLink FTTH from \u20B1888.', href: 'cablelink_plans.html?filter=supercharged#bundle-groups', keywords: 'supercharged all plans iblaze fiberlink docsis fiber ftth basic plus 126 bundle' },
+      { category: 'Plan', title: 'All Turbocharged Plans \u2014 I-Blaze & FiberLink', description: 'Internet + Basic Lite (53 ch). I-Blaze DOCSIS from \u20B1599 and FiberLink FTTH from \u20B1599.', href: 'cablelink_plans.html?filter=turbocharged#bundle-groups', keywords: 'turbocharged all plans iblaze fiberlink docsis fiber ftth basic lite 53 bundle budget' },
       /* Line-only combos */
-      { category: 'Plan', title: 'All iBlaze Plans \u2014 Supercharged & Turbocharged', description: 'DOCSIS cable internet plans. Supercharged (Basic Plus) from \u20B1588, Turbocharged (Basic Lite) from \u20B1599.', href: 'cablelink_plans.html?line=iblaze#bundle-groups', keywords: 'iblaze docsis all plans supercharged turbocharged cable internet 20 30 35 50 88 100 120 mbps' },
-      { category: 'Plan', title: 'All Fiberlink Plans \u2014 Supercharged & Turbocharged', description: 'FTTH fiber-to-the-home plans. Supercharged (Basic Plus) from \u20B1888, Turbocharged (Basic Lite) from \u20B1599.', href: 'cablelink_plans.html?line=fiberlink#bundle-groups', keywords: 'fiberlink fiber ftth all plans supercharged turbocharged 50 75 88 188 200 300 mbps' },
+      { category: 'Plan', title: 'All I-Blaze Plans \u2014 Supercharged & Turbocharged', description: 'DOCSIS cable internet plans. Supercharged (Basic Plus) from \u20B1588, Turbocharged (Basic Lite) from \u20B1599.', href: 'cablelink_plans.html?line=iblaze#bundle-groups', keywords: 'iblaze docsis all plans supercharged turbocharged cable internet 20 30 35 50 88 100 120 mbps' },
+      { category: 'Plan', title: 'All FiberLink Plans \u2014 Supercharged & Turbocharged', description: 'FTTH fiber-to-the-home plans. Supercharged (Basic Plus) from \u20B1888, Turbocharged (Basic Lite) from \u20B1599.', href: 'cablelink_plans.html?line=fiberlink#bundle-groups', keywords: 'fiberlink fiber ftth all plans supercharged turbocharged 50 75 88 188 200 300 mbps' },
       /* Cable TV */
       { category: 'Plan', title: 'Basic Lite \u2014 53 Live Channels', description: 'Entry-level cable TV for Digitally Activated areas. 53 live channels. Available standalone or as Turbocharged bundle.', href: 'cablelink_plans.html?filter=cable#bundle-groups', keywords: 'basic lite cable tv 53 channels standalone subscription digitally activated turbocharged' },
       { category: 'Plan', title: 'Basic 495 \u2014 65 Live Channels', description: 'Cable TV for Digitally Activated areas. 65 live channels.', href: 'cablelink_plans.html?filter=cable#bundle-groups', keywords: 'basic 495 cable tv 65 channels standalone subscription digitally activated' },
@@ -526,9 +554,9 @@
       /* Ã¢â€â‚¬Ã¢â€â‚¬ PROMOS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
       { category: 'Promo', title: 'Basic Lite, Basic 495, Basic Plus Package Promo', description: 'Cable TV package promotional offer covering Basic Lite, Basic 495, and Basic Plus subscriptions.', href: 'cablelink_promos.html', keywords: 'promo cable tv basic lite 495 plus package offer limited' },
       { category: 'Promo', title: "Turbocharged I-Blaze@Home Valentine's Day", description: 'Upgrade your home internet and get a FREE Basic Lite cable TV subscription when you sign up.', href: 'cablelink_promos.html', keywords: 'promo turbocharged iblaze valentines free basic lite internet bundle offer' },
-      { category: 'Promo', title: 'Turbocharge Fiberlink@Home Valentines', description: 'Fast fiber internet for going LIVE plus FREE Basic Lite cable TV on your Valentine upgrade.', href: 'cablelink_promos.html', keywords: 'promo turbocharged fiberlink fiber valentines free basic lite internet bundle offer' },
+      { category: 'Promo', title: 'Turbocharge FiberLink@Home Valentines', description: 'Fast fiber internet for going LIVE plus FREE Basic Lite cable TV on your Valentine upgrade.', href: 'cablelink_promos.html', keywords: 'promo turbocharged fiberlink fiber valentines free basic lite internet bundle offer' },
       { category: 'Promo', title: "Supercharged I-Blaze@Home Valentine's Day", description: 'No lag, just love \u2014 supercharged DOCSIS internet bundled with free cable TV this Valentine season.', href: 'cablelink_promos.html', keywords: 'promo supercharged iblaze valentines free cable tv internet bundle offer' },
-      { category: 'Promo', title: 'Supercharge Fiberlink@Home Valentines Day', description: 'Up to 1 Gbps fiber speed plus FREE Basic Plus cable TV \u2014 ideal for movie nights and video calls.', href: 'cablelink_promos.html', keywords: 'promo supercharged fiberlink fiber valentines 1gbps free basic plus internet bundle offer' },
+      { category: 'Promo', title: 'Supercharge FiberLink@Home Valentines Day', description: 'Up to 1 Gbps fiber speed plus FREE Basic Plus cable TV \u2014 ideal for movie nights and video calls.', href: 'cablelink_promos.html', keywords: 'promo supercharged fiberlink fiber valentines 1gbps free basic plus internet bundle offer' },
 
       /* Ã¢â€â‚¬Ã¢â€â‚¬ FAQ \u2014 SUBSCRIBER: SALES Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
       { category: 'FAQ', title: 'Can I upgrade my cable or internet plan?', description: 'Subscriber \u2014 Sales related concerns.', href: 'cablelink_billing_faq.html#subs-sales-related-concerns-question-0', keywords: 'upgrade plan cable internet subscriber sales' },
@@ -695,6 +723,113 @@
       if (nextIndex >= focusable.length) nextIndex = 0;
       event.preventDefault();
       focusable[nextIndex].focus();
+    });
+  }
+  function setupEmailOptions() {
+    var dialog = document.getElementById('site-email-options-dialog');
+    var closeButton;
+    var copyButton;
+    var addressText;
+    var title;
+    var helperText;
+    var gmailLink;
+    var currentEmail = '';
+
+    if (!dialog) {
+      dialog = document.createElement('dialog');
+      dialog.id = 'site-email-options-dialog';
+      dialog.className = 'site-email-options-dialog';
+      dialog.setAttribute('aria-labelledby', 'site-email-options-title');
+      dialog.innerHTML = '<div class="site-email-options-dialog__content"><button class="site-email-options-dialog__close" type="button" aria-label="Close email options">&times;</button><span class="section__tag">Email Cablelink</span><h2 id="site-email-options-title">Email Cablelink</h2><p class="site-email-options-dialog__helper">Choose how you would like to contact our team.</p><div class="site-email-options-dialog__address"><span>Email address</span><strong data-email-options-address></strong></div><div class="site-email-options-dialog__actions"><button class="btn btn-primary email-options__copy" type="button" data-email-options-copy>Copy Email Address</button><a class="btn btn-secondary email-options__gmail" data-email-options-gmail target="_blank" rel="noopener noreferrer">Open Gmail</a></div><p class="site-email-options-dialog__status" data-email-options-status aria-live="polite"></p></div>';
+      document.body.appendChild(dialog);
+    }
+
+    if (!('showModal' in dialog)) return;
+    closeButton = dialog.querySelector('.site-email-options-dialog__close');
+    copyButton = dialog.querySelector('[data-email-options-copy]');
+    addressText = dialog.querySelector('[data-email-options-address]');
+    title = dialog.querySelector('#site-email-options-title');
+    helperText = dialog.querySelector('.site-email-options-dialog__helper');
+    gmailLink = dialog.querySelector('[data-email-options-gmail]');
+
+    function labelFor(email) {
+      if (email === 'sales@cablelink.com.ph') return 'Email Enterprise Sales';
+      if (email === 'enterprise@cablelink.com.ph') return 'Email Enterprise After-sales Support';
+      if (email === 'customerservice@cablelink.com.ph') return 'Email Customer Service';
+      if (email === 'clhc_dpo@cablelink.com.ph') return 'Email the Data Protection Officer';
+      return 'Email Cablelink';
+    }
+    function parseMailto(value) {
+      var parts = value.replace(/^mailto:/i, '').split('?');
+      var parameters = new URLSearchParams(parts[1] || '');
+      return {
+        email: decodeURIComponent(parts[0]),
+        subject: parameters.get('subject') || '',
+        body: parameters.get('body') || ''
+      };
+    }
+    function makeGmailUrl(details) {
+      var url = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(details.email);
+      if (details.subject) url += '&su=' + encodeURIComponent(details.subject);
+      if (details.body) url += '&body=' + encodeURIComponent(details.body);
+      return url;
+    }
+    function openOptions(details, includeFormMessage) {
+      var status = dialog.querySelector('[data-email-options-status]');
+      currentEmail = details.email;
+      title.textContent = labelFor(details.email);
+      addressText.textContent = details.email;
+      helperText.textContent = includeFormMessage ? 'Your form details will be included when you open Gmail.' : 'Choose how you would like to contact our team.';
+      gmailLink.href = makeGmailUrl(details);
+      status.textContent = '';
+      dialog.showModal();
+      closeButton.focus();
+    }
+    function copyAddress() {
+      var status = dialog.querySelector('[data-email-options-status]');
+      function confirmCopy() { status.textContent = 'Email address copied.'; }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(currentEmail).then(confirmCopy, fallbackCopy);
+      } else {
+        fallbackCopy();
+      }
+      function fallbackCopy() {
+        var field = document.createElement('textarea');
+        field.value = currentEmail;
+        field.setAttribute('readonly', '');
+        field.className = 'site-email-options-dialog__copy-field';
+        document.body.appendChild(field);
+        field.select();
+        document.execCommand('copy');
+        field.remove();
+        confirmCopy();
+      }
+    }
+
+    document.addEventListener('click', function (event) {
+      var link = event.target.closest('a[href^="mailto:"]');
+      if (!link) return;
+      event.preventDefault();
+      openOptions(parseMailto(link.getAttribute('href')), false);
+    });
+    document.addEventListener('submit', function (event) {
+      var form = event.target;
+      var action = form.getAttribute('action') || '';
+      var details;
+      var values;
+      if (!action.match(/^mailto:/i)) return;
+      event.preventDefault();
+      details = parseMailto(action);
+      values = Array.from(new FormData(form).entries()).map(function (entry) {
+        return entry[0] + ': ' + entry[1];
+      }).join('\n');
+      details.body = details.body ? details.body + '\n\n' + values : values;
+      openOptions(details, true);
+    });
+    closeButton.addEventListener('click', function () { dialog.close(); });
+    copyButton.addEventListener('click', copyAddress);
+    dialog.addEventListener('click', function (event) {
+      if (event.target === dialog) dialog.close();
     });
   }
   function setupPrivacyModal() {

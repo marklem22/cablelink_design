@@ -558,9 +558,9 @@ body{font-family:var(--font);color:var(--dark);background:var(--off-white);overf
 .help-link__icon{display:grid;width:3.1rem;height:3.1rem;place-items:center;border-radius:50%;color:#075cff;background:#eaf3ff}
 .help-link__icon svg{width:54%;height:54%;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.1}
 .help-link--services .help-link__icon{color:#075cff;background:#e8f3ff}
-.help-link--faq .help-link__icon{color:#f36e18;background:#fff0e6}
-.help-link--chat .help-link__icon{color:#6e3ee8;background:#eee9ff}
-.help-link--contact .help-link__icon{color:#00a95c;background:#e7fbef}
+.help-link--faq .help-link__icon,
+.help-link--chat .help-link__icon,
+.help-link--contact .help-link__icon{color:#075cff;background:#e8f3ff}
 .help-link__content{display:grid;gap:.18rem;min-width:0}
 .help-link__content strong{color:#063aa6;font-size:.86rem;font-weight:800;line-height:1.22}
 .help-link__content small{color:#607ca4;font-size:.68rem;font-weight:500;line-height:1.35}

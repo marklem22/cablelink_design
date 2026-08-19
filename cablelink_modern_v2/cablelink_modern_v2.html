@@ -8,9 +8,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="assets/css/site.css?v=20260729-footer-3">
-  <link rel="stylesheet" href="assets/css/cablelink_modern_v2.css?v=20260729-footer-1">
+  <link rel="stylesheet" href="assets/css/cablelink_modern_v2.css?v=20260820-banner-arrows-1">
   <script src="assets/js/site-config.js?v=20260728-4" defer></script>
-  <script src="assets/js/site-shell.js?v=20260729-footer-inc-1" defer></script>
+  <script src="assets/js/site-shell.js?v=20260819-2" defer></script>
 </head>
 
 <body data-page="home">
@@ -85,8 +85,10 @@
   </section> -->
     <section class="banner-carousel" id="bannerCarousel" aria-label="Featured offers">
       <div class="container">
-        <div class="banner-track-wrap">
-          <div class="banner-track" id="bannerTrack"></div>
+        <div class="banner-carousel__stage">
+          <div class="banner-track-wrap">
+            <div class="banner-track" id="bannerTrack"></div>
+          </div>
           <button class="banner-arrow ba-prev" id="bannerPrev" aria-label="Previous slide">
             <svg viewBox="0 0 24 24">
               <polyline points="15 18 9 12 15 6" />
@@ -393,15 +395,15 @@
 
       var promoCardLabels = [
         'Basic Lite, Basic 495, Basic Plus Cable TV Package',
-        'Turbocharged i-Blaze@Home Valentine\'s Day',
-        'Turbocharged Fiberlink@Home Valentines',
-        'Supercharged i-Blaze@Home Valentines Day',
-        'Supercharged Fiberlink@Home Valentines Day'
+        'Turbocharged I-Blaze@Home Valentine\'s Day',
+        'Turbocharged FiberLink@Home Valentines',
+        'Supercharged I-Blaze@Home Valentines Day',
+        'Supercharged FiberLink@Home Valentines Day'
       ];
       var cards = fanImages.map(function (src, i) {
         var d = document.createElement('div');
         d.className = 'fan-card';
-        d.dataset.promoHref = 'cablelink_promos.html#promo-card-' + (i + 1);
+        d.dataset.promoHref = 'cablelink_promos.html?promo=promo-card-' + (i + 1) + '#promo-card-' + (i + 1);
         d.setAttribute('role', 'link');
         d.tabIndex = 0;
         d.setAttribute('aria-label', 'Open promo: ' + promoCardLabels[i]);
