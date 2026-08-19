@@ -774,12 +774,12 @@ body[data-page='payment'] .banks-section{
   color: var(--muted);
   font-size: .85rem;
   line-height: 1.65;
-  padding-left: calc(1.15rem + .75rem); /* checkbox width + gap — aligns with consent text */
+  /* padding-left: calc(1.15rem + .75rem); */
 }
 
 .auto-debit-form .button[type="submit"] {
-  margin-top: var(--stack-md); /* 1.5rem breathing room above the button */
-  margin-left: calc(1.15rem + .75rem); /* aligns left edge with consent + privacy text */
+  /* margin-top: var(--stack-md);
+  margin-left: calc(1.15rem + .75rem); */
 }
 
 .application-status {

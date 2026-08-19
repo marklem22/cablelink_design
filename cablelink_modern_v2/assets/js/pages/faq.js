@@ -85,6 +85,7 @@
       });
     } else if (target.classList.contains('faq-audience-panel')) {
       activateAudience(target.id.replace('-faqs', ''));
+      scrollToAudiencePanel(target);
     } else if (target.classList.contains('faq-audience-panel__header')) {
       audiencePanel = target.closest('.faq-audience-panel');
       activateAudience(audiencePanel.id.replace('-faqs', ''));

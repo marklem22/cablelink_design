@@ -243,6 +243,7 @@
       position: relative;
       overflow: hidden;
       touch-action: pan-y;
+      transition: height .35s ease;
       border-radius: 12px;
       background: var(--dark);
       box-shadow: 0 18px 45px rgba(0, 35, 110, .18);
@@ -250,6 +251,7 @@
 
     .banner-track {
       display: flex;
+      align-items: flex-start;
       transition: transform .55s cubic-bezier(.4, 0, .2, 1)
     }
 
@@ -257,6 +259,16 @@
       min-width: 100%;
       position: relative;
       line-height: 0
+    }
+
+    .banner-slide__link {
+      display: block;
+      line-height: 0;
+    }
+
+    .banner-slide__link:focus-visible {
+      outline: 3px solid var(--blue-secondary);
+      outline-offset: -3px;
     }
 
     .banner-slide img {
@@ -840,6 +852,12 @@
       transition: transform .55s cubic-bezier(.4, 0, .2, 1), opacity .55s, box-shadow .55s;
       user-select: none;
       -webkit-user-select: none;
+      text-decoration: none;
+    }
+
+    .fan-card:focus-visible {
+      outline: 3px solid var(--orange);
+      outline-offset: 4px;
     }
 
     .fan-card img {
@@ -1756,3 +1774,150 @@
 .home-service-link::after { content: '\2192'; color: var(--orange); font-size: 1.2rem; }
 .home-service-link:hover,
 .home-service-link:focus-visible { color: var(--blue-primary); border-color: var(--blue-primary); transform: translateY(-2px); }
+/* Keep the home TVC section compact: video and its selectors share one row. */
+.tvc-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(13rem, .2fr);
+  align-items: start;
+  gap: var(--stack-md);
+}
+
+.tvc-section .section__header,
+.tvc-nav {
+  grid-column: 1 / -1;
+}
+
+.tvc-section .section__header {
+  margin: 0 auto;
+}
+
+.tvc-featured {
+  grid-column: 1;
+  margin: 0;
+  max-width: none;
+}
+
+.tvc-thumbs {
+  grid-column: 2;
+  grid-template-columns: 1fr;
+  gap: var(--stack-sm);
+}
+
+@media (max-width: 1050px) {
+  .tvc-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .tvc-featured,
+  .tvc-thumbs {
+    grid-column: 1;
+  }
+
+  .tvc-thumbs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .tvc-thumbs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+/* TVC controls belong to the featured player, not the combined player-and-rail width. */
+.tvc-nav {
+  grid-column: 2;
+  justify-self: center;
+  min-height: 44px;
+  margin-top: 0;
+}
+
+.tvc-nav-btn {
+  width: 44px;
+  height: 44px;
+}
+
+.tvc-nav-btn:focus-visible,
+.tvc-nav-dot:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: 3px;
+}
+
+.tvc-nav-dots {
+  gap: 0;
+}
+
+.tvc-nav-dot {
+  display: grid;
+  width: 28px;
+  height: 32px;
+  padding: 0;
+  place-items: center;
+  background: transparent;
+}
+
+.tvc-nav-dot::before {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, .35);
+  content: '';
+  transition: width .25s, background .25s;
+}
+
+.tvc-nav-dot.on {
+  width: 28px;
+  border-radius: 0;
+  background: transparent;
+}
+
+.tvc-nav-dot.on::before {
+  width: 24px;
+  background: var(--orange);
+}
+
+@media (max-width: 1050px) {
+  .tvc-nav {
+    grid-column: 1 / -1;
+  }
+}
+/* Keep the TVC pager within the desktop thumbnail rail. */
+@media (min-width: 1051px) {
+  .tvc-thumbs {
+    padding-bottom: 3.5rem;
+  }
+
+  .tvc-nav {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: end;
+  }
+}
+/* The TVC rail owns both the thumbnail list and its pager. */
+.tvc-rail {
+  grid-column: 2;
+  display: grid;
+  align-content: start;
+  gap: var(--stack-sm);
+  min-width: 0;
+}
+
+.tvc-rail .tvc-thumbs {
+  grid-column: auto;
+  padding-bottom: 0;
+}
+
+.tvc-rail .tvc-nav {
+  grid-column: auto;
+  grid-row: auto;
+  margin-top: 0;
+}
+
+@media (max-width: 1050px) {
+  .tvc-rail {
+    grid-column: 1;
+  }
+
+  .tvc-rail .tvc-nav {
+    grid-column: 1 / -1;
+  }
+}

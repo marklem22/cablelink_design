@@ -201,7 +201,7 @@
       });
 
       if (firstInvalid) {
-        status.textContent = 'Complete all required fields and accept the authorization before this application can be reviewed.';
+        status.textContent = 'Complete all required fields before this application can be reviewed.';
         status.className = 'application-status is-error';
         firstInvalid.focus();
         return;

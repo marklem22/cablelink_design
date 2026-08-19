@@ -565,6 +565,11 @@ body{
   font-size:.85rem;color:var(--muted);line-height:1.65;
   margin-bottom:1.2rem;flex:1;
 }
+.card-desc.is-collapsible{display:-webkit-box;overflow:hidden;margin-bottom:var(--stack-xs);-webkit-box-orient:vertical;-webkit-line-clamp:4}
+.card-desc.is-collapsible.is-expanded{display:block}
+.card-desc-toggle{align-self:flex-start;min-height:44px;padding:0;border:0;color:var(--blue-primary);background:transparent;font:800 .78rem/1 var(--font);cursor:pointer}
+.card-desc-toggle:hover{color:var(--orange)}
+.card-desc-toggle:focus-visible{outline:3px solid rgba(0,122,254,.3);outline-offset:3px;border-radius:var(--r-sm)}
 .card-footer{
   display:flex;align-items:center;justify-content:space-between;
   gap:.8rem;flex-wrap:wrap;margin-top:auto;
