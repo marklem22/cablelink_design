@@ -1,15 +1,15 @@
 ---
 name: cablelink-website
-description: Build, revise, review, and migrate CableLink website pages while preserving the shared CableLink design system, reusable components, responsive behavior, accessibility, and a 1440px maximum content width. Use for the standalone HTML prototype and the later CodeIgniter 3 implementation.
+description: Build, revise, review, and migrate Cablelink website pages while preserving the shared Cablelink design system, reusable components, responsive behavior, accessibility, and a 1440px maximum content width. Use for the standalone HTML prototype and the later CodeIgniter 3 implementation.
 ---
 
-# CableLink Website Skill
+# Cablelink Website Skill
 
 ## Purpose
 
-Use this skill whenever creating, revising, reviewing, or migrating a CableLink website page.
+Use this skill whenever creating, revising, reviewing, or migrating a Cablelink website page.
 
-The goal is to make every page feel like one website, not a collection of separately generated designs. Reuse the established CableLink visual language and components, keep page CSS small, and make the HTML prototype easy to convert into CodeIgniter 3 views.
+The goal is to make every page feel like one website, not a collection of separately generated designs. Reuse the established Cablelink visual language and components, keep page CSS small, and make the HTML prototype easy to convert into CodeIgniter 3 views.
 
 ## Project Context
 
@@ -33,7 +33,7 @@ When instructions conflict, follow this order:
 1. The user's explicit request.
 2. Existing verified client content and product data.
 3. This skill's design-system and architecture rules.
-4. The closest existing CableLink component or page pattern.
+4. The closest existing Cablelink component or page pattern.
 5. A new pattern only when no suitable reusable pattern exists.
 
 Do not silently redesign established components just because another design looks newer.
@@ -48,7 +48,7 @@ Do not silently redesign established components just because another design look
 6. Do not use inline styles or inline JavaScript event attributes in new code.
 7. Use semantic headings with exactly one meaningful `<h1>` per page.
 8. Make every page work at 320px, 375px, 768px, 1024px, 1440px, and wide desktop sizes.
-9. Preserve real CableLink plan names, prices, speeds, channel information, locations, and legal copy. Never invent business data.
+9. Preserve real Cablelink plan names, prices, speeds, channel information, locations, and legal copy. Never invent business data.
 10. Build the HTML prototype so the main page content can later be moved into a CodeIgniter view without rewriting the markup.
 11. Every new page, component, feature, and revision must be responsive by default. Test the affected layout on desktop, tablet, and mobile before considering the task complete. A feature is not complete if it works only at the viewport where it was initially created.
 
@@ -324,7 +324,7 @@ Rules:
 - Dark navy is the default text color.
 - Do not use orange for long body text.
 - Do not add a new accent color unless it communicates a real status such as success, warning, or error.
-- Decorative gradients should stay within the CableLink blue/cyan/orange family.
+- Decorative gradients should stay within the Cablelink blue/cyan/orange family.
 
 ## Radius and Shadow Use
 
@@ -764,8 +764,8 @@ Use this baseline for a new standalone prototype page:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Page-specific CableLink description.">
-  <title>Page Name — CableLink</title>
+  <meta name="description" content="Page-specific Cablelink description.">
+  <title>Page Name — Cablelink</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -871,7 +871,7 @@ public function index()
 {
     $data = [
         'page_id' => 'services',
-        'page_title' => 'Services — CableLink',
+        'page_title' => 'Services — Cablelink',
         'page_css' => 'services.css',
         'page_js' => 'services.js',
     ];
@@ -1003,7 +1003,7 @@ When finishing a page, summarize:
 
 # Definition of Done
 
-A CableLink page is complete only when all are true:
+A Cablelink page is complete only when all are true:
 
 - [ ] The page uses the shared header and footer.
 - [ ] `<body>` has a unique `data-page` value.
@@ -1218,4 +1218,4 @@ Keep temporary page defects, completed fixes, and one-off cleanup findings in `d
 
 # Final Principle
 
-A new CableLink page should look new because of its content and page-specific imagery, not because it introduces new spacing, widths, buttons, navigation, or typography. Reuse the system first; extend it carefully only when the content requires a genuinely new component. When revising a page, fix spacing at the container, section, or parent-component level rather than patching individual children.
+A new Cablelink page should look new because of its content and page-specific imagery, not because it introduces new spacing, widths, buttons, navigation, or typography. Reuse the system first; extend it carefully only when the content requires a genuinely new component. When revising a page, fix spacing at the container, section, or parent-component level rather than patching individual children.

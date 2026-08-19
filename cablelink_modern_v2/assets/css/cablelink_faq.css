@@ -63,6 +63,7 @@
 .faq-help-cta__card:hover { border-color: var(--white); background: rgba(255, 255, 255, .14); transform: translateY(-2px); }
 .faq-help-cta__icon { display: grid; width: 3.2rem; height: 3.2rem; place-items: center; border-radius: 50%; color: var(--blue-primary); background: var(--white); }
 .faq-help-cta__icon svg { width: 1.45rem; height: 1.45rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.faq-help-cta__icon--viber::before { content: ''; width: 1.45rem; height: 1.45rem; background: currentColor; -webkit-mask: url('../images/viber-icon.png') center / contain no-repeat; mask: url('../images/viber-icon.png') center / contain no-repeat; }
 .faq-help-cta__card-copy { display: grid; min-width: 0; gap: .35rem; }
 .faq-help-cta__card-copy strong { font-size: .9rem; line-height: 1.2; }
 .faq-help-cta__card-copy small { font-size: .72rem; line-height: 1.45; }

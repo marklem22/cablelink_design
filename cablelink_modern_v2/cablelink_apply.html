@@ -28,7 +28,7 @@
         <span class="bc-cur" aria-current="page">Apply for Service</span>
       </nav>
       <span class="section__tag hero__eyebrow">New Connection</span>
-      <h1 class="hero__title" id="apply-title">Apply for a New Connection</h1>
+      <h1 class="hero__title" id="apply-title">Apply for a New Connection<span class="dot">.</span></h1>
       <p class="hero__description">Get connected with Cablelink Internet and Cable TV services in just a few simple steps.</p>
     </div>
   </div>
@@ -40,11 +40,11 @@
     <div class="coverage-panel">
       <header class="section__header coverage-head">
         <span class="section__tag">Service Availability</span>
-        <h2 id="coverage-title">Coverage Areas for Iblaze &amp; Fiberlink</h2>
+        <h2 id="coverage-title">Coverage Areas for I-Blaze &amp; Fiberlink</h2>
         <p>Explore the available service areas and find coverage in your location before choosing a plan.</p>
       </header>
       <div class="coverage-tabs" role="tablist" aria-label="Coverage provider">
-        <button class="coverage-tab is-active" type="button" role="tab" aria-selected="true" data-tab="iblaze"><span class="coverage-tab-dot iblaze"></span>Iblaze <span class="coverage-tab-sub">(Cable Internet)</span></button>
+        <button class="coverage-tab is-active" type="button" role="tab" aria-selected="true" data-tab="iblaze"><span class="coverage-tab-dot iblaze"></span>I-Blaze <span class="coverage-tab-sub">(Cable Internet)</span></button>
         <button class="coverage-tab" type="button" role="tab" aria-selected="false" data-tab="fiberlink"><span class="coverage-tab-dot fiberlink"></span>Fiberlink <span class="coverage-tab-sub">(Fiber Internet)</span></button>
       </div>
       <div class="coverage-items" data-panel="iblaze">
@@ -97,7 +97,7 @@
       <button class="coverage-view-all" type="button">View All Coverage Areas <span class="action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></button>
     </div>
     <div class="coverage-map-shell" aria-label="Coverage area map">
-      <div class="coverage-map-toolbar" aria-hidden="true"><div class="coverage-map-pill"><span class="iblaze"></span>Iblaze Coverage</div><div class="coverage-map-pill"><span class="fiberlink"></span>Fiberlink Coverage</div></div>
+      <div class="coverage-map-toolbar" aria-hidden="true"><div class="coverage-map-pill"><span class="iblaze"></span>I-Blaze Coverage</div><div class="coverage-map-pill"><span class="fiberlink"></span>Fiberlink Coverage</div></div>
       <div id="coverage-map" class="coverage-map" role="application" aria-label="Cablelink proposed coverage area map"></div>
       <div class="coverage-map-fallback">Loading coverage map...</div>
     </div>
@@ -243,8 +243,8 @@
           <div class="plan-group">
             <span class="plan-group-label">Bundle Type</span>
             <div class="toggle-group family-toggle">
-              <button class="toggle-btn active" id="fam-supercharged" onclick="selectFamily('supercharged')">⚡ Supercharged</button>
-              <button class="toggle-btn" id="fam-turbocharged" onclick="selectFamily('turbocharged')">🚀 Turbocharged</button>
+              <button class="toggle-btn active" id="fam-supercharged" onclick="selectFamily('supercharged')">Supercharged</button>
+              <button class="toggle-btn" id="fam-turbocharged" onclick="selectFamily('turbocharged')">Turbocharged</button>
             </div>
             <p id="familyDesc" style="margin-top:.6rem;font-size:.8rem;color:var(--muted)">Includes Basic Plus TV — 126 channels.</p>
           </div>
@@ -252,7 +252,7 @@
           <div class="plan-group">
             <span class="plan-group-label">Technology</span>
             <div class="toggle-group tech-toggle">
-              <button class="toggle-btn active" id="tech-iblaze" onclick="selectTech('iblaze')">Iblaze (DOCSIS)</button>
+              <button class="toggle-btn active" id="tech-iblaze" onclick="selectTech('iblaze')">I-Blaze (DOCSIS)</button>
               <button class="toggle-btn" id="tech-fiberlink" onclick="selectTech('fiberlink')">Fiberlink (FTTH)</button>
             </div>
           </div>
@@ -605,12 +605,12 @@
   var plans = {
     supercharged: {
       iblaze: [
-        {speed:'20 Mbps', price:'₱588', tech:'Iblaze DOCSIS', tv:'Basic Plus'},
-        {speed:'30 Mbps', price:'₱888', tech:'Iblaze DOCSIS', tv:'Basic Plus'},
-        {speed:'35 Mbps', price:'₱999', tech:'Iblaze DOCSIS', tv:'Basic Plus'},
-        {speed:'50 Mbps', price:'₱1,088', tech:'Iblaze DOCSIS', tv:'Basic Plus'},
-        {speed:'88 Mbps', price:'₱1,388', tech:'Iblaze DOCSIS', tv:'Basic Plus'},
-        {speed:'120 Mbps', price:'₱1,699', tech:'Iblaze DOCSIS', tv:'Basic Plus'}
+        {speed:'20 Mbps', price:'₱588', tech:'I-Blaze DOCSIS', tv:'Basic Plus'},
+        {speed:'30 Mbps', price:'₱888', tech:'I-Blaze DOCSIS', tv:'Basic Plus'},
+        {speed:'35 Mbps', price:'₱999', tech:'I-Blaze DOCSIS', tv:'Basic Plus'},
+        {speed:'50 Mbps', price:'₱1,088', tech:'I-Blaze DOCSIS', tv:'Basic Plus'},
+        {speed:'88 Mbps', price:'₱1,388', tech:'I-Blaze DOCSIS', tv:'Basic Plus'},
+        {speed:'120 Mbps', price:'₱1,699', tech:'I-Blaze DOCSIS', tv:'Basic Plus'}
       ],
       fiberlink: [
         {speed:'50 Mbps', price:'₱888', tech:'Fiberlink FTTH', tv:'Basic Plus'},
@@ -622,9 +622,9 @@
     },
     turbocharged: {
       iblaze: [
-        {speed:'30 Mbps', price:'₱599', tech:'Iblaze DOCSIS', tv:'Basic Lite'},
-        {speed:'50 Mbps', price:'₱999', tech:'Iblaze DOCSIS', tv:'Basic Lite'},
-        {speed:'100 Mbps', price:'₱1,499', tech:'Iblaze DOCSIS', tv:'Basic Lite'}
+        {speed:'30 Mbps', price:'₱599', tech:'I-Blaze DOCSIS', tv:'Basic Lite'},
+        {speed:'50 Mbps', price:'₱999', tech:'I-Blaze DOCSIS', tv:'Basic Lite'},
+        {speed:'100 Mbps', price:'₱1,499', tech:'I-Blaze DOCSIS', tv:'Basic Lite'}
       ],
       fiberlink: [
         {speed:'50 Mbps', price:'₱599', tech:'Fiberlink FTTH', tv:'Basic Lite'},
@@ -747,7 +747,7 @@
     document.getElementById('nextBtn2').disabled = false;
     var p = state.bundleSpeed;
     var famLabel = state.bundleFamily==='supercharged' ? 'Supercharged' : 'Turbocharged';
-    var techLabel = state.bundleTech==='iblaze' ? 'Iblaze' : 'Fiberlink';
+    var techLabel = state.bundleTech==='iblaze' ? 'I-Blaze' : 'Fiberlink';
     document.getElementById('sum-plan').textContent = famLabel+' '+techLabel;
     document.getElementById('sum-speed').textContent = p.speed;
     document.getElementById('sum-tv').textContent = p.tv;
@@ -801,7 +801,7 @@
     } else {
       var sp = state.bundleSpeed;
       var fam = state.bundleFamily==='supercharged' ? 'Supercharged' : 'Turbocharged';
-      var tech = state.bundleTech==='iblaze' ? 'Iblaze' : 'Fiberlink';
+      var tech = state.bundleTech==='iblaze' ? 'I-Blaze' : 'Fiberlink';
       document.getElementById('rv-service').textContent = 'Internet Bundle';
       document.getElementById('rv-plan').textContent = sp ? fam+' '+tech+' — '+sp.speed : '—';
       document.getElementById('rv-fee').textContent = sp ? sp.price+'/month' : '—';

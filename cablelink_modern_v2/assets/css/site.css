@@ -119,6 +119,7 @@ body[data-page] .hero[class*="hero--"] { background-position: center var(--heade
 .hero__content { position: relative;  margin-inline: 0; text-align: left; max-width:60%; }
 .hero__eyebrow { display: block; }
 .hero__title { max-width: 100%; margin: 0; font-size: clamp(2.25rem, 4.2vw, 4rem); font-weight: 900; letter-spacing: -.04em; line-height: 1.08; }
+.hero__title .dot { color: var(--orange); }
 .hero__description { max-width: 100%; margin: 1rem 0 0; color: var(--muted); font-size: clamp(.95rem, 1vw, 1.05rem); line-height: 1.7; }
 .hero__actions { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: .85rem; }
 .line-break { display: block; }
@@ -132,7 +133,7 @@ body[data-page] .hero[class*="hero--"] { background-position: center var(--heade
 .hero .bc-cur { color: rgba(255,255,255,.78); font-size: .76rem; font-weight: 600; }
 
 /* Shared section hierarchy. Page CSS may change alignment or colors only where a layout requires it. */
-.section__header { max-width: 580px; margin: 0 auto 3rem; text-align: center; }
+.section__header { max-width: 780px; margin: 0 auto 3rem; text-align: center; }
 .section__tag { display: block; margin-bottom: .8rem; color: var(--orange); font-size: .7rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; }
 .section__title, .section__header h2 { margin: 0; color: var(--dark); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 900; letter-spacing: -.8px; line-height: 1.18; }
 .section__description, .section__header p { margin: .9rem 0 0; color: var(--muted); font-size: .92rem; line-height: 1.72; }
@@ -237,6 +238,8 @@ body[data-page] .hero[class*="hero--"] { background-position: center var(--heade
 .support-mega__column-icon svg { width: 62%; height: 62%; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.9; }
 .support-mega__column-header h2 { margin: .15rem 0 0; color: var(--blue-primary); font-size: .88rem; font-weight: 800; line-height: 1.25; }
 .support-mega__column-header p { margin: .18rem 0 0; color: var(--muted); font-size: .68rem; line-height: 1.42; }
+.support-mega__column--subscribers .support-mega__column-header { align-items: center; }
+.support-mega__column--subscribers .support-mega__column-header h2 { margin-top: 0; }
 .support-mega__column-copy { min-height: 2rem; margin: 0 0 .65rem; color: var(--muted); font-size: .7rem; line-height: 1.45; }
 .support-mega__links { display: grid; border-top: 1px solid #dceaf8; }
 .support-mega__link { display: grid; grid-template-columns: 2.35rem minmax(0, 1fr) 1rem; align-items: center; gap: .65rem; padding: .65rem .55rem; border-bottom: 1px solid #dceaf8; color: var(--dark); text-decoration: none; transition: background-color .18s ease, color .18s ease; }
@@ -265,7 +268,10 @@ body[data-page] .hero[class*="hero--"] { background-position: center var(--heade
 .support-mega__quick-help a { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; min-height: 2.25rem; color: var(--blue-primary); font-size: .65rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
 .support-mega__quick-help a:hover { color: var(--orange-dark); }
 .support-mega__quick-help a > span { font-size: 1rem; }
+.support-mega__quick-help-icon { display: inline-grid; width: 1rem; height: 1rem; flex: 0 0 1rem; place-items: center; color: var(--blue-primary); }
+.support-mega__quick-help-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2; }
 .support-mega__quick-help .action-arrow { width: 1rem; height: 1rem; margin-inline-start: .15rem; }
+.support-mega__quick-help-payment .action-arrow { color: var(--blue-primary); }
 .global-cta { color: var(--white); background: var(--orange); }
 .global-menu-button { display: none; align-items: center; justify-content: center; width: 44px; height: 44px; padding: .7rem; border: 0; color: var(--white); background: none; cursor: pointer; }
 .global-menu-button__icon { display: grid; gap: 4px; width: 20px; }

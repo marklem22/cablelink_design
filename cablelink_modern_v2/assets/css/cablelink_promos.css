@@ -180,6 +180,7 @@ body{
   letter-spacing:-2px;margin-bottom:1.2rem;
 }
 .hero__title .hero__stay-connected{color:var(--orange)}
+.hero__title .hero__stay-connected .dot{color:var(--white)}
 .hero--promos .hero__description{
   font-size:1rem;color:rgba(255,255,255,.94);
   line-height:1.75;margin-bottom:2.2rem;
@@ -578,7 +579,7 @@ body{
   font-family:var(--font-display);font-size:1.15rem;font-weight:900;
   color:var(--dark);letter-spacing:-.5px;
 }
-.card-price .price-period{font-size:.72rem;font-weight:500;color:var(--muted);letter-spacing:0}
+.card-price .price-period{margin-left:.4rem;font-size:.72rem;font-weight:500;color:var(--muted);letter-spacing:0}
 .card-learn{
   display:inline-flex;align-items:center;gap:.4rem;
   background:var(--blue-primary);color:#fff;
@@ -721,6 +722,7 @@ body{
   font-size:.8rem;color:var(--muted);font-weight:500;
 }
 .cta-feat-item svg{width:16px;height:16px;fill:none;stroke:var(--blue-primary);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cta-feat-item .global-footer__contact-icon svg{width:.9rem;height:.9rem}
 
 /* ═══════════════════════════════════════════════
    FOOTER

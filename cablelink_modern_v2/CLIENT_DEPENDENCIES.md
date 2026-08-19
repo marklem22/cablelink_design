@@ -1,4 +1,4 @@
-# CableLink Client Dependencies
+# Cablelink Client Dependencies
 
 The standalone prototype must not present any item below as a completed production integration until the client supplies and approves the required information.
 

@@ -2,7 +2,7 @@
  * Leave values empty until the client supplies and approves them.
  * Production secrets and MIS/CRM credentials must never be added here.
  */
-window.CableLinkConfig = Object.freeze({
+window.CablelinkConfig = Object.freeze({
   externalLinks: Object.freeze({
     facebook: 'https://www.facebook.com/CablelinkTV',
     messenger: 'https://m.me/CablelinkTV',
