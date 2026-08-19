@@ -143,8 +143,8 @@
   }).addTo(map);
 
   areas.forEach(function (area) {
-    var isIblaze = area.provider === 'iblaze';
-    var color = isIblaze ? '#F78220' : '#007AFE';
+    var isI-Blaze = area.provider === 'iblaze';
+    var color = isI-Blaze ? '#F78220' : '#007AFE';
     var circle = window.L.circle([area.lat, area.lng], {
       radius: area.radius, color: color, weight: 2, opacity: .95, fillColor: color, fillOpacity: .24
     });
@@ -157,7 +157,7 @@
         iconAnchor: [0, 0]
       })
     });
-    circle.bindPopup('<strong>' + area.name + '</strong><span>' + (isIblaze ? 'Iblaze' : 'Fiberlink') + ' proposed coverage area. ' + area.notes + '</span>');
+    circle.bindPopup('<strong>' + area.name + '</strong><span>' + (isI-Blaze ? 'I-Blaze' : 'Fiberlink') + ' proposed coverage area. ' + area.notes + '</span>');
     layerSets.set(keyFor(area), { area: area, circle: circle, label: label });
   });
 

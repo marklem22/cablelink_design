@@ -207,7 +207,7 @@
         return;
       }
 
-      config = window.CableLinkConfig || { integrations: {} };
+      config = window.CablelinkConfig || { integrations: {} };
       status.textContent = config.integrations.autoDebitEndpoint
         ? 'Not submitted. A destination is configured, but secure server validation and the approved enrollment workflow are not implemented.'
         : 'Not submitted. Cablelink must provide and approve the secure destination, server validation, and enrollment workflow.';

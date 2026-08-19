@@ -1,4 +1,4 @@
-# CableLink modern prototype
+# Cablelink modern prototype
 
 Run the folder through a local HTTP server when reviewing it. Shared design tokens and shell code live in `assets/`.
 
