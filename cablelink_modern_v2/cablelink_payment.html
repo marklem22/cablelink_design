@@ -1471,7 +1471,7 @@
       <header class="section__header">
         <span class="section__tag">Walk-In Payment</span>
         <h2>Visit Our Payment Centers</h2>
-        <p>Prefer paying in person? Our offices are open on weekdays and Saturdays to assist you with billing and payments.</p>
+        <p>Prefer paying in person? Our offices are open to assist you with billing and payments.</p>
       </header>
       <div class="walkin-overview__actions">
         <a class="button button--primary" href="cablelink_offices.html">View Payment Centers</a>
@@ -1490,7 +1490,7 @@
     <div>
       <span class="section__tag">Auto Debit Arrangement</span>
       <h2 id="auto-debit-title">Review the Auto Debit application form</h2>
-      <p>The fields and authorization below are retained from the existing Cablelink project. This frontend does not transmit, store, or enroll the supplied information.</p>
+      <p>The fields below are retained from the existing Cablelink project. This frontend does not transmit, store, or enroll the supplied information.</p>
       <div class="integration-note" role="note">
         Production submission remains disabled until Cablelink confirms the secure destination, server validation, data handling, and signed or legal workflow.
       </div>
@@ -1506,18 +1506,14 @@
           <input type="text" id="ada-account-name" name="account_name" autocomplete="name" required>
         </div>
         <div class="field">
-          <label for="ada-card-number">Card Number <span aria-hidden="true">*</span></label>
-          <input type="text" id="ada-card-number" name="card_number" inputmode="numeric" autocomplete="cc-number" required>
+          <label for="ada-email">Email Address <span aria-hidden="true">*</span></label>
+          <input type="email" id="ada-email" name="email" autocomplete="email" required>
         </div>
         <div class="field">
-          <label for="ada-card-expiry">Card Expiry <span aria-hidden="true">*</span></label>
-          <input type="text" id="ada-card-expiry" name="card_expiry" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY" required>
+          <label for="ada-mobile">Mobile No. <span aria-hidden="true">*</span></label>
+          <input type="tel" id="ada-mobile" name="mobile_number" inputmode="tel" autocomplete="tel" required>
         </div>
       </div>
-      <label class="auto-debit-consent" for="ada-consent">
-        <input type="checkbox" id="ada-consent" name="dprivacy" required>
-        <span>I, a credit cardholder, hereby enroll in the auto-charge facility with Cable Link and Holdings Corp and authorize the payment of all subscription fees associated with my account number(s) stated herein. These fees will be charged to my credit card account. Should my credit limit not be sufficient to cover my cable subscription fees, Cable Link Holdings will have the right to collect the outstanding amount directly from me. This authorization will remain valid until canceled by me in writing to Cable Link or by Cable Link itself.</span>
-      </label>
       <p class="auto-debit-privacy">By clicking Submit, I agree to Cablelink&rsquo;s <a href="cablelink_privacy.html">Privacy Policy</a>. This legacy project wording remains subject to client legal approval.</p>
       <button class="button button--primary" type="submit">Submit</button>
       <p class="application-status" id="auto-debit-status" role="status" aria-live="polite"></p>

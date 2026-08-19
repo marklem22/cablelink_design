@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="assets/css/cablelink_services.css?v=20260727-12">
   <script src="assets/js/site-config.js?v=20260728-4" defer></script>
   <script src="assets/js/site-shell.js?v=20260729-footer-inc-1" defer></script>
-  <script src="assets/js/pages/services.js?v=20260817-1" defer></script>
 </head>
 <body data-page="services">
   <main id="main-content">
@@ -44,7 +43,7 @@
         </header>
         <div class="services-content">
         <div class="services-grid">
-          <a class="service-card service-card--internet" href="cablelink_internet_plans1.html">
+          <a class="service-card service-card--internet" href="cablelink_plans.html">
             <div class="service-card__body">
               <span class="service-card__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><circle cx="12" cy="18" r="1.25"/><path d="M7.8 13.8a6 6 0 0 1 8.4 0M4.7 10.6a10.4 10.4 0 0 1 14.6 0"/></svg>
@@ -127,16 +126,67 @@
             <p>Explore the enterprise solutions currently presented by Cablelink, from internet access and system integration to managed security and infrastructure services.</p>
             <div class="enterprise-service-catalog__actions">
               <a class="btn btn-primary" href="mailto:sales@cablelink.com.ph">Email Enterprise Sales</a>
-              <button class="btn btn-secondary" type="button" data-catalog-open aria-haspopup="dialog">Open Full-Size Catalog</button>
+              <a class="btn btn-secondary" href="#enterprise-catalog-list">Open Full-Size Catalog</a>
             </div>
             <p class="enterprise-service-catalog__after-sales">Already a customer? Contact your Account Manager or email <a href="mailto:enterprise@cablelink.com.ph">enterprise@cablelink.com.ph</a> for after-sales support.</p>
           </div>
-          <figure class="enterprise-service-catalog__figure">
-            <button class="enterprise-service-catalog__preview" type="button" data-catalog-open aria-haspopup="dialog" aria-label="Open full-size Enterprise Service Catalog">
-              <img src="assets/images/enterprise-service-catalog.png" alt="Enterprise Service Catalog showing System Integration, Internet Access, Dedicated Internet Access, Shared Internet Access, Over-the-Top, Colocation, Data Transfer, Managed Security, MPLS, and Infrastructure as a Service." width="960" height="720" loading="lazy">
-            </button>
-            <figcaption>Enterprise service descriptions and available solutions.</figcaption>
-          </figure>
+
+          <section class="enterprise-catalog" id="enterprise-catalog-list" aria-label="Enterprise service descriptions and available solutions">
+
+            <div class="enterprise-catalog__column">
+              <article class="enterprise-catalog__item">
+                <span class="enterprise-catalog__icon" aria-hidden="true"><img src="assets/images/enterprise-catalog-services/system-intergration.png" alt="" width="340" height="340" loading="lazy" decoding="async"></span>
+                <div><h3>System Integration</h3><p>Provide the service involving various computing systems and software applications physically or functionally to work together as a coordinated whole. This service aims to improve the efficiency and productivity of an organization by ensuring that different IT systems communicate and operate seamlessly.</p></div>
+              </article>
+
+              <article class="enterprise-catalog__item">
+                <span class="enterprise-catalog__icon" aria-hidden="true"><img src="assets/images/enterprise-catalog-services/internet-access-service.png" alt="" width="341" height="341" loading="lazy" decoding="async"></span>
+                <div><h3>Internet Access Service</h3><p>It provides connectivity to the internet for individuals, businesses, or organizations. This service is essential for accessing online resources, communication, and information sharing. It includes different connections like broadband, fiber optics, and wireless.</p><div class="enterprise-catalog__use-case"><strong>Current Client Use Case:</strong><ul><li>DOCSIS</li><li>FTTH</li></ul></div></div>
+              </article>
+
+              <article class="enterprise-catalog__item">
+                <span class="enterprise-catalog__icon" aria-hidden="true"><img src="assets/images/enterprise-catalog-services/dedicated-internet-access.png" alt="" width="300" height="300" loading="lazy" decoding="async"></span>
+                <div><h3>Dedicated Internet Access</h3><p>Offers a private and direct connection to the internet for a specific user or organization. This type of service provides higher performance, reliability, and security, with guaranteed bandwidth and service level agreements (SLAs).</p></div>
+              </article>
+
+              <article class="enterprise-catalog__item">
+                <span class="enterprise-catalog__icon" aria-hidden="true"><img src="assets/images/enterprise-catalog-services/shared-internet-access.png" alt="" width="341" height="341" loading="lazy" decoding="async"></span>
+                <div><h3>Shared Internet Access</h3><p>The service involves multiple users or organizations sharing the same internet connection. This type of service is typically more cost-effective than dedicated access but can result in variable performance, especially during peak usage times.</p><div class="enterprise-catalog__use-case"><strong>Current Client Use Case:</strong><span>Wireless Access Point or Hotspot</span></div></div>
+              </article>
+
+              <article class="enterprise-catalog__item">
+                <span class="enterprise-catalog__icon" aria-hidden="true"><img src="assets/images/enterprise-catalog-services/over-the-top.png" alt="" width="338" height="338" loading="lazy" decoding="async"></span>
+                <div><h3>Over-the-Top (OTT)</h3><p>To deliver media and entertainment content via the internet, bypassing traditional cable or satellite delivery.</p></div>
+              </article>
+            </div>
+
+            <div class="enterprise-catalog__column">
+              <article class="enterprise-catalog__item">
+                <span class="enterprise-catalog__icon" aria-hidden="true"><img src="assets/images/enterprise-catalog-services/colocation-services.png" alt="" width="1254" height="1254" loading="lazy" decoding="async"></span>
+                <div><h3>Colocation Services</h3><p>Involve leasing space for servers and other computing hardware, including physical security, power, cooling, and connectivity. This allows businesses to control their equipment while benefiting from the data center&rsquo;s infrastructure.</p></div>
+              </article>
+
+              <article class="enterprise-catalog__item">
+                <span class="enterprise-catalog__icon" aria-hidden="true"><img src="assets/images/enterprise-catalog-services/data-transfer-services.png" alt="" width="339" height="339" loading="lazy" decoding="async"></span>
+                <div><h3>Data Transfer Service</h3><p>This service facilitates data movement between different locations, systems, or environments. This can include services like file transfer protocols (FTP), cloud data transfer, and secure data exchange solutions, ensuring data integrity and security during the transfer process.</p></div>
+              </article>
+
+              <article class="enterprise-catalog__item">
+                <span class="enterprise-catalog__icon" aria-hidden="true"><img src="assets/images/enterprise-catalog-services/managed-security-services.png" alt="" width="339" height="339" loading="lazy" decoding="async"></span>
+                <div><h3>Managed Security Services</h3><p>Provide outsourced monitoring and management of security systems and devices. These services include firewalls, intrusion detection systems, security information and event management (SIEM), and vulnerability management, helping organizations protect against cyber threats.</p></div>
+              </article>
+
+              <article class="enterprise-catalog__item">
+                <span class="enterprise-catalog__icon" aria-hidden="true"><img src="assets/images/enterprise-catalog-services/mpls.png" alt="" width="338" height="338" loading="lazy" decoding="async"></span>
+                <div><h3>Multiprotocol Label Switching (MPLS)</h3><p>The service involves high-performance telecommunications technology that directs data from one network node to the next based on short path labels rather than long network addresses. It is used to improve the speed and control of traffic flow in large-scale network environments.</p></div>
+              </article>
+
+              <article class="enterprise-catalog__item">
+                <span class="enterprise-catalog__icon" aria-hidden="true"><img src="assets/images/enterprise-catalog-services/iaas.png" alt="" width="338" height="338" loading="lazy" decoding="async"></span>
+                <div><h3>Infrastructure as a Service (IaaS)</h3><p>It offers essential infrastructure components that allow businesses to run and manage their applications without investing in physical hardware.</p></div>
+              </article>
+            </div>
+          </section>
         </article>
         </div>
       </div>
@@ -174,17 +224,13 @@
         </div>
         <div class="cta-band__actions">
           <a href="cablelink_apply.html" class="btn btn-primary">Get Connected <span aria-hidden="true">&rarr;</span></a>
-          <a href="cablelink_contact.html" class="btn btn-secondary">Contact Us</a>
+          <a href="cablelink_contact.html#message-us" class="btn btn-secondary">Contact Us</a>
         </div>
       </div>
     </section>
   </main>
 
-  <dialog class="catalog-viewer" id="catalog-viewer" aria-labelledby="catalog-viewer-title">
-    <h2 class="sr-only" id="catalog-viewer-title">Enterprise Service Catalog</h2>
-    <button class="catalog-viewer__close" type="button" data-catalog-close aria-label="Close full-size Enterprise Service Catalog">&times;</button>
-    <img src="assets/images/enterprise-service-catalog.png" alt="Enterprise Service Catalog showing System Integration, Internet Access, Dedicated Internet Access, Shared Internet Access, Over-the-Top, Colocation, Data Transfer, Managed Security, MPLS, and Infrastructure as a Service." width="960" height="720">
-  </dialog>
+
 
   <!-- Privacy Notice Modal -->
   <div class="privacy-modal" id="privacy-entry-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-entry-title" aria-describedby="privacy-entry-description" hidden>

@@ -433,6 +433,9 @@ body{font-family:var(--font);color:var(--dark);background:var(--off-white);overf
 
 /* ===== REVIEW ===== */
 .review-section{margin-bottom:1.5rem}
+.application-attachments{display:grid;gap:var(--stack-md)}
+.application-attachments .review-section-title,.application-attachments .application-note{margin:0}
+.application-attachments .application-consent-list{margin-top:0}
 .review-section-title{
   font-size:.7rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
   color:var(--orange);margin-bottom:.8rem;display:block;
@@ -460,8 +463,8 @@ body{font-family:var(--font);color:var(--dark);background:var(--off-white);overf
 .review-edit svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
 
 /* Submit CTA */
-.submit-cta{text-align:center;padding-top:.5rem}
-.submit-cta p{font-size:.8rem;color:var(--muted);margin-bottom:1.2rem;line-height:1.6}
+.submit-cta{display:grid;justify-items:center;gap:var(--stack-md);padding-top:var(--stack-sm);text-align:center}
+.submit-cta p{margin:0;color:var(--muted);font-size:.8rem;line-height:1.6}
 .btn-apply{
   display:inline-flex;align-items:center;gap:10px;
   background:var(--orange);color:#fff;

@@ -219,8 +219,9 @@
           </div>
         </div>
 
-        <!-- Thumbnail Strip -->
-        <div class="tvc-thumbs" id="tvcThumbs"></div>
+        <div class="tvc-rail">
+          <!-- Thumbnail Strip -->
+          <div class="tvc-thumbs" id="tvcThumbs"></div>
 
         <!-- Nav dots & arrows -->
         <div class="tvc-nav" id="tvcNav">
@@ -236,7 +237,7 @@
             </svg>
           </button>
         </div>
-
+        </div>
       </div>
     </section>
 
@@ -268,24 +269,55 @@
          1. BANNER CAROUSEL — full-width image slider above hero
          ============================================================ */
       var bannerSlides = [
-        'assets/carousel/2023_fiberlink_pc.jpg',
-        'assets/carousel/2023_bts_pc.jpg',
-        'assets/carousel/2023_channel_revamp_pc.jpg',
-        'assets/carousel/2023_Fiberlink@Home_Web.jpg',
-        'assets/carousel/2023_iblaze_pc.jpg',
-        'assets/carousel/2023_refer_a_friend_pc.jpg',
-        'assets/carousel/2023_sb_pc.jpg',
-        'assets/carousel/2023_TV_Raffle_WBD_Web%20Banner-01.jpg',
-        'assets/carousel/FEB_TBIR_cinemaworld.jpg',
-        'assets/carousel/fwc_desktop.jpg'
+        'assets/carousel/HBO_Banner1.jpg',
+        'assets/carousel/viber_image_2025-11-18_10-22-13-178.jpg',
+        'assets/carousel/WEB_BANNER.jpg',
+        'assets/carousel/502966283_1120394043450252_1240752865008053425_n.jpg',
+        'assets/carousel/turbocharged_website.jpg'
       ];
+      var bannerSlideLinks = {
+        'assets/carousel/HBO_Banner1.jpg': {
+          href: 'cablelink_contact.html#message-us',
+          label: 'Open Message Us'
+        },
+        'assets/carousel/viber_image_2025-11-18_10-22-13-178.jpg': {
+          href: 'cablelink_plans.html#bundle-groups',
+          label: 'View plans and pricing'
+        },
+        'assets/carousel/WEB_BANNER.jpg': {
+          href: 'cablelink_plans.html?filter=cable#bundle-groups',
+          label: 'View Cable TV plans'
+        },
+        'assets/carousel/502966283_1120394043450252_1240752865008053425_n.jpg': {
+          href: 'cablelink_plans.html?filter=turbocharged#bundle-groups',
+          label: 'View Turbocharged plans'
+        },
+           'assets/carousel/turbocharged_website.jpg': {
+          href: 'cablelink_plans.html?filter=turbocharged#bundle-groups',
+          label: 'Open Message Us'
+        },
+      };
       var bCur = 0, bN = bannerSlides.length, bTimer;
       var bTrack = document.getElementById('bannerTrack');
       var bDotsWrap = document.getElementById('bannerDots');
       var INTERVAL = 5000;
+      function syncBannerHeight() {
+        var activeSlide = bTrack.children[bCur];
+        var activeImage = activeSlide && activeSlide.querySelector('img');
 
+        if (!activeImage) return;
+
+        function applyHeight() {
+          bTrack.parentElement.style.height = Math.ceil(activeImage.getBoundingClientRect().height) + 'px';
+        }
+
+        if (activeImage.complete) applyHeight();
+        else activeImage.addEventListener('load', applyHeight, { once: true });
+      }
       bTrack.innerHTML = bannerSlides.map(function (src, i) {
-        return '<div class="banner-slide"><img src="' + src + '" alt="Promo banner ' + (i + 1) + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '"></div>';
+        var link = bannerSlideLinks[src];
+        var image = '<img src="' + src + '" alt="Promo banner ' + (i + 1) + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '">';
+        return '<div class="banner-slide">' + (link ? '<a class="banner-slide__link" href="' + link.href + '" aria-label="' + link.label + '">' + image + '</a>' : image) + '</div>';
       }).join('');
       bDotsWrap.innerHTML = bannerSlides.map(function (_, i) {
         return '<button class="banner-dot' + (i === 0 ? ' on' : '') + '" data-i="' + i + '" aria-label="Slide ' + (i + 1) + '"></button>';
@@ -296,6 +328,7 @@
         bCur = ((n % bN) + bN) % bN;
         bTrack.style.transform = 'translateX(-' + (bCur * 100) + '%)';
         bDotEls.forEach(function (d, i) { d.classList.toggle('on', i === bCur) });
+        syncBannerHeight();
       }
       function bReset() {
         clearInterval(bTimer);
@@ -308,9 +341,11 @@
         var startX = 0;
         var startY = 0;
         var minimumSwipeDistance = 40;
+        var didSwipe = false;
 
         element.addEventListener('pointerdown', function (event) {
           if (!event.isPrimary) return;
+          didSwipe = false;
           startX = event.clientX;
           startY = event.clientY;
         });
@@ -320,15 +355,25 @@
           var deltaY = event.clientY - startY;
 
           if (Math.abs(deltaX) < minimumSwipeDistance || Math.abs(deltaX) <= Math.abs(deltaY)) return;
+          didSwipe = true;
           if (deltaX < 0) onNext();
           else onPrevious();
         });
+        element.addEventListener('pointercancel', function () { didSwipe = false; });
+        element.addEventListener('click', function (event) {
+          if (!didSwipe) return;
+          event.preventDefault();
+          event.stopPropagation();
+          didSwipe = false;
+        }, true);
       }
 
       addSwipeNavigation(bTrack.parentElement, function () { bGo(bCur - 1); bReset() }, function () { bGo(bCur + 1); bReset() });
       var bWrap = document.getElementById('bannerCarousel');
       bWrap.addEventListener('mouseenter', function () { clearInterval(bTimer) });
       bWrap.addEventListener('mouseleave', function () { bReset() });
+      window.addEventListener('resize', syncBannerHeight);
+      requestAnimationFrame(syncBannerHeight);
       bReset();
 
 
@@ -346,14 +391,28 @@
       var stage = document.getElementById('fanStage');
       var dotsWrap = document.getElementById('fanDots');
 
+      var promoCardLabels = [
+        'Basic Lite, Basic 495, Basic Plus Cable TV Package',
+        'Turbocharged i-Blaze@Home Valentine\'s Day',
+        'Turbocharged Fiberlink@Home Valentines',
+        'Supercharged i-Blaze@Home Valentines Day',
+        'Supercharged Fiberlink@Home Valentines Day'
+      ];
       var cards = fanImages.map(function (src, i) {
         var d = document.createElement('div');
         d.className = 'fan-card';
+        d.dataset.promoHref = 'cablelink_promos.html#promo-card-' + (i + 1);
+        d.setAttribute('role', 'link');
+        d.tabIndex = 0;
+        d.setAttribute('aria-label', 'Open promo: ' + promoCardLabels[i]);
         var img = document.createElement('img');
         img.src = src;
-        img.alt = 'Promo slide ' + (i + 1);
+        img.alt = '';
         d.appendChild(img);
-        d.addEventListener('click', function () { if (getClass(i) !== 'active') { go(i); reset() } });
+        d.addEventListener('click', function () { window.location.assign(d.dataset.promoHref); });
+        d.addEventListener('keydown', function (event) {
+          if (event.key === 'Enter') window.location.assign(d.dataset.promoHref);
+        });
         stage.appendChild(d);
         return d;
       });
@@ -392,18 +451,11 @@
          ============================================================ */
       var tvcClips = [
         { file: 'christmas_specials.mp4', title: 'Christmas Specials' },
-        { file: 'cny.mp4', title: 'Chinese New Year Promo' },
         { file: 'DECEMBER_VIDEO_(1).mp4', title: 'December Promo' },
         { file: 'enterprise.mp4', title: 'Enterprise Solutions' },
-        { file: 'new-cpi-channel-teaser.mp4', title: 'Channel Teaser' },
-        { file: 'online payment_1.mp4', title: 'Online Payment' },
-        { file: 'Pacquiao_TVC_YT_TIKTOK_2.mp4', title: 'Pacquiao TVC' },
-        { file: 'Premium-Channels-(1).mp4', title: 'Premium Channels' },
         { file: 'Promotional_VIDEO.mp4', title: 'Promotional Video' },
         { file: 'RAIN-PROMOTION-VIDEO.mp4', title: 'Rain Promo' },
         { file: 'residential.mp4', title: 'Residential Promo' },
-        { file: 'testing.mp4', title: 'Testing Clip' },
-        { file: 'vd.mp4', title: 'VD Clip' }
       ];
 
       var THUMBS_PER_PAGE = 4;

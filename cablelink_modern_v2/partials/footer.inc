@@ -7,22 +7,22 @@
           <img src="assets/icons/cablelink_logo.png" alt="" width="34" height="34">
           <span>CABLELINK</span>
         </a>
-        <p>Internet and Cable TV services for supported CableLink areas.</p>
+
         <nav class="global-footer__socials" aria-label="Follow CableLink">
           <a class="global-footer__social" href="https://www.facebook.com/CablelinkTV" target="_blank" rel="noopener noreferrer" aria-label="CableLink on Facebook">
-            <img src="assets/icons/facebook_2024.png" alt="" width="18" height="18">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3.4A4.6 4.6 0 0 0 9 8.6V11H6v4h3v5h4v-5h3l1-4h-4V8.6c0-.4.2-.6 1-.6Z"/></svg>
           </a>
           <a class="global-footer__social" href="https://www.instagram.com/cablelinktv" target="_blank" rel="noopener noreferrer" aria-label="CableLink on Instagram">
-            <img src="assets/icons/instagram_2024.png" alt="" width="18" height="18">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/><path d="M17.3 6.8h.01"/></svg>
           </a>
-          <a class="global-footer__social" href="https://www.tiktok.com/@cablelinkofficial" target="_blank" rel="noopener noreferrer" aria-label="CableLink on TikTok (@cablelinkofficial)">
-            <img src="assets/icons/tiktok_2024.png" alt="" width="18" height="18">
+          <a class="global-footer__social global-footer__social--tiktok" href="https://www.tiktok.com/@cablelinkofficial" target="_blank" rel="noopener noreferrer" aria-label="CableLink on TikTok (@cablelinkofficial)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 3c.4 2.4 1.9 4 4.3 4.5v3.2c-1.6 0-3.1-.5-4.3-1.3v6.3a5.7 5.7 0 1 1-4.9-5.6v3.1a2.7 2.7 0 1 0 1.8 2.5V3h3.1Z"/></svg>
           </a>
           <a class="global-footer__social" href="https://www.youtube.com/c/CablelinkOfficial" target="_blank" rel="noopener noreferrer" aria-label="CableLink on YouTube (CableLinkOfficial)">
-            <img src="assets/icons/youtube_2024.png" alt="" width="18" height="18">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10 9 5 3-5 3Z"/></svg>
           </a>
-          <a class="global-footer__social" href="https://twitter.com/cablelinktv" target="_blank" rel="noopener noreferrer" aria-label="CableLink on X (@cablelinktv)">
-            <img src="assets/icons/twitter_2024.png" alt="" width="18" height="18">
+          <a class="global-footer__social global-footer__social--x" href="https://twitter.com/cablelinktv" target="_blank" rel="noopener noreferrer" aria-label="CableLink on X (@cablelinktv)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117Z"/></svg>
           </a>
         </nav>
       </section>
@@ -61,7 +61,7 @@
     </div>
 
     <div class="global-footer__bottom">
-      <p>&copy; <span data-current-year>2026</span> <strong>CableLink</strong>. All rights reserved.</p>
+      <p>&copy; <span data-current-year>2026</span> <strong>Cablelink</strong>. All rights reserved.</p>
       <nav aria-label="Legal navigation">
         <a href="cablelink_privacy.html">Privacy Notice</a>
         <a href="cablelink_terms.html">Terms of Use</a>

@@ -173,8 +173,8 @@ body[data-page='tv-bundle-plans'] .plans-section{padding-top:6rem;background:var
 .plan-subgroup.hidden{display:none}
 .sub-lbl{display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem}
 .sub-badge{font-size:.6rem;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;padding:5px 13px;border-radius:20px;white-space:nowrap;flex-shrink:0}
-.sub-badge.docsis{background:rgba(3,77,182,.1);color:var(--blue-secondary)}
-.sub-badge.ftth{background:rgba(242,100,19,.1);color:var(--orange-dark)}
+.sub-badge.docsis{background:rgba(242,100,19,.1);color:var(--orange-dark)}
+.sub-badge.ftth{background:rgba(0,122,254,.1);color:var(--blue-primary)}
 .sub-line{flex:1;height:1px;background:rgba(0,0,0,.07)}
 
 /* Plan Grid */
@@ -222,7 +222,14 @@ body[data-page='tv-bundle-plans'] .plans-section{padding-top:6rem;background:var
 .ct-super{background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue-primary) 100%)}
 .ct-turbo{background:linear-gradient(135deg,#3d1500 0%,var(--orange-dark) 100%)}
 .ct-cable{background:linear-gradient(135deg,#1a0e00 0%,var(--orange) 100%)}
+.plan-card.is-iblaze{border-color:rgba(242,100,19,.28);box-shadow:0 4px 20px rgba(242,100,19,.12)}
+.plan-card.is-iblaze:hover{border-color:var(--orange);box-shadow:0 22px 50px rgba(242,100,19,.2)}
 .plan-card.is-iblaze :is(.ct-super,.ct-turbo){background:linear-gradient(135deg,#1a0e00 0%,var(--orange) 100%)}
+.plan-card.is-fiberlink{border-color:rgba(0,122,254,.28);box-shadow:0 4px 20px rgba(0,122,254,.12)}
+.plan-card.is-fiberlink:hover{border-color:var(--blue-primary);box-shadow:0 22px 50px rgba(0,122,254,.2)}
+.plan-card.is-fiberlink :is(.ct-super,.ct-turbo){background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue-primary) 100%)}
+.plan-card.is-fiberlink .card-badge{background:var(--blue-primary)}
+.plan-card.is-fiberlink .ct-sub-img{border-color:var(--blue-primary)}
 
 .ct-tech{
   display:inline-flex;align-items:center;gap:4px;
@@ -452,4 +459,93 @@ body[data-page='tv-bundle-plans'] .plans-section{padding-top:6rem;background:var
 
 .plan-no-results[hidden] {
   display: none;
+}
+
+/* Enterprise catalog group */
+.enterprise-plan-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 62rem;
+}
+
+.enterprise-plan-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--stack-lg);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-color: rgba(0, 122, 254, .28);
+  background: linear-gradient(135deg, var(--white), var(--blue-pale));
+}
+
+.enterprise-plan-card h4,
+.enterprise-plan-card p {
+  margin: 0;
+}
+
+.enterprise-plan-card h4 {
+  color: var(--dark);
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.enterprise-plan-card p {
+  margin-top: var(--stack-xs);
+  max-width: 55ch;
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.6;
+}
+
+.enterprise-plan-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--stack-sm);
+}
+
+.enterprise-plan-card__actions .button {
+  min-height: 44px;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .enterprise-plan-card {
+    grid-template-columns: 1fr;
+  }
+
+  .enterprise-plan-card__actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .enterprise-plan-card__actions .button {
+    width: 100%;
+  }
+}
+/* Make the Enterprise item use the same compact plan-card footprint. */
+.enterprise-plan-grid {
+  grid-template-columns: minmax(0, 19rem);
+  max-width: 19rem;
+}
+
+.enterprise-plan-card {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  padding: 0;
+  border-color: rgba(0, 122, 254, .28);
+  background: var(--white);
+}
+
+.enterprise-plan-card:hover {
+  border-color: var(--blue-primary);
+}
+
+@media (max-width: 480px) {
+  .enterprise-plan-grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: none;
+  }
 }

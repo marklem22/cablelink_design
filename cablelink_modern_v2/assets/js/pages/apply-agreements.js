@@ -2,14 +2,16 @@
   'use strict';
   var terms = document.getElementById('terms-consent');
   var privacy = document.getElementById('privacy-consent');
+  var validId = document.getElementById('valid-id');
+  var proofBilling = document.getElementById('proof-billing');
   var submit = document.getElementById('application-submit');
   var previousFocus = null;
   var activeModal = null;
 
-  if (!terms || !privacy || !submit) return;
+  if (!terms || !privacy || !validId || !proofBilling || !submit) return;
 
   function updateSubmitState() {
-    submit.disabled = !(terms.checked && privacy.checked);
+    submit.disabled = !(terms.checked && privacy.checked && validId.files.length && proofBilling.files.length);
     submit.setAttribute('aria-disabled', String(submit.disabled));
   }
 
@@ -60,8 +62,8 @@
     });
   });
 
-  [terms, privacy].forEach(function (checkbox) {
-    checkbox.addEventListener('change', updateSubmitState);
+  [terms, privacy, validId, proofBilling].forEach(function (control) {
+    control.addEventListener('change', updateSubmitState);
   });
 
   submit.addEventListener('click', function () {
