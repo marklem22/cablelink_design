@@ -102,7 +102,6 @@ body{font-family:var(--font);color:var(--dark);background:var(--off-white);overf
 .hero--apply .hero__title{
   color:#fff;
   font-size:clamp(2rem,3.6vw,3.15rem);
-  letter-spacing:-.04em;
 }
 .hero--apply .hero__description{
   color:rgba(255,255,255,.78);

@@ -104,7 +104,7 @@ body{font-family:var(--font);color:var(--dark);overflow-x:hidden;background:var(
 .hero__content h1{
   font-size:clamp(1.9rem,4vw,3.1rem);
   font-weight:900;color:#fff;line-height:1.1;
-  margin-bottom:1.2rem;letter-spacing:-1.5px;
+  margin-bottom:1.2rem;letter-spacing:0;
 }
 .hero__content h1 .dot{color:var(--orange)}
 .hero__content p{
@@ -819,7 +819,7 @@ body[data-page='payment'] .banks-section{
   .mob-menu{top:60px}
   .nav-links,.nav-btn{display:none}
   .hamburger{display:flex}
-  .hero__content h1{font-size:2rem;letter-spacing:-1px}
+  .hero__content h1{font-size:2rem;letter-spacing:0}
   .hero__content p{font-size:.92rem;line-height:1.7}
   .coverage-layout{grid-template-columns:1fr;gap:2rem}
   .coverage-map-shell{
@@ -845,7 +845,7 @@ body[data-page='payment'] .banks-section{
   .coverage-map-toolbar{flex-direction:column;align-items:flex-end}
 }
 @media(max-width:480px){
-  .hero__content h1{font-size:1.9rem;letter-spacing:-1px}
+  .hero__content h1{font-size:1.9rem;letter-spacing:0}
   .stat-item{gap:.7rem}
   .stat-num{font-size:1.05rem}
   .stat-lbl{font-size:.66rem}
