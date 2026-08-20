@@ -177,7 +177,7 @@ body{
   font-family:var(--font-display);
   font-size:clamp(2.2rem,4.5vw,3.6rem);
   font-weight:900;color:#fff;line-height:1.06;
-  letter-spacing:-2px;margin-bottom:1.2rem;
+  letter-spacing: 0;margin-bottom:1.2rem;
 }
 .hero__title .hero__stay-connected{color:var(--orange)}
 .hero__title .hero__stay-connected .dot{color:var(--white)}
@@ -814,7 +814,7 @@ body{
 }
 @media(max-width:600px){.promo-dialog__content{padding:var(--space-4)}}
 @media(max-width:480px){
-  .hero__title{font-size:2rem;letter-spacing:-1px}
+  .hero__title{font-size:2rem;letter-spacing:0}
   .stats-inner{grid-template-columns:1fr 1fr}
   .stat-num{font-size:2rem}
 }
