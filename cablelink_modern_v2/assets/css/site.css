@@ -382,7 +382,7 @@ html.is-mobile-menu-open, body.is-mobile-menu-open { overflow: hidden; }
 .field input,
 .field select,
 .field textarea { width: 100%; min-height: 44px; padding: .78rem .9rem; border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--dark); background: var(--white); font: inherit; }
-/* Normalise <select> across all browsers ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¾ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â Safari/macOS ignores styling without this */
+/* Normalise <select> across all browsers — Safari/macOS ignores styling without this */
 .field__control[id*="subject"],
 .field select { appearance: none; -webkit-appearance: none; padding-right: 2.4rem; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right .75rem center; background-size: 1rem; cursor: pointer; }
 .field select:focus { outline: 3px solid var(--yellow); outline-offset: 2px; }
@@ -396,19 +396,19 @@ html.is-mobile-menu-open, body.is-mobile-menu-open { overflow: hidden; }
 .privacy-modal[hidden] { display: none; }
 .privacy-modal { position: fixed; z-index: 1300; inset: 0; display: grid; place-items: center; overflow-y: auto; padding: 1rem var(--gutter); }
 .privacy-modal__backdrop { position: absolute; inset: 0; background: rgba(13,27,62,.72); backdrop-filter: blur(4px); }
-.privacy-modal__dialog { position: relative; width: min(100%, 30rem); max-height: none; overflow-y: visible; overscroll-behavior: contain; padding: clamp(1rem, 2.5vw, 1.4rem); border: 1px solid rgba(207,232,255,.8); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow-lg, 0 24px 64px rgba(13,27,62,.16)); }
-.privacy-modal__heading { display: flex; align-items: center; gap: .75rem; padding-right: 2.5rem; }
+.privacy-modal__dialog { position: relative; width: min(100%, 30rem); max-height: none; overflow-y: visible; overscroll-behavior: contain; padding: clamp(1.5rem, 3vw, 2rem); border: 1px solid rgba(207,232,255,.8); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow-lg, 0 24px 64px rgba(13,27,62,.16)); }
+.privacy-modal__heading { display: flex; align-items: center; gap: var(--stack-sm); padding-right: 2.5rem; }
 .privacy-modal__shield { display: inline-grid; flex: 0 0 auto; place-items: center; width: clamp(3.25rem, 7vw, 3.75rem); aspect-ratio: 1; border-radius: 50%; color: var(--blue-primary); background: var(--blue-pale); }
 .privacy-modal__shield svg { width: 60%; height: 60%; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2.3; }
 .privacy-modal__heading .section__tag { margin: 0 0 .35rem; }
 .privacy-modal__dialog h2 { display: grid; gap: .05rem; margin: 0; color: var(--dark); font-size: clamp(1.35rem, 2.7vw, 1.75rem); letter-spacing: -.035em; line-height: 1.14; }
 .privacy-modal__dialog h2 span { white-space: nowrap; }
-.privacy-modal__copy { display: grid; gap: .55rem; margin-top: .75rem; padding-block: .75rem; border-block: 1px solid var(--border); }
-.privacy-modal__copy p { margin: 0; color: var(--muted); font-size: .8rem; line-height: 1.5; }
+.privacy-modal__copy { display: grid; gap: var(--stack-sm); margin-top: var(--stack-md); padding-block: var(--stack-md); border-block: 1px solid var(--border); }
+.privacy-modal__copy p { margin: 0; color: var(--muted); font-size: .85rem; line-height: 1.6; }
 .privacy-modal__close { position: absolute; top: .65rem; right: .65rem; display: inline-grid; place-items: center; width: 40px; height: 40px; border: 0; border-radius: 50%; color: var(--dark); background: var(--off-white); font-size: 1.35rem; cursor: pointer; }
 .privacy-modal__close:hover { color: var(--blue-primary); background: var(--blue-pale); }
-.privacy-modal__choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem 0; margin-top: .75rem; }
-.privacy-modal__choice { display: grid; grid-template-columns: 2.2rem minmax(0, 1fr) 1rem; grid-template-rows: auto auto; align-items: center; gap: .15rem .45rem; min-width: 0; padding: .1rem .55rem; color: var(--blue-primary); font-size: .7rem; font-weight: 800; line-height: 1.25; text-decoration: none; }
+.privacy-modal__choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--stack-sm) 0; margin-top: var(--stack-md); }
+.privacy-modal__choice { display: grid; grid-template-columns: 2.2rem minmax(0, 1fr) 1rem; grid-template-rows: auto auto; align-items: center; gap: .15rem .45rem; min-width: 0; padding: .35rem .75rem; color: var(--blue-primary); font-size: .7rem; font-weight: 800; line-height: 1.25; text-decoration: none; }
 .privacy-modal__choice:first-child { padding-left: 0; border-right: 1px solid var(--border); }
 .privacy-modal__choice:last-of-type { padding-right: 0; }
 .privacy-modal__choice-icon { display: inline-grid; grid-column: 1; grid-row: 1 / 3; place-items: center; width: 2.2rem; height: 2.2rem; border-radius: var(--radius-sm); }
@@ -420,8 +420,8 @@ html.is-mobile-menu-open, body.is-mobile-menu-open { overflow: hidden; }
 .privacy-modal__choice-arrow { display: inline-grid; grid-column: 3; grid-row: 1 / 3; place-items: center; color: var(--dark); font-size: 1.35rem; font-weight: 500; line-height: 1; }
 .privacy-modal__choice:hover,
 .privacy-modal__choice:hover .privacy-modal__choice-arrow { color: var(--orange-dark); }
-.privacy-modal__continue { grid-column: 1 / -1; width: 100%; min-height: 42px; font-size: .78rem; }
-.privacy-modal__continue span { margin-left: auto; font-size: 1.1rem; }
+.privacy-modal__continue { grid-column: 1 / -1; justify-self: center; min-height: 48px; font-size: .84rem; }
+.privacy-modal__continue .privacy-modal__continue-arrow { width: .9rem; height: .9rem; margin: 0; }
 html.is-privacy-modal-open,
 body.is-privacy-modal-open { overflow: hidden; }
 
@@ -599,21 +599,10 @@ body.is-agreement-modal-open { overflow: hidden; }
 .application-agreement-link { display: inline; margin: 0; padding: 0; border: 0; color: var(--blue-primary); background: transparent; font: inherit; font-weight: 800; text-decoration: underline; cursor: pointer; }
 .application-agreement-link:hover,
 .application-agreement-link:focus-visible { color: var(--orange-dark); }
-/* Privacy entry modal: preserve its controls in short browser windows and at high zoom. */
+/* Privacy entry modal: retain comfortable spacing on short screens and allow scrolling. */
 @media (max-height: 42rem) {
-  .privacy-modal { place-items: start center; padding-block: .5rem; overflow-y: auto; }
-  .privacy-modal__dialog { max-height: none; overflow-y: visible; padding: .75rem 1rem; }
-  .privacy-modal__heading { gap: .6rem; }
-  .privacy-modal__shield { width: 2.8rem; }
-  .privacy-modal__heading .section__tag { margin-bottom: .2rem; font-size: .62rem; }
-  .privacy-modal__dialog h2 { font-size: clamp(1.2rem, 2.45vw, 1.55rem); }
-  .privacy-modal__copy { gap: .4rem; margin-top: .5rem; padding-block: .5rem; }
-  .privacy-modal__copy p { font-size: .74rem; line-height: 1.4; }
-  .privacy-modal__choices { gap: .5rem 0; margin-top: .5rem; }
-  .privacy-modal__choice { min-height: 34px; }
-  .privacy-modal__choice-icon { width: 2rem; height: 2rem; }
-  .privacy-modal__choice small { display: none; }
-  .privacy-modal__continue { min-height: 38px; font-size: .72rem; }
+  .privacy-modal { place-items: start center; padding-block: var(--space-4); overflow-y: auto; }
+  .privacy-modal__dialog { margin-block: auto; max-height: none; overflow-y: visible; }
 }
 
 /* Corrected reference: full-width shared header with outlined utility controls. */
@@ -640,8 +629,13 @@ body.is-agreement-modal-open { overflow: hidden; }
 .global-header__divider { flex: 0 0 1px; width: 1px; height: 48px; background: rgba(255,255,255,.52); }
 .global-my-link { display: inline-flex; align-items: center; min-height: 48px; padding-inline: 0; color: rgba(255,255,255,.92); font-size: .72rem; font-weight: 800; letter-spacing: .02em; }
 .global-my-link:hover, .global-my-link:focus-visible { color: var(--white); background: transparent; }
-.global-my-link__profile { display: inline-grid; width: 2.55rem; height: 2.55rem; place-items: center; border: 1px solid rgba(255,255,255,.85); border-radius: 50%; }
-.global-my-link__profile svg { width: 57%; height: 57%; stroke-width: 1.8; }
+.global-my-link__profile { display: inline-grid; width: 2.55rem; height: 2.55rem; place-items: center; }
+.global-header__actions .global-my-link__profile svg,
+.global-header__actions .global-search-button svg { display: block; width: 1.5rem; height: 1.5rem; stroke-width: 2; }
+.global-header__actions .global-search-button > span { display: grid; place-items: center; line-height: 0; }
+.global-header__actions .global-my-link { color: var(--white); }
+.global-header__actions .global-my-link.is-placeholder { opacity: 1; }
+.global-header__actions .global-my-link__profile svg { color: var(--white); stroke: var(--white); }
 .global-my-link__chevron { margin-left: -.1rem; font-size: 1rem; line-height: 1; }
 .mega-menu { top: var(--header-height); }
 
@@ -722,13 +716,14 @@ body.is-agreement-modal-open { overflow: hidden; }
 }
 
 /* Header placement only: keep the existing button designs intact. */
-.global-header__actions { display: inline-flex; align-items: center; gap: .45rem; flex: 0 0 auto; }
+.global-header__actions { display: inline-flex; align-items: center; gap: .6rem; flex: 0 0 auto; }
+.global-header__actions .global-my-link,
+.global-header__actions .global-search-button { width: 1.95rem; min-height: 48px; }
 .global-header__actions .global-my-link, .global-header__actions .global-search-button { position: relative; }
 .global-header__actions .global-my-link[data-tooltip]::after, .global-header__actions .global-search-button[data-tooltip]::after { position: absolute; z-index: 1; top: calc(50% + (var(--header-height) / 2) + .58rem); left: 50%; padding: .4rem .55rem; border-radius: var(--radius-sm); color: var(--dark); background: var(--white); box-shadow: var(--shadow-sm); content: attr(data-tooltip); font-size: .68rem; font-weight: 800; letter-spacing: .03em; opacity: 0; pointer-events: none; transform: translate(-50%, -.2rem); transition: opacity .16s ease, transform .16s ease; white-space: nowrap; }
 .global-header__actions .global-my-link[data-tooltip]:hover::after, .global-header__actions .global-my-link[data-tooltip]:focus-visible::after, .global-header__actions .global-search-button[data-tooltip]:hover::after, .global-header__actions .global-search-button[data-tooltip]:focus-visible::after { opacity: 1; transform: translate(-50%, 0); }
 @media (max-width: 1050px) { .global-header__actions { display: none; } }
 /* Header search control size. */
-.global-header__actions .global-search-button { min-height: 56px; }
 .global-header__actions .global-search-button svg { width: 1.5rem; height: 1.5rem; }
 
 /* Shared email options: avoids depending on a visitor's installed mail application. */
@@ -744,7 +739,8 @@ body.is-agreement-modal-open { overflow: hidden; }
 .site-email-options-dialog__address strong { color: var(--blue-primary); font-size: .94rem; font-weight: 800; letter-spacing: -.01em; overflow-wrap: anywhere; }
 .site-email-options-dialog__actions { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: var(--space-2); }
 .site-email-options-dialog__actions .btn { width: 100%; }
-.site-email-options-dialog__status { min-height: 1.5em; color: var(--blue-primary); font-size: .85rem; font-weight: 700; }
+.site-email-options-dialog__status { color: var(--blue-primary); font-size: .85rem; font-weight: 700; }
+.site-email-options-dialog__status:empty { display: none; }
 .site-email-options-dialog__copy-field { position: fixed; opacity: 0; pointer-events: none; }
 .site-email-options-dialog__address { grid-template-columns: 3.4rem minmax(0, 1fr); column-gap: var(--space-3); align-items: center; background: var(--blue-pale); }
 .site-email-options-dialog__address::before { grid-row: 1 / 3; width: 3.4rem; aspect-ratio: 1; border-radius: .8rem; background: #dcecff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23075cff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='14' rx='2'/%3E%3Cpath d='m3 7 9 6 9-6'/%3E%3C/svg%3E") center / 1.65rem no-repeat; content: ''; }

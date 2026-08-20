@@ -92,7 +92,7 @@
 
 .contact-socials { display: flex; justify-content: center; gap: .65rem; margin-top: var(--space-3); }
 .contact-socials__item { display: grid; width: 2.25rem; aspect-ratio: 1; place-items: center; border: 1px solid rgba(247, 130, 32, .35); border-radius: var(--radius-sm); color: var(--orange); background: rgba(247, 130, 32, .12); transition: background-color .2s, color .2s, box-shadow .2s, transform .2s; }
-.contact-socials__icon { width: 1.22rem; height: 1.22rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.contact-socials__icon { width: 1.6rem; height: 1.6rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5; }
 .contact-socials__item:is(a):hover { color: var(--white); background: var(--orange); box-shadow: var(--shadow-sm); transform: translateY(-1px); }
 
 .contact-assistance { padding-top: var(--section-space-y-compact); }
@@ -197,7 +197,7 @@
 
 
 /* Message Us Viber icon emphasis. */
-.contact-socials__item[data-config-link='viber'] .contact-socials__icon { width: 1.8rem; height: 1.8rem; stroke-width: 1.4; }
+.contact-socials__item[data-config-link='viber'] .contact-socials__icon { width: 1.5rem; height: 1.5rem; stroke-width: 1.4; }
 .contact-socials__icon--viber { display: block; background: currentColor; -webkit-mask: url("../images/viber-icon.png") center / contain no-repeat; mask: url("../images/viber-icon.png") center / contain no-repeat; }
 
 .enterprise-email-dialog {
@@ -301,10 +301,13 @@
 }
 
 .enterprise-email-dialog__content > .enterprise-email-dialog__status {
-  min-height: 1.5em;
   color: var(--blue-primary);
   font-size: .85rem;
   font-weight: 700;
+}
+
+.enterprise-email-dialog__status:empty {
+  display: none;
 }
 
 .enterprise-email-dialog__copy-field {
