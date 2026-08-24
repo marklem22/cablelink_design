@@ -196,6 +196,7 @@
         const familyParam = curTier;
         const techParam = curTech === 'fiber' ? 'fiberlink' : 'iblaze';
         const applyHref = `cablelink_apply.html?service=bundle&family=${encodeURIComponent(familyParam)}&tech=${encodeURIComponent(techParam)}&speed=${encodeURIComponent(String(minSpeed))}&price=${encodeURIComponent(String(minPrice))}`;
+        const tiersHref = `cablelink_plans.html?filter=${encodeURIComponent(turbo ? 'turbocharged' : 'supercharged')}&line=${encodeURIComponent(techParam)}#bundle-groups`;
 
         const featureItems = plan.features.map(f => `<div class="plan-feature-item${turbo ? ' turbo-feat' : ''}">${checkIcon()}<span>${f}</span></div>`).join('');
 
@@ -243,7 +244,7 @@
                   <div class="plan-features-row" style="flex:1">${featureItems}</div>
                   <div class="plan-cta-group">
                     <a class="${ctaClass}" href="${applyHref}">Get Connected ${arrowIcon()}</a>
-                    <a class="plan-cta-secondary" href="cablelink_plans.html">See all tiers</a>
+                    <a class="plan-cta-secondary" href="${tiersHref}">See all tiers</a>
                   </div>
                 </div>
               </div>
