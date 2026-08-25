@@ -81,10 +81,6 @@
         <span class="bank-logo-ph"><img src="assets/remittance/bpi.png" alt="BPI"></span>
         <span class="bank-name">BPI</span>
       </button>
-      <button class="bank-card" type="button" aria-label="View UnionBank payment instructions" aria-haspopup="dialog" aria-controls="bank-details-unionbank" data-bank-dialog="bank-details-unionbank">
-        <span class="bank-logo-ph"><img src="assets/remittance/unionbank.png" alt="unionbank"></span>
-        <span class="bank-name">UnionBank</span>
-      </button>
       <button class="bank-card" type="button" aria-label="View RCBC payment instructions" aria-haspopup="dialog" aria-controls="bank-details-rcbc" data-bank-dialog="bank-details-rcbc">
         <span class="bank-logo-ph"><img src="assets/remittance/RCBC Blue-01.png" alt="rcbc"></span>
         <span class="bank-name">RCBC</span>
@@ -587,6 +583,7 @@
         </div>
     </div>
 </div>
+    <template id="retired-unionbank-instructions">
     <div class="bank-details-modal" id="bank-details-unionbank" role="dialog" aria-modal="true" aria-labelledby="bank-details-unionbank-title" hidden>
     <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
@@ -632,6 +629,7 @@
         </div>
     </div>
 </div>
+    </template>
     <div class="bank-details-modal" id="bank-details-rcbc" role="dialog" aria-modal="true" aria-labelledby="bank-details-rcbc-title" hidden>
     <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
@@ -797,7 +795,7 @@
                                         <li>Over-the-Counter - Credit Card payment is accepted at selected Cablelink offices.
                                             ( Parañaque, Las Piñas, Muntinlupa, Pateros and Imus)
                                         </li>
-                                        <li>Auto Debit Arrangement - Subscribers may enroll at any Cablelink satellite offices. Subscriber must fill up an enrollment form at our office or enrollment forms may be forwarded to subscriber thru e-mail or fax or apply thru online  (Click here)</li>
+                                        <li>Auto Debit Arrangement - Subscribers may enroll at any Cable Link satellite office or fill out the application form provided above.</li>
                                     </ol>
                             </div>
                         </div>
@@ -1470,11 +1468,11 @@
     <div class="walkin-overview">
       <header class="section__header">
         <span class="section__tag">Walk-In Payment</span>
-        <h2>Visit Our Payment Centers</h2>
+        <h2>Visit our Satellite Offices</h2>
         <p>Prefer paying in person? Our offices are open to assist you with billing and payments.</p>
       </header>
       <div class="walkin-overview__actions">
-        <a class="button button--primary" href="cablelink_offices.html">View Payment Centers</a>
+        <a class="button button--primary" href="cablelink_offices.html">View Satellite Offices</a>
       </div>
     </div>
 </section>
@@ -1487,12 +1485,12 @@
 
 <section class="auto-debit-section" id="auto-debit" aria-labelledby="auto-debit-title">
   <div class="container auto-debit-layout">
-    <div>
+    <div class="auto-debit-intro">
       <span class="section__tag">Auto Debit Arrangement</span>
-      <h2 id="auto-debit-title">Review the Auto Debit application form</h2>
-      <p>The fields below are retained from the existing Cablelink project. This frontend does not transmit, store, or enroll the supplied information.</p>
+      <h2 id="auto-debit-title">Enroll in Auto Debit</h2>
+      <p>Settle your monthly charges conveniently through an approved automatic debit arrangement.</p>
       <div class="integration-note" role="note">
-        Production submission remains disabled until Cablelink confirms the secure destination, server validation, data handling, and signed or legal workflow.
+        <strong>What happens next?</strong> Upon submission of your Auto Debit Application, you will receive an email acknowledgment from Cablelink&rsquo;s Billing Department, together with further instructions to complete your enrollment. For assistance, contact <a href="mailto:billing_collection@cablelink.com.ph">billing_collection@cablelink.com.ph</a>.
       </div>
     </div>
     <form class="auto-debit-form" id="auto-debit-form" novalidate>
@@ -1539,7 +1537,7 @@
           </span>
           <div class="reminder-body">
             <h4>Over-the-Counter Payment</h4>
-            <p>Always bring your Statement of Account (SOA) when paying through accredited payment centers and banks.</p>
+            <p>Always bring your Service Invoice (SI) when paying through accredited payment centers and banks.</p>
             <p>Available at Bayad Center, 7-Eleven, and GPRS.</p>
           </div>
         </article>
@@ -1551,7 +1549,7 @@
           <div class="reminder-body">
             <h4>Credit Card Payment &mdash; Two Ways to Pay</h4>
             <ul>
-              <li><strong>Auto Debit Arrangement</strong> &mdash; Subscribers may enroll at any Cablelink satellite office.</li>
+              <li><strong>Auto Debit Arrangement</strong> &mdash; Subscribers may enroll at any Cable Link satellite office or fill out the application form provided above.</li>
               <li><strong>Over-the-Counter</strong> &mdash; Credit card payment is accepted at selected Cablelink offices. Visa, Mastercard, AMEX, and JCB are accepted.</li>
             </ul>
           </div>
@@ -1588,8 +1586,8 @@
             <svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2" /><path d="M8 7h8M8 11h8M8 15h5" /></svg>
           </span>
           <div class="reminder-body">
-            <h4>Pay Without Your SOA</h4>
-            <p>You can conveniently pay without your SOA at Cablelink satellite offices, banks, payment centers, and digital platforms.</p>
+            <h4>Pay Without Your Service Invoice</h4>
+            <p>You can conveniently pay without your Service Invoice (SI) at Cablelink satellite offices, banks, payment centers, and digital platforms.</p>
           </div>
         </article>
 
@@ -1634,7 +1632,7 @@
     <div class="how-step">
       <div class="how-num">2</div>
       <h4>Enter Your Account Number</h4>
-      <p>Your Cablelink account number is printed on your monthly statement of account (SOA). It's required for all payment channels.</p>
+      <p>Your Cablelink account number is printed on your monthly Service Invoice (SI). It's required for all payment channels.</p>
     </div>
 
     <div class="how-step">
@@ -1678,7 +1676,7 @@
         <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </button>
       <div class="faq-a">
-        <div class="faq-a-inner">Your account number is printed on the upper-right corner of your monthly Statement of Account (SOA). It is also visible when you log in to your Cablelink online portal account. If you cannot locate it, please call our billing hotline and our team will assist you.</div>
+        <div class="faq-a-inner">Your account number is printed on the upper-right corner of your monthly Service Invoice (SI). It is also visible when you log in to your Cablelink online portal account. If you cannot locate it, please call our billing hotline and our team will assist you.</div>
       </div>
     </div>
 
@@ -1698,7 +1696,7 @@
         <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </button>
       <div class="faq-a">
-        <div class="faq-a-inner">Yes, Cablelink accepts both advance payments and partial payments. Excess payments will be credited to your account and deducted from future bills. We recommend always noting your account balance from your SOA or online portal to avoid overpayment confusion.</div>
+        <div class="faq-a-inner">Yes, Cablelink accepts both advance payments and partial payments. Excess payments will be credited to your account and deducted from future bills. We recommend always noting your account balance from your Service Invoice (SI) or online portal to avoid overpayment confusion.</div>
       </div>
     </div>
 

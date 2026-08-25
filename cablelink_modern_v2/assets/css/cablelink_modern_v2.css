@@ -414,12 +414,6 @@
       pointer-events: none
     }
 
-    /* Decorative blobs */
-    /* .blob-big{position:absolute;width:320px;height:320px;border-radius:50%;background:rgba(51,122,183,.18);right:4%;top:8%;pointer-events:none}
-.blob-mid{position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(3,77,182,.15);right:18%;top:14%;pointer-events:none}
-.blob-bar{position:absolute;width:130px;height:36px;border-radius:5px;background:rgba(242,100,19,.28);right:32%;top:22%;transform:rotate(-14deg);pointer-events:none}
-.cross{position:absolute;font-size:1.8rem;font-weight:300;color:rgba(242,100,19,.65);pointer-events:none;user-select:none} */
-
     .hero__inner {
       position: relative;
       z-index: 2;
@@ -837,7 +831,7 @@
     .fan-stage {
       position: relative;
       width: 100%;
-      height: calc(min(52vw, 400px));
+      height: calc(min(64vw, 520px));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -860,6 +854,10 @@
       text-decoration: none;
     }
 
+    .fan-card--portrait {
+      width: min(42%, 320px);
+    }
+
     .fan-card:focus-visible {
       outline: 3px solid var(--orange);
       outline-offset: 4px;
@@ -868,9 +866,9 @@
     .fan-card img {
       width: 100%;
       display: block;
-      object-fit: cover;
+      object-fit: contain;
       pointer-events: none;
-      aspect-ratio: 1/1
+      aspect-ratio: var(--fan-image-ratio, 1 / 1);
     }
 
     @media(max-width:768px) {

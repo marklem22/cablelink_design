@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="assets/css/site.css?v=20260729-footer-3">
-  <link rel="stylesheet" href="assets/css/cablelink_modern_v2.css?v=20260820-banner-arrows-1">
+  <link rel="stylesheet" href="assets/css/cablelink_modern_v2.css?v=20260825-back-to-school-carousel-1">
   <script src="assets/js/site-config.js?v=20260728-4" defer></script>
   <script src="assets/js/site-shell.js?v=20260819-2" defer></script>
 </head>
@@ -387,8 +387,11 @@
         'assets/promos/promo_2.jpg',
         'assets/promos/promo_3.jpg',
         'assets/promos/promo_4.jpg',
-        'assets/promos/promo_5.jpg'
+        'assets/promos/promo_5.jpg',
+        'assets/promos/FIBERLINK%20BACK%202%20SCHOOL.png',
+        'assets/promos/I-BLAZE%20BACK%202%20SCHOOL.png'
       ];
+      var fanImageRatios = ['1 / 1', '1 / 1', '1 / 1', '1 / 1', '1 / 1', '3375 / 4219', '3375 / 4219'];
       var cur = 0, n = fanImages.length, timer;
       var stage = document.getElementById('fanStage');
       var dotsWrap = document.getElementById('fanDots');
@@ -398,11 +401,15 @@
         'Turbocharged I-Blaze@Home Valentine\'s Day',
         'Turbocharged FiberLink@Home Valentines',
         'Supercharged I-Blaze@Home Valentines Day',
-        'Supercharged FiberLink@Home Valentines Day'
+        'Supercharged FiberLink@Home Valentines Day',
+        'FiberLink@Home Back 2 School Promo',
+        'I-Blaze@Home Back 2 School Promo'
       ];
       var cards = fanImages.map(function (src, i) {
         var d = document.createElement('div');
         d.className = 'fan-card';
+        d.dataset.portrait = String(fanImageRatios[i] !== '1 / 1');
+        d.style.setProperty('--fan-image-ratio', fanImageRatios[i]);
         d.dataset.promoHref = 'cablelink_promos.html?promo=promo-card-' + (i + 1) + '#promo-card-' + (i + 1);
         d.setAttribute('role', 'link');
         d.tabIndex = 0;
@@ -434,7 +441,7 @@
         return 'hidden';
       }
       function render() {
-        cards.forEach(function (c, i) { c.className = 'fan-card ' + getClass(i) });
+        cards.forEach(function (c, i) { c.className = 'fan-card' + (c.dataset.portrait === 'true' ? ' fan-card--portrait' : '') + ' ' + getClass(i) });
         dots.forEach(function (d, i) { d.classList.toggle('on', i === cur) });
       }
       function go(idx) { cur = mod(idx); render() }
@@ -452,8 +459,6 @@
          3. TVC SECTION — video gallery with featured + thumbnail grid
          ============================================================ */
       var tvcClips = [
-        { file: 'christmas_specials.mp4', title: 'Christmas Specials' },
-        { file: 'DECEMBER_VIDEO_(1).mp4', title: 'December Promo' },
         { file: 'enterprise.mp4', title: 'Enterprise Solutions' },
         { file: 'Promotional_VIDEO.mp4', title: 'Promotional Video' },
         { file: 'RAIN-PROMOTION-VIDEO.mp4', title: 'Rain Promo' },

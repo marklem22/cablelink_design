@@ -258,7 +258,7 @@
       margin-inline: auto;
     }
 
-    /* This hero uses a light image, so it needs brand colors instead of the shared white-on-dark breadcrumb treatment. */
+
     .hero--internet .breadcrumb a {
       color: #007AFE;
     }

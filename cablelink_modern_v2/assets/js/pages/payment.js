@@ -188,7 +188,6 @@
     form.addEventListener('submit', function (event) {
       var requiredFields;
       var firstInvalid;
-      var config;
 
       event.preventDefault();
       requiredFields = Array.prototype.slice.call(form.querySelectorAll('[required]'));
@@ -207,10 +206,7 @@
         return;
       }
 
-      config = window.CablelinkConfig || { integrations: {} };
-      status.textContent = config.integrations.autoDebitEndpoint
-        ? 'Not submitted. A destination is configured, but secure server validation and the approved enrollment workflow are not implemented.'
-        : 'Not submitted. Cablelink must provide and approve the secure destination, server validation, and enrollment workflow.';
+      status.textContent = 'Your application details have been validated. Online submission is not enabled on this website yet. Please contact billing_collection@cablelink.com.ph to complete your Auto Debit enrollment securely.';
       status.className = 'application-status is-warning';
     });
   }
